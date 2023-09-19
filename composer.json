@@ -1,0 +1,37 @@
+{
+    "name": "halalbrains/login-me-now",
+    "autoload": {
+        "psr-4": {
+            "LoginMeNow\\": "App",
+            "LoginMeNow\\Abstracts\\": "App/Common/Abstracts",
+            "LoginMeNow\\Traits\\": "App/Common/Traits",
+            "LoginMeNow\\Model\\": "App/Models",
+            "LoginMeNow\\Routes\\": "App/Routes",
+            "LoginMeNow\\GoogleLogin\\": "App/Modules/GoogleLogin",
+            "LoginMeNow\\FacebookLogin\\": "App/Modules/FacebookLogin",
+            "LoginMeNow\\OnetimeNumber\\": "App/Modules/OnetimeNumber",
+            "LoginMeNow\\UserSwitching\\": "App/Modules/UserSwitching",
+            "LoginMeNow\\LoginLink\\": "App/Modules/LoginLink",
+            "LoginMeNow\\BrowserToken\\": "App/Modules/BrowserToken",
+            "LoginMeNow\\AdvanceSharing\\": "App/Modules/AdvanceSharing"
+        }
+    },
+    "authors": [
+        {
+            "name": "yes"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "firebase/php-jwt": "^6.3",
+        "google/apiclient": "^2.12.1"
+    },
+    "scripts": {
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+    },
+    "extra": {
+        "google/apiclient-services": [
+            "Oauth2"
+        ]
+    }
+}

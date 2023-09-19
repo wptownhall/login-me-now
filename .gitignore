@@ -1,0 +1,10 @@
+notes.txt
+.DS_Store
+App/Admin/node_modules
+**/node_modules
+**/.DS_Store
+**/build
+**/__build
+__build
+**/package-lock.json
+**/login-me-now.pot
