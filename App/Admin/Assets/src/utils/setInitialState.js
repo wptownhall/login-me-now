@@ -29,6 +29,17 @@ const setInitialState = (store) => {
 			selectGoogleProDefaultUserRole: data.google_pro_default_user_role,
 			inputGoogleProRedirectUrl: data.google_pro_redirect_url,
 
+			enableFacebookLogin: data.facebook_login,
+			enableFacebookClientID: data.facebook_client_id,
+			enableFacebookNativeLogin: data.facebook_native_login,
+			enableFacebookUpdateExistingUserData: data.facebook_update_existing_user_data,
+			enableFacebookUpdateExistingUserAvatar: data.facebook_pro_user_avatar,
+			enableFacebookCancelOnTapOutside: data.facebook_cancel_on_tap_outside,
+
+			selectFacebookProExcludePages: data.facebook_pro_exclude_pages,
+			selectFacebookProDefaultUserRole: data.facebook_pro_default_user_role,
+			inputFacebookProRedirectUrl: data.facebook_pro_redirect_url,
+
 			getUserRoles: data.get_user_roles,
 			getPages: data.get_pages,
 

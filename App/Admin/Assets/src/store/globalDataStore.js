@@ -24,6 +24,20 @@ const initialState = wp.hooks.applyFilters('login_me_now_dashboard/datastore', {
 	selectGoogleProDefaultUserRole: 'subscriber',
 	inputGoogleProRedirectUrl: '',
 
+
+	enableFacebookLogin: false,
+	enableFacebookClientID: '',
+	enableFacebookNativeLogin: true,
+	enableFacebookAutoSignIn: false,
+	enableFacebookUpdateExistingUserData: true,
+	enableFacebookUpdateExistingUserAvatar: true,
+	enableFacebookCancelOnTapOutside: true,
+	
+	selectFacebookProExcludePages: [],
+	selectFacebookProDefaultUserRole: 'subscriber',
+	inputFacebookProRedirectUrl: '',
+
+
 	getUserRoles: 'subscriber',
 	get_pages: '',
 

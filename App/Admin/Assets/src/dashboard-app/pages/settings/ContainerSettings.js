@@ -14,8 +14,17 @@ import GoogleProDefaultUserRole from "./google/GoogleProDefaultUserRole";
 import GoogleProExcludePages from "./google/GoogleProExcludePages";
 import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
 
+
 import License from "./license/License";
 import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
+import Dashboard from "./social-login/Dashboard";
+import FacebookClientID from "./facebook/FacebookClientID";
+import FacebookLogin from "./facebook/FacebookLogin";
+import FacebookInNativeLogin from "./facebook/FacebookInNativeLogin";
+import FacebookInUpdateExistingUserData from "./facebook/FacebookInUpdateExistingUserData";
+import FacebookUpdateUserAvatar from "./facebook/FacebookUpdateUserAvatar";
+import FacebookProRedirectUrl from "./facebook/FacebookProRedirectUrl";
+
 
 function SettingsWrapper({ state }) {
   const wrappers = wp.hooks.applyFilters(
@@ -29,6 +38,22 @@ function SettingsWrapper({ state }) {
         </>
       ),
       "social-login": (
+        <>
+          <Dashboard />
+        </>
+      ),
+      "login-with-facebook": (
+        <>
+          <FacebookLogin />
+          <FacebookClientID />
+          <FacebookInNativeLogin />
+          {/* <FacebookProDefaultUserRole /> */}
+          <FacebookInUpdateExistingUserData />
+          <FacebookUpdateUserAvatar />
+          <FacebookProRedirectUrl />
+        </>
+      ),
+      "login-with-google": (
         <>
           <GoogleLogin />
           <GoogleClientID />

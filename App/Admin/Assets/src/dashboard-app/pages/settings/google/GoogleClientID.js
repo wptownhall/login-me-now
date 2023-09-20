@@ -15,7 +15,7 @@ const GoogleClientID = () => {
   const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
 	const enableGoogleLoginStatus = false === enableGoogleLogin ? false : true;
   let enableGoogleClientID = useSelector((state) => state.enableGoogleClientID);
-
+console.log(enableGoogleLogin)
 	const dispatch = useDispatch();
   
   const updateGoogleClientID = (clientID) => {
