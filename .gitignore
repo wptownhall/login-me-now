@@ -7,4 +7,4 @@ App/Admin/node_modules
 **/__build
 __build
 **/package-lock.json
-**/login-me-now.pot
+languages
