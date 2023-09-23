@@ -80,6 +80,67 @@ const GoogleCancelOnTapOutside = () => {
 			<p className="mt-2 w-9/12 text-sm text-slate-500 tablet:w-full">
 				{__("Enable automatic closing on outside clicks", 'login-me-now')}
 			</p>
+
+
+			{/* <div className="flex">
+        <div className="w-[30%]">
+          <p className="w-9/12 text-[18px] text-[#000000] tablet:w-full font-medium">
+            {__("Select location ", "login-me-now")}
+          </p>
+        </div>
+        <div className="w-[70%]">
+          <div class="flex items-center mb-4">
+            <input
+              id="Only-on-login-screen"
+              type="radio"
+              value=""
+              name="options"
+              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
+            />
+            <label
+              for="Only-on-login-screen"
+              class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
+            >
+              Only on login screen
+            </label>
+          </div>
+
+          <div class="flex items-center mb-4">
+            <input
+              id="Site-wide"
+              type="radio"
+              value=""
+              name="options"
+              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
+            />
+            <label
+              for="Site-wide"
+              class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
+            >
+              Site wide
+            </label>
+          </div>
+
+          <div class="flex items-center">
+            <input
+              id="Specific-page"
+              type="radio"
+              value=""
+              name="options"
+              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
+            />
+            <label
+              for="Specific-page"
+              class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
+            >
+              Specific page <ProBtn />
+            </label>
+          </div>
+
+          <OneTapSelectTag />
+        </div>
+      </div> */}
+	  
 		</section>
 	);
 };

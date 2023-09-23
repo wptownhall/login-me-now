@@ -42,10 +42,10 @@ const GoogleLogin = () => {
 	};
 
 	return (
-		<section className='block border-b border-solid border-slate-200 px-8 py-8 justify-between'>
+		<section className='block px-8 py-8 justify-between'>
 			<div className='mr-16 w-full flex items-center'>
 				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
-					{__('Google Login', 'login-me-now')}
+					{__('Google', 'login-me-now')}
 				</h3>
 				<Switch
 					checked={enableGoogleLoginStatus}
@@ -74,7 +74,7 @@ const GoogleLogin = () => {
 				
 			</div>
 			<p className="mt-2 w-9/12 text-sm text-slate-500 tablet:w-full">
-				{__('Enable this option to allow users to use google account for login and register in one click.', 'login-me-now')}
+				{__('Enable google login.', 'login-me-now')}
 			</p>
 		</section>
 	);

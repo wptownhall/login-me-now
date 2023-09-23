@@ -14,8 +14,12 @@ import GoogleProDefaultUserRole from "./google/GoogleProDefaultUserRole";
 import GoogleProExcludePages from "./google/GoogleProExcludePages";
 import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
 
+
 import License from "./license/License";
 import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
+import Dashboard from "./social-login/Dashboard";
+import OneTapToLogin from "./google/OneTapToLogin";
+
 
 function SettingsWrapper({ state }) {
   const wrappers = wp.hooks.applyFilters(
@@ -30,14 +34,20 @@ function SettingsWrapper({ state }) {
       ),
       "social-login": (
         <>
+          <Dashboard />
+        </>
+      ),
+      "login-with-google": (
+        <>
           <GoogleLogin />
           <GoogleClientID />
+          <OneTapToLogin />
+          <GoogleCancelOnTapOutside />
           <GoogleInNativeLogin />
           <GoogleProDefaultUserRole />
           <GoogleInUpdateExistingUserData />
           <GoogleUpdateUserAvatar />
           <GoogleProExcludePages />
-          <GoogleCancelOnTapOutside />
           <GoogleProRedirectUrl />
         </>
       ),
