@@ -18,6 +18,11 @@ export default function MainNav() {
       path: "browser-extensions",
     },
     {
+      name: __("Social login", "login-me-now"),
+      slug: lmn_admin.home_slug,
+      path: "social-login",
+    },
+    {
       name: __("Settings", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "settings",

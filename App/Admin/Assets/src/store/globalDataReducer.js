@@ -20,6 +20,11 @@ const globalDataReducer = (state = {}, action) => {
 				...state,
 				activeSettingsNavigationTab: action.payload
 			};
+		case 'UPDATE_SOCIAL_LOGIN_ACTIVE_NAVIGATION_TAB':
+			return {
+				...state,
+				activeSocialLoginNavigationTab: action.payload
+			};
 		case 'UPDATE_ENABLE_LOAD_FONTS_LOCALLY':
 			return {
 				...state,

@@ -10,6 +10,7 @@ const setInitialState = (store) => {
 			magicLinkPopup: '',
 			initialStateSetFlag: true,
 			activeSettingsNavigationTab: 'global-settings',
+			activeSocialLoginNavigationTab: 'google',
 
 			lmnProLic: data.lmn_pro_lic,
 

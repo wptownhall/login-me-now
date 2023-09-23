@@ -1,10 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { useSelector } from "react-redux";
 
-import Logs from "./general/Logs";
-import LogsExpiration from "./general/LogsExpiration";
-import UserSwitching from "./general/UserSwitching";
-
 import GoogleLogin from "./google/GoogleLogin";
 import GoogleClientID from "./google/GoogleClientID";
 import GoogleInNativeLogin from "./google/GoogleInNativeLogin";
@@ -15,10 +11,9 @@ import GoogleProExcludePages from "./google/GoogleProExcludePages";
 import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
 
 
-import License from "./license/License";
 import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
-import Dashboard from "./social-login/Dashboard";
 import OneTapToLogin from "./google/OneTapToLogin";
+import UserSwitching from "../settings/general/UserSwitching";
 
 
 function SettingsWrapper({ state }) {
@@ -28,11 +23,9 @@ function SettingsWrapper({ state }) {
       "global-settings": (
         <>
           <UserSwitching />
-          {/* <Logs />
-          <LogsExpiration /> */}
         </>
       ),
-      "social-login": (
+      "google": (
         <>
           <GoogleLogin />
           <GoogleClientID />
@@ -46,22 +39,14 @@ function SettingsWrapper({ state }) {
           <GoogleProRedirectUrl />
         </>
       ),
-      "google":(
-        <Dashboard />
-      ),
-      license: (
-        <>
-          <License />
-        </>
-      ),
     }
   );
   return <div>{wrappers[state]}</div>;
 }
 
 const ContainerSettings = () => {
-  const activeSettingsNavigationTab = useSelector(
-    (state) => state.activeSettingsNavigationTab
+  const activeSocialLoginNavigationTab = useSelector(
+    (state) => state.activeSocialLoginNavigationTab
   );
 
   // Parent Div is Required to add Padding to the Entire Structure for Smaller Windows.
@@ -69,12 +54,12 @@ const ContainerSettings = () => {
     <>
       <div className="lg:col-span-9 border-l">
         {wp.hooks.applyFilters(
-          `login_me_now_dashboard.settings_screen_before_${activeSettingsNavigationTab}`,
+          `login_me_now_dashboard.settings_screen_before_${activeSocialLoginNavigationTab}`,
           <span />
         )}
-        <SettingsWrapper state={activeSettingsNavigationTab}></SettingsWrapper>
+        <SettingsWrapper state={activeSocialLoginNavigationTab}></SettingsWrapper>
         {wp.hooks.applyFilters(
-          `login_me_now_dashboard.settings_screen_after_${activeSettingsNavigationTab}`,
+          `login_me_now_dashboard.settings_screen_after_${activeSocialLoginNavigationTab}`,
           <span />
         )}
       </div>

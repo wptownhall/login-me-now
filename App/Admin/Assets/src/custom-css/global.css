@@ -155,6 +155,46 @@ body.active-modal {
   animation: dot-pulse-after 1.5s infinite linear;
   animation-delay: 0.5s;
 }
+/* ant design custom css */
+:where(.css-dev-only-do-not-override-1vr7spz).ant-select-multiple
+  .ant-select-selection-item {
+  background: #2271b1 !important;
+  color: white !important;
+  font-size: 16px !important;
+}
+.ant-space.css-dev-only-do-not-override-1vr7spz.ant-space-vertical.ant-space-gap-row-small.ant-space-gap-col-small
+  .ant-select-show-search:where(
+    .css-dev-only-do-not-override-1vr7spz
+  ).ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  padding: 10px;
+  border-color: #2271b1;
+  margin-top: 16px;
+}
+:where(.css-dev-only-do-not-override-1vr7spz).ant-select-multiple
+  .ant-select-selection-item {
+  height: 32px;
+  line-height: 30px;
+}
+:where(.css-dev-only-do-not-override-1vr7spz).ant-select-multiple
+  .ant-select-selection-item-remove {
+  color: white;
+  border: 1px solid white;
+  border-radius: 100%;
+  height: 16px;
+  width: 16px;
+  display: flex;
+  justify-content: center;
+}
+.ant-select-selection-overflow-item > span.ant-select-selection-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ant-select.css-dev-only-do-not-override-1vr7spz.ant-select-multiple.ant-select-show-arrow.ant-select-show-search
+  > span.ant-select-arrow {
+  visibility: hidden;
+}
 
 @keyframes dot-pulse-before {
   0% {
