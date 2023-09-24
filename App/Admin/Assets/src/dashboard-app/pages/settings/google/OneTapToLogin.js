@@ -11,20 +11,17 @@ function classNames(...classes) {
 }
 
 export default function OneTapToLogin() {
-const [checkbox, setCheckbox] = useState(false);
-
-
+  const [checkbox, setCheckbox] = useState(false);
 
   const handleCheckboxChange1 = () => {
-    setCheckbox(false)
+    setCheckbox(false);
   };
   const handleCheckboxChange2 = () => {
-    setCheckbox(false)
+    setCheckbox(false);
   };
   const handleCheckboxChange3 = () => {
-    setCheckbox(true)
+    setCheckbox(true);
   };
-
 
   const dispatch = useDispatch();
 
@@ -45,7 +42,6 @@ const [checkbox, setCheckbox] = useState(false);
       assetStatus = false;
     }
 
-    console.log(assetStatus);
     dispatch({
       type: "UPDATE_ENABLE_CANCEL_ON_TAP_OUTSIDE",
       payload: assetStatus,
@@ -69,8 +65,6 @@ const [checkbox, setCheckbox] = useState(false);
       });
     });
   };
-
-  
 
   return (
     <div
@@ -123,51 +117,44 @@ const [checkbox, setCheckbox] = useState(false);
         <div className="w-[70%]">
           <div class="flex items-center mb-4">
             <input
-            onChange={handleCheckboxChange1}
+              onChange={handleCheckboxChange1}
               type="radio"
               value=""
               name="options"
               class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
             />
-            <label
-              class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
-            >
+            <label class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
               Only on login screen
             </label>
           </div>
 
           <div class="flex items-center mb-4">
             <input
-            onChange={handleCheckboxChange2}
+              onChange={handleCheckboxChange2}
               type="radio"
               value=""
               name="options"
               class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
             />
-            <label
-              class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
-            >
+            <label class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
               Site wide
             </label>
           </div>
 
           <div class="flex items-center mb-4">
             <input
-            onChange={handleCheckboxChange3}
+              onChange={handleCheckboxChange3}
               type="radio"
               value=""
               name="options"
               class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
             />
-            <label
-              class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
-            >
+            <label class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
               Specific page <ProBtn />
             </label>
           </div>
 
-
-          <OneTapSelectTag checkbox={checkbox}/>
+          <OneTapSelectTag checkbox={checkbox} />
         </div>
       </div>
     </div>

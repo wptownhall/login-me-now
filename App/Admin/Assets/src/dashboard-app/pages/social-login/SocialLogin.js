@@ -30,7 +30,7 @@ const SocialLogin = () => {
         slug: "global-settings",
         icon: SettingsIcons["global-settings"],
       },
-      isProAvailable && {
+      {
         name: __("Google", "login-me-now"),
         slug: "google",
         icon: SettingsIcons["google-login"],

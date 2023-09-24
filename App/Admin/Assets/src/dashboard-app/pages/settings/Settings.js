@@ -30,7 +30,7 @@ const Settings = () => {
         slug: "global-settings",
         icon: SettingsIcons["global-settings"],
       },
-      isProAvailable && {
+      isProAvailable &&{
         name: __("License", "login-me-now"),
         slug: "license",
         icon: SettingsIcons["license"],

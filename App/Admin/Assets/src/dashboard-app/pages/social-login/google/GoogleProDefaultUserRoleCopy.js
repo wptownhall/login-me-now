@@ -3,9 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Listbox } from '@headlessui/react'
 import apiFetch from '@wordpress/api-fetch';
 import { ChevronDownIcon } from '@heroicons/react/solid'
-import Selector from './components/Selector';
 
-const GoogleProDefaultUserRole = () => {
+const GoogleProDefaultUserRoleCopy = () => {
 	const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
 	const enableGoogleLoginStatus = false === enableGoogleLogin ? false : true;
 	const dispatch = useDispatch();
@@ -51,6 +50,12 @@ const GoogleProDefaultUserRole = () => {
 						''
 					}
 				</h3>
+
+				{console.log(getUserRoles)}
+
+				<p className="mt-2 w-9/12 text-sm text-slate-500 tablet:w-full">
+				{__("Select the role that will be assigned to new users who sign up", 'login-me-now')}
+				</p>
 		
 				<Listbox onChange={updateGoogleProDefaultUserRole}>
 					
@@ -74,8 +79,6 @@ const GoogleProDefaultUserRole = () => {
 					</Listbox.Options>
 
 				</Listbox>
-
-				{/* <Selector getUserRoles={getUserRoles}/> */}
 				
 			</div>
 			<p className="mt-2 w-9/12 text-sm text-slate-500 tablet:w-full">
@@ -86,4 +89,4 @@ const GoogleProDefaultUserRole = () => {
 	);
 };
 
-export default GoogleProDefaultUserRole;
+export default GoogleProDefaultUserRoleCopy;

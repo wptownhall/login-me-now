@@ -7,6 +7,7 @@ import GoogleInNativeLogin from "./google/GoogleInNativeLogin";
 import GoogleInUpdateExistingUserData from "./google/GoogleInUpdateExistingUserData";
 import GoogleCancelOnTapOutside from "./google/GoogleCancelOnTapOutside";
 import GoogleProDefaultUserRole from "./google/GoogleProDefaultUserRole";
+import GoogleProDefaultUserRoleCopy from "./google/GoogleProDefaultUserRoleCopy";
 import GoogleProExcludePages from "./google/GoogleProExcludePages";
 import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
 
@@ -29,9 +30,10 @@ function SettingsWrapper({ state }) {
         <>
           <GoogleLogin />
           <GoogleClientID />
-          <OneTapToLogin />
+          <OneTapToLogin /> 
           <GoogleCancelOnTapOutside />
           <GoogleInNativeLogin />
+          {/* <GoogleProDefaultUserRoleCopy /> */}
           <GoogleProDefaultUserRole />
           <GoogleInUpdateExistingUserData />
           <GoogleUpdateUserAvatar />

@@ -25,8 +25,6 @@ const GoogleCancelOnTapOutside = () => {
 		} else {
 			assetStatus = false;
 		}
-
-		console.log(assetStatus)
 		dispatch({ type: 'UPDATE_ENABLE_CANCEL_ON_TAP_OUTSIDE', payload: assetStatus });
 
 		const formData = new window.FormData();

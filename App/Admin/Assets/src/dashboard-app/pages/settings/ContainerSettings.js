@@ -28,8 +28,6 @@ function SettingsWrapper({ state }) {
       "global-settings": (
         <>
           <UserSwitching />
-          {/* <Logs />
-          <LogsExpiration /> */}
         </>
       ),
       "social-login": (

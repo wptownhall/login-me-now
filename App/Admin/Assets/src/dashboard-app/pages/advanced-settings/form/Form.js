@@ -151,7 +151,6 @@ function Form({
         setDataResult(result);
         setIsLoading(false);
         setIsSuccess(true);
-        console.log(result);
       })
       .catch((error) => {
         setIsLoading(false);
