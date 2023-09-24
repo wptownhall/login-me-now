@@ -2,6 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { useSelector, useDispatch } from 'react-redux';
 import { Switch } from '@headlessui/react'
 import apiFetch from '@wordpress/api-fetch';
+import ProBtn from '../../social-login/google/components/ProBtn';
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ')
@@ -41,9 +42,7 @@ const GoogleProRedirectUrl = () => {
 				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
 					{__('Redirect after successful login and registration', 'login-me-now')}
 					{ ! isProAvailable ? (
-						<span className="ml-2 h-full inline-flex leading-[1rem] font-medium flex-shrink-0 py-[0rem] px-1.5 text-[0.625rem] text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem] -tablet:mt:10">
-							{__('PRO', 'login-me-now')}
-						</span>)
+						<ProBtn />)
 						: 
 						''
 					}

@@ -175,10 +175,10 @@ const BrowserExtensions = () => {
           </div>
           <div className="border-[#9F9F9F] border-[1px] p-10 rounded-[8px] bg-white mt-[60px]">
             <h1 className="text-[32px] mb-4 text-slate-800 leading-10 pb-3 font-semibold text-left">
-              Why use browser extension ?
+              Why use browser extension?
             </h1>
             <p className="text-[#494949] text-[18px]">
-              This save you time , especially if you frequently log in to
+              This save you time, especially if you frequently log in to
               multiple website dashboards throughout the day. With the browser
               extension, secure dashboard login is just one click away. Say
               goodbye to the hassle of navigating to the login panel and

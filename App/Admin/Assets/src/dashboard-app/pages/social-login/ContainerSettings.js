@@ -31,13 +31,13 @@ function SettingsWrapper({ state }) {
           <GoogleLogin />
           <GoogleClientID />
           <OneTapToLogin /> 
-          <GoogleCancelOnTapOutside />
           <GoogleInNativeLogin />
           {/* <GoogleProDefaultUserRoleCopy /> */}
           <GoogleProDefaultUserRole />
           <GoogleInUpdateExistingUserData />
           <GoogleUpdateUserAvatar />
           <GoogleProExcludePages />
+          <GoogleCancelOnTapOutside />
           <GoogleProRedirectUrl />
         </>
       ),

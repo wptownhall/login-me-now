@@ -1,8 +1,8 @@
 import React from 'react'
 
-function ProBtn() {
+function ProBtn({extraClass}) {
   return (
-    <span className="bg-[#0DA071] text-white py-1 px-[10px] ml-1 rounded-[4px]">Pro</span>
+    <span className={`bg-[#0DA071] text-white ml-1 rounded-[4px] text-[14px] py-[4] px-[10px] ${extraClass}`}>Pro</span>
   )
 }
 

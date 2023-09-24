@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Listbox } from '@headlessui/react'
 import apiFetch from '@wordpress/api-fetch';
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import ProBtn from './components/ProBtn';
 
 const GoogleProDefaultUserRoleCopy = () => {
 	const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
@@ -43,15 +44,11 @@ const GoogleProDefaultUserRoleCopy = () => {
 				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
 					{__('User role permission level', 'login-me-now')}
 					{ ! lmn_admin.pro_available ? (
-						<span className="ml-2 h-full inline-flex leading-[1rem] font-medium flex-shrink-0 py-[0rem] px-1.5 text-[0.625rem] text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem] -tablet:mt:10">
-							{__('PRO', 'login-me-now')}
-						</span>)
+						<ProBtn />)
 						: 
 						''
 					}
 				</h3>
-
-				{console.log(getUserRoles)}
 
 				<p className="mt-2 w-9/12 text-sm text-slate-500 tablet:w-full">
 				{__("Select the role that will be assigned to new users who sign up", 'login-me-now')}

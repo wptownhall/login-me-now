@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { __ } from "@wordpress/i18n";
-import ProBtn from "./components/ProBtn";
 import OneTapSelectTag from "./components/OneTapSelectTag";
 import { useDispatch, useSelector } from "react-redux";
 import { Switch } from "@headlessui/react";
 import apiFetch from "@wordpress/api-fetch";
+import ProBtn from "../../social-login/google/components/ProBtn";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
