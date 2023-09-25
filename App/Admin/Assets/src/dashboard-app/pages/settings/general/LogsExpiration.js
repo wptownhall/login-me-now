@@ -40,7 +40,7 @@ const LogsExpiration = () => {
   const currentOption = expirationOptions.find(option => option.days == days);
 
   return (
-    <section className={`login-me-now-dep-field-${enableLogsStatus} text-sm block border-b border-solid border-slate-200 px-8 py-8 justify-between`}>
+    <section className={`login-me-now-dep-field-${enableLogsStatus} text-[16px] block border-b border-solid border-slate-200 px-8 py-8 justify-between`}>
 			<div className='mr-16 w-full flex items-center'></div>
       {/* ul#headlessui-listbox-options-5 li {
     padding: 5px;
@@ -61,7 +61,7 @@ ul#headlessui-listbox-options-5 {
             <Listbox.Option 
               key={option.days} 
               value={option.days} 
-              className='text-sm text-slate-500 relative cursor-pointer select-none py-2 pr-1 mb-1'
+              className='text-[16px] text-slate-500 relative cursor-pointer select-none py-2 pr-1 mb-1'
               >
               {option.name}
             </Listbox.Option>

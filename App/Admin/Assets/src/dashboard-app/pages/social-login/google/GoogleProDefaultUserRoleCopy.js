@@ -50,7 +50,7 @@ const GoogleProDefaultUserRoleCopy = () => {
 					}
 				</h3>
 
-				<p className="mt-2 w-9/12 text-sm text-slate-500 tablet:w-full">
+				<p className="mt-2 w-9/12 text-[16px] text-slate-500 tablet:w-full">
 				{__("Select the role that will be assigned to new users who sign up", 'login-me-now')}
 				</p>
 		
@@ -63,7 +63,7 @@ const GoogleProDefaultUserRoleCopy = () => {
 						</span>
 					</Listbox.Button>
 
-					<Listbox.Options className='p-3 absolute mt-1 max-h-60 w-[400px] overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
+					<Listbox.Options className='p-3 absolute mt-1 max-h-60 w-[400px] overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-[16px]'>
 						{Object.keys(getUserRoles).map((key) => (
 							<Listbox.Option
 								key={key}

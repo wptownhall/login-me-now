@@ -347,7 +347,7 @@ function Table() {
         </div>
         {dataLength < 20 ? null : (
           <button
-            className="mt-2 sm:inline-flex items-center justify-center px-4 py-2 border border-lmn-hover text-sm font-medium rounded-md shadow-sm text-black hover:text-white bg-white focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mb-2 sm:mb-0"
+            className="mt-2 sm:inline-flex items-center justify-center px-4 py-2 border border-lmn-hover text-[16px] font-medium rounded-md shadow-sm text-black hover:text-white bg-white focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mb-2 sm:mb-0"
             onClick={loadMore}
           >
             Load More

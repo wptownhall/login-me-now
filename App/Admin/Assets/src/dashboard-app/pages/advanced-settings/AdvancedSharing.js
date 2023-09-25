@@ -128,7 +128,7 @@ function AdvancedSharing() {
               {formData.dataResult?.success && isSuccess ? (
                 <div className="flex justify-center items-center h-full">
                   <Button
-                    className="sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
+                    className="sm:inline-flex items-center px-4 py-2 border border-transparent text-[16px] font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
                     buttonText="Create Access Again"
                     handleClick={handleCreateAccessAgain}
                   />

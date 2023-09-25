@@ -122,7 +122,7 @@ const BrowserExtensions = () => {
                       <span className="ml-2 relative z-0 inline-flex flex-col sm:flex-row justify-start w-full">
                         <button
                           type="submit"
-                          className="sm:inline-flex items-center p-[13px] border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
+                          className="sm:inline-flex items-center p-[13px] border border-transparent text-[16px] font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
                         >
                           {__("Generate token", "login-me-now")}
                         </button>

@@ -59,7 +59,7 @@ const GoogleProDefaultUserRole = () => {
 						</span>
 					</Listbox.Button>
 
-					<Listbox.Options className='p-3 absolute mt-1 max-h-60 w-[400px] overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
+					<Listbox.Options className='p-3 absolute mt-1 max-h-60 w-[400px] overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-[16px]'>
 						{Object.keys(getUserRoles).map((key) => (
 							<Listbox.Option
 								key={key}
