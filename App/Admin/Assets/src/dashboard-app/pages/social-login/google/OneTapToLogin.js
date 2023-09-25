@@ -11,20 +11,19 @@ function classNames(...classes) {
 }
 
 export default function OneTapToLogin() {
-const [checkbox, setCheckbox] = useState(false);
+  const [checkbox, setCheckbox] = useState(false);
 
-const isProAvailable = lmn_admin.pro_available ? true : false;
+  const isProAvailable = lmn_admin.pro_available ? true : false;
 
   const handleCheckboxChange1 = () => {
-    setCheckbox(false)
+    setCheckbox(false);
   };
   const handleCheckboxChange2 = () => {
-    setCheckbox(false)
+    setCheckbox(false);
   };
   const handleCheckboxChange3 = () => {
-    setCheckbox(true)
+    setCheckbox(true);
   };
-
 
   const dispatch = useDispatch();
 
@@ -69,8 +68,6 @@ const isProAvailable = lmn_admin.pro_available ? true : false;
     });
   };
 
-  
-
   return (
     <div
       className={`${
@@ -114,63 +111,63 @@ const isProAvailable = lmn_admin.pro_available ? true : false;
       </div>
       {enableGoogleCancelOnTapOutsideStatus && (
         <div className="flex">
-        <div className="w-[30%]">
-          <p className="w-9/12 text-[18px] text-[#000000] tablet:w-full font-medium">
-            {__("Select location ", "login-me-now")}
-          </p>
+          <div className="w-[30%]">
+            <p className="w-9/12 text-[18px] text-[#000000] tablet:w-full font-medium">
+              {__("Select location ", "login-me-now")}
+            </p>
+          </div>
+          <div className="w-[70%]">
+            <div class="flex items-center mb-4">
+              <input
+                onChange={handleCheckboxChange1}
+                type="radio"
+                value=""
+                name="options"
+                class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
+              />
+              <label class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
+                Only on login screen
+              </label>
+            </div>
+
+            <div class="flex items-center mb-4">
+              <input
+                onChange={handleCheckboxChange2}
+                type="radio"
+                value=""
+                name="options"
+                class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
+              />
+              <label class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
+                Site wide
+              </label>
+            </div>
+
+            <div
+              class={`flex items-center mb-4 ${
+                isProAvailable === false ? "pointer-events-none" : ""
+              }`}
+            >
+              <input
+                onChange={handleCheckboxChange3}
+                type="radio"
+                value=""
+                name="options"
+                class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
+              />
+              <label
+                class={`ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344] ${
+                  isProAvailable === false ? "opacity-40" : ""
+                }`}
+              >
+                Specific page <ProBtn extraClass="py-[4px] px-[10px]" />
+              </label>
+            </div>
+
+            <OneTapSelectTag checkbox={checkbox} />
+          </div>
         </div>
-        <div className="w-[70%]">
-          <div class="flex items-center mb-4">
-            <input
-            onChange={handleCheckboxChange1}
-              type="radio"
-              value=""
-              name="options"
-              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
-            />
-            <label
-              class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
-            >
-              Only on login screen
-            </label>
-          </div>
-
-          <div class="flex items-center mb-4">
-            <input
-            onChange={handleCheckboxChange2}
-              type="radio"
-              value=""
-              name="options"
-              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
-            />
-            <label
-              class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
-            >
-              Site wide
-            </label>
-          </div>
-
-          <div class={`flex items-center mb-4 ${isProAvailable === false ? 'pointer-events-none' : ''}`}>
-            <input
-              onChange={handleCheckboxChange3}
-              type="radio"
-              value=""
-              name="options"
-              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
-            />
-            <label
-              class={`ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344] ${isProAvailable === false ? 'opacity-40': ''}`}
-            >
-              Specific page <ProBtn extraClass="py-[4px] px-[10px]"/>
-            </label>
-          </div>
-
-
-          <OneTapSelectTag checkbox={checkbox}/>
-        </div>
-      </div>
       )}
-      
     </div>
   );
 }
