@@ -73,7 +73,7 @@ const UserSwitching = () => {
 				</Switch>
 				
 			</div>
-			<p className="mt-2 w-9/12 text-[16px] text-slate-500 tablet:w-full">
+			<p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full">
 				{__('Quickly switch between user accounts', 'login-me-now')}
 			</p>
 		</section>

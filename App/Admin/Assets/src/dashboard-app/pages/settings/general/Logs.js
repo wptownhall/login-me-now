@@ -73,7 +73,7 @@ const Logs = () => {
 				</Switch>
 				
 			</div>
-			<p className="mt-2 w-9/12 text-[16px] text-slate-500 tablet:w-full">
+			<p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full">
 				{__('Enable this option to save login logs. This can be great for tracking user login activity of your website.', 'login-me-now')}
 			</p>
 		</section>

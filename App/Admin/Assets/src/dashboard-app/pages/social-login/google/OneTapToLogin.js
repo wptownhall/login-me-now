@@ -112,8 +112,8 @@ const isProAvailable = lmn_admin.pro_available ? true : false;
           />
         </Switch>
       </div>
-
-      <div className="flex">
+      {enableGoogleCancelOnTapOutsideStatus && (
+        <div className="flex">
         <div className="w-[30%]">
           <p className="w-9/12 text-[18px] text-[#000000] tablet:w-full font-medium">
             {__("Select location ", "login-me-now")}
@@ -169,6 +169,8 @@ const isProAvailable = lmn_admin.pro_available ? true : false;
           <OneTapSelectTag checkbox={checkbox}/>
         </div>
       </div>
+      )}
+      
     </div>
   );
 }

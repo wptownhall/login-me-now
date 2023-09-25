@@ -66,7 +66,7 @@ const GoogleProExcludePages = () => {
 				/>
 				
 			</div>
-			<p className="mt-2 w-9/12 text-[16px] text-slate-500 tablet:w-full">
+			<p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full">
 				{__("Select for which pages one tap prompt won't display", 'login-me-now')}
 			</p>
 		</section>
