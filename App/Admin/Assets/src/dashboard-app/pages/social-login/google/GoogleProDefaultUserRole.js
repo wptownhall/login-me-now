@@ -39,7 +39,7 @@ const GoogleProDefaultUserRole = () => {
 	}
 
 	return (
-		<section className={`${enableGoogleLoginStatus ? 'block' :'hidden'} login-me-now-dep-field-${isProAvailable ? 'true' : 'false'} block border-b border-solid border-slate-200 px-8 py-8 justify-between`}>
+		<section className={`${enableGoogleLoginStatus ? 'block' :'hidden'} login-me-now-dep-field-${isProAvailable ? 'true' : 'false'} block border-b border-solid border-slate-200 py-12 justify-between`}>
 			<div className='mr-16 w-full flex flex-col'>
 				
 				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">

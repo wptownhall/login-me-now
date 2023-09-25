@@ -42,7 +42,7 @@ const GoogleLogin = () => {
 	};
 
 	return (
-		<section className='block px-8 py-8 justify-between'>
+		<section className='block pb-6 pt-12 justify-between'>
 			<div className='mr-16 w-full flex items-center'>
 				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
 					{__('Google', 'login-me-now')}

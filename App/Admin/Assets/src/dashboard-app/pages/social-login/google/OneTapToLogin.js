@@ -75,7 +75,7 @@ const isProAvailable = lmn_admin.pro_available ? true : false;
     <div
       className={`${
         enableGoogleLoginStatus ? "block" : "hidden"
-      } p-8 border-b border-solid border-slate-200 `}
+      } py-12 border-b border-solid border-slate-200 `}
     >
       <div className="flex justify-between items-start">
         <p className="mt-0 text-[18px] text-[#000000] tablet:w-full font-medium mb-8">
