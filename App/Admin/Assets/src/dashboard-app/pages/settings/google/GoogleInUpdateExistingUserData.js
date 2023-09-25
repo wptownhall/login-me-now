@@ -76,7 +76,7 @@ const GoogleInUpdateExistingUserData = () => {
 				</Switch>
 				
 			</div>
-			<p className="mt-2 w-9/12 text-sm text-slate-500 tablet:w-full">
+			<p className="mt-2 w-9/12 text-[16px] text-slate-500 tablet:w-full">
 				{__("Automatically retrieve the existing user first, last, nick & display name from google account upon login using gmail", 'login-me-now')}
 			</p>
 		</section>

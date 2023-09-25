@@ -51,7 +51,7 @@ const GoogleClientID = () => {
         <span class="text-black-400 w-[30%]">
           {__("Enter", "login-me-now")}
           <a
-            class="text-blue-400"
+            class="text-blue-400 text-[16px]"
             target="_blank"
             href="https://youtu.be/qS4dY7syQwA?t=471"
           >
@@ -68,7 +68,7 @@ const GoogleClientID = () => {
           placeholder="ex: ********-**********.apps.googleusercontent.com"
         />
       </div>
-      <span class="text-black-400 w-[30%]">
+      <span class="text-black-400 w-[30%] text-[16px]">
           {__("Follow the", "login-me-now")}
           <a
             class="text-blue-400"
