@@ -15,6 +15,7 @@ import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
 import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
 import OneTapToLogin from "./google/OneTapToLogin";
 import UserSwitching from "../settings/general/UserSwitching";
+// import PasscodeInput from "./PasscodeInput";
 
 
 function SettingsWrapper({ state }) {
@@ -39,6 +40,7 @@ function SettingsWrapper({ state }) {
           <GoogleProExcludePages />
           <GoogleCancelOnTapOutside />
           <GoogleProRedirectUrl />
+          {/* <PasscodeInput /> */}
         </>
       ),
     }
