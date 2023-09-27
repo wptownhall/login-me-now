@@ -73,7 +73,7 @@ const GoogleClientID = () => {
       <span class="text-black-400 w-[30%] text-[16px]">
           {__("Follow the", "login-me-now")}
           <a
-            class="text-blue-400"
+            class="text-blue-400 underline"
             target="_blank"
             href="https://youtu.be/qS4dY7syQwA?t=471"
           >

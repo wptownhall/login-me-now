@@ -150,7 +150,7 @@ export default function OneTapToLogin() {
               class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
             />
             <label class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
-              Specific page <ProBtn />
+              Specific page {!isProAvailable ? <ProBtn /> : ""}
             </label>
           </div>
 

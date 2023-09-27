@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Switch } from "@headlessui/react";
 import apiFetch from "@wordpress/api-fetch";
 import { Tooltip } from "antd";
+import ProBtn from "./components/ProBtn";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -58,13 +59,16 @@ const GoogleInUpdateExistingUserData = () => {
     <section
       className={`${
         enableGoogleLoginStatus ? "block" : "hidden"
-      } login-me-now-dep-field-${enableGoogleLoginStatus} border-b border-solid border-slate-200 py-12 justify-between`}
+      } login-me-now-dep-field-${enableGoogleLoginStatus} ${
+        !lmn_admin.pro_available ? "login-me-now-dep-field-false" : ""
+      } border-b border-solid border-slate-200 py-12 justify-between`}
     >
-      <div className="mr-16 w-full flex items-center">
+      <div className="mr-16 w-full flex items-center ">
         <h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
           {__("Update existing user name", "login-me-now")}
+          {!isProAvailable ? <ProBtn /> : ""}
         </h3>
-        <Tooltip title={`${isProAvailable === false ? 'Upgrade to Pro' : ''}`}>
+        <Tooltip title={`${isProAvailable === false ? "Upgrade to Pro" : ""}`}>
           <Switch
             checked={enableGoogleUpdateExistingUserDataStatus}
             onChange={isProAvailable === true ? updateLogsStatus : false}

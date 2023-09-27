@@ -160,7 +160,12 @@ export default function OneTapToLogin() {
                   isProAvailable === false ? "opacity-40" : ""
                 }`}
               >
-                Specific page <ProBtn extraClass="py-[4px] px-[10px]" />
+                Specific page{" "}
+                {!isProAvailable ? (
+                  <ProBtn extraClass="py-[4px] px-[10px]" />
+                ) : (
+                  ""
+                )}
               </label>
             </div>
 
