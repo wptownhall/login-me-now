@@ -11,7 +11,6 @@ const expirationOptions = [
 ];
 
 const GoogleClientID = () => {
-  
   const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
   const enableGoogleLoginStatus = false === enableGoogleLogin ? false : true;
   let enableGoogleClientID = useSelector((state) => state.enableGoogleClientID);
@@ -42,7 +41,6 @@ const GoogleClientID = () => {
     });
   };
 
-
   return (
     <section
       className={`${
@@ -71,15 +69,15 @@ const GoogleClientID = () => {
         />
       </div>
       <span class="text-black-400 w-[30%] text-[16px]">
-          {__("Follow the ", "login-me-now")}
-          <a
-            class="text-blue-400 underline"
-            target="_blank"
-            href="https://youtu.be/qS4dY7syQwA?t=471"
-          >
-            {__("tutorial", "login-me-now")}
-          </a>
-        </span>
+        {__("Follow the ", "login-me-now")}
+        <a
+          class="text-blue-400 underline"
+          target="_blank"
+          href="https://youtu.be/qS4dY7syQwA?t=471"
+        >
+          {__("tutorial", "login-me-now")}
+        </a>
+      </span>
     </section>
   );
 };
