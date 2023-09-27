@@ -119,26 +119,28 @@ export default function OneTapToLogin() {
           <div className="w-[70%]">
             <div class="flex items-center mb-4">
               <input
+                id="loginScreen"
                 onChange={handleCheckboxChange1}
                 type="radio"
                 value=""
                 name="options"
                 class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
               />
-              <label class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
+              <label for="loginScreen" class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
                 Only on login screen
               </label>
             </div>
 
             <div class="flex items-center mb-4">
               <input
+                id="siteWide"
                 onChange={handleCheckboxChange2}
                 type="radio"
                 value=""
                 name="options"
                 class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
               />
-              <label class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
+              <label for="siteWide" class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
                 Site wide
               </label>
             </div>
@@ -149,13 +151,14 @@ export default function OneTapToLogin() {
               }`}
             >
               <input
+                id="specificPage"
                 onChange={handleCheckboxChange3}
                 type="radio"
                 value=""
                 name="options"
                 class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
               />
-              <label
+              <label for="specificPage"
                 class={`ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344] ${
                   isProAvailable === false ? "opacity-40" : ""
                 }`}
