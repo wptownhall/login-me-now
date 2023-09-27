@@ -51,7 +51,7 @@ const GoogleProRedirectUrl = () => {
         isProAvailable ? "true" : "false"
       } text-[16px] block border-b border-solid border-slate-200 py-12 justify-between`}
     >
-      <div className="mr-16 w-full flex flex-col space-y-3">
+      <div className="mr-16 w-full flex flex-col space-y-3 pr-[10%]">
         <h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
           {__(
             "Redirect after successful login and registration",

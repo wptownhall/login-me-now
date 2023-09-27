@@ -47,7 +47,7 @@ const GoogleClientID = () => {
     <section
       className={`${
         enableGoogleLoginStatus ? "block" : "hidden"
-      } text-[16px] border-b border-solid border-slate-200 pt-6 pb-12 justify-between`}
+      } text-[16px] border-b border-solid border-slate-200 pt-6 pb-12 justify-between pr-[10%]`}
     >
       <div className="mr-16 w-full flex space-y-3">
         <span class="text-black-400 w-[30%]">
