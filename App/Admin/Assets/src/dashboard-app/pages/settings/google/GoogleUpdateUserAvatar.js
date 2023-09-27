@@ -76,7 +76,7 @@ const GoogleUpdateUserAvatar = () => {
 				</Switch>
 				
 			</div>
-			<p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full">
+			<p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
 				{__("Automatically retrieve the profile picture as avatar from users' google account upon login or register using gmail", 'login-me-now')}
 			</p>
 		</section>

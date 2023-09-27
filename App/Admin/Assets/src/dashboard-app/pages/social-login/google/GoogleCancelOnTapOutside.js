@@ -90,7 +90,7 @@ const GoogleCancelOnTapOutside = () => {
           />
         </Switch>
       </div>
-      <p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full">
+      <p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
         {__("Enable automatic closing on outside clicks", "login-me-now")}
       </p>
 

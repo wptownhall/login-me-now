@@ -67,7 +67,7 @@ const GoogleProRedirectUrl = () => {
           name="name"
           placeholder="ex: https://example.com/dashboard/"
         />
-        <p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full">
+        <p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
           {__("By default redirection is set as per", "login-me-now")}
           <a class="text-blue-400" target="_blank" href="#">
             {__(" Reading Settings > Your homepage displays", "login-me-now")}
