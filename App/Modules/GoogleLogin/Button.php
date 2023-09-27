@@ -1,42 +1,29 @@
 <?php
 /**
  * @author  HalalBrains
- * @since   1.1.0
- * @version 1.1.0
+ * @since   1.0.0
+ * @version 1.0.0
  */
 
-namespace LoginMeNow\FacebookLogin;
+namespace LoginMeNow\GoogleLogin;
 
 use LoginMeNow\Model\Settings;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
 
-class LoginButton {
+class Button {
 	use Singleton;
 	use Hookable;
 
 	public function __construct() {
 		$this->action( 'init', 'shortcodes' );
 
-		$native_login = Settings::init()->get( 'google_native_login' );
+		$native_login = Settings::init()->get( 'google_native_login', true );
 		if ( $native_login ) {
 			$this->action( 'login_form', 'wp_login_form' );
 			$this->action( 'woocommerce_login_form_start', 'wp_login_form' );
 		}
 	}
-
-	public function atbdp_social_login_html() {
-		$facebook_icon = plugin_dir_url( __FILE__ ) . 'assets/public/images/facebook-icon.png';
-		$redirect_url  = '';
-		$nonce         = wp_create_nonce( 'directorist-social-login-widget' );
-		$api           = '';
-
-		?>
-		<button type="button" disabled class="btn fb-login az-fb-login-btn">
-			<span class="azbdp-fb-loading"><span class="fas fa-spin fa-spinner"></span></span>
-			<img src="<?php echo esc_url( $facebook_icon ); ?>" alt="Facebook Icon"/> <?php _e( 'Continue With Facebook', 'directorist-social-login' )?>
-		</button>
-	<?php }
 
 	public function wp_login_form(): void {?>
 		<div id="wp-login-google-login-button">
@@ -53,8 +40,8 @@ class LoginButton {
 		</div>
 	<?php }
 
-	public function shortcodes(): void {
-		add_shortcode( 'login_me_now_facebook_button', [$this, 'login_btn'] );
+	public function shortcodes(): void{
+		add_shortcode( 'login_me_now_google_button', [$this, 'login_btn'] );
 	}
 
 	public function login_btn(): string {

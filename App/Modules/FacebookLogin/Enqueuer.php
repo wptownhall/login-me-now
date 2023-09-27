@@ -1,8 +1,8 @@
 <?php
 /**
  * @author  HalalBrains
- * @since   1.0.0
- * @version 1.0.0
+ * @since   1.1.0
+ * @version 1.1.0
  */
 
 namespace LoginMeNow\FacebookLogin;
@@ -17,10 +17,20 @@ class Enqueuer extends EnqueuerBase {
 	use Hookable;
 
 	public function __construct() {
-		$this->action( 'wp_footer', 'load_sdk' );
+		$this->action( 'wp_enqueue_scripts', 'enqueue_scripts', 50 );
+		$this->action( 'login_enqueue_scripts', 'enqueue_scripts', 1 );
 	}
 
-	public function load_sdk() {
-		echo '<script defer src="https://connect.facebook.net/en_US/sdk.js"></script>';
+	public function enqueue_scripts() {
+		wp_register_script(
+			'login-me-now-facebook-button-sdk',
+			'https://connect.facebook.net/en_US/sdk.js',
+			['jquery']
+		);
+		wp_register_script(
+			'login-me-now-facebook-button-config',
+			LOGIN_ME_NOW_APP_URL . '/Modules/FacebookLogin/js/button.js',
+			['login-me-now-facebook-button-sdk']
+		);
 	}
 }
