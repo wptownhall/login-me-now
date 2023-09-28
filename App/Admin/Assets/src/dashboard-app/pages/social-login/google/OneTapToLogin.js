@@ -5,6 +5,7 @@ import OneTapSelectTag from "./components/OneTapSelectTag";
 import { useDispatch, useSelector } from "react-redux";
 import { Switch } from "@headlessui/react";
 import apiFetch from "@wordpress/api-fetch";
+import GoogleProSelectedPages from "./GoogleProSelectedPages";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -172,6 +173,7 @@ export default function OneTapToLogin() {
               </label>
             </div>
 
+            <GoogleProSelectedPages />
             <OneTapSelectTag checkbox={checkbox} />
           </div>
         </div>

@@ -18,13 +18,16 @@ class OneTap {
 	public function __construct() {
 		$this->action( 'wp_footer', 'one_tap', 50 );
 		$this->action( 'login_footer', 'one_tap', 50 );
+
+		if ( $this->show() ) {
+			// echo '3434 kujdfoi  sdfosdfoij  sdfkjh  ksdfkbjndfgkjdfgkj kljsdgkjh nsdfgnjkdfg';
+		}
 	}
 
 	public function one_tap() {
-		$nonce   = wp_create_nonce( 'lmn-google-nonce' );
-		$exclude = apply_filters( 'login_me_now_google_exclude_pages', false );
+		$nonce = wp_create_nonce( 'lmn-google-nonce' );
 
-		if ( ! is_user_logged_in() && ! $exclude ) {
+		if ( ! is_user_logged_in() && $this->show() ) {
 			global $wp;
 			$client_id      = Settings::init()->get( 'google_client_id' );
 			$cancel_outside = Settings::init()->get( 'google_cancel_on_tap_outside', true );
@@ -41,5 +44,26 @@ class OneTap {
 				data-login_uri="<?php echo esc_attr( $login_uri ); ?>">
 			</div>
 		<?php }
+	}
+
+	private function show(): bool {
+		$selected_pages = apply_filters( 'login_me_now_google_selected_pages', false );
+		$show_on        = Settings::init()->get( 'google_show_on', true );
+
+		switch ( $show_on ) {
+			case 'side_wide':
+				return true;
+				break;
+
+			case 'login_screen':
+				return is_login();
+				break;
+
+			case 'selected_page':
+				return $selected_pages;
+				break;
+		}
+
+		return true;
 	}
 }

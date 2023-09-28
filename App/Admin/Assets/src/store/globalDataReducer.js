@@ -83,10 +83,10 @@ const globalDataReducer = (state = {}, action) => {
 				...state,
 				selectGoogleProDefaultUserRole: action.payload,
 			};
-		case 'UPDATE_SELECT_GOOGLE_PRO_EXCLUDE_PAGES':
+		case 'UPDATE_SELECT_GOOGLE_PRO_SELECTED_PAGES':
 			return {
 				...state,
-				selectGoogleProExcludePages: action.payload,
+				selectGoogleProSelectedPages: action.payload,
 			};
 		case 'UPDATE_INPUT_GOOGLE_PRO_REDIRECT_URL':
 			return {

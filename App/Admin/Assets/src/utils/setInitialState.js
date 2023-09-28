@@ -26,7 +26,7 @@ const setInitialState = (store) => {
 			enableGoogleUpdateExistingUserAvatar: data.google_pro_user_avatar,
 			enableGoogleCancelOnTapOutside: data.google_cancel_on_tap_outside,
 
-			selectGoogleProExcludePages: data.google_pro_exclude_pages,
+			selectGoogleProSelectedPages: data.google_pro_selected_pages,
 			selectGoogleProDefaultUserRole: data.google_pro_default_user_role,
 			inputGoogleProRedirectUrl: data.google_pro_redirect_url,
 
