@@ -47,8 +47,6 @@ const GoogleProRedirectUrl = () => {
     <section
       className={`${
         enableGoogleLoginStatus ? "block" : "hidden"
-      } login-me-now-dep-field-${
-        isProAvailable ? "true" : "false"
       } text-[16px] block border-b border-solid border-slate-200 py-12 justify-between`}
     >
       <div className="mr-16 w-full flex flex-col space-y-3 pr-[10%]">

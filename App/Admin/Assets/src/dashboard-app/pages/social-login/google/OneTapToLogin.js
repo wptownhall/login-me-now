@@ -110,7 +110,7 @@ export default function OneTapToLogin() {
         </Switch>
       </div>
       {enableGoogleCancelOnTapOutsideStatus && (
-        <div className="flex">
+        <div className="flex pr-[10%]">
           <div className="w-[30%]">
             <p className="w-9/12 text-[18px] text-[#000000] tablet:w-full font-medium">
               {__("Select location ", "login-me-now")}

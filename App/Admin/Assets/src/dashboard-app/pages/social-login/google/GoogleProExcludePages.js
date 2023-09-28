@@ -51,8 +51,6 @@ const GoogleProExcludePages = () => {
     <section
       className={`${
         enableGoogleLoginStatus ? "block" : "hidden"
-      } login-me-now-dep-field-${
-        isProAvailable ? "true" : "false"
       } block border-b border-solid border-slate-200 py-12 justify-between`}
     >
       <div className="mr-16 w-full items-center pr-[10%]">
