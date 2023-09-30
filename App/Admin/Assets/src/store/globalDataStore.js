@@ -20,7 +20,7 @@ const initialState = wp.hooks.applyFilters('login_me_now_dashboard/datastore', {
 	enableGoogleUpdateExistingUserAvatar: true,
 	enableGoogleCancelOnTapOutside: true,
 	
-	selectGoogleProExcludePages: [],
+	selectGoogleProSelectedPages: [],
 	selectGoogleProDefaultUserRole: 'subscriber',
 	inputGoogleProRedirectUrl: '',
 

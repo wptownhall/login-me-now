@@ -8,12 +8,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const GoogleProExcludePages = () => {
+const GoogleProSelectedPages = () => {
   const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
   const enableGoogleLoginStatus = false === enableGoogleLogin ? false : true;
   const dispatch = useDispatch();
 
-  const selectedIDs = useSelector((state) => state.selectGoogleProExcludePages);
+  const selectedIDs = useSelector((state) => state.selectGoogleProSelectedPages);
   const isProAvailable = lmn_admin.pro_available ? true : false;
   const allPages = useSelector((state) => state.getPages);
 
@@ -27,12 +27,12 @@ const GoogleProExcludePages = () => {
   const updateGoogleProExcludePage = (selectedPages) => {
     let ids = selectedPages.map((page) => page.id);
 
-    dispatch({ type: "UPDATE_SELECT_GOOGLE_PRO_EXCLUDE_PAGES", payload: ids });
+    dispatch({ type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_PAGES", payload: ids });
 
     const formData = new window.FormData();
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
-    formData.append("key", "google_pro_exclude_pages");
+    formData.append("key", "google_pro_selected_pages");
     formData.append("value", ids);
 
     apiFetch({
@@ -78,4 +78,4 @@ const GoogleProExcludePages = () => {
   );
 };
 
-export default GoogleProExcludePages;
+export default GoogleProSelectedPages;

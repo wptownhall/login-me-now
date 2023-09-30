@@ -8,7 +8,7 @@ import GoogleInUpdateExistingUserData from "./google/GoogleInUpdateExistingUserD
 import GoogleCancelOnTapOutside from "./google/GoogleCancelOnTapOutside";
 import GoogleProDefaultUserRole from "./google/GoogleProDefaultUserRole";
 import GoogleProDefaultUserRoleCopy from "./google/GoogleProDefaultUserRoleCopy";
-import GoogleProExcludePages from "./google/GoogleProExcludePages";
+import GoogleProSelectedPages from "./google/GoogleProSelectedPages";
 import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
 
 
@@ -33,14 +33,11 @@ function SettingsWrapper({ state }) {
           <GoogleClientID />
           <OneTapToLogin /> 
           <GoogleInNativeLogin />
-          {/* <GoogleProDefaultUserRoleCopy /> */}
           <GoogleProDefaultUserRole />
           <GoogleInUpdateExistingUserData />
           <GoogleUpdateUserAvatar />
-          <GoogleProExcludePages />
           <GoogleCancelOnTapOutside />
           <GoogleProRedirectUrl />
-          {/* <PasscodeInput /> */}
         </>
       ),
     }

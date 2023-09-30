@@ -1,25 +1,9 @@
 import { __ } from "@wordpress/i18n";
 import { useSelector } from "react-redux";
 
-import Logs from "./general/Logs";
-import LogsExpiration from "./general/LogsExpiration";
 import UserSwitching from "./general/UserSwitching";
 
-import GoogleLogin from "./google/GoogleLogin";
-import GoogleClientID from "./google/GoogleClientID";
-import GoogleInNativeLogin from "./google/GoogleInNativeLogin";
-import GoogleInUpdateExistingUserData from "./google/GoogleInUpdateExistingUserData";
-import GoogleCancelOnTapOutside from "./google/GoogleCancelOnTapOutside";
-import GoogleProDefaultUserRole from "./google/GoogleProDefaultUserRole";
-import GoogleProExcludePages from "./google/GoogleProExcludePages";
-import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
-
-
 import License from "./license/License";
-import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
-import Dashboard from "./social-login/Dashboard";
-import OneTapToLogin from "./google/OneTapToLogin";
-
 
 function SettingsWrapper({ state }) {
   const wrappers = wp.hooks.applyFilters(
@@ -29,23 +13,6 @@ function SettingsWrapper({ state }) {
         <>
           <UserSwitching />
         </>
-      ),
-      "social-login": (
-        <>
-          <GoogleLogin />
-          <GoogleClientID />
-          <OneTapToLogin />
-          <GoogleCancelOnTapOutside />
-          <GoogleInNativeLogin />
-          <GoogleProDefaultUserRole />
-          <GoogleInUpdateExistingUserData />
-          <GoogleUpdateUserAvatar />
-          <GoogleProExcludePages />
-          <GoogleProRedirectUrl />
-        </>
-      ),
-      "google":(
-        <Dashboard />
       ),
       license: (
         <>
