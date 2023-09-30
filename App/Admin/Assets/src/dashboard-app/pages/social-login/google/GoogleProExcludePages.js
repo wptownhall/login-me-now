@@ -54,7 +54,7 @@ const GoogleProExcludePages = () => {
       } block border-b border-solid border-slate-200 py-12 justify-between`}
     >
       <div className="mr-16 w-full items-center pr-[10%]">
-        <h3 className="mb-6 p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
+        <h3 className="mb-6 p-0 flex-1 justify-right inline-flex text-[22px] leading-6 font-semibold text-slate-800">
           {__("Exclude one tap prompt for", "login-me-now")}
           {!lmn_admin.pro_available ? <ProBtn /> : ""}
         </h3>
@@ -65,7 +65,7 @@ const GoogleProExcludePages = () => {
           onSelect={updateGoogleProExcludePage}
           onRemove={updateGoogleProExcludePage}
           displayValue="name"
-          className="mt-3"
+          className={`mt-3 ${!isProAvailable && "pointer-events-none"}`}
         />
       </div>
       <p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">

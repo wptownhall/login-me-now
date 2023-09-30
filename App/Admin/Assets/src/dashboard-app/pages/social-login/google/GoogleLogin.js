@@ -44,7 +44,7 @@ const GoogleLogin = () => {
 	return (
 		<section className='block pb-6 pt-12 justify-between'>
 			<div className='mr-16 w-full flex items-center'>
-				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
+				<h3 className="p-0 flex-1 justify-right inline-flex text-[24px] leading-6 font-semibold text-slate-800">
 					{__('Google', 'login-me-now')}
 				</h3>
 				<Switch
@@ -74,7 +74,7 @@ const GoogleLogin = () => {
 				
 			</div>
 			<p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
-				{__('Enable google login.', 'login-me-now')}
+				{__('Enable google login', 'login-me-now')}
 			</p>
 		</section>
 	);

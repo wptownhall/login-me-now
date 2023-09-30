@@ -42,7 +42,7 @@ const GoogleProDefaultUserRole = () => {
 		<section className={`${enableGoogleLoginStatus ? 'block' :'hidden'} block border-b border-solid border-slate-200 py-12 justify-between`}>
 			<div className='mr-16 w-full flex flex-col pr-[10%]'>
 				
-				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
+				<h3 className="p-0 flex-1 justify-right inline-flex text-[22px] leading-6 font-semibold text-slate-800">
 					{__('User role permission level', 'login-me-now')}
 					{ ! lmn_admin.pro_available ? (
 						<ProBtn />)
@@ -54,7 +54,7 @@ const GoogleProDefaultUserRole = () => {
 				{__("Select the role that will be assigned to new users who sign up", 'login-me-now')}
 			</p>
 		
-				<Listbox onChange={updateGoogleProDefaultUserRole}>
+				<Listbox disabled={isProAvailable ? false : true} onChange={updateGoogleProDefaultUserRole}>
 					
 					<Listbox.Button className="block w-full text-left h-[50px] p-3 mt-3 text-lg border !border-slate-200">
 						<span className="block truncate">{currentOption}</span>
