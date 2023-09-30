@@ -4,7 +4,7 @@ import { Radio, Select, Space } from 'antd';
 const options = ["About", "Contact"];
 
 const handleChange = (value) => {
-//   console.log(`Selected: ${value}`);
+  // console.log(`Selected: ${value}`);
 };
 
 const OneTapSelectTag = ({checkbox}) => {

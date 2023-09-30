@@ -77,7 +77,7 @@ export default function OneTapToLogin() {
     >
       <div className="flex justify-between items-start">
         <p className="mt-0 text-[22px] text-[#000000] tablet:w-full font-medium mb-8">
-          {__("Enable one tap login ", "login-me-now")}
+          {__("Enable one tap login", "login-me-now")}
         </p>
 
         <Switch
@@ -173,8 +173,7 @@ export default function OneTapToLogin() {
               </label>
             </div>
 
-            <GoogleProSelectedPages />
-            <OneTapSelectTag checkbox={checkbox} />
+            {checkbox &&<GoogleProSelectedPages />}
           </div>
         </div>
       )}
