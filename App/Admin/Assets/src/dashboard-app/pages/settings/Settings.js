@@ -82,7 +82,7 @@ const Settings = () => {
                       activeSettingsNavigationTab === item.slug
                         ? "border-lmn text-lmn focus:text-lmn-hover active:text-lmn hover:text-lmn-hover stroke-lmn fill-lmn focus:stroke-lmn focus:fill-lmn hover:stroke-lmn hover:fill-lmn"
                         : "border-white text-slate-800 stroke-slate-800 fill-slate-800 focus:text-slate-900 focus:border-slate-200 focus:stroke-slate-900 focus:fill-slate-900 hover:text-slate-900 hover:border-slate-200 hover:stroke-slate-900 hover:fill-slate-900",
-                      "border-l-4 group cursor-pointer py-3 pl-5 flex items-center text-base font-medium"
+                      "border-l-4 group cursor-pointer py-1 pl-5 flex items-center text-base font-medium"
                     )}
                     onClick={() => {
                       dispatch({
@@ -148,7 +148,7 @@ const Settings = () => {
                         activeSettingsNavigationTab === subItem.slug
                           ? "border-lmn text-lmn focus:text-lmn-hover active:text-lmn hover:text-lmn-hover stroke-lmn fill-lmn focus:stroke-lmn focus:fill-lmn hover:stroke-lmn hover:fill-lmn"
                           : "border-white text-slate-800 stroke-slate-800 fill-slate-800 focus:text-slate-900 focus:border-slate-200 focus:stroke-slate-900 focus:fill-slate-900 hover:text-slate-900 hover:border-slate-200 hover:stroke-slate-900 hover:fill-slate-900",
-                        "border-l-4 group cursor-pointer py-3 pl-9 flex items-center text-base font-medium"
+                        "border-l-4 group cursor-pointer py-1 pl-9 flex items-center text-base font-medium"
                       )}
                       onClick={() => {
                         dispatch({

@@ -80,7 +80,7 @@ const GoogleProDefaultUserRoleCopy = () => {
 			</div>
 			<p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
 				{__("By default user role is set as per", 'login-me-now')}
-				<span className='text-blue-400'>{__(" Settings > New User Default Role", 'login-me-now')}</span>
+				<span className='text-[#2271B1]'>{__(" Settings > New User Default Role", 'login-me-now')}</span>
 			</p>
 		</section>
 	);

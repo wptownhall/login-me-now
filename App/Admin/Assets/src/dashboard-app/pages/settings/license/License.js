@@ -35,7 +35,7 @@ const License = () => {
           {__('License', 'login-me-now')}
         </h3>
         <input onChange={updateLicense} className='block w-full h-[50px] !p-3 !border-slate-200' type='password' name='lmn_pro_lic' value={lmnProLic} placeholder='Enter your license here...' />
-        <span class="text-blue-400">
+        <span class="text-[#2271B1]">
           {__('Add your purchased license here for future updates', 'login-me-now')} 
         </span>
       </div>

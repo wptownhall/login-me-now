@@ -65,7 +65,7 @@ const GoogleCancelOnTapOutside = () => {
           onChange={updateStatus}
           className={classNames(
             enableGoogleCancelOnTapOutsideStatus ? "bg-lmn" : "bg-slate-200",
-            "group relative inline-flex h-4 w-9 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
+            "group relative inline-flex h-2 w-8 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
           )}
         >
           <span
@@ -76,7 +76,7 @@ const GoogleCancelOnTapOutside = () => {
             aria-hidden="true"
             className={classNames(
               enableGoogleCancelOnTapOutsideStatus ? "bg-lmn" : "bg-gray-200",
-              "pointer-events-none absolute mx-auto h-4 w-9 rounded-full transition-colors duration-200 ease-in-out"
+              "pointer-events-none absolute mx-auto h-4 w-7 rounded-full transition-colors duration-200 ease-in-out"
             )}
           />
           <span
@@ -85,7 +85,7 @@ const GoogleCancelOnTapOutside = () => {
               enableGoogleCancelOnTapOutsideStatus
                 ? "translate-x-5"
                 : "translate-x-0",
-              "toggle-bubble pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
+              "toggle-bubble pointer-events-none absolute left-0 inline-block h-4 w-4 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
             )}
           />
         </Switch>
