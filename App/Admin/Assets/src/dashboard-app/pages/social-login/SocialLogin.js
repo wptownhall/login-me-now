@@ -63,7 +63,7 @@ const SocialLogin = () => {
       </div>
       <main className="mx-auto my-[2.43rem] bg-white rounded-md shadow overflow-hidden min-h-[36rem] lg:max-w-[80rem]">
         <div className="lg:grid lg:grid-cols-12 min-h-[36rem] h-full">
-          <aside className="py-6 sm:px-6 lg:py-6 lg:px-0 lg:col-span-3">
+          <aside className="py-6 sm:px-6 lg:py-6 lg:px-0 lg:col-span-2">
             <nav className="space-y-1">
               {navigation.map((item) => (
                 <>
@@ -77,7 +77,7 @@ const SocialLogin = () => {
                       activeSocialLoginNavigationTab === item.slug
                         ? "border-lmn text-lmn focus:text-lmn-hover active:text-lmn hover:text-lmn-hover stroke-lmn fill-lmn focus:stroke-lmn focus:fill-lmn hover:stroke-lmn hover:fill-lmn"
                         : "border-white text-slate-800 stroke-slate-800 fill-slate-800 focus:text-slate-900 focus:border-slate-200 focus:stroke-slate-900 focus:fill-slate-900 hover:text-slate-900 hover:border-slate-200 hover:stroke-slate-900 hover:fill-slate-900",
-                      "border-l-4 group cursor-pointer py-1 pl-5 flex items-center text-base font-medium"
+                      "border-l-4 group cursor-pointer py-3 pl-5 flex items-center text-base font-medium"
                     )}
                     onClick={() => {
                       dispatch({
@@ -143,7 +143,7 @@ const SocialLogin = () => {
                         activeSocialLoginNavigationTab === subItem.slug
                           ? "border-lmn text-lmn focus:text-lmn-hover active:text-lmn hover:text-lmn-hover stroke-lmn fill-lmn focus:stroke-lmn focus:fill-lmn hover:stroke-lmn hover:fill-lmn"
                           : "border-white text-slate-800 stroke-slate-800 fill-slate-800 focus:text-slate-900 focus:border-slate-200 focus:stroke-slate-900 focus:fill-slate-900 hover:text-slate-900 hover:border-slate-200 hover:stroke-slate-900 hover:fill-slate-900",
-                        "border-l-4 group cursor-pointer py-1 pl-9 flex items-center text-base font-medium"
+                        "border-l-4 group cursor-pointer py-3 pl-9 flex items-center text-base font-medium"
                       )}
                       onClick={() => {
                         dispatch({

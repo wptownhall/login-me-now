@@ -56,7 +56,7 @@ const GoogleProDefaultUserRole = () => {
 		
 				<Listbox disabled={isProAvailable ? false : true} onChange={updateGoogleProDefaultUserRole}>
 					
-					<Listbox.Button className="block w-full text-left h-[50px] p-3 mt-3 text-lg border !border-slate-200">
+					<Listbox.Button className="block w-full text-left h-[50px] pl-3 pr-0 py-0 mt-3 text-lg border !border-slate-200">
 						<span className="block truncate">{currentOption}</span>
 						<span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
 							<ChevronDownIcon className="h-5 w-5" aria-hidden="true" />

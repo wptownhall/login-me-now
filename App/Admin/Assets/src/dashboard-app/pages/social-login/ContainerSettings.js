@@ -53,7 +53,7 @@ const ContainerSettings = () => {
   // Parent Div is Required to add Padding to the Entire Structure for Smaller Windows.
   return (
     <>
-      <div className="lg:col-span-9 border-l px-14">
+      <div className="lg:col-span-10 border-l px-14">
         {wp.hooks.applyFilters(
           `login_me_now_dashboard.settings_screen_before_${activeSocialLoginNavigationTab}`,
           <span />

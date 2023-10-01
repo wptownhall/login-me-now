@@ -58,29 +58,16 @@ const GoogleProSelectedPages = () => {
   const arrayPages = Array.from(pages)
 
   const selectedPageValues = selectedPages.map((page) => page.name);
-  console.log(selectedPageValues)
 
   return (
     <section
       className={`${
         enableGoogleLoginStatus ? "block" : "hidden"
-      } block border-b border-solid border-slate-200 py-12 justify-between`}
+      }`}
     >
-      <div className="mr-16 w-full items-center pr-[10%]">
-        <h3 className="mb-6 p-0 flex-1 justify-right inline-flex text-[22px] leading-6 font-semibold text-slate-800">
-          {__("Exclude one tap prompt for", "login-me-now")}
-          {!lmn_admin.pro_available ? <ProBtn /> : ""}
-        </h3>
-
-        {/* <Multiselect
-          options={allPages}
-          selectedValues={selectedPages}
-          onSelect={updateGoogleProExcludePage}
-          onRemove={updateGoogleProExcludePage}
-          displayValue="name"
-          className={`mt-3 ${!isProAvailable && "pointer-events-none"}`}
-        /> */}
+      <div className="w-full items-center">
         <Select
+          className="antd-selector"
           mode="tags"
           size="middle"
           placeholder="Please select"
@@ -93,12 +80,6 @@ const GoogleProSelectedPages = () => {
           options={arrayPages}
         />
       </div>
-      <p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
-        {__(
-          "Select for which pages one tap prompt won't display",
-          "login-me-now"
-        )}
-      </p>
     </section>
   );
 };
