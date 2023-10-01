@@ -1,22 +1,23 @@
-import React from "react";
-import { Select, Space } from "antd";
-import { useDispatch, useSelector } from "react-redux";
 import { __ } from "@wordpress/i18n";
+import { useSelector, useDispatch } from "react-redux";
+import Multiselect from "multiselect-react-dropdown";
 import apiFetch from "@wordpress/api-fetch";
 import ProBtn from "./components/ProBtn";
+import React, { useState } from 'react';
+import { Radio, Select, Space } from 'antd';
 
-function GoogleProSelectedPages() {
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+const GoogleProSelectedPages = () => {
   const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
   const enableGoogleLoginStatus = false === enableGoogleLogin ? false : true;
   const dispatch = useDispatch();
 
-  const selectedIDs = useSelector(
-    (state) => state.selectGoogleProSelectedPages
-  );
+  const selectedIDs = useSelector((state) => state.selectGoogleProSelectedPages);
   const isProAvailable = lmn_admin.pro_available ? true : false;
   const allPages = useSelector((state) => state.getPages);
-
-
 
   let selectedPages;
   if (selectedIDs && selectedIDs.length > 0) {
@@ -24,30 +25,21 @@ function GoogleProSelectedPages() {
   } else {
     selectedPages = [];
   }
-  const updatedSelectedPages = selectedPages.map((page) => {
-    return page.name
-  })
 
-  console.log("test: ", selectedPages)
-
-  const updateGoogleProExcludePage = (selectedPages, value) => {
-    const options = allPages;
-    // console.log(`Selected: ${JSON.stringify(value)}`);
-
-    const ids = selectedPages.map((page) => {
-      return parseInt(page)
-    })
-
-    dispatch({ type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_PAGES", payload: ids });
-
+  const updateGoogleProExcludePage = (selectedPageValues) => {
+    // Convert selected page names back to IDs
+    const selectedIDs = allPages
+      .filter((page) => selectedPageValues.includes(page.name))
+      .map((page) => page.id);
+  
+    dispatch({ type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_PAGES", payload: selectedIDs });
+  
     const formData = new window.FormData();
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
     formData.append("key", "google_pro_selected_pages");
-    formData.append("value", ids);
-
-    console.log("Id: ", ids)
-
+    formData.append("value", selectedIDs);
+  
     apiFetch({
       url: lmn_admin.ajax_url,
       method: "POST",
@@ -60,47 +52,55 @@ function GoogleProSelectedPages() {
     });
   };
 
+  // antd code
+
+  const pages = allPages.map(option => ({ label: option.name, value: option.name }))
+  const arrayPages = Array.from(pages)
+
+  const selectedPageValues = selectedPages.map((page) => page.name);
+  console.log(selectedPageValues)
+
   return (
     <section
       className={`${
         enableGoogleLoginStatus ? "block" : "hidden"
-      }`}
+      } block border-b border-solid border-slate-200 py-12 justify-between`}
     >
       <div className="mr-16 w-full items-center pr-[10%]">
+        <h3 className="mb-6 p-0 flex-1 justify-right inline-flex text-[22px] leading-6 font-semibold text-slate-800">
+          {__("Exclude one tap prompt for", "login-me-now")}
+          {!lmn_admin.pro_available ? <ProBtn /> : ""}
+        </h3>
 
-        <div>
-          <Space
-            direction="vertical"
-            style={{
-              width: "100%",
-            }}
-          >
-            <Select
-              defaultValue={updatedSelectedPages}
-              className={`mt-3 ${!isProAvailable && "pointer-events-none"}`}
-              mode="tags"
-              size="middle"
-              placeholder="Please select"
-              onChange={updateGoogleProExcludePage}
-              style={{
-                width: "100%",
-              }}
-            >
-              {/* Map your options properly */}
-              {allPages.map((option) => (
-                <Select.Option
-                  key={option.id.toString()}
-                  value={option.id.toString()}
-                >
-                  {option.name}
-                </Select.Option>
-              ))}
-            </Select>
-          </Space>
-        </div>
+        {/* <Multiselect
+          options={allPages}
+          selectedValues={selectedPages}
+          onSelect={updateGoogleProExcludePage}
+          onRemove={updateGoogleProExcludePage}
+          displayValue="name"
+          className={`mt-3 ${!isProAvailable && "pointer-events-none"}`}
+        /> */}
+        <Select
+          mode="tags"
+          size="middle"
+          placeholder="Please select"
+          defaultValue={selectedPageValues}
+          onChange={updateGoogleProExcludePage}
+          style={{
+            width: '100%',
+          }}
+          
+          options={arrayPages}
+        />
       </div>
+      <p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
+        {__(
+          "Select for which pages one tap prompt won't display",
+          "login-me-now"
+        )}
+      </p>
     </section>
   );
-}
+};
 
 export default GoogleProSelectedPages;

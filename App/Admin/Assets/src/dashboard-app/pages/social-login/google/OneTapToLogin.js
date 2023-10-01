@@ -174,6 +174,7 @@ export default function OneTapToLogin() {
             </div>
 
             {checkbox &&<GoogleProSelectedPages />}
+            {checkbox &&<OneTapSelectTag />}
           </div>
         </div>
       )}
