@@ -39,7 +39,8 @@ gulp.task('zip', function () {
 			'!App/Admin/postcss.config.js',
 			'!App/Admin/tailwind.config.js',
 			'!App/Admin/webpack.config.js',
-			'!testing.html'
+			'!testing.html',
+			'!Tests'
 		], { base: '..' })
 	.pipe(zip(project.name+'.zip'))
 	.pipe(gulp.dest('__build'));

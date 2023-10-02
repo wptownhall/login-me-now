@@ -20,7 +20,7 @@ class FacebookLogin extends ModuleBase {
 	public function setup(): void{
 		Enqueuer::init();
 		// Authenticate::init();
-		// LoginButton::init();
+		// Button::init();
 		// OneTap::init();
 	}
 }

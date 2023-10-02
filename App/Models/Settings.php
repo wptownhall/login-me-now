@@ -17,15 +17,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Settings {
 	use Singleton;
 
-	private string $option_name = 'login_me_now_admin_settings';
-	private array $settings;
+	private static string $option_name = 'login_me_now_admin_settings';
+	private static array $settings;
 
 	public function __construct() {
-		$this->settings = get_option( $this->option_name, [] );
+		self::$settings = get_option( self::$option_name, [] );
 	}
 
-	public function get_all(): array{
-		$db_option = get_option( $this->option_name, [] );
+	public function get_all(): array {
+		$db_option = get_option( self::$option_name, [] );
 
 		$defaults = apply_filters(
 			'login_me_now_dashboard_rest_options',
@@ -53,11 +53,14 @@ class Settings {
 	}
 
 	public function get( string $key, $default = null ) {
-		return $this->settings[$key] ?? $default;
+		self::$settings = get_option( self::$option_name, [] );
+
+		return self::$settings[$key] ?? $default;
 	}
 
 	public function update( string $key, $value ): void {
-		$this->settings[$key] = $value;
-		update_option( $this->option_name, $this->settings );
+		self::$settings       = get_option( self::$option_name, [] );
+		self::$settings[$key] = $value;
+		update_option( self::$option_name, self::$settings );
 	}
 }

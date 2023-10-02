@@ -11,7 +11,7 @@ use LoginMeNow\Model\Settings;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
 
-class LoginButton {
+class Button {
 	use Singleton;
 	use Hookable;
 
