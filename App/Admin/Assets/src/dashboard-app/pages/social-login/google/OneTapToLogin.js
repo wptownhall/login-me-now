@@ -15,70 +15,32 @@ export default function OneTapToLogin() {
   const dispatch = useDispatch();
   const [checkbox, setCheckbox] = useState();
 
-  // my code start from here
-
-  const handleCheckboxChange1 = (e) => {
-    updateLocation()
-    setCheckbox(false);
-    dispatch({
-      type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION",
-      payload: "loginScreen",
-    });
-  };
-
-  const handleCheckboxChange2 = (e) => {
-    updateLocation()
-    setCheckbox(false);
-    dispatch({
-      type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION",
-      payload: "siteWide",
-    });
-  };
-
-  const handleCheckboxChange3 = (e) => {
-    updateLocation()
-    setCheckbox(true);
-    dispatch({
-      type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION",
-      payload: "specificPage",
-    });
-  };
-
   const globalStates = useSelector((state) => state);
   const locationState = globalStates.selectGoogleProSelectedLocation;
   const enableGoogleLoginSelectLocation =
     globalStates.enableGoogleLoginSelectLocation;
-    console.log(globalStates)
+
+  console.log(globalStates);
 
   const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
   const enableGoogleLoginStatus = enableGoogleLogin === false ? false : true;
 
   const isProAvailable = lmn_admin.pro_available ? true : false;
 
-  const enableGoogleLoginSelectLocationStatus =
-    false === enableGoogleLoginSelectLocation ? false : true;
-
-  const updateLocation = () => {
-    console.log("Clicked");
-    let locationStateStatus;
-    if (enableGoogleLoginSelectLocation === false) {
-      locationStateStatus = true;
-    } else {
-      locationStateStatus = false;
-    }
-    console.log("status", locationStateStatus);
+  const handleLocationChange = (payload) => {
+    payload === "specificPage" ? setCheckbox(true) : setCheckbox(false);
+    console.log("payload", payload);
 
     dispatch({
-      type: "UPDATE_ENABLE_LOGIN_SELECT_LOCATION",
-      payload: locationStateStatus,
+      type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION",
+      payload: payload,
     });
-
     const formData = new window.FormData();
 
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
     formData.append("key", "google_login_select_location");
-    formData.append("value", locationStateStatus);
+    formData.append("value", payload);
 
     apiFetch({
       url: lmn_admin.ajax_url,
@@ -104,7 +66,6 @@ export default function OneTapToLogin() {
     false === enableGoogleCancelOnTapOutside ? false : true;
 
   const updateStatus = () => {
-    console.log("status clicked");
     let assetStatus;
     if (enableGoogleCancelOnTapOutside === false) {
       assetStatus = true;
@@ -187,7 +148,7 @@ export default function OneTapToLogin() {
             <div class="flex items-center mb-4">
               <input
                 id="loginScreen"
-                onChange={handleCheckboxChange1}
+                onChange={() => handleLocationChange("loginScreen")}
                 type="radio"
                 value=""
                 name="options"
@@ -204,7 +165,7 @@ export default function OneTapToLogin() {
             <div class="flex items-center mb-4">
               <input
                 id="siteWide"
-                onChange={handleCheckboxChange2}
+                onChange={() => handleLocationChange("siteWide")}
                 type="radio"
                 value=""
                 name="options"
@@ -225,7 +186,7 @@ export default function OneTapToLogin() {
             >
               <input
                 id="specificPage"
-                onChange={handleCheckboxChange3}
+                onChange={() => handleLocationChange("specificPage")}
                 type="radio"
                 value=""
                 name="options"
