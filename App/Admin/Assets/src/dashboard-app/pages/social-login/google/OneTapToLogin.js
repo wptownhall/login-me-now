@@ -22,9 +22,6 @@ export default function OneTapToLogin() {
 
   console.log(globalStates);
 
-  const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
-  const enableGoogleLoginStatus = enableGoogleLogin === false ? false : true;
-
   const isProAvailable = lmn_admin.pro_available ? true : false;
 
   const handleLocationChange = (payload) => {
@@ -60,10 +57,14 @@ export default function OneTapToLogin() {
 
   // my code end from here
 
-  const enableGoogleCancelOnTapOutside = useSelector((state) => state);
-
+  const enableGoogleCancelOnTapOutside = useSelector(
+    (state) => state.enableGoogleCancelOnTapOutside
+  );
   const enableGoogleCancelOnTapOutsideStatus =
     false === enableGoogleCancelOnTapOutside ? false : true;
+
+  const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
+  const enableGoogleLoginStatus = false === enableGoogleLogin ? false : true;
 
   const updateStatus = () => {
     let assetStatus;
