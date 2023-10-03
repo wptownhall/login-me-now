@@ -13,94 +13,98 @@ function classNames(...classes) {
 
 export default function OneTapToLogin() {
   const dispatch = useDispatch();
-  const [checkbox, setCheckbox] = useState()
+  const [checkbox, setCheckbox] = useState();
 
-  // my code start from here 
+  // my code start from here
+
   const handleCheckboxChange1 = (e) => {
+    updateLocation()
     setCheckbox(false);
     dispatch({
-      type: 'UPDATE_ENABLE_LOGIN_SELECT_LOCATION',
+      type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION",
       payload: "loginScreen",
     });
   };
-  
+
   const handleCheckboxChange2 = (e) => {
+    updateLocation()
     setCheckbox(false);
     dispatch({
-      type: 'UPDATE_ENABLE_LOGIN_SELECT_LOCATION',
+      type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION",
       payload: "siteWide",
     });
   };
-  
+
   const handleCheckboxChange3 = (e) => {
+    updateLocation()
     setCheckbox(true);
     dispatch({
-      type: 'UPDATE_ENABLE_LOGIN_SELECT_LOCATION',
+      type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION",
       payload: "specificPage",
     });
   };
 
-  const enableGoogleLoginSelectLocation = useSelector(
-    (state) => state
-  );
-  const locationState = enableGoogleLoginSelectLocation.enableGoogleLoginSelectLocation
-  console.log(locationState) //location state come from useSelector, here is the value
+  const globalStates = useSelector((state) => state);
+  const locationState = globalStates.selectGoogleProSelectedLocation;
+  const enableGoogleLoginSelectLocation =
+    globalStates.enableGoogleLoginSelectLocation;
+    console.log(globalStates)
 
   const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
   const enableGoogleLoginStatus = enableGoogleLogin === false ? false : true;
 
   const isProAvailable = lmn_admin.pro_available ? true : false;
 
+  const enableGoogleLoginSelectLocationStatus =
+    false === enableGoogleLoginSelectLocation ? false : true;
 
   const updateLocation = () => {
-    // let location;
-    // if (enableGoogleLoginSelectLocation === false) {
-    //   location = true;
-    // console.log(enableGoogleLoginSelectLocation)
-    // } else {
-    //   location = false;
-    // }
+    console.log("Clicked");
+    let locationStateStatus;
+    if (enableGoogleLoginSelectLocation === false) {
+      locationStateStatus = true;
+    } else {
+      locationStateStatus = false;
+    }
+    console.log("status", locationStateStatus);
 
     dispatch({
       type: "UPDATE_ENABLE_LOGIN_SELECT_LOCATION",
-      payload: location,
+      payload: locationStateStatus,
     });
-
 
     const formData = new window.FormData();
 
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
     formData.append("key", "google_login_select_location");
-    formData.append("value", locationState);
+    formData.append("value", locationStateStatus);
 
     apiFetch({
       url: lmn_admin.ajax_url,
-      method: 'POST',
+      method: "POST",
       body: formData,
     })
       .then(() => {
         dispatch({
-          type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
-          payload: 'Successfully saved!',
+          type: "UPDATE_SETTINGS_SAVED_NOTIFICATION",
+          payload: "Successfully saved!",
         });
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
-    
   };
-
 
   // my code end from here
 
-  const enableGoogleCancelOnTapOutside = useSelector(
-    (state) => state.enableGoogleCancelOnTapOutside
-  );
+  const enableGoogleCancelOnTapOutside = useSelector((state) => state);
+
   const enableGoogleCancelOnTapOutsideStatus =
     false === enableGoogleCancelOnTapOutside ? false : true;
 
   const updateStatus = () => {
+    console.log("status clicked");
     let assetStatus;
     if (enableGoogleCancelOnTapOutside === false) {
       assetStatus = true;
@@ -131,7 +135,6 @@ export default function OneTapToLogin() {
       });
     });
   };
-
   return (
     <div
       className={`${
@@ -145,7 +148,7 @@ export default function OneTapToLogin() {
 
         <Switch
           checked={enableGoogleCancelOnTapOutsideStatus}
-          onChange={updateStatus || updateLocation}
+          onChange={updateStatus}
           className={classNames(
             enableGoogleCancelOnTapOutsideStatus ? "bg-lmn" : "bg-slate-200",
             "group relative inline-flex h-2 w-8 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"

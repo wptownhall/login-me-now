@@ -75,7 +75,7 @@ const globalDataReducer = (state = {}, action) => {
 		case 'UPDATE_ENABLE_CANCEL_ON_TAP_OUTSIDE':
 			return {
 				...state,
-				enableGoogleLoginSelectLocation: action.payload,
+				enableGoogleCancelOnTapOutside: action.payload,
 			};
 		case 'UPDATE_ENABLE_LOGIN_SELECT_LOCATION':
 			return {
