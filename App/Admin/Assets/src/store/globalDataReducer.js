@@ -75,7 +75,12 @@ const globalDataReducer = (state = {}, action) => {
 		case 'UPDATE_ENABLE_CANCEL_ON_TAP_OUTSIDE':
 			return {
 				...state,
-				enableGoogleCancelOnTapOutside: action.payload,
+				enableGoogleLoginSelectLocation: action.payload,
+			};
+		case 'UPDATE_ENABLE_LOGIN_SELECT_LOCATION':
+			return {
+				...state,
+				enableGoogleLoginSelectLocation: action.payload,
 			};
 		
 		case 'UPDATE_SELECT_GOOGLE_PRO_DEFAULT_USER_ROLE':
@@ -87,6 +92,11 @@ const globalDataReducer = (state = {}, action) => {
 			return {
 				...state,
 				selectGoogleProSelectedPages: action.payload,
+			};
+		case 'UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION':
+			return {
+				...state,
+				selectGoogleProSelectedLocation: action.payload,
 			};
 		case 'UPDATE_INPUT_GOOGLE_PRO_REDIRECT_URL':
 			return {

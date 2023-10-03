@@ -12,30 +12,93 @@ function classNames(...classes) {
 }
 
 export default function OneTapToLogin() {
-  const [checkbox, setCheckbox] = useState(false);
+  const dispatch = useDispatch();
+  const [checkbox, setCheckbox] = useState()
+
+  // my code start from here 
+  const handleCheckboxChange1 = (e) => {
+    setCheckbox(false);
+    dispatch({
+      type: 'UPDATE_ENABLE_LOGIN_SELECT_LOCATION',
+      payload: "loginScreen",
+    });
+  };
+  
+  const handleCheckboxChange2 = (e) => {
+    setCheckbox(false);
+    dispatch({
+      type: 'UPDATE_ENABLE_LOGIN_SELECT_LOCATION',
+      payload: "siteWide",
+    });
+  };
+  
+  const handleCheckboxChange3 = (e) => {
+    setCheckbox(true);
+    dispatch({
+      type: 'UPDATE_ENABLE_LOGIN_SELECT_LOCATION',
+      payload: "specificPage",
+    });
+  };
+
+  const enableGoogleLoginSelectLocation = useSelector(
+    (state) => state
+  );
+  const locationState = enableGoogleLoginSelectLocation.enableGoogleLoginSelectLocation
+  console.log(locationState) //location state come from useSelector, here is the value
+
+  const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
+  const enableGoogleLoginStatus = enableGoogleLogin === false ? false : true;
 
   const isProAvailable = lmn_admin.pro_available ? true : false;
 
-  const handleCheckboxChange1 = () => {
-    setCheckbox(false);
-  };
-  const handleCheckboxChange2 = () => {
-    setCheckbox(false);
-  };
-  const handleCheckboxChange3 = () => {
-    setCheckbox(true);
+
+  const updateLocation = () => {
+    // let location;
+    // if (enableGoogleLoginSelectLocation === false) {
+    //   location = true;
+    // console.log(enableGoogleLoginSelectLocation)
+    // } else {
+    //   location = false;
+    // }
+
+    dispatch({
+      type: "UPDATE_ENABLE_LOGIN_SELECT_LOCATION",
+      payload: location,
+    });
+
+
+    const formData = new window.FormData();
+
+    formData.append("action", "login_me_now_update_admin_setting");
+    formData.append("security", lmn_admin.update_nonce);
+    formData.append("key", "google_login_select_location");
+    formData.append("value", locationState);
+
+    apiFetch({
+      url: lmn_admin.ajax_url,
+      method: 'POST',
+      body: formData,
+    })
+      .then(() => {
+        dispatch({
+          type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
+          payload: 'Successfully saved!',
+        });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    
   };
 
-  const dispatch = useDispatch();
+
+  // my code end from here
 
   const enableGoogleCancelOnTapOutside = useSelector(
     (state) => state.enableGoogleCancelOnTapOutside
   );
   const enableGoogleCancelOnTapOutsideStatus =
     false === enableGoogleCancelOnTapOutside ? false : true;
-
-  const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
-  const enableGoogleLoginStatus = false === enableGoogleLogin ? false : true;
 
   const updateStatus = () => {
     let assetStatus;
@@ -82,7 +145,7 @@ export default function OneTapToLogin() {
 
         <Switch
           checked={enableGoogleCancelOnTapOutsideStatus}
-          onChange={updateStatus}
+          onChange={updateStatus || updateLocation}
           className={classNames(
             enableGoogleCancelOnTapOutsideStatus ? "bg-lmn" : "bg-slate-200",
             "group relative inline-flex h-2 w-8 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
@@ -127,7 +190,10 @@ export default function OneTapToLogin() {
                 name="options"
                 class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
               />
-              <label for="loginScreen" class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
+              <label
+                for="loginScreen"
+                class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
+              >
                 Only on login screen
               </label>
             </div>
@@ -141,7 +207,10 @@ export default function OneTapToLogin() {
                 name="options"
                 class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
               />
-              <label for="siteWide" class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]">
+              <label
+                for="siteWide"
+                class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
+              >
                 Site wide
               </label>
             </div>
@@ -159,7 +228,8 @@ export default function OneTapToLogin() {
                 name="options"
                 class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
               />
-              <label for="specificPage"
+              <label
+                for="specificPage"
                 class={`ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344] ${
                   isProAvailable === false ? "opacity-40" : ""
                 }`}
@@ -173,8 +243,8 @@ export default function OneTapToLogin() {
               </label>
             </div>
 
-            {checkbox &&<GoogleProSelectedPages />}
-            {checkbox &&<OneTapSelectTag />}
+            {checkbox && <GoogleProSelectedPages />}
+            {checkbox && <OneTapSelectTag />}
           </div>
         </div>
       )}

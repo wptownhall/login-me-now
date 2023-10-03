@@ -19,8 +19,10 @@ const initialState = wp.hooks.applyFilters('login_me_now_dashboard/datastore', {
 	enableGoogleUpdateExistingUserData: true,
 	enableGoogleUpdateExistingUserAvatar: true,
 	enableGoogleCancelOnTapOutside: true,
+	enableGoogleLoginSelectLocation: true,
 	
 	selectGoogleProSelectedPages: [],
+	enableGoogleLoginSelectLocation: [],
 	selectGoogleProDefaultUserRole: 'subscriber',
 	inputGoogleProRedirectUrl: '',
 
