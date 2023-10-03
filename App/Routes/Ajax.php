@@ -48,6 +48,7 @@ class Ajax {
 				'google_native_login'              => 'bool',
 				'google_update_existing_user_data' => 'bool',
 				'google_cancel_on_tap_outside'     => 'bool',
+				'google_onetap_display_location'   => 'string',
 			]
 		);
 	}

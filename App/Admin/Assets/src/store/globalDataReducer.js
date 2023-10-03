@@ -96,7 +96,7 @@ const globalDataReducer = (state = {}, action) => {
 		case 'UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION':
 			return {
 				...state,
-				selectGoogleProSelectedLocation: action.payload,
+				selectGoogleSelectedLocation: action.payload,
 			};
 		case 'UPDATE_INPUT_GOOGLE_PRO_REDIRECT_URL':
 			return {

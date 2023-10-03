@@ -41,6 +41,7 @@ class Settings {
 				'google_update_existing_user_data' => false,
 				'google_pro_user_avatar'           => false,
 				'google_cancel_on_tap_outside'     => false,
+				'google_onetap_display_location'   => 'siteWide',
 
 				'get_user_roles'                   => Helper::get_user_roles(),
 				'get_pages'                        => Helper::get_pages(), // #Improvement Needed

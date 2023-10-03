@@ -25,9 +25,9 @@ const setInitialState = (store) => {
 			enableGoogleUpdateExistingUserData: data.google_update_existing_user_data,
 			enableGoogleUpdateExistingUserAvatar: data.google_pro_user_avatar,
 			enableGoogleCancelOnTapOutside: data.google_cancel_on_tap_outside,
+			selectGoogleSelectedLocation: data.google_onetap_display_location,
 
 			enableGoogleLoginSelectLocation: data.google_login_select_location || true,
-			selectGoogleProSelectedLocation: data.google_pro_selected_location,
 			selectGoogleProDefaultUserRole: data.google_pro_default_user_role,
 			inputGoogleProRedirectUrl: data.google_pro_redirect_url,
 

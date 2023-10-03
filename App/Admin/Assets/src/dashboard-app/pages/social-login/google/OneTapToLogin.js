@@ -16,17 +16,15 @@ export default function OneTapToLogin() {
   const [checkbox, setCheckbox] = useState();
 
   const globalStates = useSelector((state) => state);
-  const locationState = globalStates.selectGoogleProSelectedLocation;
+  const locationState = globalStates.selectGoogleSelectedLocation;
   const enableGoogleLoginSelectLocation =
     globalStates.enableGoogleLoginSelectLocation;
-
-  console.log(globalStates);
 
   const isProAvailable = lmn_admin.pro_available ? true : false;
 
   const handleLocationChange = (payload) => {
     payload === "specificPage" ? setCheckbox(true) : setCheckbox(false);
-    console.log("payload", payload);
+    console.log(payload);
 
     dispatch({
       type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION",
@@ -36,7 +34,7 @@ export default function OneTapToLogin() {
 
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
-    formData.append("key", "google_login_select_location");
+    formData.append("key", "google_onetap_display_location");
     formData.append("value", payload);
 
     apiFetch({
