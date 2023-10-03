@@ -15,11 +15,6 @@ export default function OneTapToLogin() {
   const dispatch = useDispatch();
   const [checkbox, setCheckbox] = useState();
 
-  const globalStates = useSelector((state) => state);
-  const locationState = globalStates.selectGoogleSelectedLocation;
-  const enableGoogleLoginSelectLocation =
-    globalStates.enableGoogleLoginSelectLocation;
-
   const isProAvailable = lmn_admin.pro_available ? true : false;
 
   const handleLocationChange = (payload) => {
@@ -55,25 +50,23 @@ export default function OneTapToLogin() {
 
   // my code end from here
 
-  const enableGoogleCancelOnTapOutside = useSelector(
-    (state) => state.enableGoogleCancelOnTapOutside
+  const enableGoogleOneTap = useSelector(
+    (state) => state.enableGoogleOneTap
   );
-  const enableGoogleCancelOnTapOutsideStatus =
-    false === enableGoogleCancelOnTapOutside ? false : true;
-
+  const enableGoogleOneTapStatus = false === enableGoogleOneTap ? false : true;
   const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
   const enableGoogleLoginStatus = false === enableGoogleLogin ? false : true;
 
   const updateStatus = () => {
     let assetStatus;
-    if (enableGoogleCancelOnTapOutside === false) {
+    if (enableGoogleOneTap === false) {
       assetStatus = true;
     } else {
       assetStatus = false;
     }
 
     dispatch({
-      type: "UPDATE_ENABLE_CANCEL_ON_TAP_OUTSIDE",
+      type: "UPDATE_ENABLE_GOOGLE_ONETAP",
       payload: assetStatus,
     });
 
@@ -81,7 +74,7 @@ export default function OneTapToLogin() {
 
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
-    formData.append("key", "google_cancel_on_tap_outside");
+    formData.append("key", "google_onetap");
     formData.append("value", assetStatus);
 
     apiFetch({
@@ -107,10 +100,10 @@ export default function OneTapToLogin() {
         </p>
 
         <Switch
-          checked={enableGoogleCancelOnTapOutsideStatus}
+          checked={enableGoogleOneTapStatus}
           onChange={updateStatus}
           className={classNames(
-            enableGoogleCancelOnTapOutsideStatus ? "bg-lmn" : "bg-slate-200",
+            enableGoogleOneTapStatus ? "bg-lmn" : "bg-slate-200",
             "group relative inline-flex h-2 w-8 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
           )}
         >
@@ -121,14 +114,14 @@ export default function OneTapToLogin() {
           <span
             aria-hidden="true"
             className={classNames(
-              enableGoogleCancelOnTapOutsideStatus ? "bg-lmn" : "bg-gray-200",
+              enableGoogleOneTapStatus ? "bg-lmn" : "bg-gray-200",
               "pointer-events-none absolute mx-auto h-4 w-7 rounded-full transition-colors duration-200 ease-in-out"
             )}
           />
           <span
             aria-hidden="true"
             className={classNames(
-              enableGoogleCancelOnTapOutsideStatus
+              enableGoogleOneTapStatus
                 ? "translate-x-5"
                 : "translate-x-0",
               "toggle-bubble pointer-events-none absolute left-0 inline-block h-4 w-4 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
@@ -136,7 +129,7 @@ export default function OneTapToLogin() {
           />
         </Switch>
       </div>
-      {enableGoogleCancelOnTapOutsideStatus && (
+      {enableGoogleOneTapStatus && (
         <div className="flex pr-[10%]">
           <div className="w-[30%]">
             <p className="w-9/12 text-[18px] text-[#000000] tablet:w-full font-medium">

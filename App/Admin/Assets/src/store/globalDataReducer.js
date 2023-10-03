@@ -88,6 +88,13 @@ const globalDataReducer = (state = {}, action) => {
 				...state,
 				selectGoogleProDefaultUserRole: action.payload,
 			};
+
+		case 'UPDATE_ENABLE_GOOGLE_ONETAP':
+			return {
+				...state,
+				enableGoogleOnTap: action.payload,
+			};
+
 		case 'UPDATE_SELECT_GOOGLE_PRO_SELECTED_PAGES':
 			return {
 				...state,
