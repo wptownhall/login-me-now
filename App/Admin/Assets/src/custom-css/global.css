@@ -159,8 +159,7 @@ body.active-modal {
   animation-delay: 0.5s;
 }
 /* ant design custom css */
-.ant-select-multiple
-  .ant-select-selection-item {
+.ant-select-multiple .ant-select-selection-item {
   background: #2271b1 !important;
   color: white !important;
   font-size: 16px !important;
@@ -170,13 +169,11 @@ body.active-modal {
   border-color: #2271b1;
   margin-top: 16px;
 }
-.ant-select-multiple
-  .ant-select-selection-item {
+.ant-select-multiple .ant-select-selection-item {
   height: 32px;
   line-height: 30px;
 }
-.ant-select-multiple
-  .ant-select-selection-item-remove {
+.ant-select-multiple .ant-select-selection-item-remove {
   color: white;
   border: 1px solid white;
   border-radius: 100%;
@@ -199,14 +196,16 @@ input[type="radio"]:checked::before {
   border-radius: 50%;
   width: 14px;
   height: 14px;
-  margin: 0!important;
+  margin: 0 !important;
 }
-input#siteWide, input#loginScreen, input#specificPage {
-  height: 20px!important;
-  width: 20px!important;
-  display: flex!important;
-  justify-content: center!important;
-  align-items: center!important;
+input#siteWide,
+input#loginScreen,
+input#specificPage {
+  height: 20px !important;
+  width: 20px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 @keyframes dot-pulse-before {
