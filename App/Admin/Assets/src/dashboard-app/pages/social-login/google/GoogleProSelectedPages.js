@@ -53,7 +53,6 @@ const GoogleProSelectedPages = () => {
   };
 
   // antd code
-
   const pages = allPages.map(option => ({ label: option.name, value: option.name }))
   const arrayPages = Array.from(pages)
 

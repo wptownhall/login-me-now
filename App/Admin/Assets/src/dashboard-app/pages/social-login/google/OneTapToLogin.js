@@ -49,12 +49,9 @@ export default function OneTapToLogin() {
   };
 
   // my code end from here
-  const location = useSelector((state) => state.selectGoogleSelectedLocation)
-  console.log("State: ", location)
+  const location = useSelector((state) => state.selectGoogleSelectedLocation);
 
-  const enableGoogleOneTap = useSelector(
-    (state) => state.enableGoogleOneTap
-  );
+  const enableGoogleOneTap = useSelector((state) => state.enableGoogleOneTap);
   const enableGoogleOneTapStatus = false === enableGoogleOneTap ? false : true;
   const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
   const enableGoogleLoginStatus = false === enableGoogleLogin ? false : true;
@@ -123,9 +120,7 @@ export default function OneTapToLogin() {
           <span
             aria-hidden="true"
             className={classNames(
-              enableGoogleOneTapStatus
-                ? "translate-x-5"
-                : "translate-x-0",
+              enableGoogleOneTapStatus ? "translate-x-5" : "translate-x-0",
               "toggle-bubble pointer-events-none absolute left-0 inline-block h-4 w-4 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
             )}
           />
@@ -204,7 +199,13 @@ export default function OneTapToLogin() {
               </label>
             </div>
 
-            {checkbox && <GoogleProSelectedPages />}
+            {checkbox === true ? (
+              <GoogleProSelectedPages />
+            ) : "" || location === "specificPage" ? (
+              <GoogleProSelectedPages />
+            ) : (
+              ""
+            )}
             {checkbox && <OneTapSelectTag />}
           </div>
         </div>
