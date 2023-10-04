@@ -49,6 +49,8 @@ export default function OneTapToLogin() {
   };
 
   // my code end from here
+  const location = useSelector((state) => state.selectGoogleSelectedLocation)
+  console.log("State: ", location)
 
   const enableGoogleOneTap = useSelector(
     (state) => state.enableGoogleOneTap
@@ -139,6 +141,7 @@ export default function OneTapToLogin() {
           <div className="w-[70%]">
             <div class="flex items-center mb-4">
               <input
+                defaultChecked={location === "loginScreen" ? true : false}
                 id="loginScreen"
                 onChange={() => handleLocationChange("loginScreen")}
                 type="radio"
@@ -156,6 +159,7 @@ export default function OneTapToLogin() {
 
             <div class="flex items-center mb-4">
               <input
+                defaultChecked={location === "siteWide" ? true : false}
                 id="siteWide"
                 onChange={() => handleLocationChange("siteWide")}
                 type="radio"
@@ -177,6 +181,7 @@ export default function OneTapToLogin() {
               }`}
             >
               <input
+                defaultChecked={location === "specificPage" ? true : false}
                 id="specificPage"
                 onChange={() => handleLocationChange("specificPage")}
                 type="radio"
