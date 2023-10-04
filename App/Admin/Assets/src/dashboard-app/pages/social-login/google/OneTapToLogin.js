@@ -19,7 +19,6 @@ export default function OneTapToLogin() {
 
   const handleLocationChange = (payload) => {
     payload === "specificPage" ? setCheckbox(true) : setCheckbox(false);
-    console.log(payload);
 
     dispatch({
       type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION",
@@ -48,7 +47,6 @@ export default function OneTapToLogin() {
       });
   };
 
-  // my code end from here
   const location = useSelector((state) => state.selectGoogleSelectedLocation);
 
   const enableGoogleOneTap = useSelector((state) => state.enableGoogleOneTap);

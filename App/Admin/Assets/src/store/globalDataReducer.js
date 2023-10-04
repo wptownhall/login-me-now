@@ -92,7 +92,7 @@ const globalDataReducer = (state = {}, action) => {
 		case 'UPDATE_ENABLE_GOOGLE_ONETAP':
 			return {
 				...state,
-				enableGoogleOnTap: action.payload,
+				enableGoogleOneTap: action.payload,
 			};
 
 		case 'UPDATE_SELECT_GOOGLE_PRO_SELECTED_PAGES':

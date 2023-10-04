@@ -22,7 +22,7 @@ const initialState = wp.hooks.applyFilters('login_me_now_dashboard/datastore', {
 	enableGoogleLoginSelectLocation: true,
 	
 	selectGoogleProSelectedPages: [],
-	enableGoogleOnTap: false,
+	enableGoogleOneTap: false,
 	selectGoogleSelectedLocation: 'siteWide',
 	selectGoogleProDefaultUserRole: 'subscriber',
 	inputGoogleProRedirectUrl: '',
