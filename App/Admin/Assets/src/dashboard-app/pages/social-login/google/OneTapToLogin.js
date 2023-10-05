@@ -153,7 +153,7 @@ export default function OneTapToLogin() {
             <div class="flex items-center mb-4">
               <input
                 defaultChecked={location === "side_wide" ? true : false}
-                id="side_wide"
+                id="site_wide"
                 onChange={() => handleLocationChange("side_wide")}
                 type="radio"
                 value=""
@@ -161,7 +161,7 @@ export default function OneTapToLogin() {
                 class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
               />
               <label
-                for="side_wide"
+                for="site_wide"
                 class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
               >
                 Site wide
