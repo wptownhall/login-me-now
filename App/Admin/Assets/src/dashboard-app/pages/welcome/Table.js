@@ -470,7 +470,7 @@ function Table() {
         </div>
         {dataLength < 20 ? null : (
           <button
-            className="mt-2 sm:inline-flex items-center justify-center px-4 py-2 border border-lmn-hover text-sm font-medium rounded-md shadow-sm text-black hover:text-white bg-white focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mb-2 sm:mb-0"
+            className="mt-2 sm:inline-flex items-center justify-center px-4 py-2 border border-lmn-hover text-[16px] font-medium rounded-md shadow-sm text-black hover:text-white bg-white focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mb-2 sm:mb-0"
             onClick={loadMore}
           >
             Load More
@@ -540,7 +540,7 @@ function Table() {
                   <div>
                     <button
                       type="submit"
-                      className="justify-center w-full sm:inline-flex items-center p-[13px] border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
+                      className="justify-center w-full sm:inline-flex items-center p-[13px] border border-transparent text-[16px] font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
                     >
                       {__("Update", "login-me-now")}
                     </button>

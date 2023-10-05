@@ -68,7 +68,7 @@ const BrowserExtensions = () => {
       <main className="py-[2.43rem]">
         <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
           <h1 className="sr-only"> Login Me Now </h1>
-          <div className="items-start lg:grid-cols-5 rounded-md bg-white overflow-hidden shadow-sm px-8 py-8">
+          <div className="grid grid-cols-1 items-start lg:grid-cols-5 rounded-md bg-white overflow-hidden shadow-sm px-8 py-8">
             <div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full">
               <section aria-labelledby="section-1-title h-full">
                 <h2 className="sr-only" id="section-1-title">
@@ -122,7 +122,7 @@ const BrowserExtensions = () => {
                       <span className="ml-2 relative z-0 inline-flex flex-col sm:flex-row justify-start w-full">
                         <button
                           type="submit"
-                          className="sm:inline-flex items-center p-[13px] border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
+                          className="sm:inline-flex items-center p-[13px] border border-transparent text-[16px] font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
                         >
                           {__("Generate token", "login-me-now")}
                         </button>
@@ -175,10 +175,10 @@ const BrowserExtensions = () => {
           </div>
           <div className="border-[#9F9F9F] border-[1px] p-10 rounded-[8px] bg-white mt-[60px]">
             <h1 className="text-[32px] mb-4 text-slate-800 leading-10 pb-3 font-semibold text-left">
-              Why use browser extension ?
+              Why use browser extension?
             </h1>
             <p className="text-[#494949] text-[18px]">
-              This save you time , especially if you frequently log in to
+              This save you time, especially if you frequently log in to
               multiple website dashboards throughout the day. With the browser
               extension, secure dashboard login is just one click away. Say
               goodbye to the hassle of navigating to the login panel and

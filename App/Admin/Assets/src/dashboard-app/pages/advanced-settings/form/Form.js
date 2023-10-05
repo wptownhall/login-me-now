@@ -151,7 +151,6 @@ function Form({
         setDataResult(result);
         setIsLoading(false);
         setIsSuccess(true);
-        console.log(result);
       })
       .catch((error) => {
         setIsLoading(false);
@@ -232,7 +231,7 @@ function Form({
         <Button
           disabled={isLoading}
           buttonText={isLoading ? "Loading..." : "Generate Access"}
-          className="sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
+          className="sm:inline-flex items-center px-4 py-2 border border-transparent text-[16px] font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
         />
 
         <Button
@@ -241,7 +240,7 @@ function Form({
           buttonText={
             isLoading ? "Loading..." : "Generate Access & Send Email (PRO)"
           }
-          className="sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-lmn-hover focus-visible:bg-lmn-hover hover:bg-lmn focus:outline-none mr-4 mb-2 sm:mb-0"
+          className="sm:inline-flex items-center px-4 py-2 border border-transparent text-[16px] font-medium rounded-md shadow-sm text-white bg-lmn-hover focus-visible:bg-lmn-hover hover:bg-lmn focus:outline-none mr-4 mb-2 sm:mb-0"
         />
       </form>
     </>

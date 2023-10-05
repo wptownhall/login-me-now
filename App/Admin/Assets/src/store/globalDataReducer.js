@@ -20,6 +20,11 @@ const globalDataReducer = (state = {}, action) => {
 				...state,
 				activeSettingsNavigationTab: action.payload
 			};
+		case 'UPDATE_SOCIAL_LOGIN_ACTIVE_NAVIGATION_TAB':
+			return {
+				...state,
+				activeSocialLoginNavigationTab: action.payload
+			};
 		case 'UPDATE_ENABLE_LOAD_FONTS_LOCALLY':
 			return {
 				...state,
@@ -72,16 +77,33 @@ const globalDataReducer = (state = {}, action) => {
 				...state,
 				enableGoogleCancelOnTapOutside: action.payload,
 			};
+		case 'UPDATE_ENABLE_LOGIN_SELECT_LOCATION':
+			return {
+				...state,
+				enableGoogleLoginSelectLocation: action.payload,
+			};
 		
 		case 'UPDATE_SELECT_GOOGLE_PRO_DEFAULT_USER_ROLE':
 			return {
 				...state,
 				selectGoogleProDefaultUserRole: action.payload,
 			};
-		case 'UPDATE_SELECT_GOOGLE_PRO_EXCLUDE_PAGES':
+
+		case 'UPDATE_ENABLE_GOOGLE_ONETAP':
 			return {
 				...state,
-				selectGoogleProExcludePages: action.payload,
+				enableGoogleOneTap: action.payload,
+			};
+
+		case 'UPDATE_SELECT_GOOGLE_PRO_SELECTED_PAGES':
+			return {
+				...state,
+				selectGoogleProSelectedPages: action.payload,
+			};
+		case 'UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION':
+			return {
+				...state,
+				selectGoogleSelectedLocation: action.payload,
 			};
 		case 'UPDATE_INPUT_GOOGLE_PRO_REDIRECT_URL':
 			return {

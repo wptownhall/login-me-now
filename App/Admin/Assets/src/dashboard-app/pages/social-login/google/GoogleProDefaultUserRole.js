@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Listbox } from '@headlessui/react'
 import apiFetch from '@wordpress/api-fetch';
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import Selector from './components/Selector';
+import ProBtn from './components/ProBtn';
 
 const GoogleProDefaultUserRole = () => {
 	const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
@@ -37,30 +39,31 @@ const GoogleProDefaultUserRole = () => {
 	}
 
 	return (
-		<section className={`${enableGoogleLoginStatus ? 'block' :'hidden'} login-me-now-dep-field-${isProAvailable ? 'true' : 'false'} block border-b border-solid border-slate-200 px-8 py-8 justify-between`}>
-			<div className='mr-16 w-full flex flex-col'>
+		<section className={`${enableGoogleLoginStatus ? 'block' :'hidden'} block border-b border-solid border-slate-200 py-12 justify-between`}>
+			<div className='mr-16 w-full flex flex-col pr-[10%]'>
 				
-				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
+				<h3 className="p-0 flex-1 justify-right inline-flex text-[22px] leading-6 font-semibold text-slate-800">
 					{__('User role permission level', 'login-me-now')}
 					{ ! lmn_admin.pro_available ? (
-						<span className="ml-2 h-full inline-flex leading-[1rem] font-medium flex-shrink-0 py-[0rem] px-1.5 text-[0.625rem] text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem] -tablet:mt:10">
-							{__('PRO', 'login-me-now')}
-						</span>)
+						<ProBtn />)
 						: 
 						''
 					}
 				</h3>
+				<p className="mt-6 mb-6 w-9/12 text-[16px] text-slate-500 tablet:w-full">
+				{__("Select the role that will be assigned to new users who sign up", 'login-me-now')}
+			</p>
 		
-				<Listbox onChange={updateGoogleProDefaultUserRole}>
+				<Listbox disabled={isProAvailable ? false : true} onChange={updateGoogleProDefaultUserRole}>
 					
-					<Listbox.Button className="block w-full text-left h-[50px] p-3 mt-3 text-lg border !border-slate-200">
+					<Listbox.Button className="block w-full text-left h-[50px] pl-3 pr-0 py-0 mt-3 text-lg border !border-slate-200">
 						<span className="block truncate">{currentOption}</span>
 						<span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
 							<ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
 						</span>
 					</Listbox.Button>
 
-					<Listbox.Options className='p-3 absolute mt-1 max-h-60 w-[400px] overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
+					<Listbox.Options className='p-3 absolute mt-1 max-h-60 w-[400px] overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-[16px]'>
 						{Object.keys(getUserRoles).map((key) => (
 							<Listbox.Option
 								key={key}
@@ -73,11 +76,13 @@ const GoogleProDefaultUserRole = () => {
 					</Listbox.Options>
 
 				</Listbox>
+
+				{/* <Selector getUserRoles={getUserRoles}/> */}
 				
 			</div>
-			<p className="mt-2 w-9/12 text-sm text-slate-500 tablet:w-full">
+			<p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
 				{__("By default user role is set as per", 'login-me-now')}
-				<span className='text-blue-400'>{__(" Settings > New User Default Role", 'login-me-now')}</span>
+				<span className='text-[#2271B1]'>{__(" Settings > New User Default Role", 'login-me-now')}</span>
 			</p>
 		</section>
 	);
