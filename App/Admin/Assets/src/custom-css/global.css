@@ -198,14 +198,17 @@ input[type="radio"]:checked::before {
   height: 14px;
   margin: 0 !important;
 }
-input#siteWide,
-input#loginScreen,
-input#specificPage {
+input#site_wide,
+input#login_screen,
+input#selected_pages {
   height: 20px !important;
   width: 20px !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+}
+.ant-select-multiple .ant-select-selection-item-remove:hover {
+  color: white;
 }
 
 @keyframes dot-pulse-before {
