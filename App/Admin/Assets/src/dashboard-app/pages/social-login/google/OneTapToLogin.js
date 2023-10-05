@@ -89,7 +89,7 @@ export default function OneTapToLogin() {
     <div
       className={`${
         enableGoogleLoginStatus ? "block" : "hidden"
-      } py-12 border-b border-solid border-slate-200 `}
+      } py-12 `}
     >
       <div className="flex justify-between items-start">
         <p className="mt-0 text-[22px] text-[#000000] tablet:w-full font-medium mb-8">
