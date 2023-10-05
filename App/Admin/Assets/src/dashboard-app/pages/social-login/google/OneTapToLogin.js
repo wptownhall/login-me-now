@@ -189,12 +189,12 @@ export default function OneTapToLogin() {
                 }`}
               >
                 Specific page{" "}
-                {!isProAvailable ? (
-                  <ProBtn extraClass="py-[4px] px-[10px]" />
+                
+              </label>{!isProAvailable ? (
+                  <ProBtn extraClass="py-[1px] px-[10px]" />
                 ) : (
                   ""
                 )}
-              </label>
             </div>
 
             {checkbox === true ? (
