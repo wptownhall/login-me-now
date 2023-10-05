@@ -25,11 +25,11 @@ const SocialLogin = () => {
   const navigation = wp.hooks.applyFilters(
     "login_me_now_dashboard.settings_navigation",
     [
-      {
-        name: __("General", "login-me-now"),
-        slug: "global-settings",
-        icon: SettingsIcons["global-settings"],
-      },
+      // {
+      //   name: __("General", "login-me-now"),
+      //   slug: "global-settings",
+      //   icon: SettingsIcons["global-settings"],
+      // },
       {
         name: __("Google", "login-me-now"),
         slug: "google",
@@ -42,7 +42,7 @@ const SocialLogin = () => {
     const activePath = query.get("path");
     const activeHash = query.get("settings");
     const activeSettingsTabFromHash =
-      activeHash && "social-login" === activePath ? activeHash : "global-settings";
+      activeHash && "social-login" === activePath ? activeHash : "google";
     dispatch({
       type: "UPDATE_SOCIAL_LOGIN_ACTIVE_NAVIGATION_TAB",
       payload: activeSettingsTabFromHash,

@@ -20,9 +20,10 @@ class GoogleLogin extends ModuleBase {
 
 	public function setup(): void {
 
-		$enable = Settings::init()->get( 'google_login', false );
+		$enable    = Settings::init()->get( 'google_login', false );
+		$client_id = Settings::init()->get( 'google_client_id', '' );
 
-		if ( ! $enable ) {
+		if ( ! $enable || ! $client_id ) {
 			return;
 		}
 

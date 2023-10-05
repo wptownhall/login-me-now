@@ -18,7 +18,7 @@ export default function OneTapToLogin() {
   const isProAvailable = lmn_admin.pro_available ? true : false;
 
   const handleLocationChange = (payload) => {
-    payload === "specificPage" ? setCheckbox(true) : setCheckbox(false);
+    payload === "selected_pages" ? setCheckbox(true) : setCheckbox(false);
 
     dispatch({
       type: "UPDATE_SELECT_GOOGLE_PRO_SELECTED_LOCATION",
@@ -134,16 +134,16 @@ export default function OneTapToLogin() {
           <div className="w-[70%]">
             <div class="flex items-center mb-4">
               <input
-                defaultChecked={location === "loginScreen" ? true : false}
-                id="loginScreen"
-                onChange={() => handleLocationChange("loginScreen")}
+                defaultChecked={location === "login_screen" ? true : false}
+                id="login_screen"
+                onChange={() => handleLocationChange("login_screen")}
                 type="radio"
                 value=""
                 name="options"
                 class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
               />
               <label
-                for="loginScreen"
+                for="login_screen"
                 class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
               >
                 Only on login screen
@@ -152,16 +152,16 @@ export default function OneTapToLogin() {
 
             <div class="flex items-center mb-4">
               <input
-                defaultChecked={location === "siteWide" ? true : false}
-                id="siteWide"
-                onChange={() => handleLocationChange("siteWide")}
+                defaultChecked={location === "side_wide" ? true : false}
+                id="side_wide"
+                onChange={() => handleLocationChange("side_wide")}
                 type="radio"
                 value=""
                 name="options"
                 class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
               />
               <label
-                for="siteWide"
+                for="side_wide"
                 class="ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344]"
               >
                 Site wide
@@ -174,16 +174,16 @@ export default function OneTapToLogin() {
               }`}
             >
               <input
-                defaultChecked={location === "specificPage" ? true : false}
-                id="specificPage"
-                onChange={() => handleLocationChange("specificPage")}
+                defaultChecked={location === "selected_pages" ? true : false}
+                id="selected_pages"
+                onChange={() => handleLocationChange("selected_pages")}
                 type="radio"
                 value=""
                 name="options"
                 class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600  !mt-[2px]"
               />
               <label
-                for="specificPage"
+                for="selected_pages"
                 class={`ml-2 text-[16px] font-medium text-[#424344] dark:text-[#424344] ${
                   isProAvailable === false ? "opacity-40" : ""
                 }`}
@@ -199,7 +199,7 @@ export default function OneTapToLogin() {
 
             {checkbox === true ? (
               <GoogleProSelectedPages />
-            ) : "" || location === "specificPage" ? (
+            ) : "" || location === "selected_pages" ? (
               <GoogleProSelectedPages />
             ) : (
               ""

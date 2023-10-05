@@ -22,21 +22,21 @@ function SettingsWrapper({ state }) {
   const wrappers = wp.hooks.applyFilters(
     "login_me_now_dashboard.settings_tab_wrappers",
     {
-      "global-settings": (
-        <>
-          <UserSwitching />
-        </>
-      ),
+      // "global-settings": (
+      //   <>
+      //     <UserSwitching />
+      //   </>
+      // ),
       "google": (
         <>
           <GoogleLogin />
           <GoogleClientID />
           <OneTapToLogin /> 
+          <GoogleCancelOnTapOutside />
           <GoogleInNativeLogin />
           <GoogleProDefaultUserRole />
           <GoogleInUpdateExistingUserData />
           <GoogleUpdateUserAvatar />
-          <GoogleCancelOnTapOutside />
           <GoogleProRedirectUrl />
         </>
       ),

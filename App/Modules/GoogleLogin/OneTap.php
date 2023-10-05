@@ -32,7 +32,7 @@ class OneTap {
 	}
 
 	private function show(): bool {
-		$show_on = Settings::init()->get( 'google_show_on', 'login_screen' );
+		$show_on = Settings::init()->get( 'google_onetap_display_location', 'side_wide' );
 
 		switch ( $show_on ) {
 			case 'side_wide':
