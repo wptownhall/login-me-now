@@ -42,7 +42,7 @@ const GoogleProDefaultUserRole = () => {
 		<section className={`${enableGoogleLoginStatus ? 'block' :'hidden'} block border-b border-solid border-slate-200 py-12 justify-between`}>
 			<div className='mr-16 w-full flex flex-col pr-[10%]'>
 				
-				<h3 className="p-0 flex-1 justify-right inline-flex text-[22px] leading-6 font-semibold text-slate-800">
+				<h3 className="p-0 flex-1 justify-right inline-flex text-[20px] leading-6 font-semibold text-slate-800">
 					{__('User role permission level', 'login-me-now')}
 					{ ! lmn_admin.pro_available ? (
 						<ProBtn />)
