@@ -62,7 +62,7 @@ const GoogleProRedirectUrl = () => {
         <input
           disabled={isProAvailable ? false : true}
           onChange={updateGoogleProRedirectUrl}
-          className="block w-full h-[50px] !p-3 !border-slate-200"
+          className={`${!isProAvailable && 'opacity-40'} block w-full h-[50px] !p-3 !border-slate-200`}
           value={inputGoogleProRedirectUrl}
           type="text"
           name="name"
