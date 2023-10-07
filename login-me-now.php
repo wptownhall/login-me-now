@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Login Me Now
  * Description: 1 click passwordless login, social login & user switching
- * Author: Login Me Now
- * Author URI: https://loginmenow.com/
+ * Author: WPtownhall
+ * Author URI: https://wptownhall.com/login-me-now/
  * Version: 1.1.0
  * Requires PHP: 7.4
  * License: GPL2
