@@ -8,7 +8,7 @@ import GetExtenstions from "../components/GetExtenstions";
 import Title from "../components/Title";
 import SubTitle from "../components/SubTitle";
 import { useState } from "react";
-import lockImg from "../../../../images/lock.png"
+import lockImg from "../../../../images/lock.png";
 
 const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -76,14 +76,13 @@ const BrowserExtensions = () => {
                 </h2>
                 <div className="flex flex-col justify-center h-full">
                   <div className="">
-                    <p className="pb-4 font-medium text-base text-slate-800">
+                    {/* <p className="pb-4 font-medium text-base text-slate-800">
                       {__("Hello ", "login-me-now") +
                         lmn_admin.current_user +
                         ","}
-                    </p>
-                    <Title text="Experience instant dashboard access with just 1 click from browser extension" />
-                    <SubTitle text="Generate a token to save this dashboard access in the browser extension, allowing you to effortlessly log in directly from it. No need to navigate to the dashboard login panel and enter login credentials." />
-
+                    </p> */}
+                    <Title text="Experience instant dashboard access with just 1 click" />
+                    <SubTitle text="Generate a token to save this dashboard access in the browser extension, allowing you to effortlessly log in directly from extension. No need to navigate to the dashboard login panel and enter login credentials." />
                     <form
                       onSubmit={onBrowserToken}
                       className="inline-flex flex-nowrap items-end"
@@ -187,7 +186,7 @@ const BrowserExtensions = () => {
             </p>
           </div>
           <div className="flex justify-between items-center border-[#10AC84] border-[1px] p-10 rounded-[8px] bg-[#F1FAF8] mt-[30px]">
-            <img src={lockImg} alt="" className="h-[60px] w-[60px] mr-5"/>
+            <img src={lockImg} alt="" className="h-[60px] w-[60px] mr-5" />
             <p className="text-[18px]">
               The browser extension never tracks or saves any of your website
               data or login credentials. When it come to dashboard login access,

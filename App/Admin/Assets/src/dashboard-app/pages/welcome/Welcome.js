@@ -72,13 +72,13 @@ const Welcome = () => {
                 </h2>
                 <div className="flex flex-col justify-center h-full">
                   <div className="">
-                    <p className="pb-4 font-medium text-base text-slate-800">
+                    {/* <p className="pb-4 font-medium text-base text-slate-800">
                       {__("Hello ", "login-me-now") +
                         lmn_admin.current_user +
                         ","}
-                    </p>
-                    <Title text="Share your dashboard access securely" />
-                    <SubTitle text="Create self-expiring login link to grant temporary access to an individual (developer, support stuff, or any outsider). No password is needed, just generate the login link & share it with the person!" />
+                    </p> */}
+                    <Title text="Share dashboard access securly" />
+                    <SubTitle text="Create self-expiring login link to grant temporary access to an individual ( developer,support stuff or any outsider ). No password is needed, just generate the login link g share it with the concerned person!" />
 
                     <form
                       onSubmit={onGenerateLoginLink}

@@ -58,22 +58,24 @@ const GoogleProRedirectUrl = () => {
           )}
           {!isProAvailable ? <ProBtn /> : ""}
         </h3>
-        <Tooltip placement="rightTop" title={`${isProAvailable === false ? "Upgrade to Pro" : ""}`}>
-        <input
-          disabled={isProAvailable ? false : true}
-          onChange={updateGoogleProRedirectUrl}
-          className={`${!isProAvailable && 'opacity-40'} block w-full h-[50px] !p-3 !border-slate-200`}
-          value={inputGoogleProRedirectUrl}
-          type="text"
-          name="name"
-          placeholder="ex: https://example.com/dashboard/"
-        />
+        <Tooltip
+          placement="rightTop"
+          title={`${isProAvailable === false ? "Upgrade to Pro" : ""}`}
+        >
+          <input
+            disabled={isProAvailable ? false : true}
+            onChange={updateGoogleProRedirectUrl}
+            className={`${
+              !isProAvailable && "opacity-40"
+            } block w-full h-[50px] !p-3 !border-slate-200`}
+            value={inputGoogleProRedirectUrl}
+            type="text"
+            name="name"
+            placeholder="ex: https://example.com/dashboard/"
+          />
         </Tooltip>
         <p className="mt-6 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
-          {__("By default redirection is set as per", "login-me-now")}
-          <a class="text-[#2271B1]" target="_blank" href="#">
-            {__(" Reading Settings > Your homepage displays", "login-me-now")}
-          </a>
+          By default redirection is set to dashboard
         </p>
       </div>
     </section>
