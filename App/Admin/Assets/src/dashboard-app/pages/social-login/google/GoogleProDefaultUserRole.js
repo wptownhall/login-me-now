@@ -5,6 +5,7 @@ import apiFetch from '@wordpress/api-fetch';
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import Selector from './components/Selector';
 import ProBtn from './components/ProBtn';
+import { Tooltip } from 'antd';
 
 const GoogleProDefaultUserRole = () => {
 	const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
@@ -53,9 +54,9 @@ const GoogleProDefaultUserRole = () => {
 				<p className="mt-6 mb-6 w-9/12 text-[16px] text-slate-500 tablet:w-full">
 				{__("Select the role that will be assigned to new users who sign up", 'login-me-now')}
 			</p>
-		
 				<Listbox disabled={isProAvailable ? false : true} onChange={updateGoogleProDefaultUserRole}>
 					
+				<Tooltip title={`${isProAvailable === false ? "Upgrade to Pro" : ""}`} placement='rightTop'>
 					<Listbox.Button className={`${!isProAvailable && 'opacity-40'} block w-full text-left h-[50px] pl-3 pr-0 py-0 mt-3 text-lg border !border-slate-200`}>
 						<span className="block truncate">{currentOption}</span>
 						<span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -75,6 +76,7 @@ const GoogleProDefaultUserRole = () => {
 						))}
 					</Listbox.Options>
 
+				</Tooltip>
 				</Listbox>
 
 				{/* <Selector getUserRoles={getUserRoles}/> */}

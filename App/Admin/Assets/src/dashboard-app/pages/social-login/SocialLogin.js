@@ -59,7 +59,7 @@ const SocialLogin = () => {
   return (
     <div className="px-6 w-full">
       <div className="mx-auto mt-10 mb-8 font-semibold text-2xl lg:max-w-[80rem]">
-        Social Login Settings
+        Social Login
       </div>
       <main className="mx-auto my-[2.43rem] bg-white rounded-md shadow overflow-hidden min-h-[36rem] lg:max-w-[80rem]">
         <div className="lg:grid lg:grid-cols-12 min-h-[36rem] h-full">

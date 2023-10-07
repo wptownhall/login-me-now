@@ -210,6 +210,18 @@ input#selected_pages {
 .ant-select-multiple .ant-select-selection-item-remove:hover {
   color: white;
 }
+.sticky-header {
+  width: 100%;
+  background-color: #fff;
+  transition: 0.7s;
+}
+
+.sticky {
+  position: sticky;
+  top: 30px;
+  z-index: 1000;
+  transition: 0.7s;
+}
 
 @keyframes dot-pulse-before {
   0% {
