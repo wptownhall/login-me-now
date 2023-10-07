@@ -52,8 +52,6 @@ const GoogleCancelOnTapOutside = () => {
       });
     });
   };
-  
-  console.log(enableGoogleCancelOnTapOutsideStatus)
 
   return (
     <section

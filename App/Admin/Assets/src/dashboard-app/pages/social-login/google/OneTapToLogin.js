@@ -85,12 +85,9 @@ export default function OneTapToLogin() {
       });
     });
   };
+  console.log(location);
   return (
-    <div
-      className={`${
-        enableGoogleLoginStatus ? "block" : "hidden"
-      } py-12 `}
-    >
+    <div className={`${enableGoogleLoginStatus ? "block" : "hidden"} py-12 `}>
       <div className="flex justify-between items-start">
         <p className="mt-0 text-[20px] text-[#000000] tablet:w-full font-medium mb-8">
           {__("Enable one tap login", "login-me-now")}
@@ -152,7 +149,16 @@ export default function OneTapToLogin() {
 
             <div class="flex items-center mb-4">
               <input
-                defaultChecked={location === "side_wide" ? true : false}
+                defaultChecked={
+                  location === "side_wide"
+                    ? true
+                    : false ||
+                      location === "login_screen" ||
+                      location === "side_wide" ||
+                      location === "selected_pages"
+                    ? false
+                    : true
+                }
                 id="site_wide"
                 onChange={() => handleLocationChange("side_wide")}
                 type="radio"
@@ -189,12 +195,12 @@ export default function OneTapToLogin() {
                 }`}
               >
                 Specific page{" "}
-                
-              </label>{!isProAvailable ? (
-                  <ProBtn extraClass="py-[1px] px-[10px]" />
-                ) : (
-                  ""
-                )}
+              </label>
+              {!isProAvailable ? (
+                <ProBtn extraClass="py-[1px] px-[10px]" />
+              ) : (
+                ""
+              )}
             </div>
 
             {checkbox === true ? (
