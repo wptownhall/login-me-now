@@ -85,7 +85,7 @@ export default function OneTapToLogin() {
       });
     });
   };
-  console.log(location);
+
   return (
     <div className={`${enableGoogleLoginStatus ? "block" : "hidden"} py-12 `}>
       <div className="flex justify-between items-start">
