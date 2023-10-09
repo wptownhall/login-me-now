@@ -20,7 +20,7 @@ export default function MainNav() {
     {
       name: __("Dashboard Modules", "login-me-now"),
       slug: lmn_admin.home_slug,
-      path: "dashboard-",
+      path: "dashboard-modules",
     },
     {
       name: __("Settings", "login-me-now"),

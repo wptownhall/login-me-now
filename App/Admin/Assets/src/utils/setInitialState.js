@@ -26,6 +26,7 @@ const setInitialState = (store) => {
 			enableGoogleCancelOnTapOutside: data.google_cancel_on_tap_outside,
 
 			selectGoogleProExcludePages: data.google_pro_exclude_pages,
+			dmTemporaryLogin: data.dm_temporary_login,
 			selectGoogleProDefaultUserRole: data.google_pro_default_user_role,
 			inputGoogleProRedirectUrl: data.google_pro_redirect_url,
 

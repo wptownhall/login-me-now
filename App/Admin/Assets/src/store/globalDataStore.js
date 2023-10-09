@@ -21,6 +21,7 @@ const initialState = wp.hooks.applyFilters('login_me_now_dashboard/datastore', {
 	enableGoogleCancelOnTapOutside: true,
 	
 	selectGoogleProExcludePages: [],
+	dmTemporaryLogin: false,
 	selectGoogleProDefaultUserRole: 'subscriber',
 	inputGoogleProRedirectUrl: '',
 

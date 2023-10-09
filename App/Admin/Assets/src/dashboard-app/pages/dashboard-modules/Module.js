@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import { Switch } from "@headlessui/react";
+import { useDispatch, useSelector } from "react-redux";
+import apiFetch from "@wordpress/api-fetch";
+import { __ } from "@wordpress/i18n";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function Module({ colorChange, title, subtitle, proItem, none }) {
+function Module({ colorChange, title, subtitle, proItem, none, data }) {
+  const dispatch = useDispatch()
   const [isChecked, setIsChecked] = useState(false);
   const [hover, setHover] = useState(false);
   const toggleSwitch = () => {
     setIsChecked(!isChecked);
+    console.log(data)
   };
 
   const handleMouseEnter = () => {
@@ -18,6 +23,49 @@ function Module({ colorChange, title, subtitle, proItem, none }) {
   const handleMouseLeave = () => {
     setHover(false);
   };
+
+
+  const enableDmTemporaryLogin = useSelector(
+    (state) => state.dmTemporaryLogin
+  );
+
+  const test = useSelector((state) => state);
+  console.log("data: ", enableDmTemporaryLogin)
+
+  const handleDmTemporaryLogin = () => {
+    setIsChecked(!isChecked);
+    let assetStatus;
+    if (enableDmTemporaryLogin === false || enableDmTemporaryLogin === undefined) {
+      assetStatus = true;
+    } else {
+      assetStatus = false;
+    }
+
+    dispatch({
+      type: "ENABLE_DM_TEMPORARY_LOGIN",
+      payload: assetStatus,
+    });
+
+    const formData = new window.FormData();
+
+    formData.append("action", "login_me_now_update_admin_setting");
+    formData.append("security", lmn_admin.update_nonce);
+    formData.append("key", "dm_temporary_login");
+    formData.append("value", assetStatus);
+
+
+    apiFetch({
+      url: lmn_admin.ajax_url,
+      method: "POST",
+      body: formData,
+    }).then(() => {
+      dispatch({
+        type: "UPDATE_SETTINGS_SAVED_NOTIFICATION",
+        payload: __("Successfully saved!", "login-me-now"),
+      });
+    });
+  };
+
 
   return (
     <div className="w-1/4 mx-4 flex cursor-pointer">
@@ -55,8 +103,9 @@ function Module({ colorChange, title, subtitle, proItem, none }) {
             Settings
           </button>
           <Switch
-            checked={isChecked}
-            onChange={toggleSwitch}
+            // defaultChecked={true}
+            // checked={true}
+            onChange={handleDmTemporaryLogin}
             className={classNames(
               isChecked ? "bg-lmn" : "bg-slate-200",
               "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"

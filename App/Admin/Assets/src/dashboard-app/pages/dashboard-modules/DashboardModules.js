@@ -54,10 +54,10 @@ function DashboardModules() {
                 <Module
                   colorChange={false}
                   title="Temporary login"
-                  subtitle="Redirect non-existent content easily with 301 and 302 status code.
-          This can help improve your site ranking. Also supports many"
+                  subtitle="Share dashboard access securly"
                   proItem={false}
                   none={false}
+                  data="temporaryLogin"
                 />
                 <Module
                   colorChange={true}
@@ -66,6 +66,7 @@ function DashboardModules() {
           This can help improve your site ranking. Also supports many"
                   proItem={false}
                   none={false}
+                  data="advanceShare"
                 />
                 <Module
                   colorChange={false}
@@ -114,16 +115,14 @@ function DashboardModules() {
                 <Module
                   colorChange={false}
                   title="Browser extension"
-                  subtitle="Redirect non-existent content easily with 301 and 302 status code.
-          This can help improve your site ranking. Also supports many"
+                  subtitle="Experience instant dashboard access with just 1 click"
                   proItem={false}
                   none={false}
                 />
                 <Module
                   colorChange={false}
                   title="User switching"
-                  subtitle="Redirect non-existent content easily with 301 and 302 status code.
-          This can help improve your site ranking. Also supports many"
+                  subtitle="Quickly switch between user accounts"
                   proItem={false}
                   none={false}
                 />
