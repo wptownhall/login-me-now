@@ -20,8 +20,6 @@ function TemporaryLogin({ colorChange, proItem, none }) {
   };
 
   const enableDmTemporaryLogin = useSelector((state) => state.dmTemporaryLogin);
-  const test = useSelector((state) => state);
-  console.log(test)
 
   const handleDmTemporaryLogin = () => {
     let assetStatus;
