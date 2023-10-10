@@ -20,8 +20,6 @@ function UserSwitching({ colorChange, proItem, none }) {
   };
 
   const enableDmUserSwitching = useSelector((state) => state.dmUserSwitching);
-  const test = useSelector((state) => state);
-  console.log(test);
 
   const handleDmUserSwitching = () => {
     let assetStatus;

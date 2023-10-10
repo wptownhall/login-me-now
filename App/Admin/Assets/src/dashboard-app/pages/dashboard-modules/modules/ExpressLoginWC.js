@@ -98,7 +98,7 @@ function ExpressLoginWC({ colorChange, none }) {
           <Switch
             onChange={handleDmExpressLoginWC}
             className={classNames(
-              enableDmExpressLoginWC ? "bg-lmn" : "bg-slate-200",
+              (isProAvailable && enableDmExpressLoginWC) ? "bg-lmn" : "bg-slate-200",
               "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
             )}
           >
@@ -109,14 +109,14 @@ function ExpressLoginWC({ colorChange, none }) {
             <span
               aria-hidden="true"
               className={classNames(
-                enableDmExpressLoginWC ? "bg-lmn" : "bg-gray-200",
+                (isProAvailable && enableDmExpressLoginWC) ? "bg-lmn" : "bg-gray-200",
                 "pointer-events-none absolute mx-auto h-[16px] w-[32px] rounded-full transition-colors duration-200 ease-in-out"
               )}
             />
             <span
               aria-hidden="true"
               className={classNames(
-                enableDmExpressLoginWC ? "translate-x-5" : "translate-x-0",
+                (isProAvailable && enableDmExpressLoginWC) ? "translate-x-5" : "translate-x-0",
                 "toggle-bubble pointer-events-none absolute left-0 inline-block h-[16px] w-[16px] transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
               )}
             />
