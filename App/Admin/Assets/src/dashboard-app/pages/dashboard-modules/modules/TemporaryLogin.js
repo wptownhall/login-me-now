@@ -20,6 +20,8 @@ function TemporaryLogin({ colorChange, proItem, none }) {
   };
 
   const enableDmTemporaryLogin = useSelector((state) => state.dmTemporaryLogin);
+  const test = useSelector((state) => state);
+  console.log(test)
 
   const handleDmTemporaryLogin = () => {
     let assetStatus;
@@ -57,11 +59,11 @@ function TemporaryLogin({ colorChange, proItem, none }) {
   };
 
   return (
-    <div className="w-1/4 mx-4 flex cursor-pointer">
-      <div
-        class={`relative rounded-[8px] border border-[#9F9F9F] flex flex-col justify-between ${
+    <div className={`w-1/4 mx-4 flex cursor-pointer flex-col justify-between rounded-[8px] border border-[#9F9F9F] flex${
           none && "hidden"
-        } ${hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"}`}
+        } ${hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"}`}>
+      <div
+        class={`relative`}
         onMouseEnter={proItem === true ? handleMouseEnter : null}
         onMouseLeave={proItem === true ? handleMouseLeave : null}
       >
@@ -78,6 +80,7 @@ function TemporaryLogin({ colorChange, proItem, none }) {
             Share dashboard access securly
           </p>
         </div>
+      </div>
         <div
           className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[2px] border-b-[#9F9F9F] ${
             hover && "invisible"
@@ -127,7 +130,6 @@ function TemporaryLogin({ colorChange, proItem, none }) {
         >
           Buy Pro
         </button>
-      </div>
     </div>
   );
 }

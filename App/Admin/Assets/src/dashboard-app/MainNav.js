@@ -1,22 +1,26 @@
 import { Disclosure } from "@headlessui/react";
 import { Link, useLocation } from "react-router-dom";
 import { __ } from "@wordpress/i18n";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function MainNav() {
   let navMenus = [];
-
+  const navStatus = useSelector((state) => state);
+  const temporaryLoginStatus = navStatus.dmTemporaryLogin;
+  const browserExtensionStatus = navStatus.dmBrowserExtension;
   navMenus = [
-    {
+    temporaryLoginStatus && {
       name: __("Temporary login", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "",
     },
-    {
+    browserExtensionStatus && {
       name: __("Browser extension", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "browser-extensions",
     },
+
     {
       name: __("Dashboard Modules", "login-me-now"),
       slug: lmn_admin.home_slug,
