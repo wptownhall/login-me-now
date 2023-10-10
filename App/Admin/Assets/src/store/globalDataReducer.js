@@ -115,8 +115,52 @@ const globalDataReducer = (state = {}, action) => {
 				...state,
 				dmTemporaryLogin: action.payload,
 			}
-		default:
-			return state;
+			case 'ENABLE_DM_ADVANCE_SHARE':
+				return {
+					...state,
+					dmAdvanceShare: action.payload,
+				}
+			case 'ENABLE_DM_SOCIAL_LOGIN':
+				return {
+					...state,
+					dmSocialLogin: action.payload,
+				}
+			case 'ENABLE_DM_EXPRESS_LOGIN_WC':
+				return {
+					...state,
+					dmExpressLoginWC: action.payload,
+				}
+			case 'ENABLE_DM_EXPRESS_LOGIN_EDD':
+				return {
+					...state,
+					dmExpressLoginEDD: action.payload,
+				}
+			case 'ENABLE_DM_EXPRESS_LOGIN_EMAIL':
+				return {
+					...state,
+					dmExpressLoginEmail: action.payload,
+				}
+			case 'ENABLE_DM_OTP_LOGIN':
+				return {
+					...state,
+					dmOTPLogin: action.payload,
+				}
+			case 'ENABLE_DM_BROWSER_EXTENSION':
+				return {
+					...state,
+					dmBrowserExtension: action.payload,
+				}
+			case 'ENABLE_DM_USER_SWITCHING':
+				return {
+					...state,
+					dmUserSwitching: action.payload,
+				}
+			case 'ENABLE_DM_ACTIVE_LOG':
+				return {
+					...state,
+					dmActiveLog: action.payload,
+				}
+			default: return state;
 	}
 }
 

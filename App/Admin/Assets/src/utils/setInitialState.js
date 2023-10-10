@@ -26,7 +26,6 @@ const setInitialState = (store) => {
 			enableGoogleCancelOnTapOutside: data.google_cancel_on_tap_outside,
 
 			selectGoogleProExcludePages: data.google_pro_exclude_pages,
-			dmTemporaryLogin: data.dm_temporary_login,
 			selectGoogleProDefaultUserRole: data.google_pro_default_user_role,
 			inputGoogleProRedirectUrl: data.google_pro_redirect_url,
 
@@ -34,6 +33,17 @@ const setInitialState = (store) => {
 			getPages: data.get_pages,
 
 			blocksStatuses: data.pro_addons,
+
+			dmTemporaryLogin: data.dm_temporary_login,
+			dmAdvanceShare: data.dm_advance_share,
+			dmSocialLogin: data.dm_social_login,
+			dmExpressLoginWC: data.dm_express_login_wc,
+			dmExpressLoginEDD: data.dm_express_login_edd,
+			dmExpressLoginEmail: data.dm_express_login_email,
+			dmOTPLogin: data.dm_otp_login,
+			dmBrowserExtension: data.dm_browser_extension,
+			dmUserSwitching: data.dm_user_switching,
+			dmActiveLog: data.dm_active_log,
 		};
 
 		store.dispatch({ type: 'UPDATE_INITIAL_STATE', payload: initialState });

@@ -8,9 +8,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function Module({ colorChange, title, subtitle, proItem, none, data }) {
-  const dispatch = useDispatch()
-  const [isChecked, setIsChecked] = useState(true);
+function OTPLogin({ colorChange, proItem, none }) {
+  const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
 
   const handleMouseEnter = () => {
@@ -20,24 +19,18 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
     setHover(false);
   };
 
+  const enableDmOTPLogin = useSelector((state) => state.dmOTPLogin);
 
-  const enableDmTemporaryLogin = useSelector(
-    (state) => state.dmTemporaryLogin
-  );
-
-  const test = useSelector((state) => state);
-
-  const handleDmTemporaryLogin = () => {
-    // setIsChecked(!enableDmTemporaryLogin);
+  const handleDmOTPLogin = () => {
     let assetStatus;
-    if (enableDmTemporaryLogin === false || enableDmTemporaryLogin === undefined) {
+    if (enableDmOTPLogin === false || enableDmOTPLogin === undefined) {
       assetStatus = true;
     } else {
       assetStatus = false;
     }
 
     dispatch({
-      type: "ENABLE_DM_TEMPORARY_LOGIN",
+      type: "ENABLE_DM_OTP_LOGIN",
       payload: assetStatus,
     });
 
@@ -45,9 +38,8 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
 
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
-    formData.append("key", "dm_temporary_login");
+    formData.append("key", "dm_otp_login");
     formData.append("value", assetStatus);
-
 
     apiFetch({
       url: lmn_admin.ajax_url,
@@ -61,7 +53,6 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
     });
   };
 
-
   return (
     <div className="w-1/4 mx-4 flex cursor-pointer">
       <div
@@ -73,14 +64,17 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
       >
         <div className={`px-8 pt-16 pb-10 ${hover && "invisible"}`}>
           <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
-            {title}
+            OTP login
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
                 Pro
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">{subtitle}</p>
+          <p className="text-[#6B6D71] text-[14px] text-center">
+            Redirect non-existent content easily with 301 and 302 status code.
+            This can help improve your site ranking. Also supports many
+          </p>
         </div>
         <div
           className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[2px] border-b-[#9F9F9F] ${
@@ -98,11 +92,9 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
             Settings
           </button>
           <Switch
-            // defaultChecked={true}
-            checked={true}
-            onChange={handleDmTemporaryLogin}
+            onChange={handleDmOTPLogin}
             className={classNames(
-              enableDmTemporaryLogin ? "bg-lmn" : "bg-slate-200",
+              enableDmOTPLogin ? "bg-lmn" : "bg-slate-200",
               "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
             )}
           >
@@ -113,14 +105,14 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
             <span
               aria-hidden="true"
               className={classNames(
-                enableDmTemporaryLogin ? "bg-lmn" : "bg-gray-200",
+                enableDmOTPLogin ? "bg-lmn" : "bg-gray-200",
                 "pointer-events-none absolute mx-auto h-[16px] w-[32px] rounded-full transition-colors duration-200 ease-in-out"
               )}
             />
             <span
               aria-hidden="true"
               className={classNames(
-                enableDmTemporaryLogin ? "translate-x-5" : "translate-x-0",
+                enableDmOTPLogin ? "translate-x-5" : "translate-x-0",
                 "toggle-bubble pointer-events-none absolute left-0 inline-block h-[16px] w-[16px] transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
               )}
             />
@@ -138,4 +130,4 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
   );
 }
 
-export default Module;
+export default OTPLogin;

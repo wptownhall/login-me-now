@@ -21,7 +21,6 @@ const initialState = wp.hooks.applyFilters('login_me_now_dashboard/datastore', {
 	enableGoogleCancelOnTapOutside: true,
 	
 	selectGoogleProExcludePages: [],
-	dmTemporaryLogin: false,
 	selectGoogleProDefaultUserRole: 'subscriber',
 	inputGoogleProRedirectUrl: '',
 
@@ -36,6 +35,17 @@ const initialState = wp.hooks.applyFilters('login_me_now_dashboard/datastore', {
 	blocksStatuses: [],
 	enableFileGeneration: 'disable',
 	activeSettingsNavigationTab: '',
+
+	dmTemporaryLogin: false,
+	dmAdvanceShare: false,
+	dmSocialLogin: false,
+	dmExpressLoginWC: false,
+	dmExpressLoginEDD: false,
+	dmExpressLoginEmail: false,
+	dmOTPLogin: false,
+	dmBrowserExtension: false,
+	dmUserSwitching: false,
+	dmActiveLog: false,
 }
 );
 

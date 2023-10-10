@@ -8,9 +8,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function Module({ colorChange, title, subtitle, proItem, none, data }) {
-  const dispatch = useDispatch()
-  const [isChecked, setIsChecked] = useState(true);
+function TemporaryLogin({ colorChange, proItem, none }) {
+  const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
 
   const handleMouseEnter = () => {
@@ -20,17 +19,14 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
     setHover(false);
   };
 
-
-  const enableDmTemporaryLogin = useSelector(
-    (state) => state.dmTemporaryLogin
-  );
-
-  const test = useSelector((state) => state);
+  const enableDmTemporaryLogin = useSelector((state) => state.dmTemporaryLogin);
 
   const handleDmTemporaryLogin = () => {
-    // setIsChecked(!enableDmTemporaryLogin);
     let assetStatus;
-    if (enableDmTemporaryLogin === false || enableDmTemporaryLogin === undefined) {
+    if (
+      enableDmTemporaryLogin === false ||
+      enableDmTemporaryLogin === undefined
+    ) {
       assetStatus = true;
     } else {
       assetStatus = false;
@@ -48,7 +44,6 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
     formData.append("key", "dm_temporary_login");
     formData.append("value", assetStatus);
 
-
     apiFetch({
       url: lmn_admin.ajax_url,
       method: "POST",
@@ -61,7 +56,6 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
     });
   };
 
-
   return (
     <div className="w-1/4 mx-4 flex cursor-pointer">
       <div
@@ -73,14 +67,16 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
       >
         <div className={`px-8 pt-16 pb-10 ${hover && "invisible"}`}>
           <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
-            {title}
+            Temporary login
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
                 Pro
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">{subtitle}</p>
+          <p className="text-[#6B6D71] text-[14px] text-center">
+            Share dashboard access securly
+          </p>
         </div>
         <div
           className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[2px] border-b-[#9F9F9F] ${
@@ -98,8 +94,6 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
             Settings
           </button>
           <Switch
-            // defaultChecked={true}
-            checked={true}
             onChange={handleDmTemporaryLogin}
             className={classNames(
               enableDmTemporaryLogin ? "bg-lmn" : "bg-slate-200",
@@ -138,4 +132,4 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
   );
 }
 
-export default Module;
+export default TemporaryLogin;

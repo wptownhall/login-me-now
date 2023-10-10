@@ -48,6 +48,16 @@ class Ajax {
 				'google_native_login'              => 'bool',
 				'google_update_existing_user_data' => 'bool',
 				'google_cancel_on_tap_outside'     => 'bool',
+				'dm_temporary_login'               => 'bool',
+				'dm_advance_share'                 => 'bool',
+				'dm_social_login'                  => 'bool',
+				'dm_express_login_wc'              => 'bool',
+				'dm_express_login_edd'             => 'bool',
+				'dm_express_login_email'           => 'bool',
+				'dm_otp_login'                     => 'bool',
+				'dm_browser_extension'             => 'bool',
+				'dm_user_switching'                => 'bool',
+				'dm_active_log'                    => 'bool',
 			]
 		);
 	}

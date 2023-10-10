@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import TickIcon from "./TickIcon";
 import Module from "./Module";
+import TemporaryLogin from "./modules/TemporaryLogin";
+import AdvanceShare from "./modules/AdvanceShare";
+import SocialLogin from "./modules/SocialLogin";
+import ExpressLoginWC from "./modules/ExpressLoginWC";
+import ExpressLoginEDD from "./modules/ExpressLoginEDD";
+import ExpressLoginEmail from "./modules/ExpressLoginEmail";
+import OTPLogin from "./modules/OTPLoign";
+import BrowserExtension from "./modules/BrowserExtension";
+import UserSwitching from "./modules/UserSwitching";
+import ActiveLog from "./modules/ActiveLog";
 
 function DashboardModules() {
   const test = "hello there";
@@ -51,86 +61,54 @@ function DashboardModules() {
                     </button>
                   </div>
                 </div>
-                <Module
+                <TemporaryLogin
                   colorChange={false}
-                  title="Temporary login"
-                  subtitle="Share dashboard access securly"
                   proItem={false}
                   none={false}
-                  data="temporaryLogin"
                 />
-                <Module
-                  colorChange={true}
-                  title="Advance share"
-                  subtitle="Redirect non-existent content easily with 301 and 302 status code.
-          This can help improve your site ranking. Also supports many"
-                  proItem={false}
-                  none={false}
-                  data="advanceShare"
-                />
-                <Module
+                <AdvanceShare colorChange={true} proItem={false} none={false} />
+
+                <SocialLogin
                   colorChange={false}
-                  title="Social login"
-                  subtitle="Redirect non-existent content easily with 301 and 302 status code.
-          This can help improve your site ranking. Also supports many"
                   proItem={false}
                   none={false}
                 />
               </div>
               <div class="flex w-full mb-16 px-4">
-                <Module
+                <ExpressLoginWC
                   colorChange={false}
-                  title="Express login- WC"
-                  subtitle="Redirect non-existent content easily with 301 and 302 status code.
-          This can help improve your site ranking. Also supports many"
                   proItem={true}
                   none={false}
                 />
-                <Module
+                <ExpressLoginEDD
                   colorChange={false}
-                  title="Express login- EDD"
-                  subtitle="Redirect non-existent content easily with 301 and 302 status code.
-          This can help improve your site ranking. Also supports many"
                   proItem={true}
                   none={false}
                 />
-                <Module
+                <ExpressLoginEmail
                   colorChange={false}
-                  title="Express login- email"
-                  subtitle="Redirect non-existent content easily with 301 and 302 status code.
-          This can help improve your site ranking. Also supports many"
                   proItem={true}
                   none={false}
                 />
-                <Module
+                <OTPLogin
                   colorChange={false}
-                  title="OTP login"
-                  subtitle="Redirect non-existent content easily with 301 and 302 status code.
-          This can help improve your site ranking. Also supports many"
                   proItem={false}
                   none={false}
                 />
               </div>
               <div class="flex w-full mb-16 px-4">
-                <Module
+                <BrowserExtension
                   colorChange={false}
-                  title="Browser extension"
-                  subtitle="Experience instant dashboard access with just 1 click"
                   proItem={false}
                   none={false}
                 />
-                <Module
+                <UserSwitching
                   colorChange={false}
-                  title="User switching"
-                  subtitle="Quickly switch between user accounts"
                   proItem={false}
                   none={false}
                 />
-                <Module
+                <ActiveLog
                   colorChange={false}
-                  title="Activity log"
-                  subtitle="Redirect non-existent content easily with 301 and 302 status code.
-          This can help improve your site ranking. Also supports many"
                   proItem={false}
                   none={false}
                 />
