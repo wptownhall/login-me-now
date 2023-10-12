@@ -56,19 +56,19 @@ const GoogleProDefaultUserRole = () => {
 		
 				<Listbox disabled={isProAvailable ? false : true} onChange={updateGoogleProDefaultUserRole}>
 					
-					<Listbox.Button className="block w-full text-left h-[50px] pl-3 pr-0 py-0 mt-3 text-lg border !border-slate-200">
+					<Listbox.Button className="block w-full text-left h-[50px] pl-3 pr-0 py-0 mt-3 text-lg border !border-slate-200 rounded-[4px] list-box-custom-class">
 						<span className="block truncate">{currentOption}</span>
 						<span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
 							<ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
 						</span>
 					</Listbox.Button>
 
-					<Listbox.Options className='p-3 absolute mt-1 max-h-60 w-[400px] overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-[16px]'>
+					<Listbox.Options className='p-3 absolute mt-1 max-h-60 w-[400px] overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-[16px]' >
 						{Object.keys(getUserRoles).map((key) => (
 							<Listbox.Option
 								key={key}
 								value={key}
-								className='text-lg text-slate-800 relative cursor-pointer py-2 pr-1 mb-1'
+								className='text-[16px] text-slate-800 relative cursor-pointer py-2 pr-1 mb-1'
 							>
 								{getUserRoles[key]}
 							</Listbox.Option>

@@ -210,7 +210,9 @@ input#selected_pages {
 .ant-select-multiple .ant-select-selection-item-remove:hover {
   color: white;
 }
-
+.list-box-custom-class span {
+  font-size: 16px;
+}
 @keyframes dot-pulse-before {
   0% {
     box-shadow: 9984px 0 0 -5px;
