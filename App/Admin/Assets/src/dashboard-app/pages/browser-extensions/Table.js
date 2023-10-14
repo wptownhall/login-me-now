@@ -189,7 +189,7 @@ function Table() {
           <table class="table-auto w-full">
             <thead className="sticky top-[-1px] bg-[#f1f1f1]">
               <tr>
-                <th className="border-x-[1px] border-b-[1px] border-[#e2e8f0] py-[10px] px-[5px] text-[14px] !text-left">
+                <th className="border-x-[1px] border-b-[1px] border-[#e2e8f0] py-[10px] px-[5px] text-[14px]">
                   User{" "}
                   <span title="Which user has generated this  token for browser extension">
                     <svg
@@ -258,7 +258,7 @@ function Table() {
                         item.status === "pause" ? "bg-[#a7e0f8]" : ""
                       }`}
                     >
-                      <td className="text-left text-[13px] font-[500] border-x-[1px] border-[#e2e8f0] py-[10px] px-[5px]">
+                      <td className="text-center text-[13px] font-[500] border-x-[1px] border-[#e2e8f0] py-[10px] px-[5px]">
                         {item.display_name}
                         <span className="block text-[#919196]">{item.user_login}</span>
                       </td>

@@ -90,8 +90,11 @@ const GoogleInNativeLogin = () => {
         </Switch>
       </div>
       <p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
-        {__("Check, what would it look like!", "login-me-now")}
-      </p>
+				{__('Check, what would it look like ! See ', 'login-me-now')}
+				<a class="text-[#2271B1]" target="_blank" href="https://try.loginmenow.com/wp-admin/">
+			 		{__(' demo', 'login-me-now')}
+				</a>
+			</p>
     </section>
   );
 };
