@@ -29,7 +29,7 @@ export default function MainNav() {
       name: __("Settings", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "settings",
-    }
+    },
   ];
 
   const onInstallExtension = () => {
