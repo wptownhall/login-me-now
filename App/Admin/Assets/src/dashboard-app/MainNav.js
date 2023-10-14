@@ -20,6 +20,7 @@ export default function MainNav() {
       slug: lmn_admin.home_slug,
       path: "browser-extensions",
     },
+
     {
       name: __("Dashboard Modules", "login-me-now"),
       slug: lmn_admin.home_slug,
@@ -29,7 +30,7 @@ export default function MainNav() {
       name: __("Settings", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "settings",
-    }
+    },
   ];
 
   const onInstallExtension = () => {
