@@ -30,7 +30,7 @@ export default function MainNav() {
       slug: lmn_admin.home_slug,
       path: "settings",
     },
-  ];
+  ].filter(Boolean);
 
   const onInstallExtension = () => {
     window.open(lmn_admin.extension_url, "_blank");
