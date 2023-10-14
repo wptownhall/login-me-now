@@ -20,7 +20,6 @@ export default function MainNav() {
       slug: lmn_admin.home_slug,
       path: "browser-extensions",
     },
-
     {
       name: __("Dashboard Modules", "login-me-now"),
       slug: lmn_admin.home_slug,
