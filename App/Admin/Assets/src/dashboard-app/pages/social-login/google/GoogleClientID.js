@@ -53,7 +53,7 @@ const GoogleClientID = () => {
           <a
             class="text-[#2271B1] text-[16px]"
             target="_blank"
-            href="https://youtu.be/qS4dY7syQwA?t=471"
+            href="https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid"
           >
             {__(" Google client ID", "login-me-now")}
           </a>
