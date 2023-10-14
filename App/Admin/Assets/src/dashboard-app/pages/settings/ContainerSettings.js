@@ -1,10 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { useSelector } from "react-redux";
 
-import Logs from "./general/Logs";
-import LogsExpiration from "./general/LogsExpiration";
-import UserSwitching from "./general/UserSwitching";
-
 import GoogleLogin from "./google/GoogleLogin";
 import GoogleClientID from "./google/GoogleClientID";
 import GoogleInNativeLogin from "./google/GoogleInNativeLogin";
@@ -23,7 +19,6 @@ function SettingsWrapper({ state }) {
     {
       "global-settings": (
         <>
-          <UserSwitching />
           {/* <Logs />
           <LogsExpiration /> */}
         </>
