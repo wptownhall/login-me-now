@@ -8,7 +8,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function UserSwitching({ colorChange, proItem, none }) {
+function UserSwitching({ colorChange, proItem }) {
   const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
 
@@ -19,7 +19,9 @@ function UserSwitching({ colorChange, proItem, none }) {
     setHover(false);
   };
 
-  const enableDmUserSwitching = useSelector((state) => state.enableUserSwitching);
+  const enableDmUserSwitching = useSelector(
+    (state) => state.enableUserSwitching
+  );
 
   const handleDmUserSwitching = () => {
     let assetStatus;
@@ -57,11 +59,11 @@ function UserSwitching({ colorChange, proItem, none }) {
   };
 
   return (
-    <div className="w-1/4 mx-4 flex cursor-pointer">
+    <div className="mx-4 flex cursor-pointer">
       <div
         class={`relative rounded-[8px] border border-[#9F9F9F] flex flex-col justify-between ${
-          none && "hidden"
-        } ${hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"}`}
+          hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
+        }`}
         onMouseEnter={proItem === true ? handleMouseEnter : null}
         onMouseLeave={proItem === true ? handleMouseLeave : null}
       >

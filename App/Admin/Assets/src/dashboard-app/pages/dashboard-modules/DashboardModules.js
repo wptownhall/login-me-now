@@ -18,11 +18,11 @@ function DashboardModules() {
   return (
     <main className="py-[2.43rem]">
       <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
-        <div className="gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm py-8">
+        <div className="gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm py-8 px-4">
           <div className="">
             <section aria-labelledby="section-1-title h-full">
-              <div class="flex w-full mb-16 px-4">
-                <div class="w-1/4 mx-4 bg-[#023A2E] rounded-[8px] flex justify-between flex-col">
+              <div class="w-fullpx-4 grid grid-cols-3 lg:grid-cols-4 md:grid-cols-3">
+                <div class="mx-4 bg-[#023A2E] rounded-[8px] flex justify-between flex-col mb-16 ">
                   <div className="px-8 pt-16 pb-10">
                     <h1 className="text-[#1BD8B9] text-[16px] font-medium text-center mb-5">
                       More powerful options
@@ -73,8 +73,6 @@ function DashboardModules() {
                   proItem={false}
                   none={false}
                 />
-              </div>
-              <div class="flex w-full mb-16 px-4">
                 <ExpressLoginWC
                   colorChange={false}
                   proItem={true}
@@ -95,8 +93,6 @@ function DashboardModules() {
                   proItem={false}
                   none={false}
                 />
-              </div>
-              <div class="flex w-full mb-16 px-4">
                 <BrowserExtension
                   colorChange={false}
                   proItem={false}
@@ -111,14 +107,6 @@ function DashboardModules() {
                   colorChange={false}
                   proItem={false}
                   none={false}
-                />
-                <Module
-                  colorChange={false}
-                  title="OTP login"
-                  subtitle="Redirect non-existent content easily with 301 and 302 status code.
-          This can help improve your site ranking. Also supports many"
-                  proItem={false}
-                  none={true}
                 />
               </div>
             </section>

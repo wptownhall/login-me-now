@@ -63,7 +63,7 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
 
 
   return (
-    <div className="w-1/4 mx-4 flex cursor-pointer">
+    <div className="mb-16 mx-4 flex cursor-pointer">
       <div
         class={`relative rounded-[8px] border border-[#9F9F9F] flex flex-col justify-between ${
           none && "hidden"

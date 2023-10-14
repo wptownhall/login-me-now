@@ -8,7 +8,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function BrowserExtension({ colorChange, proItem, none }) {
+function BrowserExtension({ colorChange, proItem }) {
   const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
 
@@ -59,11 +59,11 @@ function BrowserExtension({ colorChange, proItem, none }) {
   };
 
   return (
-    <div className="w-1/4 mx-4 flex cursor-pointer">
+    <div className="sm:mb-16 lg:mb-0 mx-4 flex cursor-pointer">
       <div
         class={`relative rounded-[8px] border border-[#9F9F9F] flex flex-col justify-between ${
-          none && "hidden"
-        } ${hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"}`}
+          hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
+        }`}
         onMouseEnter={proItem === true ? handleMouseEnter : null}
         onMouseLeave={proItem === true ? handleMouseLeave : null}
       >

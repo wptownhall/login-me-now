@@ -8,7 +8,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function TemporaryLogin({ colorChange, proItem, none }) {
+function TemporaryLogin({ colorChange, proItem }) {
   const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
 
@@ -57,9 +57,11 @@ function TemporaryLogin({ colorChange, proItem, none }) {
   };
 
   return (
-    <div className={`w-1/4 mx-4 flex cursor-pointer flex-col justify-between rounded-[8px] border border-[#9F9F9F] flex${
-          none && "hidden"
-        } ${hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"}`}>
+    <div
+      className={`mb-16 mx-4 flex cursor-pointer flex-col justify-between rounded-[8px] border border-[#9F9F9F] ${
+        hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
+      }`}
+    >
       <div
         class={`relative`}
         onMouseEnter={proItem === true ? handleMouseEnter : null}
@@ -79,55 +81,55 @@ function TemporaryLogin({ colorChange, proItem, none }) {
           </p>
         </div>
       </div>
-        <div
-          className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[2px] border-b-[#9F9F9F] ${
-            hover && "invisible"
-          }`}
-        >
-          <button
-            type="button"
-            className={`bg-[#F8FAFC] border ${
-              colorChange === true
-                ? "border-[#0DA071]  text-[#0DA071]"
-                : "border-[#9F9F9F]  text-[#6B6D71]"
-            } px-2 py-1 text-[14px] rounded-[8px]`}
-          >
-            Settings
-          </button>
-          <Switch
-            onChange={handleDmTemporaryLogin}
-            className={classNames(
-              enableDmTemporaryLogin ? "bg-lmn" : "bg-slate-200",
-              "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
-            )}
-          >
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute h-full w-full rounded-md bg-white"
-            />
-            <span
-              aria-hidden="true"
-              className={classNames(
-                enableDmTemporaryLogin ? "bg-lmn" : "bg-gray-200",
-                "pointer-events-none absolute mx-auto h-[16px] w-[32px] rounded-full transition-colors duration-200 ease-in-out"
-              )}
-            />
-            <span
-              aria-hidden="true"
-              className={classNames(
-                enableDmTemporaryLogin ? "translate-x-5" : "translate-x-0",
-                "toggle-bubble pointer-events-none absolute left-0 inline-block h-[16px] w-[16px] transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
-              )}
-            />
-          </Switch>
-        </div>
+      <div
+        className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[2px] border-b-[#9F9F9F] ${
+          hover && "invisible"
+        }`}
+      >
         <button
-          className={`bg-white px-6 py-3 text-[18px] font-semibold text-[#0DA071] rounded-[8px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
-            !hover && "invisible"
-          }`}
+          type="button"
+          className={`bg-[#F8FAFC] border ${
+            colorChange === true
+              ? "border-[#0DA071]  text-[#0DA071]"
+              : "border-[#9F9F9F]  text-[#6B6D71]"
+          } px-2 py-1 text-[14px] rounded-[8px]`}
         >
-          Buy Pro
+          Settings
         </button>
+        <Switch
+          onChange={handleDmTemporaryLogin}
+          className={classNames(
+            enableDmTemporaryLogin ? "bg-lmn" : "bg-slate-200",
+            "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
+          )}
+        >
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute h-full w-full rounded-md bg-white"
+          />
+          <span
+            aria-hidden="true"
+            className={classNames(
+              enableDmTemporaryLogin ? "bg-lmn" : "bg-gray-200",
+              "pointer-events-none absolute mx-auto h-[16px] w-[32px] rounded-full transition-colors duration-200 ease-in-out"
+            )}
+          />
+          <span
+            aria-hidden="true"
+            className={classNames(
+              enableDmTemporaryLogin ? "translate-x-5" : "translate-x-0",
+              "toggle-bubble pointer-events-none absolute left-0 inline-block h-[16px] w-[16px] transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
+            )}
+          />
+        </Switch>
+      </div>
+      <button
+        className={`bg-white px-6 py-3 text-[18px] font-semibold text-[#0DA071] rounded-[8px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
+          !hover && "invisible"
+        }`}
+      >
+        Buy Pro
+      </button>
     </div>
   );
 }
