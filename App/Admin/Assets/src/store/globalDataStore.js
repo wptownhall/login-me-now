@@ -10,7 +10,7 @@ const initialState = wp.hooks.applyFilters('login_me_now_dashboard/datastore', {
 	enableLogs: true,
 	logsExpiration: 7,
 	
-	enableUserSwitching: true,
+	enableUserSwitching: false,
 
 	enableGoogleLogin: false,
 	enableGoogleClientID: '',

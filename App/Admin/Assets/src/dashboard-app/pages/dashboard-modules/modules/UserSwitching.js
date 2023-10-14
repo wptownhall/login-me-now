@@ -19,7 +19,7 @@ function UserSwitching({ colorChange, proItem, none }) {
     setHover(false);
   };
 
-  const enableDmUserSwitching = useSelector((state) => state.dmUserSwitching);
+  const enableDmUserSwitching = useSelector((state) => state.enableUserSwitching);
 
   const handleDmUserSwitching = () => {
     let assetStatus;
@@ -33,7 +33,7 @@ function UserSwitching({ colorChange, proItem, none }) {
     }
 
     dispatch({
-      type: "ENABLE_DM_USER_SWITCHING",
+      type: "UPDATE_ENABLE_USER_SWITCHING",
       payload: assetStatus,
     });
 
@@ -41,7 +41,7 @@ function UserSwitching({ colorChange, proItem, none }) {
 
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
-    formData.append("key", "dm_user_switching");
+    formData.append("key", "user_switching");
     formData.append("value", assetStatus);
 
     apiFetch({

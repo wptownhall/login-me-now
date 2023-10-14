@@ -23,13 +23,13 @@ const UserSwitching = () => {
 			assetStatus = false;
 		}
 
-		dispatch({ type: 'UPDATE_ENABLE_USER_SWITCHING', payload: assetStatus });
+		dispatch({ type: 'UDFPDATE_ENABLE_USER_SWITCHING', payload: assetStatus });
 
 		const formData = new window.FormData();
 
 		formData.append('action', 'login_me_now_update_admin_setting');
 		formData.append('security', lmn_admin.update_nonce);
-		formData.append('key', 'user_switching');
+		formData.append('key', 'dm_user_switching');
 		formData.append('value', assetStatus);
 
 		apiFetch({
