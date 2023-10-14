@@ -74,9 +74,6 @@ const GoogleProRedirectUrl = () => {
             placeholder="ex: https://example.com/dashboard/"
           />
         </Tooltip>
-        <p className="mt-6 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
-          By default redirection is set to dashboard
-        </p>
       </div>
     </section>
   );

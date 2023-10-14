@@ -87,7 +87,7 @@ const GoogleUpdateUserAvatar = () => {
                 enableGoogleUpdateExistingUserAvatarStatus
                   ? "bg-lmn"
                   : "bg-gray-200",
-                "pointer-events-none absolute mx-auto h-[16px] w-[28px] rounded-full transition-colors duration-200 ease-in-out"
+                "pointer-events-none absolute mx-auto h-[16px] w-[32px] rounded-full transition-colors duration-200 ease-in-out"
               )}
             />
             <span
