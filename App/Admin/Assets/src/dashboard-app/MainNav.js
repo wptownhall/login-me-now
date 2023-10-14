@@ -10,21 +10,20 @@ export default function MainNav() {
   const temporaryLoginStatus = navStatus.dmTemporaryLogin;
   const browserExtensionStatus = navStatus.dmBrowserExtension;
   navMenus = [
+    {
+      name: __("Modules", "login-me-now"),
+      slug: lmn_admin.home_slug,
+      path: "",
+    },
     temporaryLoginStatus && {
       name: __("Temporary login", "login-me-now"),
       slug: lmn_admin.home_slug,
-      path: "",
+      path: "temporary-login",
     },
     browserExtensionStatus && {
       name: __("Browser extension", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "browser-extensions",
-    },
-
-    {
-      name: __("Dashboard Modules", "login-me-now"),
-      slug: lmn_admin.home_slug,
-      path: "dashboard-modules",
     },
     {
       name: __("Settings", "login-me-now"),

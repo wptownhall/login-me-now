@@ -26,8 +26,8 @@ function SettingsRoute() {
         case 'browser-extensions':
           routePage = <BrowserExtensions />;
           break;
-          case 'dashboard-modules':
-            routePage = <DashboardModules />;
+          case 'temporary-login':
+            routePage = <Welcome />;
             break;
         case 'advanced-sharing':
           routePage = (
@@ -37,7 +37,7 @@ function SettingsRoute() {
           );
           break;
         default:
-          routePage = <Welcome />;
+          routePage = <DashboardModules />;
           break;
       }
     }
