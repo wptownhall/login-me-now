@@ -85,14 +85,11 @@ export default function OneTapToLogin() {
       });
     });
   };
+
   return (
-    <div
-      className={`${
-        enableGoogleLoginStatus ? "block" : "hidden"
-      } py-12 `}
-    >
+    <div className={`${enableGoogleLoginStatus ? "block" : "hidden"} py-12 `}>
       <div className="flex justify-between items-start">
-        <p className="mt-0 text-[22px] text-[#000000] tablet:w-full font-medium mb-8">
+        <p className="mt-0 text-[20px] text-[#000000] tablet:w-full font-medium mb-8">
           {__("Enable one tap login", "login-me-now")}
         </p>
 
@@ -101,7 +98,7 @@ export default function OneTapToLogin() {
           onChange={updateStatus}
           className={classNames(
             enableGoogleOneTapStatus ? "bg-lmn" : "bg-slate-200",
-            "group relative inline-flex h-2 w-8 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
+            "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
           )}
         >
           <span
@@ -112,14 +109,14 @@ export default function OneTapToLogin() {
             aria-hidden="true"
             className={classNames(
               enableGoogleOneTapStatus ? "bg-lmn" : "bg-gray-200",
-              "pointer-events-none absolute mx-auto h-4 w-7 rounded-full transition-colors duration-200 ease-in-out"
+              "pointer-events-none absolute mx-auto h-[16px] w-[32px] rounded-full transition-colors duration-200 ease-in-out"
             )}
           />
           <span
             aria-hidden="true"
             className={classNames(
               enableGoogleOneTapStatus ? "translate-x-5" : "translate-x-0",
-              "toggle-bubble pointer-events-none absolute left-0 inline-block h-4 w-4 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
+              "toggle-bubble pointer-events-none absolute left-0 inline-block h-[16px] w-[16px] transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
             )}
           />
         </Switch>
@@ -152,7 +149,16 @@ export default function OneTapToLogin() {
 
             <div class="flex items-center mb-4">
               <input
-                defaultChecked={location === "side_wide" ? true : false}
+                defaultChecked={
+                  location === "side_wide"
+                    ? true
+                    : false ||
+                      location === "login_screen" ||
+                      location === "side_wide" ||
+                      location === "selected_pages"
+                    ? false
+                    : true
+                }
                 id="site_wide"
                 onChange={() => handleLocationChange("side_wide")}
                 type="radio"
@@ -189,12 +195,12 @@ export default function OneTapToLogin() {
                 }`}
               >
                 Specific page{" "}
-                
-              </label>{!isProAvailable ? (
-                  <ProBtn extraClass="py-[1px] px-[10px]" />
-                ) : (
-                  ""
-                )}
+              </label>
+              {!isProAvailable ? (
+                <ProBtn extraClass="py-[1px] px-[10px]" />
+              ) : (
+                ""
+              )}
             </div>
 
             {checkbox === true ? (

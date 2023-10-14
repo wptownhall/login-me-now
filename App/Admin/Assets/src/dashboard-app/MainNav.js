@@ -1,9 +1,26 @@
 import { Disclosure } from "@headlessui/react";
 import { Link, useLocation } from "react-router-dom";
 import { __ } from "@wordpress/i18n";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 export default function MainNav() {
+  const [isSticky, setIsSticky] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   let navMenus = [];
 
   navMenus = [
@@ -49,7 +66,7 @@ export default function MainNav() {
   const activePath = query.get("path") ? query.get("path") : "";
 
   return (
-    <Disclosure as="nav" className="bg-white border-b border-slate-200">
+    <Disclosure as="nav" className={`bg-white border-b border-slate-200 sticky-header ${isSticky ? 'header-sticky' : ''}`}>
       <div className="max-w-3xl mx-auto px-3 sm:px-6 lg:max-w-full">
         <div className="relative flex flex-col lg:flex-row justify-between h-28 lg:h-16 py-3 lg:py-0">
           <div className="lg:flex-1 flex items-start justify-center sm:items-stretch sm:justify-start">

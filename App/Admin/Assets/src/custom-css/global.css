@@ -210,9 +210,19 @@ input#selected_pages {
 .ant-select-multiple .ant-select-selection-item-remove:hover {
   color: white;
 }
-.list-box-custom-class span {
-  font-size: 16px;
+.sticky-header {
+  width: 100%;
+  background-color: #fff;
+  transition: 0.7s;
 }
+
+.header-sticky {
+  position: sticky;
+  top: 30px;
+  z-index: 9;
+  transition: 0.7s;
+}
+
 @keyframes dot-pulse-before {
   0% {
     box-shadow: 9984px 0 0 -5px;

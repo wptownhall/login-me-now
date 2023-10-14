@@ -27,7 +27,7 @@ class Button {
 
 	public function wp_login_form(): void {?>
 		<div id="wp-login-google-login-button">
-			<?php echo $this->html(); ?>
+			<?php echo $this->html( 270 ); ?>
 			<div style="text-align: center; margin: 10px 0;"><?php esc_html_e( 'Or', 'login-me-now' );?></div>
 		</div>
 	<?php }
@@ -38,21 +38,22 @@ class Button {
 
 	public function login_btn(): string {
 		if ( ! is_user_logged_in() ) {
-			$this->html();
+			$this->html( 300 );
 		}
 
 		return '';
 	}
 
-	public function html(): string {
-		$html = '<div class="g_id_signin"
+	public function html( int $width ): string {
+		$width = apply_filters( 'login_me_now_google_button_width', $width );
+		$html  = '<div class="g_id_signin"
 			data-type="standard"
-			data-shape="rectangular"
+			data-shape="pill"
 			data-theme="outline"
-			data-text="continue_with"
+			data-text="signin"
 			data-size="large"
-			data-logo_alignment="center"
-			data-width="270">
+			data-logo_alignment="left"
+			data-width="' . $width . '">
 			</div>';
 
 		return $html;

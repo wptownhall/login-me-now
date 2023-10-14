@@ -9,7 +9,7 @@ gulp.task('pot', function () {
 	.pipe(wpPot( {
 		domain: project.name,
 		bugReport: 'halalbrains@gmail.com',
-		team: 'HalalBrains <halalbrains@gmail.com>'
+		team: 'WPtownhall <halalbrains@gmail.com>'
 	} ))
 	.pipe(gulp.dest('languages/'+project.name+'.pot'));
 });

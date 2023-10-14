@@ -2,7 +2,7 @@
 	"name": "login-me-now",
 	"version": "1.0.0",
 	"main": "gulpfile.js",
-	"author": "HalalBrains",
+	"author": "WPtownhall",
 	"license": "(GPL-3.0)",
 	"scripts": {
 		"build-admin": "cd App/Admin && npm run build",

@@ -50,8 +50,8 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/HalalBrains/login-me-now.git"
+		"url": "https://github.com/WPtownhall/login-me-now.git"
 	},
-	"author": "HalalBrains",
+	"author": "WPtownhall",
 	"license": "ISC"
 }

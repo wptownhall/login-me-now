@@ -51,30 +51,29 @@ const GoogleProRedirectUrl = () => {
       } text-[16px] block border-b border-solid border-slate-200 py-12 justify-between`}
     >
       <div className="mr-16 w-full flex flex-col space-y-3 pr-[10%]">
-        <h3 className="p-0 mb-5 flex-1 justify-right inline-flex text-[22px] leading-6 font-semibold text-slate-800">
+        <h3 className="p-0 mb-5 flex-1 justify-right inline-flex text-[20px] leading-6 font-semibold text-slate-800">
           {__(
             "Redirect after successful login and registration",
             "login-me-now"
           )}
           {!isProAvailable ? <ProBtn /> : ""}
         </h3>
-        <Tooltip placement="rightTop" title={`${isProAvailable === false ? "Upgrade to Pro" : ""}`}>
-        <input
-          disabled={isProAvailable ? false : true}
-          onChange={updateGoogleProRedirectUrl}
-          className="block w-full h-[50px] !p-3 !border-slate-200"
-          value={inputGoogleProRedirectUrl}
-          type="text"
-          name="name"
-          placeholder="ex: https://example.com/dashboard/"
-        />
+        <Tooltip
+          placement="rightTop"
+          title={`${isProAvailable === false ? "Upgrade to Pro" : ""}`}
+        >
+          <input
+            disabled={isProAvailable ? false : true}
+            onChange={updateGoogleProRedirectUrl}
+            className={`${
+              !isProAvailable && "opacity-40"
+            } block w-full h-[50px] !p-3 !border-slate-200`}
+            value={inputGoogleProRedirectUrl}
+            type="text"
+            name="name"
+            placeholder="ex: https://example.com/dashboard/"
+          />
         </Tooltip>
-        <p className="mt-6 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
-          {__("By default redirection is set as per", "login-me-now")}
-          <a class="text-[#2271B1]" target="_blank" href="#">
-            {__(" Reading Settings > Your homepage displays", "login-me-now")}
-          </a>
-        </p>
       </div>
     </section>
   );
