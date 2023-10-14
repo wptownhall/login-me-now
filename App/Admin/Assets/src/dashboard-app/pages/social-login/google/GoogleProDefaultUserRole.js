@@ -21,6 +21,7 @@ const GoogleProDefaultUserRole = () => {
       payload: role,
     });
 
+
     const formData = new window.FormData();
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
@@ -38,6 +39,43 @@ const GoogleProDefaultUserRole = () => {
       });
     });
   };
+
+	return (
+		<section className={`${enableGoogleLoginStatus ? 'block' :'hidden'} block border-b border-solid border-slate-200 py-12 justify-between`}>
+			<div className='mr-16 w-full flex flex-col pr-[10%]'>
+				
+				<h3 className="p-0 flex-1 justify-right inline-flex text-[22px] leading-6 font-semibold text-slate-800">
+					{__('User role permission level', 'login-me-now')}
+					{ ! lmn_admin.pro_available ? (
+						<ProBtn />)
+						: 
+						''
+					}
+				</h3>
+				<p className="mt-6 mb-6 w-9/12 text-[16px] text-slate-500 tablet:w-full">
+				{__("Select the role that will be assigned to new users who sign up", 'login-me-now')}
+			</p>
+		
+				<Listbox disabled={isProAvailable ? false : true} onChange={updateGoogleProDefaultUserRole}>
+					
+					<Listbox.Button className="block w-full text-left h-[50px] pl-3 pr-0 py-0 mt-3 text-lg border !border-slate-200 rounded-[4px] list-box-custom-class">
+						<span className="block truncate">{currentOption}</span>
+						<span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+							<ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+						</span>
+					</Listbox.Button>
+
+					<Listbox.Options className='p-3 absolute mt-1 max-h-60 w-[400px] overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-[16px]' >
+						{Object.keys(getUserRoles).map((key) => (
+							<Listbox.Option
+								key={key}
+								value={key}
+								className='text-[16px] text-slate-800 relative cursor-pointer py-2 pr-1 mb-1'
+							>
+								{getUserRoles[key]}
+							</Listbox.Option>
+						))}
+					</Listbox.Options>
 
   const role = useSelector((state) => state.selectGoogleProDefaultUserRole);
   let currentOption = "Subscriber";
