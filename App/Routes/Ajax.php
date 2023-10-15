@@ -4,7 +4,7 @@
  *
  * @package Login Me Now
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 namespace LoginMeNow\Routes;
@@ -34,7 +34,7 @@ class Ajax {
 	/**
 	 * Return boolean settings for admin dashboard app.
 	 */
-	public function login_me_now_admin_settings_typewise(): array{
+	public function login_me_now_admin_settings_typewise(): array {
 		return apply_filters(
 			'login_me_now_admin_settings_datatypes',
 			[
@@ -47,7 +47,9 @@ class Ajax {
 				'google_client_id'                 => 'string',
 				'google_native_login'              => 'bool',
 				'google_update_existing_user_data' => 'bool',
+				'google_onetap'                    => 'bool',
 				'google_cancel_on_tap_outside'     => 'bool',
+				'google_onetap_display_location'   => 'string',
 			]
 		);
 	}

@@ -1,6 +1,6 @@
 <?php
 /**
- * @author  HalalBrains
+ * @author  WPtownhall
  * @since   0.91
  * @version 0.91
  */

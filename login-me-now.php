@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Login Me Now
  * Description: 1 click passwordless login, social login & user switching
- * Author: Login Me Now
- * Author URI: https://loginmenow.com/
- * Version: 1.0.0
+ * Author: WPtownhall
+ * Author URI: https://wptownhall.com/login-me-now/
+ * Version: 1.1.0
  * Requires PHP: 7.4
  * License: GPL2
  * Text Domain: login-me-now
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * This class holds the entire LoginMeNow plugin
  */
 final class LoginMeNow {
-	public string $version  = '1.0.0';
+	public string $version  = '1.1.0';
 	private string $min_php = '7.4';
 	public object $app;
 	private static $instance;

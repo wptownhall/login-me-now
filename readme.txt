@@ -1,16 +1,16 @@
 === Login Me Now – 1 click passwordless login, social login & user switching ===
-Contributors: HalalBrains
+Contributors: WPtownhall, HeyMehedi
 Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
 Tested up to: 6.3.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv3 or Any Later Version
 
 Login Me Now – 1 click passwordless login, social login & user switching
 
 == Description ==
-[TRY LIVE DEMO](https://try.loginmenow.com/) | [ROADMAP](https://loginmenow.com/roadmap/) | [PRO](https://loginmenow.com/)  ( LIMITED LIFETIME DEAL🎁 ) 
+[TRY LIVE DEMO](https://try.loginmenow.com/) | [ROADMAP](https://wptownhall.com/login-me-now/roadmap/) | [PRO](https://wptownhall.com/login-me-now/pricing/)  ( LIMITED LIFETIME DEAL🎁 ) 
 
 Experience a hassle-free WordPress login experience with just one click.
 
@@ -117,6 +117,12 @@ No. That would be horrible not only for you but even more so for us (huge liabil
 Yes, you will know the activities in the dashboard of the recipient by checking the activity log option of this plugin. This means you can keep track of what the recipient is doing while they have temporary access to your website. 
 
 == Changelog ==
+
+= 1.1.0 – Oct 07, 2023 =
+* New: Google Login - OneTap Display Location
+* Drop: Google Login - Exclude Pages 
+* Fix: Google Login - Empty Button
+* Add: Browser Extension Notice
 
 = 1.0.0 – Sep 15, 2023 =
 * New: Reusable temporary login link

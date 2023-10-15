@@ -1,6 +1,6 @@
 <?php
 /**
- * @author  HalalBrains
+ * @author  WPtownhall
  * @since   1.1.0
  * @version 1.1.0
  */
@@ -11,7 +11,7 @@ use LoginMeNow\Model\Settings;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
 
-class LoginButton {
+class Button {
 	use Singleton;
 	use Hookable;
 

@@ -9,7 +9,7 @@ gulp.task('pot', function () {
 	.pipe(wpPot( {
 		domain: project.name,
 		bugReport: 'halalbrains@gmail.com',
-		team: 'HalalBrains <halalbrains@gmail.com>'
+		team: 'WPtownhall <halalbrains@gmail.com>'
 	} ))
 	.pipe(gulp.dest('languages/'+project.name+'.pot'));
 });
@@ -39,7 +39,8 @@ gulp.task('zip', function () {
 			'!App/Admin/postcss.config.js',
 			'!App/Admin/tailwind.config.js',
 			'!App/Admin/webpack.config.js',
-			'!testing.html'
+			'!testing.html',
+			'!Tests'
 		], { base: '..' })
 	.pipe(zip(project.name+'.zip'))
 	.pipe(gulp.dest('__build'));
