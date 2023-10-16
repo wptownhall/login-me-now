@@ -222,6 +222,10 @@ input#selected_pages {
   z-index: 9;
   transition: 0.7s;
 }
+.no-number-arrows::-webkit-inner-spin-button,
+  .no-number-arrows::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
 
 @keyframes dot-pulse-before {
   0% {
