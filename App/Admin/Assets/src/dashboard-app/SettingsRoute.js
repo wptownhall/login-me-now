@@ -6,6 +6,7 @@ import AdvancedSharing from '@DashboardApp/pages/advanced-settings/AdvancedShari
 import { FormDataProvider } from '../context/FormContext';
 import BrowserExtensions from './pages/browser-extensions/BrowserExtensions';
 import SocialLogin from './pages/social-login/SocialLogin';
+import RealtimeLogin from './pages/realtime-login/RealtimeLogin';
 
 function SettingsRoute() {
   const query = new URLSearchParams(useLocation().search);
@@ -29,6 +30,9 @@ function SettingsRoute() {
         case 'social-login':
           routePage = <SocialLogin />;
           break;
+          case 'realtime-login':
+            routePage = <RealtimeLogin />;
+            break;
         case 'advanced-sharing':
           routePage = (
             <FormDataProvider>

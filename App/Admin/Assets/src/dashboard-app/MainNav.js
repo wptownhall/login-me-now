@@ -40,6 +40,11 @@ export default function MainNav() {
       path: "social-login",
     },
     {
+      name: __("Realtime Login", "login-me-now"),
+      slug: lmn_admin.home_slug,
+      path: "realtime-login",
+    },
+    {
       name: __("Settings", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "settings",
