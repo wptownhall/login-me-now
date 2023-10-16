@@ -37,6 +37,9 @@ const setInitialState = (store) => {
 			getPages: data.get_pages,
 
 			blocksStatuses: data.pro_addons,
+			enableSignInEmailAddress: data.enable_sign_in_email_address,
+			enableSignInPhoneNumber: data.enable_sign_in_phone_number,
+			enableSignInUsername: data.enable_sign_in_username
 		};
 
 		store.dispatch({ type: 'UPDATE_INITIAL_STATE', payload: initialState });

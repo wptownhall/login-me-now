@@ -132,6 +132,22 @@ const globalDataReducer = (state = {}, action) => {
 				...state,
 				lmnProLic: action.payload,
 			};
+		case 'ENABLE_SIGN_IN_EMAIL_ADDRESS':
+			return {
+				...state,
+				enableSignInEmailAddress: action.payload,
+			};
+		case 'ENABLE_SIGN_IN_PHONE_NUMBER':
+			return {
+				...state,
+				enableSignInPhoneNumber: action.payload,
+			};
+		case 'ENABLE_SIGN_IN_USERNAME':
+			return {
+				...state,
+				enableSignInUsername: action.payload,
+			};
+		
 		default:
 			return state;
 	}

@@ -39,6 +39,9 @@ const initialState = wp.hooks.applyFilters('login_me_now_dashboard/datastore', {
 	enableFileGeneration: 'disable',
 	activeSettingsNavigationTab: '',
 	activeSocialLoginNavigationTab: '',
+	enableSignInEmailAddress: false,
+	enableSignInPhoneNumber: false,
+	enableSignInUsername: false
 }
 );
 
