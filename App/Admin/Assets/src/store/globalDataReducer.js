@@ -147,7 +147,16 @@ const globalDataReducer = (state = {}, action) => {
 				...state,
 				enableSignInUsername: action.payload,
 			};
-		
+		case 'ENABLE_SIGN_IN_GOOGLE':
+			return {
+				...state,
+				enableSignInGoogle: action.payload,
+			};
+		case 'ENABLE_SIGN_IN_FACEBOOK':
+			return {
+				...state,
+				enableSignInFacebook: action.payload,
+			};
 		default:
 			return state;
 	}

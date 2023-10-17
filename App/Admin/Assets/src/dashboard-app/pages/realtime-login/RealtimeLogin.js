@@ -1,19 +1,22 @@
 import React from "react";
 import GoogleLogin from "./GoogleLogin";
 import FacebookLogin from "./FacebookLogin";
-import { useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import ActiveEmail from "./ActiveEmail";
 import { useSelector } from "react-redux";
 import ActivePhoneNumber from "./ActivePhoneNumber";
 import ActiveUsername from "./ActiveUsername";
+import ActiveGoogle from "./ActiveGoogle";
+import ActiveFacebook from "./ActiveFacebook";
 
 function RealtimeLogin() {
   const data = useSelector((state) => state);
   const isEmailEnable = data.enableSignInEmailAddress;
   const isPhoneEnable = data.enableSignInPhoneNumber;
   const isUsernameEnable = data.enableSignInUsername;
+  const isGoogleEnable = data.enableSignInGoogle;
+  const isFacebookEnable = data.enableSignInFacebook;
 
   return (
     <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
@@ -35,6 +38,8 @@ function RealtimeLogin() {
               <ActiveEmail />
               <ActivePhoneNumber />
               <ActiveUsername />
+              <ActiveGoogle />
+              <ActiveFacebook />
             </div>
           </div>
           <div className="lg:col-span-8 border-l px-14 py-8">
@@ -46,9 +51,8 @@ function RealtimeLogin() {
             </p>
 
             <div>
-              <GoogleLogin />
-              <FacebookLogin />
-
+              {isGoogleEnable && <GoogleLogin />}
+              {isFacebookEnable && <FacebookLogin />}
               <div className="flex items-center my-12">
                 <p className="border-[1px] border-[#e7e7e7] w-[47%]"></p>
                 <span className="font-semibold text-center w-[6%] text-[16px]">

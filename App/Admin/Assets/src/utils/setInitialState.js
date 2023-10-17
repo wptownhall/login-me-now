@@ -39,7 +39,9 @@ const setInitialState = (store) => {
 			blocksStatuses: data.pro_addons,
 			enableSignInEmailAddress: data.enable_sign_in_email_address,
 			enableSignInPhoneNumber: data.enable_sign_in_phone_number,
-			enableSignInUsername: data.enable_sign_in_username
+			enableSignInUsername: data.enable_sign_in_username,
+			enableSignInGoogle: data.enable_sign_in_google,
+			enableSignInFacebook: data.enable_sign_in_facebook
 		};
 
 		store.dispatch({ type: 'UPDATE_INITIAL_STATE', payload: initialState });

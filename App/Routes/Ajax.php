@@ -50,6 +50,11 @@ class Ajax {
 				'google_onetap'                    => 'bool',
 				'google_cancel_on_tap_outside'     => 'bool',
 				'google_onetap_display_location'   => 'string',
+				'enable_sign_in_email_address'     => 'bool',
+				'enable_sign_in_phone_number'      => 'bool',
+				'enable_sign_in_username'          => 'bool',
+				'enable_sign_in_google'            => 'bool',
+				'enable_sign_in_facebook'          => 'bool',
 			]
 		);
 	}

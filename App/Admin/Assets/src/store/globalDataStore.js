@@ -41,7 +41,9 @@ const initialState = wp.hooks.applyFilters('login_me_now_dashboard/datastore', {
 	activeSocialLoginNavigationTab: '',
 	enableSignInEmailAddress: false,
 	enableSignInPhoneNumber: false,
-	enableSignInUsername: false
+	enableSignInUsername: false,
+	enableSignInGoogle: false,
+	enableSignInFacebook: false
 }
 );
 

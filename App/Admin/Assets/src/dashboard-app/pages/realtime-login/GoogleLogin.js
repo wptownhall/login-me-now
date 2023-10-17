@@ -31,7 +31,7 @@ function GoogleLogin() {
           d="M166667 64444c31296 0 52406 13519 64444 24816l47037-45926C249260 16482 211666 1 166667 1 101481 1 45185 37408 17777 91852l53889 41853c13520-40185 50927-69260 95001-69260m0 0z"
           fill="#ea4335"
         ></path>
-      </svg>{" "}
+      </svg>
       <span className="font-bold text-[16px]">Continue with Google</span>
     </div>
   );
