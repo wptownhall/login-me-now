@@ -51,9 +51,12 @@ class Logs {
 	}
 
 	public function insert( int $user_id, string $message ): void{
-		$ip = (string) Helper::get_ip_address();
+		$ip 					= (string) Helper::get_ip_address();
+		$context 				= [];
+		$context['_initiator'] 	= 'Log In Me Now';
+		
 		if ( function_exists("SimpleLogger") ) {
-		    SimpleLogger()->info( $user_id . ' With IP ' . $ip . ' ' .$message );
+		    SimpleLogger()->log( 'info', 'User With IP ' . $ip . ' ' .$message, $context );
 		}
 	}
 
