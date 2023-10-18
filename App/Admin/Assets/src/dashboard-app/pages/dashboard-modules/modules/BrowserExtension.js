@@ -59,7 +59,7 @@ function BrowserExtension({ colorChange, proItem }) {
   };
 
   return (
-    <div className="sm:mb-16 lg:mb-0 mx-4 flex cursor-pointer">
+    <div className="mb-16 mx-4 flex">
       <div
         class={`relative rounded-[8px] border border-[#9F9F9F] flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
@@ -69,7 +69,7 @@ function BrowserExtension({ colorChange, proItem }) {
       >
         <div className={`px-8 pt-16 pb-10 ${hover && "invisible"}`}>
           <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
-            Browser extension
+          Browser extension
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
                 Pro
@@ -77,7 +77,7 @@ function BrowserExtension({ colorChange, proItem }) {
             )}
           </h1>
           <p className="text-[#6B6D71] text-[14px] text-center">
-            Experience instant dashboard access with just 1 click
+          Experience instant dashboard access with just 1 click
           </p>
         </div>
         <div

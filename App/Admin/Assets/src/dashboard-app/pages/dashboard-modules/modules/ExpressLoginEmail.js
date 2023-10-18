@@ -60,7 +60,7 @@ function ExpressLoginEmail({ colorChange }) {
   };
 
   return (
-    <div className="mb-16 mx-4 flex cursor-pointer">
+    <div className={`mb-16 mx-4 flex`}>
       <div
         class={`relative rounded-[8px] border border-[#9F9F9F] flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
@@ -130,13 +130,15 @@ function ExpressLoginEmail({ colorChange }) {
             />
           </Switch>
         </div>
-        <button
-          className={`bg-white px-6 py-3 text-[18px] font-semibold text-[#0DA071] rounded-[8px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
-            !hover && "invisible"
-          }`}
-        >
-          Buy Pro
-        </button>
+        <a href="https://wptownhall.com/login-me-now/pricing/" target="_blank">
+          <button
+            className={`bg-white px-4 py-3 text-[18px] font-semibold text-[#0DA071] rounded-[8px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
+              !hover && "invisible"
+            }`}
+          >
+            Buy Pro
+          </button>
+        </a>
       </div>
     </div>
   );

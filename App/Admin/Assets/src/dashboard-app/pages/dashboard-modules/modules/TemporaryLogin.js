@@ -3,6 +3,7 @@ import { Switch } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
+import { Link } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -58,7 +59,7 @@ function TemporaryLogin({ colorChange, proItem }) {
 
   return (
     <div
-      className={`mb-16 mx-4 flex cursor-pointer flex-col justify-between rounded-[8px] border border-[#9F9F9F] ${
+      className={`mb-16 mx-4 flex flex-col justify-between rounded-[8px] border border-[#9F9F9F] ${
         hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
       }`}
     >
@@ -86,16 +87,18 @@ function TemporaryLogin({ colorChange, proItem }) {
           hover && "invisible"
         }`}
       >
-        <button
-          type="button"
-          className={`bg-[#F8FAFC] border ${
-            colorChange === true
-              ? "border-[#0DA071]  text-[#0DA071]"
-              : "border-[#9F9F9F]  text-[#6B6D71]"
-          } px-2 py-1 text-[14px] rounded-[8px]`}
-        >
-          Settings
-        </button>
+        <Link to="/admin.php?page=login-me-now&path=temporary-login" className={`${enableDmTemporaryLogin === true ? '' : 'pointer-events-none'}`}>
+          <button
+            type="button"
+            className={`bg-[#F8FAFC] border ${
+              colorChange === true
+                ? "border-[#0DA071]  text-[#0DA071]"
+                : "border-[#9F9F9F]  text-[#6B6D71]"
+            } px-2 py-1 text-[14px] rounded-[8px]`}
+          >
+            Settings
+          </button>
+        </Link>
         <Switch
           onChange={handleDmTemporaryLogin}
           className={classNames(

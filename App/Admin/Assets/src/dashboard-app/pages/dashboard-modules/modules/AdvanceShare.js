@@ -55,7 +55,7 @@ function AdvanceShare({ colorChange, proItem }) {
   };
 
   return (
-    <div className="mb-16 mx-4 flex cursor-pointer">
+    <div className="mb-16 mx-4 flex">
       <div
         class={`relative rounded-[8px] border border-[#9F9F9F] flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
@@ -90,13 +90,14 @@ function AdvanceShare({ colorChange, proItem }) {
                 : "border-[#9F9F9F]  text-[#6B6D71]"
             } px-2 py-1 text-[14px] rounded-[8px]`}
           >
-            Settings
+            Upcoming
           </button>
+          <span title="Upcoming">
           <Switch
             onChange={handleDmAdvanceShare}
             className={classNames(
               enableDmAdvanceShare ? "bg-lmn" : "bg-slate-200",
-              "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
+              "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2 pointer-events-none"
             )}
           >
             <span
@@ -118,6 +119,7 @@ function AdvanceShare({ colorChange, proItem }) {
               )}
             />
           </Switch>
+          </span>
         </div>
         <button
           className={`bg-white px-6 py-3 text-[18px] font-semibold text-[#0DA071] rounded-[8px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${

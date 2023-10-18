@@ -53,7 +53,7 @@ function ActiveLog({ colorChange, proItem }) {
   };
 
   return (
-    <div className="mx-4 flex cursor-pointer">
+    <div className="mb-16 mx-4 flex">
       <div
         class={`relative rounded-[8px] border border-[#9F9F9F] flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
@@ -63,7 +63,7 @@ function ActiveLog({ colorChange, proItem }) {
       >
         <div className={`px-8 pt-16 pb-10 ${hover && "invisible"}`}>
           <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
-            Activity log
+            Active log
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
                 Pro
@@ -71,7 +71,7 @@ function ActiveLog({ colorChange, proItem }) {
             )}
           </h1>
           <p className="text-[#6B6D71] text-[14px] text-center">
-            "Redirect non-existent content easily with 301 and 302 status code.
+            Redirect non-existent content easily with 301 and 302 status code.
             This can help improve your site ranking. Also supports many
           </p>
         </div>
@@ -82,7 +82,7 @@ function ActiveLog({ colorChange, proItem }) {
         >
           <button
             type="button"
-            className={`bg-[#F8FAFC] border ${
+            className={`invisible ${
               colorChange === true
                 ? "border-[#0DA071]  text-[#0DA071]"
                 : "border-[#9F9F9F]  text-[#6B6D71]"

@@ -155,6 +155,33 @@ body.active-modal {
   animation: dot-pulse-after 1.5s infinite linear;
   animation-delay: 0.5s;
 }
+.inline-box-flex{
+  display: -webkit-inline-box;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+@media (min-width: 1206px) {
+  
+  .extralarge-grid{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+}
+@media (min-width: 1024px) and (max-width: 1205px) {
+  
+  .large-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+}
+@media (min-width: 640px) and (max-width: 1024px) {
+  
+  .large-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+}
 
 @keyframes dot-pulse-before {
   0% {
