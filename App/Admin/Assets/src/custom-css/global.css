@@ -161,14 +161,14 @@ body.active-modal {
   width: 100%;
 }
 
-@media (min-width: 1206px) {
+@media (min-width: 1291px) {
   
   .extralarge-grid{
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   
 }
-@media (min-width: 1024px) and (max-width: 1205px) {
+@media (min-width: 1024px) and (max-width: 1290px) {
   
   .large-grid{
     grid-template-columns: repeat(3, minmax(0, 1fr));
