@@ -14,7 +14,6 @@ import UserSwitching from "./modules/UserSwitching";
 
 function DashboardModules() {
   const isProAvailable = lmn_admin.pro_available ? true : false;
-  console.log(isProAvailable);
   return (
     <main className="py-[2.43rem]">
       <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
