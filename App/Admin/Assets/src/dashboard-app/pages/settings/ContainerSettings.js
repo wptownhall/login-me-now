@@ -1,6 +1,10 @@
 import { __ } from "@wordpress/i18n";
 import { useSelector } from "react-redux";
 
+import Logs from "./general/Logs";
+import LogsExpiration from "./general/LogsExpiration";
+import UserSwitching from "./general/UserSwitching";
+
 import GoogleLogin from "./google/GoogleLogin";
 import GoogleClientID from "./google/GoogleClientID";
 import GoogleInNativeLogin from "./google/GoogleInNativeLogin";
@@ -11,7 +15,6 @@ import GoogleProExcludePages from "./google/GoogleProExcludePages";
 import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
 
 import License from "./license/License";
-import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
 
 function SettingsWrapper({ state }) {
   const wrappers = wp.hooks.applyFilters(
@@ -19,6 +22,7 @@ function SettingsWrapper({ state }) {
     {
       "global-settings": (
         <>
+          <UserSwitching />
           {/* <Logs />
           <LogsExpiration /> */}
         </>

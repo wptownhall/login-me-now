@@ -1,6 +1,6 @@
 <?php
 /**
- * @author  HalalBrains
+ * @author  WPtownhall
  * @since   1.0.0
  * @version 1.0.0
  */
@@ -20,7 +20,7 @@ class FacebookLogin extends ModuleBase {
 	public function setup(): void{
 		Enqueuer::init();
 		// Authenticate::init();
-		// LoginButton::init();
+		// Button::init();
 		// OneTap::init();
 	}
 }

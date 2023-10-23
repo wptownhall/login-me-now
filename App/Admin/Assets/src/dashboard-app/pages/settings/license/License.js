@@ -29,13 +29,13 @@ const License = () => {
   };
 
   return (
-    <section className={`text-sm block border-b border-solid border-slate-200 px-8 py-8 justify-between`}>
+    <section className={`text-[16px] block border-b border-solid border-slate-200 px-8 py-8 justify-between`}>
       <div className='mr-16 w-full flex flex-col space-y-3'>
         <h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
           {__('License', 'login-me-now')}
         </h3>
         <input onChange={updateLicense} className='block w-full h-[50px] !p-3 !border-slate-200' type='password' name='lmn_pro_lic' value={lmnProLic} placeholder='Enter your license here...' />
-        <span class="text-blue-400">
+        <span class="text-[#2271B1]">
           {__('Add your purchased license here for future updates', 'login-me-now')} 
         </span>
       </div>

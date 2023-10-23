@@ -8,3 +8,4 @@ App/Admin/node_modules
 __build
 **/package-lock.json
 **/login-me-now.pot
+Tests

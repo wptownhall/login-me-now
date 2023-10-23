@@ -53,7 +53,7 @@ export default function SettingsSavedNotification() {
 										<CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
 									</div>
 									<div className="ml-3 w-0 flex-1 pt-0.5">
-										<p className="text-sm font-medium text-gray-900">{ settingsSavedNotification }</p>
+										<p className="text-[16px] font-medium text-gray-900">{ settingsSavedNotification }</p>
 									</div>
 									<div className="ml-4 flex-shrink-0 flex">
 										<button

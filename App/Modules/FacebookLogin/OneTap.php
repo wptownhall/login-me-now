@@ -1,6 +1,6 @@
 <?php
 /**
- * @author  HalalBrains
+ * @author  WPtownhall
  * @since   1.0.0
  * @version 1.0.0
  */
@@ -22,7 +22,7 @@ class OneTap {
 
 	public function one_tap() {
 		$nonce   = wp_create_nonce( 'lmn-google-nonce' );
-		$exclude = apply_filters( 'login_me_now_google_exclude_pages', false );
+		$exclude = apply_filters( 'login_me_now_google_selected_pages', false );
 
 		if ( ! is_user_logged_in() && ! $exclude ) {
 			global $wp;
