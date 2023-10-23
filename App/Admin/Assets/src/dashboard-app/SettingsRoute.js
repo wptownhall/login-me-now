@@ -1,7 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Welcome from "@DashboardApp/pages/welcome/Welcome";
-import Settings from "@DashboardApp/pages/settings/Settings";
 import AdvancedSharing from "@DashboardApp/pages/advanced-settings/AdvancedSharing";
 import { FormDataProvider } from "../context/FormContext";
 import BrowserExtensions from "./pages/browser-extensions/BrowserExtensions";
@@ -21,9 +20,6 @@ function SettingsRoute() {
       routePage = <Welcome />;
     } else {
       switch (path) {
-        case "settings":
-          routePage = <Settings />;
-          break;
         case "browser-extensions":
           routePage = <BrowserExtensions />;
           break;

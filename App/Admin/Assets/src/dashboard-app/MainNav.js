@@ -2,6 +2,7 @@ import { Disclosure } from "@headlessui/react";
 import { Link, useLocation } from "react-router-dom";
 import { __ } from "@wordpress/i18n";
 import { Fragment, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function MainNav() {
   const [isSticky, setIsSticky] = useState(false);
@@ -45,11 +46,6 @@ export default function MainNav() {
       name: __("Social login", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "social-login",
-    },
-    {
-      name: __("Settings", "login-me-now"),
-      slug: lmn_admin.home_slug,
-      path: "settings",
     },
   ].filter(Boolean);
 
