@@ -185,7 +185,7 @@ function Table() {
 
         {/* table code start from here */}
 
-        <div className="overflow-y-scroll mt-5 h-[47vh] relative">
+        <div className="overflow-y-scroll mt-5 h-[47vh] relative table-scrollbar">
           <table class="table-auto w-full">
             <thead className="sticky top-[-1px] bg-[#f1f1f1]">
               <tr>

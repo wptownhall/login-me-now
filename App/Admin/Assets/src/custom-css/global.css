@@ -288,3 +288,18 @@ input#selected_pages {
     box-shadow: 10014px 0 0 -5px;
   }
 }
+.table-scrollbar::-webkit-scrollbar-track
+{
+	background-color: #F1F1F1;
+}
+
+.table-scrollbar::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F1F1F1;
+}
+
+.table-scrollbar::-webkit-scrollbar-thumb
+{
+	background-color: #d5d5d5;
+}
