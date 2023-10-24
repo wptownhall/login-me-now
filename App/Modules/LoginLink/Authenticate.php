@@ -9,7 +9,7 @@ namespace LoginMeNow\LoginLink;
 
 use LoginMeNow\Helper;
 use LoginMeNow\Model\Auth;
-use LoginMeNow\Model\Logs;
+use LoginMeNow\Utils\Logs;
 use LoginMeNow\Model\UserToken;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
@@ -45,7 +45,7 @@ class Authenticate {
 		}
 
 		$message = __( "Logged in using Login Link", 'login-me-now' );
-		Logs::init()->insert( $user_id, $message );
+		Logs::add( $user_id, $message );
 		Auth::login( $user_id );
 	}
 }

@@ -58,7 +58,7 @@ class Ajax {
 				'dm_otp_login'                     => 'bool',
 				'dm_browser_extension'             => 'bool',
 				'dm_user_switching'                => 'bool',
-				'dm_active_log'                    => 'bool',
+				'enable_activity_logs'                    => 'bool',
 				'google_onetap_display_location'   => 'string',
 			]
 		);

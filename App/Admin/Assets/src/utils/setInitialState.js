@@ -48,7 +48,7 @@ const setInitialState = (store) => {
       dmOTPLogin: data.dm_otp_login,
       dmBrowserExtension: data.dm_browser_extension,
       dmUserSwitching: data.dm_user_switching,
-      dmActiveLog: data.dm_active_log,
+      dmActiveLog: data.enable_activity_logs,
       dmConditionalLogin: data.dm_conditional_login,
     };
 

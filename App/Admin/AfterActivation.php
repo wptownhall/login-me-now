@@ -2,13 +2,12 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.2.0
  */
 
 namespace LoginMeNow\Admin;
 
 use LoginMeNow\Model\BrowserToken;
-use LoginMeNow\Model\Logs;
 use LoginMeNow\Traits\Singleton;
 use LoginMeNow\Utils\Random;
 
@@ -22,9 +21,8 @@ class AfterActivation {
 		register_activation_hook( LOGIN_ME_NOW_PATH . '/login-me-now.php', [$this, 'update'] );
 	}
 
-	public function update(): void{
+	public function update(): void {
 		BrowserToken::init()->create_table();
-		Logs::init()->create_table();
 
 		/**
 		 * Add the secret key if not exist
