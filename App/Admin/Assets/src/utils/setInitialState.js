@@ -1,57 +1,59 @@
-import apiFetch from '@wordpress/api-fetch';
+import apiFetch from "@wordpress/api-fetch";
 
 const setInitialState = (store) => {
-	apiFetch({
-		path: '/login-me-now/admin/settings/',
-	}).then((data) => {
-		const initialState = {
-			settingsSavedNotification: '',
-			settingsNotSavedNotification: '',
-			magicLinkPopup: '',
-			initialStateSetFlag: true,
-			activeSettingsNavigationTab: 'global-settings',
-			activeSocialLoginNavigationTab: 'google',
+  apiFetch({
+    path: "/login-me-now/admin/settings/",
+  }).then((data) => {
+    const initialState = {
+      settingsSavedNotification: "",
+      settingsNotSavedNotification: "",
+      magicLinkPopup: "",
+      initialStateSetFlag: true,
+      activeSettingsNavigationTab: "global-settings",
+      activeSocialLoginNavigationTab: "google",
 
-			lmnProLic: data.lmn_pro_lic,
+      lmnProLic: data.lmn_pro_lic,
 
-			enableLogs: data.logs,
-			logsExpiration: data.logs_expiration,
+      enableLogs: data.logs,
+      logsExpiration: data.logs_expiration,
 
-			enableUserSwitching: data.user_switching,
+      enableUserSwitching: data.user_switching,
 
-			enableGoogleLogin: data.google_login,
-			enableGoogleClientID: data.google_client_id,
-			enableGoogleNativeLogin: data.google_native_login,
-			enableGoogleUpdateExistingUserData: data.google_update_existing_user_data,
-			enableGoogleUpdateExistingUserAvatar: data.google_pro_user_avatar,
-			enableGoogleCancelOnTapOutside: data.google_cancel_on_tap_outside,
-			selectGoogleSelectedLocation: data.google_onetap_display_location,
-			selectGoogleProSelectedPages: data.google_pro_selected_pages,
-			enableGoogleOneTap: data.google_onetap,
+      enableGoogleLogin: data.google_login,
+      enableGoogleClientID: data.google_client_id,
+      enableGoogleNativeLogin: data.google_native_login,
+      enableGoogleUpdateExistingUserData: data.google_update_existing_user_data,
+      enableGoogleUpdateExistingUserAvatar: data.google_pro_user_avatar,
+      enableGoogleCancelOnTapOutside: data.google_cancel_on_tap_outside,
+      selectGoogleSelectedLocation: data.google_onetap_display_location,
+      selectGoogleProSelectedPages: data.google_pro_selected_pages,
+      enableGoogleOneTap: data.google_onetap,
 
-			enableGoogleLoginSelectLocation: data.google_login_select_location || true,
-			selectGoogleProDefaultUserRole: data.google_pro_default_user_role,
-			inputGoogleProRedirectUrl: data.google_pro_redirect_url,
+      enableGoogleLoginSelectLocation:
+        data.google_login_select_location || true,
+      selectGoogleProDefaultUserRole: data.google_pro_default_user_role,
+      inputGoogleProRedirectUrl: data.google_pro_redirect_url,
 
-			getUserRoles: data.get_user_roles,
-			getPages: data.get_pages,
+      getUserRoles: data.get_user_roles,
+      getPages: data.get_pages,
 
-			blocksStatuses: data.pro_addons,
+      blocksStatuses: data.pro_addons,
 
-			dmTemporaryLogin: data.dm_temporary_login,
-			dmAdvanceShare: data.dm_advance_share,
-			dmSocialLogin: data.dm_social_login,
-			dmExpressLoginWC: data.dm_express_login_wc,
-			dmExpressLoginEDD: data.dm_express_login_edd,
-			dmExpressLoginEmail: data.dm_express_login_email,
-			dmOTPLogin: data.dm_otp_login,
-			dmBrowserExtension: data.dm_browser_extension,
-			dmUserSwitching: data.dm_user_switching,
-			dmActiveLog: data.dm_active_log,
-		};
+      dmTemporaryLogin: data.dm_temporary_login,
+      dmAdvanceShare: data.dm_advance_share,
+      dmSocialLogin: data.dm_social_login,
+      dmExpressLoginWC: data.dm_express_login_wc,
+      dmExpressLoginEDD: data.dm_express_login_edd,
+      dmExpressLoginEmail: data.dm_express_login_email,
+      dmOTPLogin: data.dm_otp_login,
+      dmBrowserExtension: data.dm_browser_extension,
+      dmUserSwitching: data.dm_user_switching,
+      dmActiveLog: data.dm_active_log,
+      dmConditionalLogin: data.dm_conditional_login,
+    };
 
-		store.dispatch({ type: 'UPDATE_INITIAL_STATE', payload: initialState });
-	});
+    store.dispatch({ type: "UPDATE_INITIAL_STATE", payload: initialState });
+  });
 };
 
 export default setInitialState;

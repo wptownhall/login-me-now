@@ -89,11 +89,7 @@ function ExpressLoginEmail({ colorChange }) {
         >
           <button
             type="button"
-            className={`bg-[#F8FAFC] border ${
-              colorChange === true
-                ? "border-[#0DA071]  text-[#0DA071]"
-                : "border-[#9F9F9F]  text-[#6B6D71]"
-            } px-2 py-1 text-[14px] rounded-[8px]`}
+            className={`bg-[#F8FAFC] border border-[#9F9F9F]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071]`}
           >
             Settings
           </button>

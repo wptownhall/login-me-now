@@ -9,7 +9,7 @@ function classNames(...classes) {
 }
 
 function Module({ colorChange, title, subtitle, proItem, none, data }) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [isChecked, setIsChecked] = useState(true);
   const [hover, setHover] = useState(false);
 
@@ -20,17 +20,17 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
     setHover(false);
   };
 
-
-  const enableDmTemporaryLogin = useSelector(
-    (state) => state.dmTemporaryLogin
-  );
+  const enableDmTemporaryLogin = useSelector((state) => state.dmTemporaryLogin);
 
   const test = useSelector((state) => state);
 
   const handleDmTemporaryLogin = () => {
     // setIsChecked(!enableDmTemporaryLogin);
     let assetStatus;
-    if (enableDmTemporaryLogin === false || enableDmTemporaryLogin === undefined) {
+    if (
+      enableDmTemporaryLogin === false ||
+      enableDmTemporaryLogin === undefined
+    ) {
       assetStatus = true;
     } else {
       assetStatus = false;
@@ -48,7 +48,6 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
     formData.append("key", "dm_temporary_login");
     formData.append("value", assetStatus);
 
-
     apiFetch({
       url: lmn_admin.ajax_url,
       method: "POST",
@@ -60,7 +59,6 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
       });
     });
   };
-
 
   return (
     <div className="mb-16 mx-4 flex cursor-pointer">
@@ -89,11 +87,7 @@ function Module({ colorChange, title, subtitle, proItem, none, data }) {
         >
           <button
             type="button"
-            className={`bg-[#F8FAFC] border ${
-              colorChange === true
-                ? "border-[#0DA071]  text-[#0DA071]"
-                : "border-[#9F9F9F]  text-[#6B6D71]"
-            } px-2 py-1 text-[14px] rounded-[8px]`}
+            className={`bg-[#F8FAFC] border border-[#9F9F9F]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071]`}
           >
             Settings
           </button>
