@@ -51,22 +51,13 @@ class Logs {
 	}
 
 	public function insert( int $user_id, string $message ): void{
-		$save_logs = Settings::init()->get( 'logs', true );
-		if ( ! $save_logs ) {
-			return;
+		$ip 					= (string) Helper::get_ip_address();
+		$context 				= [];
+		$context['_initiator'] 	= 'Log In Me Now';
+		
+		if ( function_exists("SimpleLogger") ) {
+		    SimpleLogger()->log( 'info', 'User With IP ' . $ip . ' ' .$message, $context );
 		}
-
-		$ip = (string) Helper::get_ip_address();
-
-		$this->wpdb->query(
-			$this->wpdb->prepare(
-				"INSERT INTO {$this->table} (user_id, ip, message)
-                VALUES (%d, %s, %s)",
-				$user_id,
-				$ip,
-				$message
-			)
-		);
 	}
 
 	public function purge( int $days_old ): void{
