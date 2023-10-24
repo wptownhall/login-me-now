@@ -16,6 +16,7 @@ function SettingsRoute() {
   const navStatus = useSelector((state) => state);
   const temporaryLoginStatus = navStatus.dmTemporaryLogin;
   const browserExtensionStatus = navStatus.dmBrowserExtension;
+  const SocialLoginStatus = navStatus.dmSocialLogin;
 
   let routePage = <p> Fallback Route Page </p>;
 
@@ -36,7 +37,9 @@ function SettingsRoute() {
           break;
         case "advanced-sharing":
         case 'social-login':
-          routePage = <SocialLogin />;
+          if(SocialLoginStatus){
+            routePage = <SocialLogin />
+          }
           break;
         case 'advanced-sharing':
           routePage = (

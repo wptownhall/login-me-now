@@ -61,7 +61,7 @@ function UserSwitching({ colorChange, proItem }) {
   return (
     <div className="mb-16 mx-4 flex">
       <div
-        class={`relative rounded-[8px] border border-[#9F9F9F] flex flex-col justify-between ${
+        class={`relative rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
         }`}
         onMouseEnter={proItem === true ? handleMouseEnter : null}
@@ -98,13 +98,13 @@ function UserSwitching({ colorChange, proItem }) {
           </p>
         </div>
         <div
-          className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[2px] border-b-[#9F9F9F] ${
+          className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[1px] border-t-[#cacaca] group-hover:border-t-[#0DA071] border-b-[#cacaca] ${
             hover && "invisible"
           }`}
         >
           <button
             type="button"
-            className={`bg-[#F8FAFC] border border-[#9F9F9F]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071]`}
+            className={`bg-[#F8FAFC] border border-[#cacaca]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071] invisible`}
           >
             Settings
           </button>

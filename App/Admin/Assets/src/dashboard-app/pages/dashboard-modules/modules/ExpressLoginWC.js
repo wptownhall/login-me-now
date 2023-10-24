@@ -60,8 +60,8 @@ function ExpressLoginWC({ colorChange }) {
   return (
     <div className={`mb-16 mx-4 flex`}>
       <div
-        class={`relative rounded-[8px] border border-[#9F9F9F] flex flex-col justify-between ${
-          hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
+        class={`relative rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group flex flex-col justify-between ${
+          hover === true ? "bg-[#073A2E]" : "bg-[#F8FAFC]"
         }`}
         onMouseEnter={!isProAvailable === true ? handleMouseEnter : null}
         onMouseLeave={!isProAvailable === true ? handleMouseLeave : null}
@@ -101,13 +101,15 @@ function ExpressLoginWC({ colorChange }) {
           </p>
         </div>
         <div
-          className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[2px] border-b-[#9F9F9F] ${
+          className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[1px] border-t-[#cacaca] group-hover:border-t-[#0DA071] border-b-[#cacaca] ${
             hover && "invisible"
           }`}
         >
           <button
             type="button"
-            className={`bg-[#F8FAFC] border border-[#9F9F9F]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071]`}
+            className={`bg-[#F8FAFC] border border-[#cacaca]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071] ${
+              !enableDmExpressLoginWC && "invisible"
+            }`}
           >
             Settings
           </button>
@@ -144,15 +146,27 @@ function ExpressLoginWC({ colorChange }) {
             />
           </Switch>
         </div>
-        <a href="https://wptownhall.com/login-me-now/pricing/" target="_blank">
-          <button
-            className={`bg-white px-4 py-3 text-[18px] font-semibold text-[#0DA071] rounded-[8px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
+        {!isProAvailable && (
+          <div
+            className={`text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
               !hover && "invisible"
             }`}
           >
-            Buy Pro
-          </button>
-        </a>
+            <a
+              href="https://wptownhall.com/login-me-now/pricing/"
+              target="_blank"
+            >
+              <button
+                className={`bg-white px-3 py-2 text-[16px] font-semibold text-[#073A2E] rounded-[8px]`}
+              >
+                Upgrade to pro
+              </button>
+            </a>
+            <p className="text-white mt-3">
+              This module is available in the pro version
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
