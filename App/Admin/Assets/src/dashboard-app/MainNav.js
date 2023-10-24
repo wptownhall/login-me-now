@@ -2,6 +2,7 @@ import { Disclosure } from "@headlessui/react";
 import { Link, useLocation } from "react-router-dom";
 import { __ } from "@wordpress/i18n";
 import { Fragment, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function MainNav() {
   const [isSticky, setIsSticky] = useState(false);
@@ -22,29 +23,32 @@ export default function MainNav() {
   }, []);
 
   let navMenus = [];
-
+  const navStatus = useSelector((state) => state);
+  const temporaryLoginStatus = navStatus.dmTemporaryLogin;
+  const browserExtensionStatus = navStatus.dmBrowserExtension;
+  const SocialLoginStatus = navStatus.dmSocialLogin;
   navMenus = [
     {
-      name: __("Temporary login", "login-me-now"),
+      name: __("Modules", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "",
     },
-    {
+    temporaryLoginStatus && {
+      name: __("Temporary login", "login-me-now"),
+      slug: lmn_admin.home_slug,
+      path: "temporary-login",
+    },
+    browserExtensionStatus && {
       name: __("Browser extension", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "browser-extensions",
     },
-    {
+    SocialLoginStatus && {
       name: __("Social login", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "social-login",
     },
-    {
-      name: __("Settings", "login-me-now"),
-      slug: lmn_admin.home_slug,
-      path: "settings",
-    },
-  ];
+  ].filter(Boolean);
 
   const onInstallExtension = () => {
     window.open(lmn_admin.extension_url, "_blank");
