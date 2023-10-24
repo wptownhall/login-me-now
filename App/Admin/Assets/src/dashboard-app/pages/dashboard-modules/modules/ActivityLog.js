@@ -8,7 +8,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function ActiveLog({ colorChange, proItem, isAvailable }) {
+function ActivityLog({ colorChange, proItem, isAvailable }) {
   const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
 
@@ -19,17 +19,17 @@ function ActiveLog({ colorChange, proItem, isAvailable }) {
     setHover(false);
   };
 
-  const enableDmActiveLog = useSelector((state) => state.dmActiveLog);
-  const handleDmActiveLog = () => {
+  const enableDmActivityLog = useSelector((state) => state.dmActivityLog);
+  const handleDmActivityLog = () => {
     let assetStatus;
-    if (enableDmActiveLog === false || enableDmActiveLog === undefined) {
+    if (enableDmActivityLog === false || enableDmActivityLog === undefined) {
       assetStatus = true;
     } else {
       assetStatus = false;
     }
 
     dispatch({
-      type: "ENABLE_DM_ACTIVE_LOG",
+      type: "ENABLE_DM_ACTIVITY_LOGS",
       payload: assetStatus,
     });
 
@@ -37,7 +37,7 @@ function ActiveLog({ colorChange, proItem, isAvailable }) {
 
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
-    formData.append("key", "dm_active_log");
+    formData.append("key", "enable_activity_logs");
     formData.append("value", assetStatus);
 
     apiFetch({
@@ -64,7 +64,7 @@ function ActiveLog({ colorChange, proItem, isAvailable }) {
         <div className={`px-8 pt-16 pb-10 text-center ${hover && "invisible"}`}>
           <div
             className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-            title="Activity Log"
+            title="Simple History Integration"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ function ActiveLog({ colorChange, proItem, isAvailable }) {
             </svg>
           </div>
           <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
-            Activity log
+            Simple History Integration
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
                 Pro
@@ -110,9 +110,9 @@ function ActiveLog({ colorChange, proItem, isAvailable }) {
                 Settings
               </button>
               <Switch
-                onChange={handleDmActiveLog}
+                onChange={handleDmActivityLog}
                 className={classNames(
-                  enableDmActiveLog ? "bg-lmn" : "bg-slate-200",
+                  enableDmActivityLog ? "bg-lmn" : "bg-slate-200",
                   "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
                 )}
               >
@@ -123,14 +123,14 @@ function ActiveLog({ colorChange, proItem, isAvailable }) {
                 <span
                   aria-hidden="true"
                   className={classNames(
-                    enableDmActiveLog ? "bg-lmn" : "bg-gray-200",
+                    enableDmActivityLog ? "bg-lmn" : "bg-gray-200",
                     "pointer-events-none absolute mx-auto h-[16px] w-[32px] rounded-full transition-colors duration-200 ease-in-out"
                   )}
                 />
                 <span
                   aria-hidden="true"
                   className={classNames(
-                    enableDmActiveLog ? "translate-x-5" : "translate-x-0",
+                    enableDmActivityLog ? "translate-x-5" : "translate-x-0",
                     "toggle-bubble pointer-events-none absolute left-0 inline-block h-[16px] w-[16px] transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
                   )}
                 />
@@ -161,4 +161,4 @@ function ActiveLog({ colorChange, proItem, isAvailable }) {
   );
 }
 
-export default ActiveLog;
+export default ActivityLog;

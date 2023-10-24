@@ -7,8 +7,8 @@ import SocialLogin from "./modules/SocialLogin";
 import ExpressLoginWC from "./modules/ExpressLoginWC";
 import ExpressLoginEDD from "./modules/ExpressLoginEDD";
 import ExpressLoginEmail from "./modules/ExpressLoginEmail";
-import OTPLogin from "./modules/OTPLoign";
-import ActiveLog from "./modules/ActiveLog";
+import OTPLogin from "./modules/OTPLogin";
+import ActivityLog from "./modules/ActivityLog";
 import BrowserExtension from "./modules/BrowserExtension";
 import UserSwitching from "./modules/UserSwitching";
 import ConditionalLogin from "./modules/ConditionalLogin";
@@ -146,7 +146,7 @@ function DashboardModules() {
                   proItem={false}
                   none={false}
                 />
-                <ActiveLog
+                <ActivityLog
                   colorChange={false}
                   proItem={false}
                   none={false}

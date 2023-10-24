@@ -43,6 +43,8 @@ class Settings {
 				'google_cancel_on_tap_outside'     => false,
 				'google_onetap_display_location'   => 'siteWide',
 
+				'enable_activity_logs'             => false,
+
 				'get_user_roles'                   => Helper::get_user_roles(),
 				'get_pages'                        => Helper::get_pages(), // #Improvement Needed
 			]

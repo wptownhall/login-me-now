@@ -180,7 +180,7 @@ const globalDataReducer = (state = {}, action) => {
         ...state,
         dmUserSwitching: action.payload,
       };
-    case "ENABLE_DM_ACTIVE_LOG":
+    case "ENABLE_DM_ACTIVITY_LOGS":
       return {
         ...state,
         dmActiveLog: action.payload,
