@@ -170,10 +170,10 @@ const BrowserExtensions = () => {
             </div>
           </div>
           <div className="border-[#9F9F9F] border-[1px] p-10 rounded-[8px] bg-white mt-[60px]">
-            <h1 className="text-[32px] mb-4 text-slate-800 leading-10 pb-3 font-semibold text-left">
+            <h1 className="text-[20px] text-slate-800 leading-10 pb-3 font-semibold text-left">
               Why use browser extension?
             </h1>
-            <p className="text-[#494949] text-[18px]">
+            <p className="text-[#494949] text-[16px] leading-8">
               This save you time, especially if you frequently log in to
               multiple website dashboards throughout the day. With the browser
               extension, secure dashboard login is just one click away. Say
@@ -184,7 +184,7 @@ const BrowserExtensions = () => {
           </div>
           <div className="flex justify-between items-center border-[#10AC84] border-[1px] p-10 rounded-[8px] bg-[#F1FAF8] mt-[30px]">
             <img src={lockImg} alt="" className="h-[60px] w-[60px] mr-5" />
-            <p className="text-[18px]">
+            <p className="text-[16px] leading-8">
               The browser extension never tracks or saves any of your website
               data or login credentials. When it come to dashboard login access,
               it is securely stored in an encrypted format within the browser
