@@ -139,7 +139,7 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
           ) : (
             <button
               type="button"
-              className={`bg-[#F8FAFC] border ${
+              className={`bg-[#F8FAFC] cursor-auto border ${
                 colorChange === true
                   ? "border-[#0DA071]  text-[#0DA071]"
                   : "border-[#cacaca]  text-[#023A2E]"
