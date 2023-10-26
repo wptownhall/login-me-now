@@ -297,7 +297,7 @@ function Table() {
       <h2 className="sr-only" id="section-1-title ">
         Login Links
       </h2>
-      <div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
+      <div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full border-[1px] border-[#9F9F9F]">
         <div className="relative w-full flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <span className="font-semibold text-xl leading-6 text-slate-800 mb-4 sm:mb-0">
             {__(`Login Links`, "login-me-now")}
@@ -305,8 +305,9 @@ function Table() {
         </div>
 
         {/* table code start from here */}
-
-        <div className="overflow-y-scroll mt-5 h-[47vh] relative table-scrollbar">
+        {/* overflow-y-scroll  */}
+          {console.log(tokensData.length)}
+        <div className={`overflow-y-auto rounded-md mt-5 h-[47vh] relative table-scrollbar`}>
           <table class="table-auto w-full">
             <thead className="sticky top-[-1px] bg-[#f1f1f1]">
               <tr>

@@ -65,8 +65,8 @@ const Welcome = () => {
       <main className="py-[2.43rem]">
         <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
           <h1 className="sr-only"> Login Me Now </h1>
-          <div className="grid grid-cols-2 gap-4 items-start lg:grid-cols-12 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm p-12">
-            <div className="grid grid-cols-1 lg:col-span-5 gap-4 h-full">
+          <div className="grid grid-cols-2 gap-4 items-start lg:grid-cols-12 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm p-12 border-[1px] border-[#9F9F9F]">
+            <div className="grid grid-cols-1 lg:col-span-7 gap-4 h-full">
               <section aria-labelledby="section-1-title h-full">
                 <h2 className="sr-only" id="section-1-title">
                   Welcome Banner
@@ -74,7 +74,7 @@ const Welcome = () => {
                 <div className="flex flex-col justify-center h-full">
                   <div className="">
                     <Title text="Share dashboard access securly" />
-                    <SubTitle pr={"pr-[30px]"} text="Create self-expiring login link to grant temporary access to an individual ( developer,support stuff or any outsider ). No password is needed, just generate the login link g share it with the concerned person!" />
+                    <SubTitle text="Create self-expiring login link to grant temporary access to an individual ( developer, support stuff or any outsider ). No password is needed, just generate the login link & share it with the concerned person!" />
 
                     <form
                       onSubmit={onGenerateLoginLink}
@@ -126,7 +126,9 @@ const Welcome = () => {
                 </div>
               </section>
             </div>
-            <div className="grid grid-cols-1 gap-4 lg:col-span-7 h-full justify-self-end"><img src={tempSsImg} alt="" /></div>
+            <div className="grid grid-cols-1 lg:col-span-5 gap-4 h-full justify-self-end">
+              {/* <img src={tempSsImg} alt="" /> */}
+              </div>
           </div>
 
           <div className="grid grid-cols-1 gap-[32px] items-start lg:grid-cols-3 lg:gap-[32px] xl:gap-[32px] mt-[32px]">
