@@ -39,16 +39,16 @@ const setInitialState = (store) => {
 
       blocksStatuses: data.pro_addons,
 
-      dmTemporaryLogin: data.enable_temporary_login,
+      dmTemporaryLogin: data.temporary_login,
       dmAdvanceShare: data.dm_advance_share,
       dmSocialLogin: data.dm_social_login,
       dmExpressLoginWC: data.dm_express_login_wc,
       dmExpressLoginEDD: data.dm_express_login_edd,
       dmExpressLoginEmail: data.dm_express_login_email,
       dmOTPLogin: data.dm_otp_login,
-      dmBrowserExtension: data.dm_browser_extension,
-      dmUserSwitching: data.dm_user_switching,
-      dmActiveLog: data.enable_activity_logs,
+      dmBrowserExtension: data.browser_extension,
+      dmUserSwitching: data.user_switching,
+      dmActiveLog: data.activity_logs,
       dmConditionalLogin: data.dm_conditional_login,
     };
 

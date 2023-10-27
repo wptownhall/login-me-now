@@ -37,7 +37,7 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
 
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
-    formData.append("key", "enable_activity_logs");
+    formData.append("key", "activity_logs");
     formData.append("value", assetStatus);
 
     apiFetch({

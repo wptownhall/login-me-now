@@ -7,9 +7,9 @@
 
 namespace LoginMeNow\LoginLink;
 
-use LoginMeNow\Model\Settings;
 use LoginMeNow\Model\UserToken;
 use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Utils\Module;
 use LoginMeNow\Utils\Random;
 use LoginMeNow\Utils\Time;
 use LoginMeNow\Utils\Translator;
@@ -25,16 +25,12 @@ class LoginLink {
 	private $error;
 
 	public function __construct() {
-		if ( ! $this->enabled() ) {
+		if ( ! Module::is_active( 'temporary_login', true ) ) {
 			return;
 		}
 
 		Ajax::init();
 		Authenticate::init();
-	}
-
-	private static function enabled(): bool {
-		return Settings::init()->get( 'enable_temporary_login', true );
 	}
 
 	public function create( int $user_id, int $expiration ) {

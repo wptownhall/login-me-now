@@ -10,6 +10,7 @@ namespace LoginMeNow\Admin;
 use LoginMeNow\Admin\AdminMenu;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Utils\Module;
 
 class Admin {
 	use Singleton;
@@ -21,17 +22,22 @@ class Admin {
 		AfterActivation::init();
 
 		$this->action( 'admin_footer', 'lmn_save_popup' );
-		$this->filter( 'simple_history/row_sender_image_output', 'chage_image', 10, 2 );
+		$this->filter( 'simple_history/row_sender_image_output', 'change_image', 10, 2 );
 	}
 
 	public function lmn_save_popup(): void {
+		if ( ! Module::is_active( 'browser_extension', true ) ) {
+			return;
+		}
+
 		include_once LOGIN_ME_NOW_ADMIN_PATH . '/Views/extension-popup.php';
 	}
 
-	public function chage_image( $html, $row ) {
-		if ( $row->initiator == 'Log In Me Now' ) {
-			return '<img src ="'. LOGIN_ME_NOW_ADMIN_URL .'/Assets/images/sidebar.svg" height="32px" width="32px" />';
+	public function change_image( $html, $row ) {
+		if ( 'Login Me Now' === $row->initiator ) {
+			return '<img src ="' . LOGIN_ME_NOW_ADMIN_URL . '/Assets/images/sidebar.svg" height="32px" width="32px" />';
 		}
+
 		return $html;
 	}
 }
