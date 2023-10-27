@@ -86,10 +86,10 @@ function ExpressLoginWC({ colorChange }) {
               />
             </svg>
           </div>
-          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
+          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5 flex justify-center items-center">
             Express login- WC
             {!isProAvailable && (
-              <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
+              <span className="bg-[#0DA071] text-[#ffffff] px-2 py-1 text-[8px] rounded-[4px] ml-1.5">
                 Pro
               </span>
             )}
