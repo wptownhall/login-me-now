@@ -1,21 +1,20 @@
 <?php
 /**
  * @author  WPtownhall
- * @since   1.0.0
- * @version 1.0.0
+ * @since   1.2.0
+ * @version 1.2.0
  */
 
-namespace LoginMeNow\Routes;
+namespace LoginMeNow\BrowserToken;
 
 defined( 'ABSPATH' ) || exit;
 
 use LoginMeNow\Abstracts\RouteBase;
 use LoginMeNow\BrowserToken\JWTAuth;
 use LoginMeNow\OnetimeNumber\OnetimeNumber;
-use LoginMeNow\Utils\Time;
 use WP_REST_Request;
 
-class Generate extends RouteBase {
+class REST extends RouteBase {
 
 	/**
 	 * Registers the route to generate the token.
@@ -28,6 +27,18 @@ class Generate extends RouteBase {
 				[
 					'methods'             => 'POST',
 					'callback'            => [JWTAuth::init(), 'generate_token'],
+					'permission_callback' => '__return_true',
+				],
+			]
+		);
+
+		register_rest_route(
+			$this->namespace,
+			'/validate',
+			[
+				[
+					'methods'             => 'POST',
+					'callback'            => [JWTAuth::init(), 'validate_token'],
 					'permission_callback' => '__return_true',
 				],
 			]

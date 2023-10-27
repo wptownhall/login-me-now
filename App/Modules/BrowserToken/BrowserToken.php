@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.2.0
  */
 
 namespace LoginMeNow\BrowserToken;
@@ -21,6 +21,7 @@ class BrowserToken {
 			return;
 		}
 
+		REST::init();
 		Ajax::init();
 	}
 }
