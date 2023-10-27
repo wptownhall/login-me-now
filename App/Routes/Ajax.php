@@ -49,7 +49,7 @@ class Ajax {
 				'google_update_existing_user_data' => 'bool',
 				'google_onetap'                    => 'bool',
 				'google_cancel_on_tap_outside'     => 'bool',
-				'dm_temporary_login'               => 'bool',
+				'enable_temporary_login'               => 'bool',
 				'dm_advance_share'                 => 'bool',
 				'dm_social_login'                  => 'bool',
 				'dm_express_login_wc'              => 'bool',

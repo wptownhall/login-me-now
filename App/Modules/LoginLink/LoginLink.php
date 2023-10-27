@@ -2,11 +2,12 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.2.0
  */
 
 namespace LoginMeNow\LoginLink;
 
+use LoginMeNow\Model\Settings;
 use LoginMeNow\Model\UserToken;
 use LoginMeNow\Traits\Singleton;
 use LoginMeNow\Utils\Random;
@@ -24,8 +25,16 @@ class LoginLink {
 	private $error;
 
 	public function __construct() {
+		if ( ! $this->enabled() ) {
+			return;
+		}
+
 		Ajax::init();
 		Authenticate::init();
+	}
+
+	private static function enabled(): bool {
+		return Settings::init()->get( 'enable_temporary_login', true );
 	}
 
 	public function create( int $user_id, int $expiration ) {

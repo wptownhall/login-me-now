@@ -44,6 +44,7 @@ class Settings {
 				'google_onetap_display_location'   => 'siteWide',
 
 				'enable_activity_logs'             => false,
+				'enable_temporary_login'           => true,
 
 				'get_user_roles'                   => Helper::get_user_roles(),
 				'get_pages'                        => Helper::get_pages(), // #Improvement Needed

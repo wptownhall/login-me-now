@@ -39,7 +39,7 @@ const setInitialState = (store) => {
 
       blocksStatuses: data.pro_addons,
 
-      dmTemporaryLogin: data.dm_temporary_login,
+      dmTemporaryLogin: data.enable_temporary_login,
       dmAdvanceShare: data.dm_advance_share,
       dmSocialLogin: data.dm_social_login,
       dmExpressLoginWC: data.dm_express_login_wc,
