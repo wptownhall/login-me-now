@@ -21,17 +21,9 @@ class Admin {
 		Enqueuer::init();
 		AfterActivation::init();
 
-		$this->action( 'admin_footer', 'lmn_save_popup' );
 		$this->filter( 'simple_history/row_sender_image_output', 'change_image', 10, 2 );
 	}
 
-	public function lmn_save_popup(): void {
-		if ( ! Module::is_active( 'browser_extension', true ) ) {
-			return;
-		}
-
-		include_once LOGIN_ME_NOW_ADMIN_PATH . '/Views/extension-popup.php';
-	}
 
 	public function change_image( $html, $row ) {
 		if ( 'Login Me Now' === $row->initiator ) {
