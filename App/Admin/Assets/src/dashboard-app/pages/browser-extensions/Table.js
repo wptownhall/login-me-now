@@ -176,7 +176,7 @@ function Table() {
       <h2 className="sr-only" id="section-1-title ">
         What’s coming next?
       </h2>
-      <div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
+      <div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full border-[1px] border-[#9F9F9F]">
         <div className="relative w-full flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <span className="font-semibold text-xl leading-6 text-slate-800 mb-4 sm:mb-0">
             {__(`Token`, "login-me-now")}
@@ -185,7 +185,7 @@ function Table() {
 
         {/* table code start from here */}
 
-        <div className="overflow-y-scroll mt-5 h-[47vh] relative">
+        <div className="overflow-y-auto mt-5 h-[47vh] relative table-scrollbar">
           <table class="table-auto w-full">
             <thead className="sticky top-[-1px] bg-[#f1f1f1]">
               <tr>
