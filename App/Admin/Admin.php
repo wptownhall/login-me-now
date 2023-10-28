@@ -20,14 +20,14 @@ class Admin {
 		Enqueuer::init();
 		AfterActivation::init();
 
-		$this->filter( 'simple_history/row_sender_image_output', 'change_image', 10, 2 );
+		$this->filter( 'simple_history/row_sender_image_output', 'add_simple_history_image', 10, 2 );
 	}
 
-	public function change_image( $html, $row ) {
+	public function add_simple_history_image( $sender_image_html, $row ) {
 		if ( 'Login Me Now' === $row->initiator ) {
-			return '<img src ="' . LOGIN_ME_NOW_ADMIN_URL . '/Assets/images/sidebar.svg" height="32px" width="32px" />';
+			return "<img height='32px' width = '32px' alt='LoginMeNow' src='" . LOGIN_ME_NOW_ADMIN_URL . "/assets/images/icon.svg' >";
 		}
 
-		return $html;
+		return $sender_image_html;
 	}
 }

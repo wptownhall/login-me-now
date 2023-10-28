@@ -21,10 +21,12 @@ class Logs {
 		}
 
 		$ip                    = (string) Helper::get_ip_address();
+		$user_info             = get_userdata( $user_id );
+		$username              = $user_info->user_login;
 		$context               = [];
 		$context['_initiator'] = 'Login Me Now';
 
-		SimpleLogger()->log( 'info', 'User With IP ' . $ip . ' ' . $message, $context );
+		SimpleLogger()->info( $username . ' ' . $message, $context );
 	}
 
 	private static function enabled(): bool {
