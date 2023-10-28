@@ -155,9 +155,9 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
               type="button"
               className={`bg-[#F8FAFC] border ${
                 colorChange === true
-                  ? "border-[#0DA071]  text-[#0DA071]"
+                  ? "border-[#0DA071] text-[#0DA071]"
                   : "border-[#cacaca]  text-[#023A2E]"
-              } px-6 py-1 text-[14px] rounded-[8px]`}
+              } px-6 py-1 text-[14px] rounded-[8px] cursor-auto`}
             >
               Coming soon
             </button>
