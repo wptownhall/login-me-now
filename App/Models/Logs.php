@@ -58,7 +58,7 @@ class Logs {
 		$user_info 				= get_userdata( $user_id );
 		$username 				= $user_info->user_login;
 		$context 				= [];
-		$context['_initiator'] 	= 'Log Me Now';
+		$context['_initiator'] 	= 'Login Me Now';
 
 		SimpleLogger()->info( $username .' ' . $message, $context );
 

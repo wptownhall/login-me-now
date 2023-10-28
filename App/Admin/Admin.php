@@ -30,7 +30,7 @@ class Admin {
 	}
 
 	public function add_simple_history_image( $sender_image_html, $row ) {
-		if ( $row->initiator == 'Log Me Now' ) {
+		if ( $row->initiator == 'Login Me Now' ) {
 			return "<img height='32px' width = '32px' alt='LoginMeNow' src='". LOGIN_ME_NOW_ADMIN_URL ."/assets/images/icon.svg' >";
 		}
 
