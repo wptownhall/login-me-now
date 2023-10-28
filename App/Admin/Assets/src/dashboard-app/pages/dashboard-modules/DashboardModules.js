@@ -117,6 +117,7 @@ function DashboardModules() {
                   colorChange={false}
                   proItem={true}
                   none={false}
+                  isAvailable={false}
                 />
                 <ExpressLoginEDD
                   colorChange={false}

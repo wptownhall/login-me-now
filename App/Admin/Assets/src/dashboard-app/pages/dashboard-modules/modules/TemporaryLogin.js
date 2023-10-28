@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
 import { Link } from "react-router-dom";
+import { RedirectUrl } from "../../components/RedirectUrl";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -113,7 +114,7 @@ function TemporaryLogin({ colorChange, proItem }) {
         }`}
       >
         <Link
-          to="/admin.php?page=login-me-now&path=temporary-login"
+          to={RedirectUrl('temporary-login')}
           className={`${
             enableDmTemporaryLogin === true ? "" : "pointer-events-none"
           }`}
