@@ -7,7 +7,6 @@ import NeedSupport from "../components/NeedSupport";
 import Title from "../components/Title";
 import SubTitle from "../components/SubTitle";
 import { useState } from "react";
-import tempSsImg from "../../../../images/temporary-login-ss.png"
 
 const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -65,16 +64,22 @@ const Welcome = () => {
       <main className="py-[2.43rem]">
         <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
           <h1 className="sr-only"> Login Me Now </h1>
-          <div className="grid grid-cols-2 gap-4 items-start lg:grid-cols-12 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm p-12 border-[1px] border-[#9F9F9F]">
-            <div className="grid grid-cols-1 lg:col-span-7 gap-4 h-full">
+          <div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm px-8 py-8">
+            <div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full">
               <section aria-labelledby="section-1-title h-full">
                 <h2 className="sr-only" id="section-1-title">
                   Welcome Banner
                 </h2>
                 <div className="flex flex-col justify-center h-full">
                   <div className="">
+                    {/* <p className="pb-4 font-medium text-base text-slate-800">
+                      {__("Hello ", "login-me-now") +
+                        lmn_admin.current_user +
+                        ","}
+                    </p> */}
                     <Title text="Share dashboard access securly" />
-                    <SubTitle text="Create self-expiring login link to grant temporary access to an individual (developer, support stuff or any outsider). No password is needed, just generate the login link & share it with the concerned person!" />
+                    <SubTitle text="Create self-expiring login link to grant temporary access to an individual ( developer,support stuff or any outsider ). No password is needed, just generate the login link g share it with the concerned person!" />
+
                     <form
                       onSubmit={onGenerateLoginLink}
                       className="inline-flex flex-nowrap items-end"
@@ -125,9 +130,6 @@ const Welcome = () => {
                 </div>
               </section>
             </div>
-            <div className="grid grid-cols-1 lg:col-span-5 gap-4 h-full justify-self-end">
-              {/* <img src={tempSsImg} alt="" /> */}
-              </div>
           </div>
 
           <div className="grid grid-cols-1 gap-[32px] items-start lg:grid-cols-3 lg:gap-[32px] xl:gap-[32px] mt-[32px]">

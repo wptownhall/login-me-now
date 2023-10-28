@@ -9,8 +9,8 @@ namespace LoginMeNow\BrowserToken;
 
 use Exception;
 use LoginMeNow\Model\BrowserToken;
+use LoginMeNow\Model\Logs;
 use LoginMeNow\Traits\Singleton;
-use LoginMeNow\Utils\Logs;
 use LoginMeNow\Utils\Random;
 use LoginMeNow\Utils\Time;
 use LoginMeNow\Utils\User;
@@ -124,7 +124,7 @@ class JWTAuth {
 
 		/** Store the token ref in user meta using the $issuedAt, so we can block the token if needed */
 		BrowserToken::init()->insert( $user->data->ID, $rand_number, $expire, 'active' );
-		Logs::add( $user->data->ID, "Generated an extension token" );
+		Logs::init()->insert( $user->data->ID, "Generated an extension token" );
 
 		if ( ! $additional_data ) {
 			return $token;

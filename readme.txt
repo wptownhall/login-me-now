@@ -4,7 +4,7 @@ Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
 Tested up to: 6.3.1
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.1.1
 License: GPLv3 or Any Later Version
 
 Login Me Now – 1 click passwordless login, social login & user switching

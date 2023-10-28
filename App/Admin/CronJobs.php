@@ -8,7 +8,7 @@
 
 namespace LoginMeNow\Admin;
 
-use LoginMeNow\Utils\Logs;
+use LoginMeNow\Model\Logs;
 use LoginMeNow\Model\Settings;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
