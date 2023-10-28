@@ -21,9 +21,19 @@ class Admin {
 		AfterActivation::init();
 
 		$this->action( 'admin_footer', 'lmn_save_popup' );
+		$this->filter( 'simple_history/row_sender_image_output', 'add_simple_history_image', 10 ,2 );
+
 	}
 
 	public function lmn_save_popup(): void {
 		include_once LOGIN_ME_NOW_ADMIN_PATH . '/Views/extension-popup.php';
+	}
+
+	public function add_simple_history_image( $sender_image_html, $row ) {
+		if ( $row->initiator == 'Log Me Now' ) {
+			return "<img height='32px' width = '32px' alt='LoginMeNow' src='". LOGIN_ME_NOW_ADMIN_URL ."/assets/images/icon.svg' >";
+		}
+
+		return $sender_image_html;
 	}
 }
