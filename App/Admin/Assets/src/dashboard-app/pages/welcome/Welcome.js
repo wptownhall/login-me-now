@@ -74,8 +74,7 @@ const Welcome = () => {
                 <div className="flex flex-col justify-center h-full">
                   <div className="">
                     <Title text="Share dashboard access securly" />
-                    <SubTitle text="Create self-expiring login link to grant temporary access to an individual ( developer, support stuff or any outsider ). No password is needed, just generate the login link & share it with the concerned person!" />
-
+                    <SubTitle text="Create self-expiring login link to grant temporary access to an individual (developer, support stuff or any outsider). No password is needed, just generate the login link & share it with the concerned person!" />
                     <form
                       onSubmit={onGenerateLoginLink}
                       className="inline-flex flex-nowrap items-end"

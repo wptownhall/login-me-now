@@ -3,6 +3,8 @@ import { Switch } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { RedirectUrl } from "../../components/RedirectUrl";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -101,6 +103,7 @@ function SocialLogin({ colorChange, proItem }) {
             hover && "invisible"
           }`}
         >
+          <Link to={RedirectUrl("social-login")}>
           <button
             type="button"
             className={`bg-[#F8FAFC] border border-[#cacaca]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071] ${
@@ -109,6 +112,7 @@ function SocialLogin({ colorChange, proItem }) {
           >
             Settings
           </button>
+          </Link>
           <Switch
             onChange={handleDmSocialLogin}
             className={classNames(

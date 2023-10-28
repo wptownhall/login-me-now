@@ -3,6 +3,8 @@ import { Switch } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
+import { RedirectUrl } from "../../components/RedirectUrl";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -107,14 +109,16 @@ function BrowserExtension({ colorChange, proItem }) {
             hover && "invisible"
           }`}
         >
-          <button
-            type="button"
-            className={`bg-[#F8FAFC] border border-[#cacaca]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071] ${
-              !enableDmBrowserExtension && "invisible"
-            }`}
-          >
-            Settings
-          </button>
+          <Link to={RedirectUrl("browser-extensions")}>
+            <button
+              type="button"
+              className={`bg-[#F8FAFC] border border-[#cacaca]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071] ${
+                !enableDmBrowserExtension && "invisible"
+              }`}
+            >
+              Settings
+            </button>
+          </Link>
           <Switch
             onChange={handleDmBrowserExtension}
             className={classNames(
