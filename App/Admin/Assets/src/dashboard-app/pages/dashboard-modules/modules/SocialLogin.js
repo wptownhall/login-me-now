@@ -38,7 +38,7 @@ function SocialLogin({ colorChange, proItem }) {
 
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
-    formData.append("key", "dm_social_login");
+    formData.append("key", "social_login");
     formData.append("value", assetStatus);
 
     apiFetch({

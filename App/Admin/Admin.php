@@ -10,7 +10,6 @@ namespace LoginMeNow\Admin;
 use LoginMeNow\Admin\AdminMenu;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
-use LoginMeNow\Utils\Module;
 
 class Admin {
 	use Singleton;
@@ -23,7 +22,6 @@ class Admin {
 
 		$this->filter( 'simple_history/row_sender_image_output', 'change_image', 10, 2 );
 	}
-
 
 	public function change_image( $html, $row ) {
 		if ( 'Login Me Now' === $row->initiator ) {

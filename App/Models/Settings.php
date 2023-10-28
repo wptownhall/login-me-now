@@ -42,6 +42,7 @@ class Settings {
 				'google_onetap_display_location'   => 'siteWide',
 
 				'activity_logs'                    => false,
+				'social_login'                     => true,
 				'temporary_login'                  => true,
 				'browser_extension'                => true,
 				'user_switching'                   => true,

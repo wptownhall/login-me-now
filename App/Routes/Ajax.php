@@ -50,12 +50,12 @@ class Ajax {
 				'google_onetap_display_location'   => 'string',
 
 				'dm_advance_share'                 => 'bool',
-				'dm_social_login'                  => 'bool',
 				'dm_express_login_wc'              => 'bool',
 				'dm_express_login_edd'             => 'bool',
 				'dm_express_login_email'           => 'bool',
 				'dm_otp_login'                     => 'bool',
 
+				'social_login'                     => 'bool',
 				'user_switching'                   => 'bool',
 				'temporary_login'                  => 'bool',
 				'browser_extension'                => 'bool',

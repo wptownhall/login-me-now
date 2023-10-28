@@ -41,7 +41,7 @@ const setInitialState = (store) => {
 
       dmTemporaryLogin: data.temporary_login,
       dmAdvanceShare: data.dm_advance_share,
-      dmSocialLogin: data.dm_social_login,
+      dmSocialLogin: data.social_login,
       dmExpressLoginWC: data.dm_express_login_wc,
       dmExpressLoginEDD: data.dm_express_login_edd,
       dmExpressLoginEmail: data.dm_express_login_email,
