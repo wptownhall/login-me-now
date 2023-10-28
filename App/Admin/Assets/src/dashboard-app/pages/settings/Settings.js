@@ -38,9 +38,10 @@ const Settings = () => {
               icon: SettingsIcons["license"],
             },
           ]
-        : []),
+        : [])
     ]
-  );
+);
+
 
   useEffect(() => {
     const activePath = query.get("path");

@@ -20,14 +20,10 @@ class Admin {
 		Enqueuer::init();
 		AfterActivation::init();
 
-		$this->filter( 'simple_history/row_sender_image_output', 'change_image', 10, 2 );
+		$this->action( 'admin_footer', 'lmn_save_popup' );
 	}
 
-	public function change_image( $html, $row ) {
-		if ( 'Login Me Now' === $row->initiator ) {
-			return '<img src ="' . LOGIN_ME_NOW_ADMIN_URL . '/Assets/images/sidebar.svg" height="32px" width="32px" />';
-		}
-
-		return $html;
+	public function lmn_save_popup(): void {
+		include_once LOGIN_ME_NOW_ADMIN_PATH . '/Views/extension-popup.php';
 	}
 }

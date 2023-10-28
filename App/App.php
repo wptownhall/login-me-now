@@ -14,6 +14,8 @@ use LoginMeNow\LoginLink\LoginLink;
 use LoginMeNow\OnetimeNumber\AutoLogin;
 use LoginMeNow\Routes\AdminSettings;
 use LoginMeNow\Routes\Ajax;
+use LoginMeNow\Routes\Generate;
+use LoginMeNow\Routes\Validate;
 use LoginMeNow\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,6 +30,8 @@ class App {
 	}
 
 	public function setup(): void {
+		if ( is_admin() ) {
+		}
 		Admin::init();
 
 		/**
@@ -36,6 +40,8 @@ class App {
 		AdminSettings::init();
 		Ajax::init();
 		AutoLogin::init();
+		Generate::init();
+		Validate::init();
 
 		/**
 		 *  Modules Initialize
@@ -44,6 +50,8 @@ class App {
 		GoogleLogin::init();
 		LoginLink::init();
 		BrowserToken::init();
+
+		// AdvanceSharing::init();
 
 		/**
 		 *  Third-party Modules

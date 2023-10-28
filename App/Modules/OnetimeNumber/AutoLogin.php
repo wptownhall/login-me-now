@@ -9,7 +9,7 @@ namespace LoginMeNow\OnetimeNumber;
 
 use LoginMeNow\Helper;
 use LoginMeNow\Model\Auth;
-use LoginMeNow\Utils\Logs;
+use LoginMeNow\Model\Logs;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
 
@@ -55,7 +55,7 @@ class AutoLogin {
 
 		$message = __( "Logged in using Browser Extension", 'login-me-now' );
 
-		Logs::add( $user_id, $message );
+		Logs::init()->insert( $user_id, $message );
 
 		Auth::login( $user_id );
 	}

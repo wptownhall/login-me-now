@@ -33,6 +33,8 @@ class Settings {
 				'logs'                             => true,
 				'logs_expiration'                  => 7,
 
+				'user_switching'                   => true,
+
 				'google_login'                     => false,
 				'google_client_id'                 => '',
 				'google_native_login'              => true,
@@ -40,12 +42,6 @@ class Settings {
 				'google_pro_user_avatar'           => false,
 				'google_cancel_on_tap_outside'     => false,
 				'google_onetap_display_location'   => 'siteWide',
-
-				'activity_logs'                    => false,
-				'social_login'                     => true,
-				'temporary_login'                  => true,
-				'browser_extension'                => true,
-				'user_switching'                   => true,
 
 				'get_user_roles'                   => Helper::get_user_roles(),
 				'get_pages'                        => Helper::get_pages(), // #Improvement Needed
