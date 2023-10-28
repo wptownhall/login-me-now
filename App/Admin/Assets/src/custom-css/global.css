@@ -158,33 +158,6 @@ body.active-modal {
   animation: dot-pulse-after 1.5s infinite linear;
   animation-delay: 0.5s;
 }
-.inline-box-flex{
-  display: -webkit-inline-box;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-@media (min-width: 1291px) {
-  
-  .extralarge-grid{
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  
-}
-@media (min-width: 1024px) and (max-width: 1290px) {
-  
-  .large-grid{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  
-}
-@media (min-width: 640px) and (max-width: 1024px) {
-  
-  .large-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-  
 /* ant design custom css */
 .ant-select-multiple .ant-select-selection-item {
   background: #2271b1 !important;
@@ -287,22 +260,4 @@ input#selected_pages {
   100% {
     box-shadow: 10014px 0 0 -5px;
   }
-}
-.table-scrollbar::-webkit-scrollbar-track
-{
-	background-color: #F1F1F1;
-}
-
-.table-scrollbar::-webkit-scrollbar
-{
-	width: 6px;
-	background-color: #F1F1F1;
-}
-
-.table-scrollbar::-webkit-scrollbar-thumb
-{
-	background-color: #d5d5d5;
-}
-.inline-size-auto{
-  inline-size: auto;
 }
