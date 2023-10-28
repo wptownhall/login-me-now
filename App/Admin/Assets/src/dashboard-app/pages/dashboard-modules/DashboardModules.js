@@ -54,32 +54,34 @@ function DashboardModules() {
                           </svg>
                         </div>
 
-                        <h1 className="text-[#1BD8B9] text-[16px] font-medium text-center mb-5">
+                        <h1 className="text-[#1BD8B9] text-[17px] font-medium text-center mb-5">
                           More powerful options
                         </h1>
-                        <div className="inline-box-flex">
-                          <TickIcon />
-                          <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[14px] noto-serif">
-                            Advanced social login
-                          </span>
-                        </div>
-                        <div className="inline-box-flex">
-                          <TickIcon />
-                          <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[14px] noto-serif">
-                            Express login - WC
-                          </span>
-                        </div>
-                        <div className="inline-box-flex">
-                          <TickIcon />
-                          <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[14px] noto-serif">
-                            Express login - EDD
-                          </span>
-                        </div>
-                        <div className="inline-box-flex">
-                          <TickIcon />
-                          <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[14px] noto-serif">
-                            24/7 Priority Support
-                          </span>
+                        <div className="flex flex-col flex-wrap content-center">
+                          <div className="inline-box-flex inline-size-auto">
+                            <TickIcon />
+                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[17px] noto-serif">
+                              Advanced social login
+                            </span>
+                          </div>
+                          <div className="inline-box-flex inline-size-auto">
+                            <TickIcon />
+                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[17px] noto-serif">
+                              Express login - WC
+                            </span>
+                          </div>
+                          <div className="inline-box-flex inline-size-auto">
+                            <TickIcon />
+                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[17px] noto-serif">
+                              Express login - EDD
+                            </span>
+                          </div>
+                          <div className="inline-box-flex inline-size-auto">
+                            <TickIcon />
+                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[17px] noto-serif">
+                              24/7 Priority Support
+                            </span>
+                          </div>
                         </div>
                       </>
                     )}

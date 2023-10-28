@@ -9,6 +9,7 @@ import Title from "../components/Title";
 import SubTitle from "../components/SubTitle";
 import { useState } from "react";
 import lockImg from "../../../../images/lock.png";
+import browserSsImg from "../../../../images/browser-extension-ss.png";
 
 const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -68,19 +69,14 @@ const BrowserExtensions = () => {
       <main className="py-[2.43rem]">
         <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
           <h1 className="sr-only"> Login Me Now </h1>
-          <div className="grid grid-cols-1 items-start lg:grid-cols-5 rounded-md bg-white overflow-hidden shadow-sm px-8 py-8">
-            <div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full">
+          <div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-12 rounded-md bg-white overflow-hidden shadow-sm p-12 border-[1px] border-[#9F9F9F]">
+            <div className="grid grid-cols-1 lg:col-span-7 gap-4 h-full">
               <section aria-labelledby="section-1-title h-full">
                 <h2 className="sr-only" id="section-1-title">
                   Browser Extensions Banner
                 </h2>
                 <div className="flex flex-col justify-center h-full">
                   <div className="">
-                    {/* <p className="pb-4 font-medium text-base text-slate-800">
-                      {__("Hello ", "login-me-now") +
-                        lmn_admin.current_user +
-                        ","}
-                    </p> */}
                     <Title text="Experience instant dashboard access with just 1 click" />
                     <SubTitle text="Generate a token to save this dashboard access in the browser extension, allowing you to effortlessly log in directly from extension. No need to navigate to the dashboard login panel and enter login credentials." />
                     <form
@@ -131,6 +127,9 @@ const BrowserExtensions = () => {
                 </div>
               </section>
             </div>
+            <div className="grid grid-cols-1 lg:col-span-5 gap-4 h-full justify-self-end">
+              {/* <img src={browserSsImg} alt="" /> */}
+              </div>
           </div>
 
           <div className="grid grid-cols-1 gap-[32px] items-start lg:grid-cols-3 lg:gap-[32px] xl:gap-[32px] mt-[32px]">
@@ -173,10 +172,10 @@ const BrowserExtensions = () => {
             </div>
           </div>
           <div className="border-[#9F9F9F] border-[1px] p-10 rounded-[8px] bg-white mt-[60px]">
-            <h1 className="text-[32px] mb-4 text-slate-800 leading-10 pb-3 font-semibold text-left">
+            <h1 className="text-[20px] text-slate-800 leading-10 pb-3 font-semibold text-left">
               Why use browser extension?
             </h1>
-            <p className="text-[#494949] text-[18px]">
+            <p className="text-[#494949] text-[16px] leading-8">
               This save you time, especially if you frequently log in to
               multiple website dashboards throughout the day. With the browser
               extension, secure dashboard login is just one click away. Say
@@ -187,7 +186,7 @@ const BrowserExtensions = () => {
           </div>
           <div className="flex justify-between items-center border-[#10AC84] border-[1px] p-10 rounded-[8px] bg-[#F1FAF8] mt-[30px]">
             <img src={lockImg} alt="" className="h-[60px] w-[60px] mr-5" />
-            <p className="text-[18px]">
+            <p className="text-[16px] leading-8">
               The browser extension never tracks or saves any of your website
               data or login credentials. When it come to dashboard login access,
               it is securely stored in an encrypted format within the browser

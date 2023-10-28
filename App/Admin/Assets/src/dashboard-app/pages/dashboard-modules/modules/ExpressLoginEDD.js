@@ -86,10 +86,10 @@ function ExpressLoginEDD({ colorChange, isAvailable }) {
               />
             </svg>
           </div>
-          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
+          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5 flex justify-center items-center">
             Express login- EDD
             {!isProAvailable && (
-              <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
+              <span className="bg-[#0DA071] text-[#ffffff] px-2 py-1 text-[8px] rounded-[4px] ml-1.5">
                 Pro
               </span>
             )}
@@ -152,7 +152,7 @@ function ExpressLoginEDD({ colorChange, isAvailable }) {
           ) : (
             <button
               type="button"
-              className={`bg-[#F8FAFC] border ${
+              className={`bg-[#F8FAFC] cursor-auto border ${
                 colorChange === true
                   ? "border-[#0DA071]  text-[#0DA071]"
                   : "border-[#cacaca]  text-[#023A2E]"

@@ -28,6 +28,6 @@ class Logs {
 	}
 
 	private static function enabled(): bool {
-		return Settings::init()->get( 'enable_activity_logs', false );
+		return Settings::init()->get( 'activity_logs', false );
 	}
 }

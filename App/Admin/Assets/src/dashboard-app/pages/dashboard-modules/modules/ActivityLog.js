@@ -37,7 +37,7 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
 
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
-    formData.append("key", "enable_activity_logs");
+    formData.append("key", "activity_logs");
     formData.append("value", assetStatus);
 
     apiFetch({
@@ -139,7 +139,7 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
           ) : (
             <button
               type="button"
-              className={`bg-[#F8FAFC] border ${
+              className={`bg-[#F8FAFC] cursor-auto border ${
                 colorChange === true
                   ? "border-[#0DA071]  text-[#0DA071]"
                   : "border-[#cacaca]  text-[#023A2E]"

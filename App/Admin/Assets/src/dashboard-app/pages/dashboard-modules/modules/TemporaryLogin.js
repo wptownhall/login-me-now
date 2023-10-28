@@ -43,7 +43,7 @@ function TemporaryLogin({ colorChange, proItem }) {
 
     formData.append("action", "login_me_now_update_admin_setting");
     formData.append("security", lmn_admin.update_nonce);
-    formData.append("key", "dm_temporary_login");
+    formData.append("key", "temporary_login");
     formData.append("value", assetStatus);
 
     apiFetch({

@@ -2,13 +2,14 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.2.0
  */
 
 namespace LoginMeNow\LoginLink;
 
 use LoginMeNow\Model\UserToken;
 use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Utils\Module;
 use LoginMeNow\Utils\Random;
 use LoginMeNow\Utils\Time;
 use LoginMeNow\Utils\Translator;
@@ -24,6 +25,10 @@ class LoginLink {
 	private $error;
 
 	public function __construct() {
+		if ( ! Module::is_active( 'temporary_login', true ) ) {
+			return;
+		}
+
 		Ajax::init();
 		Authenticate::init();
 	}

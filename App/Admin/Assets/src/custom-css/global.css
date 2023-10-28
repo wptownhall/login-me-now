@@ -303,3 +303,6 @@ input#selected_pages {
 {
 	background-color: #d5d5d5;
 }
+.inline-size-auto{
+  inline-size: auto;
+}
