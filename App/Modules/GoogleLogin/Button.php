@@ -38,7 +38,7 @@ class Button {
 
 	public function login_btn(): string {
 		if ( ! is_user_logged_in() ) {
-			$this->html( 300 );
+			return $this->html( 300 );
 		}
 
 		return '';
