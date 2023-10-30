@@ -14,7 +14,7 @@ function NeedSupport({ title, subtitle, link, classNames, buttonText, icon }) {
           <h3 className="relative flex items-center text-slate-800 text-base font-semibold pb-2">
             <span className="flex-1 text-black text-[16px]">{__(`${title}`, "login-me-now")}</span>
           </h3>
-          <p className="text-[#6B6D71] text-[14px] font-medium leading-7 pb-5 ">
+          <p className="text-[#6B6D71] text-[15px] font-medium leading-7 pb-5 ">
             {__(`${subtitle}`, "login-me-now")}
           </p>
           <a

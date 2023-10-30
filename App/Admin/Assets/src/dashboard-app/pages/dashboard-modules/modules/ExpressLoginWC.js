@@ -86,11 +86,11 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
               />
             </svg>
           </div>
-          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5 flex justify-center items-center">
+          <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5 flex justify-center items-center">
             Express login- WC
             {!isProAvailable && (
-              <span className="bg-[#0DA071] text-[#ffffff] px-2 py-1 text-[8px] rounded-[4px] ml-1.5">
-                Pro
+              <span className="bg-[#0DA071] text-[#ffffff] px-2.5 py-1 text-[10px] rounded-[3px] ml-1.5">
+                PRO
               </span>
             )}
           </h1>
@@ -176,7 +176,7 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
               <button
                 className={`bg-white px-3 py-2 text-[16px] font-semibold text-[#073A2E] rounded-[8px]`}
               >
-                Upgrade to pro
+                Upgrade to PRO
               </button>
             </a>
             <p className="text-white mt-3">
