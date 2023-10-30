@@ -38,7 +38,6 @@ function DashboardModules() {
                       <>
                         <div
                           className="bg-[#D9F5EC] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-                          title="Pro"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
