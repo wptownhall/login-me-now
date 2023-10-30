@@ -60,7 +60,7 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
   return (
     <div className={`mb-16 mx-4 flex`}>
       <div
-        class={`relative rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group flex flex-col justify-between ${
+        class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
           hover === true ? "bg-[#073A2E]" : "bg-[#F8FAFC]"
         }`}
         onMouseEnter={!isProAvailable === true ? handleMouseEnter : null}
@@ -103,7 +103,7 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
         <div
           className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex ${
             isAvailable === true ? "justify-between" : "justify-center"
-          } items-center px-4 border-t-[1px] border-t-[#cacaca] group-hover:border-t-[#0DA071] border-b-[#cacaca] ${
+          } items-center px-4 border-t-[1px] border-t-[#cacaca] border-b-[#cacaca] ${
             hover && "invisible"
           }`}
         >
