@@ -71,7 +71,6 @@ function ExpressLoginEDD({ colorChange, isAvailable }) {
         <div className={`px-8 pt-16 pb-10 text-center ${hover && "invisible"}`}>
           <div
             className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-            title="Pro"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
