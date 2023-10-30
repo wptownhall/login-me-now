@@ -306,3 +306,11 @@ input#selected_pages {
 .inline-size-auto{
   inline-size: auto;
 }
+a.mb-4.sm\:mb-0.border-lmn.text-lmn.active\:text-lmn.focus\:text-lmn.focus-visible\:text-lmn-hover.hover\:text-lmn-hover.inline-flex.items-center.px-1.border-b-2.text-\[16px\].leading-\[0\.875rem\].font-medium.active\:text-lmn:nth-child(1) {
+  border-bottom: none!important;
+  padding-right: 20px;
+  border-right: 1px solid #cacaca;
+}
+a.mb-4.sm\:mb-0.border-transparent.text-slate-600.active\:text-lmn.focus-visible\:border-slate-300.focus-visible\:text-slate-800.hover\:border-slate-300.hover\:text-slate-800.inline-flex.items-center.px-1.border-b-2.text-\[16px\].leading-\[0\.875rem\].font-medium:nth-child(1) {
+  margin-right: 20px;
+}

@@ -95,6 +95,7 @@ export default function MainNav() {
                         "" !== menu.path ? "&path=" + menu.path : ""
                       }`,
                     }}
+                    
                     className={`${
                       activePage === menu.slug && activePath === menu.path
                         ? "mb-4 sm:mb-0 border-lmn text-lmn active:text-lmn focus:text-lmn focus-visible:text-lmn-hover hover:text-lmn-hover inline-flex items-center px-1 border-b-2 text-[16px] leading-[0.875rem] font-medium"

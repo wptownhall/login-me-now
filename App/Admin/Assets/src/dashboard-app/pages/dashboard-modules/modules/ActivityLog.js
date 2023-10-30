@@ -3,6 +3,7 @@ import { Switch } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -55,7 +56,7 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
   return (
     <div className="mb-16 mx-4 flex">
       <div
-        class={`relative rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group flex flex-col justify-between ${
+        class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
         }`}
         onMouseEnter={proItem === true ? handleMouseEnter : null}
@@ -64,7 +65,6 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
         <div className={`px-8 pt-16 pb-10 text-center ${hover && "invisible"}`}>
           <div
             className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-            title="Simple History Integration"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
             </svg>
           </div>
           <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
-            Simple History Integration
+            <a className="border-b-[#2271b1] pb-1 border-b-[2px] border-dashed" href="https://wordpress.org/plugins/simple-history/" target="_blank">Simple History</a> Integration
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
                 Pro
@@ -95,7 +95,7 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
           </p>
         </div>
         <div
-          className={`bg-[#F0F2F4] py-3 group-hover:border-t-[#0DA071] border-t-[#cacaca] rounded-b-[8px] flex ${
+          className={`bg-[#F0F2F4] py-3 border-t-[#cacaca] rounded-b-[8px] flex ${
             isAvailable === true ? "justify-between" : "justify-center"
           } items-center px-4 border-t-[1px] border-b-[#cacaca] ${
             hover && "invisible"

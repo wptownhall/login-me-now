@@ -61,7 +61,7 @@ function UserSwitching({ colorChange, proItem }) {
   return (
     <div className="mb-16 mx-4 flex">
       <div
-        class={`relative rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group flex flex-col justify-between ${
+        class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
         }`}
         onMouseEnter={proItem === true ? handleMouseEnter : null}
@@ -70,7 +70,6 @@ function UserSwitching({ colorChange, proItem }) {
         <div className={`px-8 pt-16 pb-10 text-center ${hover && "invisible"}`}>
           <div
             className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-            title="User Switching"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +84,7 @@ function UserSwitching({ colorChange, proItem }) {
               />
             </svg>
           </div>
-          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
+          <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5">
             User switching
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
@@ -98,7 +97,7 @@ function UserSwitching({ colorChange, proItem }) {
           </p>
         </div>
         <div
-          className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[1px] border-t-[#cacaca] group-hover:border-t-[#0DA071] border-b-[#cacaca] ${
+          className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[1px] border-t-[#cacaca] border-b-[#cacaca] ${
             hover && "invisible"
           }`}
         >
