@@ -60,7 +60,7 @@ function TemporaryLogin({ colorChange, proItem }) {
 
   return (
     <div
-      className={`mb-16 mx-4 flex flex-col justify-between rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group ${
+      className={`mb-16 mx-4 flex flex-col justify-between rounded-[8px] border border-[#cacaca] ${
         hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
       }`}
     >
@@ -109,7 +109,7 @@ function TemporaryLogin({ colorChange, proItem }) {
         </div>
       </div>
       <div
-        className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[1px] border-t-[#cacaca] group-hover:border-t-[#0DA071] border-b-[#cacaca] ${
+        className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[1px] border-t-[#cacaca] border-b-[#cacaca] ${
           hover && "invisible"
         }`}
       >

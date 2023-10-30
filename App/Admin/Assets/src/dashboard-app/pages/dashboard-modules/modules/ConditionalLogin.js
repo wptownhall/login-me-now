@@ -61,7 +61,7 @@ function ConditionalLogin({ colorChange, proItem, isAvailable }) {
   return (
     <div className="mb-16 mx-4 flex">
       <div
-        class={`relative rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group flex flex-col justify-between ${
+        class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
         }`}
         onMouseEnter={proItem === true ? handleMouseEnter : null}
@@ -123,7 +123,7 @@ function ConditionalLogin({ colorChange, proItem, isAvailable }) {
           </p>
         </div>
         <div
-          className={`bg-[#F0F2F4] py-3 group-hover:border-t-[#0DA071] rounded-b-[8px] flex ${
+          className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex ${
             isAvailable === true ? "justify-between" : "justify-center"
           } items-center px-4 border-t-[1px] border-t-[#cacaca] border-b-[#cacaca] ${
             hover && "invisible"
