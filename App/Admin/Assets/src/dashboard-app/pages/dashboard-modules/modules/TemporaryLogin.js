@@ -94,7 +94,7 @@ function TemporaryLogin({ colorChange, proItem }) {
               </defs>
             </svg>
           </div>
-          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
+          <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5">
             Temporary login
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">

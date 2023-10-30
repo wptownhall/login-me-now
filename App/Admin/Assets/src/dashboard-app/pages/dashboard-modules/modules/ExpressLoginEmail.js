@@ -69,7 +69,7 @@ function ExpressLoginEmail({ colorChange }) {
         onMouseLeave={!isProAvailable === true ? handleMouseLeave : null}
       >
         <div className={`px-8 pt-16 pb-10 ${hover && "invisible"}`}>
-          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
+          <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5">
             Express login- email
             {!isProAvailable && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">

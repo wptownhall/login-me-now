@@ -3,6 +3,7 @@ import { Switch } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -82,7 +83,7 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
             </svg>
           </div>
           <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
-            Simple History Integration
+            <a className="border-b-[#2271b1] pb-1 border-b-[2px] border-dashed" href="https://wordpress.org/plugins/simple-history/" target="_blank">Simple History</a> Integration
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
                 Pro
