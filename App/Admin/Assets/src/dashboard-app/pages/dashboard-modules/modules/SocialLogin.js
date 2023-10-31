@@ -92,7 +92,7 @@ function SocialLogin({ colorChange, proItem }) {
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Simplify the login process and make it more convenient for users to
             login / register with social login options.
           </p>

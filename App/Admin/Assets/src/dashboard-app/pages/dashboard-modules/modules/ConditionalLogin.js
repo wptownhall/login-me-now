@@ -116,7 +116,7 @@ function ConditionalLogin({ colorChange, proItem, isAvailable }) {
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Provide limited access to the dashboard and admin bar options to
             specific role based users such as shop manager, editor, etc.
           </p>

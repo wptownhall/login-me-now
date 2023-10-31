@@ -89,7 +89,7 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Keep an activity log of everything that occurs when a user logs in
             to the dashboard using the tokenized login link.
           </p>

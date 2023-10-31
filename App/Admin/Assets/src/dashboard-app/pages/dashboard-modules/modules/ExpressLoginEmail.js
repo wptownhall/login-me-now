@@ -77,7 +77,7 @@ function ExpressLoginEmail({ colorChange }) {
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Redirect non-existent content easily with 301 and 302 status code.
             This can help improve your site ranking. Also supports many
           </p>
