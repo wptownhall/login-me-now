@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import apiFetch from "@wordpress/api-fetch";
+import { Tooltip } from "antd";
 
 function MyCopyToClipboard({ umeta_id }) {
   const [clipboardState, setClipboardState] = useState(false);
@@ -59,7 +60,7 @@ function MyCopyToClipboard({ umeta_id }) {
             ></path>
           </svg>
         ) : (
-          <span title="Copy"><svg
+          <Tooltip title="Copy"><svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -73,7 +74,7 @@ function MyCopyToClipboard({ umeta_id }) {
             stroke-linejoin="round"
             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
           ></path>
-        </svg></span>
+        </svg></Tooltip>
         )}
       </button>
     </CopyToClipboard>
