@@ -92,7 +92,7 @@ function UserSwitching({ colorChange, proItem }) {
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Easily switch between user accounts. Instant & in one-click!
           </p>
         </div>
