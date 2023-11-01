@@ -141,7 +141,7 @@ final class LoginMeNow {
 		define( 'LOGIN_ME_NOW_MENU_SLUG', apply_filters( 'login_me_now_menu_slug', 'login-me-now' ) );
 		define( 'LOGIN_ME_NOW_MENU_CAPABILITY', apply_filters( 'login_me_now_menu_capability', 'manage_options' ) );
 
-		define( 'LOGIN_ME_NOW_PRO_UPGRADE_URL', 'https://wptownhall.com/login-me-now/' );
+		define( 'LOGIN_ME_NOW_PRO_UPGRADE_URL', 'https://wptownhall.com/login-me-now/pricing/' );
 	}
 
 	private function includes(): void {
