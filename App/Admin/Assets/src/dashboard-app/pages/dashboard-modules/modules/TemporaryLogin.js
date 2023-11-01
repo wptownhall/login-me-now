@@ -101,7 +101,7 @@ function TemporaryLogin({ colorChange, proItem }) {
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Generate a tokenized link to create a temporary login. By opening
             the link, anyone can log in without requiring a password.
           </p>

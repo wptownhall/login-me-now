@@ -97,7 +97,7 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Simplify users login with OTP authentication. Forget password
             hassles, a quick OTP sent via email , mobile or WhatsApp grants easy
             login to account.

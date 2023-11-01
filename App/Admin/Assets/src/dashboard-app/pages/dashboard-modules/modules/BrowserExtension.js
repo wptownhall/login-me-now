@@ -97,7 +97,7 @@ function BrowserExtension({ colorChange, proItem }) {
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             If frequent logins to the dashboard are necessary throughout the
             day, the browser extension comes in handy.It just takes 1 click to
             login to dashboard.

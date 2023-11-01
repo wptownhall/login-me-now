@@ -8,6 +8,7 @@ import Play from "../../../../icons/Play";
 import CloseIcon from "../../../../icons/CloseIcon";
 import trash from "../../../../images/trash.png";
 import MyCopyToClipboard from "./CopyToClipboard";
+import { Tooltip } from "antd";
 
 function Table() {
   const [extendTime, setExtendTime] = useState("");
@@ -297,23 +298,21 @@ function Table() {
       <h2 className="sr-only" id="section-1-title ">
         Login Links
       </h2>
-      <div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full border-[1px] border-[#9F9F9F]">
+      <div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
         <div className="relative w-full flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <span className="font-semibold text-xl leading-6 text-slate-800 mb-4 sm:mb-0">
             {__(`Login Links`, "login-me-now")}
           </span>
         </div>
-
-        {/* table code start from here */}
-        {/* overflow-y-scroll  */}
-          {console.log(tokensData.length)}
-        <div className={`overflow-y-auto rounded-md mt-5 h-[47vh] relative table-scrollbar`}>
+        <div
+          className={`overflow-y-auto rounded-md mt-5 h-[47vh] relative table-scrollbar`}
+        >
           <table class="table-auto w-full">
             <thead className="sticky top-[-1px] bg-[#f1f1f1]">
               <tr>
                 <th className="border-x-[1px] border-b-[1px] border-[#e2e8f0] py-[10px] px-[5px] text-[14px]">
                   User{" "}
-                  <span title="Which user has generated this link">
+                  <Tooltip title="Which user has generated this link">
                     <svg
                       className="inline-block"
                       fill="#9A9A9A"
@@ -324,7 +323,7 @@ function Table() {
                     >
                       <path d="M12,1A11,11,0,1,0,23,12,11.013,11.013,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9.011,9.011,0,0,1,12,21ZM13,8H11V6h2Zm0,10H11V10h2Z" />
                     </svg>
-                  </span>
+                  </Tooltip>
                 </th>
                 <th className="border-x-[1px] border-b-[1px] border-[#e2e8f0] py-[10px] px-[5px] text-[14px]">
                   Link
@@ -370,7 +369,9 @@ function Table() {
                     >
                       <td className="text-center text-[13px] font-[500] border-x-[1px] border-[#e2e8f0] py-[10px] px-[5px]">
                         {item.display_name}
-                        <span className="block text-[#919196]">{item.user_login}</span>
+                        <span className="block text-[#919196]">
+                          {item.user_login}
+                        </span>
                       </td>
                       <td className="text-center text-[13px] font-[500] border-x-[1px] border-[#e2e8f0] py-[10px] px-[5px]">
                         <MyCopyToClipboard umeta_id={item.umeta_id} />
@@ -409,23 +410,24 @@ function Table() {
                       </td>
                       <td className="text-center text-[13px] font-[500] border-x-[1px] border-[#e2e8f0] py-[10px] px-[5px]">
                         <span className="flex justify-around">
-                          <span
-                            title="Extend Time"
-                            className="cursor-pointer"
-                            onClick={() =>
-                              handleExtendModal(item, item.meta_value.expire)
-                            }
-                          >
-                            <MoreTime size={18} />
-                          </span>
-                          <span
-                            title="Delete"
-                            className="cursor-pointer"
-                            onClick={() => handleDelete(item)}
-                          >
-                            <DeleteIcon size={18} />
-                          </span>
-
+                          <Tooltip title="Extend Time">
+                            <span
+                              className="cursor-pointer"
+                              onClick={() =>
+                                handleExtendModal(item, item.meta_value.expire)
+                              }
+                            >
+                              <MoreTime size={18} />
+                            </span>
+                          </Tooltip>
+                          <Tooltip title="Delete">
+                            <span
+                              className="cursor-pointer"
+                              onClick={() => handleDelete(item)}
+                            >
+                              <DeleteIcon size={18} />
+                            </span>
+                          </Tooltip>
                           <span
                             onClick={() =>
                               handleStatus(
@@ -441,23 +443,25 @@ function Table() {
                           >
                             {item.meta_value.status === "pause" ||
                             truncatedTimestamp >= item.meta_value.expire ? (
-                              <span title="Inactive" className="cursor-pointer">
-                                <Pause
-                                  size={18}
-                                  color={
-                                    truncatedTimestamp >= item.meta_value.expire
-                                      ? "#d11a2a"
-                                      : "#2192c0"
-                                  }
-                                />
-                              </span>
+                              <Tooltip title="Inactive">
+                                <span className="cursor-pointer">
+                                  <Pause
+                                    size={18}
+                                    color={
+                                      truncatedTimestamp >=
+                                      item.meta_value.expire
+                                        ? "#d11a2a"
+                                        : "#2192c0"
+                                    }
+                                  />
+                                </span>
+                              </Tooltip>
                             ) : (
-                              <span
-                                title="Active"
-                                className="cursor-pointer disable"
-                              >
-                                <Play size={18} />
-                              </span>
+                              <Tooltip title="Active">
+                                <span className="cursor-pointer disable">
+                                  <Play size={18} />
+                                </span>
+                              </Tooltip>
                             )}
                           </span>
                         </span>
