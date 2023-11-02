@@ -184,7 +184,22 @@ body.active-modal {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+@media (min-width: 1026px) and (max-width: 1460px) {
   
+  .responsive-box{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .responsive-box h1{
+    font-size: 15px
+  }
+  .responsive-span{
+    font-size: 14px
+  }
+}
 /* ant design custom css */
 .ant-select-multiple .ant-select-selection-item {
   background: #2271b1 !important;
