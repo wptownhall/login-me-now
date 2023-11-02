@@ -29,7 +29,7 @@ function DashboardModules() {
                       : "justify-between"
                   } flex-col mb-16 `}
                 >
-                  <div className="px-8 pt-16 pb-10 text-center">
+                  <div className="px-8 pt-16 pb-10 text-center responsive-box">
                     {isProAvailable === true ? (
                       <h1 className="text-[#1BD8B9] text-[16px] font-medium text-center mb-5">
                         Congratulation you have unlocked all the pro features!
@@ -59,25 +59,25 @@ function DashboardModules() {
                         <div className="flex flex-col flex-wrap content-center">
                           <div className="inline-box-flex inline-size-auto">
                             <TickIcon />
-                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[16px] noto-serif">
+                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[16px] noto-serif responsive-span">
                               Advanced social login
                             </span>
                           </div>
                           <div className="inline-box-flex inline-size-auto">
                             <TickIcon />
-                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[16px] noto-serif">
+                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[16px] noto-serif responsive-span">
                               Express login - WC
                             </span>
                           </div>
                           <div className="inline-box-flex inline-size-auto">
                             <TickIcon />
-                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[16px] noto-serif">
+                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[16px] noto-serif responsive-span">
                               Express login - EDD
                             </span>
                           </div>
                           <div className="inline-box-flex inline-size-auto">
                             <TickIcon />
-                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[16px] noto-serif">
+                            <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[16px] noto-serif responsive-span">
                               24/7 Priority Support
                             </span>
                           </div>
@@ -93,7 +93,7 @@ function DashboardModules() {
                       >
                         <button
                           type="button"
-                          className="bg-[#EDEDED] px-6 py-1 text-[#023A2E] text-[16px] font-semibold rounded-[8px]"
+                          className="bg-[#EDEDED] px-6 py-[0.4rem] text-[#023A2E] text-[13px] font-semibold rounded-[8px]"
                         >
                           Upgrade to PRO
                         </button>
