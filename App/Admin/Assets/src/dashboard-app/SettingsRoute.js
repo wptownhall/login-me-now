@@ -19,7 +19,7 @@ function SettingsRoute() {
   const browserExtensionStatus = navStatus.dmBrowserExtension;
   const SocialLoginStatus = navStatus.dmSocialLogin;
 
-  let routePage = <p> Fallback Route Page </p>;
+  let routePage = <p> Login Me Now Dashboard Is Loading... </p>;
 
   if (lmn_admin.home_slug === page) {
     if ("getting-started" === currentEvent) {

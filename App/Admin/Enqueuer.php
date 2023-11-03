@@ -75,6 +75,7 @@ class Enqueuer extends EnqueuerBase {
 			'version'                => LOGIN_ME_NOW_VERSION,
 			'pro_available'          => defined( 'LOGIN_ME_NOW_PRO_VERSION' ) ? true : false,
 			'pro_installed_status'   => 'installed' === Helper::get_plugin_status( 'login-me-now-pro/login-me-now-pro.php' ) ? true : false,
+			'simple_history_status'  => 'activated' === Helper::get_plugin_status( 'simple-history/index.php' ) ? true : false,
 			'product_name'           => __( 'Login Me Now', 'login-me-now' ),
 			'plugin_name'            => __( 'Login Me Now PRO', 'login-me-now' ),
 			'ajax_url'               => admin_url( 'admin-ajax.php' ),
