@@ -21,6 +21,7 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
   };
 
   const enableDmActivityLog = useSelector((state) => state.dmActivityLog);
+  console.log(enableDmActivityLog)
   const handleDmActivityLog = () => {
     let assetStatus;
     if (enableDmActivityLog === false || enableDmActivityLog === undefined) {
@@ -28,6 +29,8 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
     } else {
       assetStatus = false;
     }
+
+    console.log(assetStatus)
 
     dispatch({
       type: "ENABLE_DM_ACTIVITY_LOGS",
@@ -105,12 +108,12 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
             <>
               <button
                 type="button"
-                className={`bg-[#F8FAFC] border border-[#cacaca]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071]`}
+                className={`bg-[#F8FAFC] border border-[#cacaca] invisible  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071]`}
               >
                 Settings
               </button>
               <Switch
-                onChange={handleDmActivityLog}
+                onChange={lmn_admin.simple_history_status === 1 ? handleDmActivityLog : null}
                 className={classNames(
                   enableDmActivityLog ? "bg-lmn" : "bg-slate-200",
                   "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
