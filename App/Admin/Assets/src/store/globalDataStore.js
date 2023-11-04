@@ -48,7 +48,7 @@ const initialState = wp.hooks.applyFilters("login_me_now_dashboard/datastore", {
   dmOTPLogin: false,
   dmBrowserExtension: false,
   dmUserSwitching: false,
-  dmActiveLog: false,
+  dmActivityLog: false,
   dmConditionalLogin: false,
   activeSocialLoginNavigationTab: "",
 });

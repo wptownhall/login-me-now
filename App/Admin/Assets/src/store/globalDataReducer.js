@@ -183,7 +183,7 @@ const globalDataReducer = (state = {}, action) => {
     case "ENABLE_DM_ACTIVITY_LOGS":
       return {
         ...state,
-        dmActiveLog: action.payload,
+        dmActivityLog: action.payload,
       };
     case "ENABLE_DM_CONDITIONAL_LOGIN":
       return {

@@ -152,7 +152,7 @@ function DashboardModules() {
                   colorChange={false}
                   proItem={false}
                   none={false}
-                  isAvailable={false}
+                  isAvailable={true}
                 />
               </div>
             </section>
