@@ -156,7 +156,7 @@ const SocialLogin = () => {
                       </g>
                     </svg>
                     <span className="text-[16px] text-[#1e293b] font-medium">
-                      Twitter
+                      Facebook
                     </span>
                   </span>
                 </Tooltip>
