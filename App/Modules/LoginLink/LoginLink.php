@@ -9,6 +9,7 @@ namespace LoginMeNow\LoginLink;
 
 use LoginMeNow\Model\UserToken;
 use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Utils\Logs;
 use LoginMeNow\Utils\Module;
 use LoginMeNow\Utils\Random;
 use LoginMeNow\Utils\Time;
@@ -95,6 +96,8 @@ class LoginLink {
 		$expire  = $meta_value['expire'] ?? 0;
 
 		$token = Translator::encode( $user_id, $number, $expire );
+
+		Logs::add( $user_id, "Generated a login link" );
 
 		return sprintf( '%s%s', admin_url( '/?lmn-token=' ), $token );
 	}
