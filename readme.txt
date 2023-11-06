@@ -129,6 +129,9 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 
 == Changelog ==
 
+= 1.3.0 – Nov 08, 2023 =
+* Add: Simple History Integration
+
 = 1.2.0 – Nov 01, 2023 =
 * Add: Module On-Off Facility 
 
