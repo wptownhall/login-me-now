@@ -36,9 +36,7 @@ function DashboardModules() {
                       </h1>
                     ) : (
                       <>
-                        <div
-                          className="bg-[#D9F5EC] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-                        >
+                        <div className="bg-[#D9F5EC] inline-block py-2.5 px-3 rounded-[8px] mb-4">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="30"
@@ -133,7 +131,7 @@ function DashboardModules() {
                 /> */}
                 <OTPLogin
                   colorChange={false}
-                  proItem={false}
+                  proItem={true}
                   none={false}
                   isAvailable={false}
                 />
