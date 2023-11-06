@@ -9,6 +9,7 @@ function classNames(...classes) {
 }
 
 function OTPLogin({ colorChange, proItem, isAvailable }) {
+  const isProAvailable = lmn_admin.pro_available ? true : false;
   const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
 
@@ -54,18 +55,20 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
   };
 
   return (
-    <div className="mb-16 mx-4 flex">
+    <div className={`mb-16 mx-4 flex`}>
       <div
         class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
-          hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
+          hover === true ? "bg-[#073A2E]" : "bg-[#F8FAFC]"
         }`}
-        onMouseEnter={proItem === true ? handleMouseEnter : null}
-        onMouseLeave={proItem === true ? handleMouseLeave : null}
+        onMouseEnter={!isProAvailable === true ? handleMouseEnter : null}
+        onMouseLeave={!isProAvailable === true ? handleMouseLeave : null}
       >
-        <div className={`px-8 pt-16 pb-10 text-center responsive-box ${hover && "invisible"}`}>
-          <div
-            className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-          >
+        <div
+          className={`px-8 pt-16 pb-10 text-center responsive-box ${
+            hover && "invisible"
+          }`}
+        >
+          <div className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -89,11 +92,11 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
               />
             </svg>
           </div>
-          <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5">
+          <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5 flex justify-center items-center">
             OTP login
-            {proItem && (
-              <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
-                Pro
+            {!isProAvailable && (
+              <span className="bg-[#0DA071] text-[#ffffff] px-2.5 py-1 text-[10px] rounded-[3px] ml-1.5">
+                PRO
               </span>
             )}
           </h1>
@@ -118,10 +121,13 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
               >
                 Settings
               </button>
+
               <Switch
                 onChange={handleDmOTPLogin}
                 className={classNames(
-                  enableDmOTPLogin ? "bg-lmn" : "bg-slate-200",
+                  isProAvailable && enableDmOTPLogin
+                    ? "bg-lmn"
+                    : "bg-slate-200",
                   "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
                 )}
               >
@@ -132,14 +138,18 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
                 <span
                   aria-hidden="true"
                   className={classNames(
-                    enableDmOTPLogin ? "bg-lmn" : "bg-gray-200",
+                    isProAvailable && enableDmOTPLogin
+                      ? "bg-lmn"
+                      : "bg-gray-200",
                     "pointer-events-none absolute mx-auto h-[16px] w-[32px] rounded-full transition-colors duration-200 ease-in-out"
                   )}
                 />
                 <span
                   aria-hidden="true"
                   className={classNames(
-                    enableDmOTPLogin ? "translate-x-5" : "translate-x-0",
+                    isProAvailable && enableDmOTPLogin
+                      ? "translate-x-5"
+                      : "translate-x-0",
                     "toggle-bubble pointer-events-none absolute left-0 inline-block h-[16px] w-[16px] transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
                   )}
                 />
@@ -158,13 +168,27 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
             </button>
           )}
         </div>
-        <button
-          className={`bg-white px-6 py-3 text-[18px] font-semibold text-[#0DA071] rounded-[8px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
-            !hover && "invisible"
-          }`}
-        >
-          Buy Pro
-        </button>
+        {!isProAvailable && (
+          <div
+            className={`text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
+              !hover && "invisible"
+            }`}
+          >
+            <a
+              href="https://wptownhall.com/login-me-now/pricing/"
+              target="_blank"
+            >
+              <button
+                className={`bg-white px-3 py-2 text-[16px] font-semibold text-[#073A2E] rounded-[8px]`}
+              >
+                Upgrade to PRO
+              </button>
+            </a>
+            <p className="text-white mt-3">
+              This module is available in the pro version
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
