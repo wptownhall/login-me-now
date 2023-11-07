@@ -32,6 +32,11 @@ const SocialLogin = () => {
       //   icon: SettingsIcons["global-settings"],
       // },
       {
+        name: __("Login form", "login-me-now"),
+        slug: "login-form",
+        icon: SettingsIcons["login-form"],
+      },
+      {
         name: __("Google", "login-me-now"),
         slug: "google",
         icon: SettingsIcons["google-login"],
