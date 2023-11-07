@@ -190,6 +190,21 @@ const globalDataReducer = (state = {}, action) => {
         ...state,
         dmConditionalLogin: action.payload,
       };
+    case "ENABLE_SIGN_IN_GOOGLE":
+      return {
+        ...state,
+        lfEnableSignInGoogle: action.payload,
+      };
+    case "ENABLE_SIGN_IN_FACEBOOK":
+      return {
+        ...state,
+        lfEnableSignInFacebook: action.payload,
+      };
+    case "ENABLE_SIGN_IN_TWITTER":
+      return {
+        ...state,
+        lfEnableSignInTwitter: action.payload,
+      };
     default:
       return state;
   }
