@@ -12,6 +12,7 @@ import ActivityLog from "./modules/ActivityLog";
 import BrowserExtension from "./modules/BrowserExtension";
 import UserSwitching from "./modules/UserSwitching";
 import ConditionalLogin from "./modules/ConditionalLogin";
+import fireworks from "../../../../images/fireworks.png"
 
 function DashboardModules() {
   const isProAvailable = lmn_admin.pro_available ? true : false;
@@ -31,9 +32,12 @@ function DashboardModules() {
                 >
                   <div className="px-8 pt-16 pb-10 text-center responsive-box">
                     {isProAvailable === true ? (
-                      <h1 className="text-[#1BD8B9] text-[16px] font-medium text-center mb-5">
-                        Congratulation you have unlocked all the pro features!
-                      </h1>
+                      <div className="flex flex-col items-center justify-start">
+                        <img src={fireworks} alt="" className="mb-4"/>
+                        <h1 className="text-[#1BD8B9] text-[16px] font-medium text-center mb-5">
+                          All the pro features are unlocked!
+                        </h1>
+                      </div>
                     ) : (
                       <>
                         <div className="bg-[#D9F5EC] inline-block py-2.5 px-3 rounded-[8px] mb-4">
