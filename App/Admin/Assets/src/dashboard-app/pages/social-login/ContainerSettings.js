@@ -15,6 +15,7 @@ import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
 import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
 import OneTapToLogin from "./google/OneTapToLogin";
 import UserSwitching from "../settings/general/UserSwitching";
+import LoginForm from "./login-form/LoginForm";
 // import PasscodeInput from "./PasscodeInput";
 
 
@@ -27,6 +28,9 @@ function SettingsWrapper({ state }) {
       //     <UserSwitching />
       //   </>
       // ),
+      "login-form": (
+        <LoginForm />
+      ),
       "google": (
         <>
           <GoogleLogin />
