@@ -4,65 +4,35 @@ import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
 
 function LoginLayout() {
-  const [bellow, setBellow] = useState(true);
-  const [bellowSeparator, setBellowSeparator] = useState(false);
-  const [above, setAbove] = useState(false);
-  const [aboveSeparator, setAboveSeparator] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const handleBellow = () => {
-    setBellow(true);
-    setBellowSeparator(false);
-    setAbove(false);
-    setAboveSeparator(false);
-  };
-  const handleBellowSeparator = () => {
-    setBellow(false);
-    setBellowSeparator(true);
-    setAbove(false);
-    setAboveSeparator(false);
-  };
-  const handleAbove = () => {
-    setBellow(false);
-    setBellowSeparator(false);
-    setAbove(true);
-    setAboveSeparator(false);
-  };
-  const handleAboveSeparator = () => {
-    setBellow(false);
-    setBellowSeparator(false);
-    setAbove(false);
-    setAboveSeparator(true);
-  };
-  const loginLayout = {bellow: bellow, bellowSeparator: bellowSeparator, above: above, aboveSeparator: aboveSeparator}
+  const loginLayoutData = useSelector((state) => state.loginLayout);
 
-  const loginLayoutData = useSelector((state) => state.loginLayout)
-  const {bellow: reduxBellow, bellowSeparator: reduxBellowSeparator, above: reduxAbove, aboveSeparator: reduxAboveSeparator} = loginLayoutData || {}
-
-  useEffect(() => {
+  const handleLoginLayout = (layout) => {
+    console.log(layout);
     dispatch({
-        type: "LOGIN_LAYOUT",
-        payload: loginLayout,
+      type: "LOGIN_LAYOUT",
+      payload: layout,
+    });
+
+    const formData = new window.FormData();
+
+    formData.append("action", "login_me_now_update_admin_setting");
+    formData.append("security", lmn_admin.update_nonce);
+    formData.append("key", "login_layout");
+    formData.append("value", layout);
+
+    apiFetch({
+      url: lmn_admin.ajax_url,
+      method: "POST",
+      body: formData,
+    }).then(() => {
+      dispatch({
+        type: "UPDATE_SETTINGS_SAVED_NOTIFICATION",
+        payload: __("Successfully saved!", "login-me-now"),
       });
-  
-      const formData = new window.FormData();
-  
-      formData.append("action", "login_me_now_update_admin_setting");
-      formData.append("security", lmn_admin.update_nonce);
-      formData.append("key", "login_layout");
-      formData.append("value", loginLayout);
-  
-      apiFetch({
-        url: lmn_admin.ajax_url,
-        method: "POST",
-        body: formData,
-      }).then(() => {
-        dispatch({
-          type: "UPDATE_SETTINGS_SAVED_NOTIFICATION",
-          payload: __("Successfully saved!", "login-me-now"),
-        });
-      });
-  }, [bellow, bellowSeparator, above, aboveSeparator])
+    });
+  };
 
   return (
     <div className="mt-12">
@@ -71,8 +41,8 @@ function LoginLayout() {
       </p>
       <div className="flex items-center mb-4">
         <input
-          checked={reduxBellow}
-          onChange={handleBellow}
+          checked={loginLayoutData === "bellow" ? true : false}
+          onChange={() => handleLoginLayout("bellow")}
           id="bellow"
           type="radio"
           class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
@@ -87,8 +57,8 @@ function LoginLayout() {
 
       <div className="flex items-center mb-4">
         <input
-          checked={reduxBellowSeparator}
-          onChange={handleBellowSeparator}
+          checked={loginLayoutData === "bellowSeparator" ? true : false}
+          onChange={() => handleLoginLayout("bellowSeparator")}
           id="bellow_with_separator"
           type="radio"
           class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
@@ -103,8 +73,8 @@ function LoginLayout() {
 
       <div className="flex items-center mb-4">
         <input
-          checked={reduxAbove}
-          onChange={handleAbove}
+          checked={loginLayoutData === "above" ? true : false}
+          onChange={() => handleLoginLayout("above")}
           id="above"
           type="radio"
           class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
@@ -118,8 +88,8 @@ function LoginLayout() {
       </div>
       <div className="flex items-center mb-4">
         <input
-          checked={reduxAboveSeparator}
-          onChange={handleAboveSeparator}
+          checked={loginLayoutData === "aboveSeparator" ? true : false}
+          onChange={(e) => handleLoginLayout("aboveSeparator")}
           id="above_with_separator"
           type="radio"
           class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
