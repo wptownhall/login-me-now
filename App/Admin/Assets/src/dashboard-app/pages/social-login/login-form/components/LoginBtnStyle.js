@@ -6,7 +6,6 @@ import { __ } from "@wordpress/i18n";
 export default function LoginBtnStyle() {
   const loginButtonStyleData = useSelector((state) => state.loginButtonStyle);
   const dispatch = useDispatch();
-  
   const handleButtonStyle = (style) => {
     dispatch({
       type: "LOGIN_BUTTON_STYLE",

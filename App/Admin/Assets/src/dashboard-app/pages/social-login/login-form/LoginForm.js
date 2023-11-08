@@ -13,6 +13,7 @@ function LoginForm() {
   const isGoogleActive = useSelector((state) => state.lfEnableSignInGoogle);
   const isTwitterActive = useSelector((state) => state.lfEnableSignInTwitter);
   const isFacebookActive = useSelector((state) => state.lfEnableSignInFacebook);
+  const loginLayoutData = useSelector((state) => state.loginLayout);
 
   return (
     <div className="py-12 flex">
@@ -74,8 +75,7 @@ function LoginForm() {
                   Log In
                 </button>
               </div>
-
-              <div className="flex justify-between items-center mb-6">
+              {loginLayoutData === "bellowSeparator" && (<div className={`flex justify-between items-center ${isGoogleActive === true || isFacebookActive === true || isTwitterActive === true ? 'mb-6' : ''}`}>
                 <div className="w-[42%] h-[1px] bg-[#9F9F9F]"></div>
                 <div className="w-[16%] text-center">
                   <span className="text-[#646464] text-[18px] font-medium">
@@ -83,7 +83,8 @@ function LoginForm() {
                   </span>
                 </div>
                 <div className="w-[42%] h-[1px] bg-[#9F9F9F]"></div>
-              </div>
+              </div>)}
+              
 
               {isGoogleActive && <FormGoogleItem />}
               {isFacebookActive && <FormFacebookItem />}
