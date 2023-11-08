@@ -5,11 +5,9 @@ import { __ } from "@wordpress/i18n";
 
 function LoginLayout() {
   const dispatch = useDispatch();
-
   const loginLayoutData = useSelector((state) => state.loginLayout);
 
   const handleLoginLayout = (layout) => {
-    console.log(layout);
     dispatch({
       type: "LOGIN_LAYOUT",
       payload: layout,
@@ -41,7 +39,11 @@ function LoginLayout() {
       </p>
       <div className="flex items-center mb-4">
         <input
-          checked={loginLayoutData === "bellow" ? true : false}
+          checked={
+            loginLayoutData === "bellow" || loginLayoutData === undefined
+              ? true
+              : false
+          }
           onChange={() => handleLoginLayout("bellow")}
           id="bellow"
           type="radio"
