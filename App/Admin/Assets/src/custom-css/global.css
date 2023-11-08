@@ -242,7 +242,13 @@ input[type="radio"]:checked::before {
 }
 input#site_wide,
 input#login_screen,
-input#selected_pages {
+input#selected_pages,
+input#bellow,
+input#bellow_with_separator,
+input#above,
+input#above_with_separator,
+input#login_text,
+input#login_icon{
   height: 20px !important;
   width: 20px !important;
   display: flex !important;
