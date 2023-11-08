@@ -54,6 +54,7 @@ const setInitialState = (store) => {
       lfEnableSignInFacebook: data.enable_sign_in_facebook,
       lfEnableSignInTwitter: data.enable_sign_in_twitter,
       loginLayout: data.login_layout,
+      loginButtonStyle: data.login_button_style
     };
 
     store.dispatch({ type: "UPDATE_INITIAL_STATE", payload: initialState });
