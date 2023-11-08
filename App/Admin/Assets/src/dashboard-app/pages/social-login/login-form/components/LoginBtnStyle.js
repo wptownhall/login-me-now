@@ -6,12 +6,10 @@ export default function LoginBtnStyle() {
   const handleTextBtnStyle = () => {
     setTextbtnStyle(true);
     setIconBtnStyle(false);
-    console.log("1");
   };
   const handleIconBtnStyle = () => {
     setTextbtnStyle(false);
     setIconBtnStyle(true);
-    console.log("2");
   };
   return (
     <div className="mt-12">
