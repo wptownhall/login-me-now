@@ -33,7 +33,7 @@ export default function FormTwitterItem() {
               width="16"
               height="16"
               viewBox="0 0 18 18"
-              fill="red"
+              fill=""
             >
               <path
                 fill-rule="evenodd"
