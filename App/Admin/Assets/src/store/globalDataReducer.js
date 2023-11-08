@@ -205,6 +205,11 @@ const globalDataReducer = (state = {}, action) => {
         ...state,
         lfEnableSignInTwitter: action.payload,
       };
+      case "LOGIN_LAYOUT":
+      return {
+        ...state,
+        loginLayout: action.payload,
+      };
     default:
       return state;
   }
