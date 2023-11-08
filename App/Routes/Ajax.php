@@ -63,7 +63,7 @@ class Ajax {
 				'activity_logs'                    => 'bool',
 				'enable_sign_in_facebook'          => 'bool',
 				'enable_sign_in_twitter'           => 'bool',
-				'login_layout'                     => 'array'
+				'login_layout'                     => 'string'
 			]
 		);
 	}
