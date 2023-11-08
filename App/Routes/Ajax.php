@@ -61,6 +61,8 @@ class Ajax {
 				'browser_extension'                => 'bool',
 				'user_switching'                   => 'bool',
 				'activity_logs'                    => 'bool',
+				'enable_sign_in_facebook'          => 'bool',
+				'enable_sign_in_twitter'           => 'bool',
 			]
 		);
 	}
