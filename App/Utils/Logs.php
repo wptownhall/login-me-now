@@ -8,7 +8,6 @@
 namespace LoginMeNow\Utils;
 
 use LoginMeNow\Helper;
-use LoginMeNow\Model\Settings;
 
 class Logs {
 	public static function add( int $user_id, string $message ): void {
@@ -30,6 +29,6 @@ class Logs {
 	}
 
 	private static function enabled(): bool {
-		return Settings::init()->get( 'activity_logs', false );
+		return Module::is_active( 'activity_logs' );
 	}
 }
