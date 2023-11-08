@@ -49,7 +49,11 @@ function LoginForm() {
             {/* login box code start from here  */}
             <div className="p-8 border border-[#9F9F9F] rounded-[8px] bg-[#ffffff]">
               {loginLayoutData === "above" && (
-                <div className={`mb-6 ${loginButtonStyleData === "icon" && 'flex justify-around'}`}>
+                <div
+                  className={`mb-6 ${
+                    loginButtonStyleData === "icon" && "flex justify-center"
+                  }`}
+                >
                   {isGoogleActive && <FormGoogleItem />}
                   {isFacebookActive && <FormFacebookItem />}
                   {isTwitterActive && <FormTwitterItem />}
@@ -57,7 +61,11 @@ function LoginForm() {
               )}
               {loginLayoutData === "aboveSeparator" && (
                 <>
-                  <div className={`mb-6 ${loginButtonStyleData === "icon" && 'flex justify-around'}`}>
+                  <div
+                    className={`mb-6 ${
+                      loginButtonStyleData === "icon" && "flex justify-center"
+                    }`}
+                  >
                     {isGoogleActive && <FormGoogleItem />}
                     {isFacebookActive && <FormFacebookItem />}
                     {isTwitterActive && <FormTwitterItem />}
@@ -99,7 +107,14 @@ function LoginForm() {
                 />
               </div>
 
-              <div className={`flex justify-between items-start ${loginLayoutData === "bellow" || loginLayoutData === "bellowSeparator" && 'mb-10'}`}>
+              <div
+                className={`flex justify-between items-start ${
+                  loginLayoutData === "bellow" ||
+                  loginLayoutData === "bellowSeparator" || loginLayoutData === undefined
+                    ? "mb-10"
+                    : ""
+                }`}
+              >
                 <div className="flex items-center">
                   <input type="checkbox" />
                   <span className="mt-[-4px] text-[#646464] text-[16px]">
@@ -110,12 +125,18 @@ function LoginForm() {
                   Log In
                 </button>
               </div>
-              {loginLayoutData === "bellow" && (
-                <div className={`${loginButtonStyleData === "icon" && 'flex justify-around'}`}>
+              {loginLayoutData === "bellow" || loginLayoutData === undefined ? (
+                <div
+                  className={`${
+                    loginButtonStyleData === "icon" && "flex justify-center"
+                  }`}
+                >
                   {isGoogleActive && <FormGoogleItem />}
                   {isFacebookActive && <FormFacebookItem />}
                   {isTwitterActive && <FormTwitterItem />}
                 </div>
+              ) : (
+                ""
               )}
               {loginLayoutData === "bellowSeparator" && (
                 <>
@@ -136,10 +157,14 @@ function LoginForm() {
                     </div>
                     <div className="w-[42%] h-[1px] bg-[#9F9F9F]"></div>
                   </div>
-                  <div className={`${loginButtonStyleData === "icon" && 'flex justify-around'}`}>
-                  {isGoogleActive && <FormGoogleItem />}
-                  {isFacebookActive && <FormFacebookItem />}
-                  {isTwitterActive && <FormTwitterItem />}
+                  <div
+                    className={`${
+                      loginButtonStyleData === "icon" && "flex justify-center"
+                    }`}
+                  >
+                    {isGoogleActive && <FormGoogleItem />}
+                    {isFacebookActive && <FormFacebookItem />}
+                    {isTwitterActive && <FormTwitterItem />}
                   </div>
                 </>
               )}
