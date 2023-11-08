@@ -24,7 +24,7 @@ export default function FormTwitterItem() {
           </svg>
         </div>
       )}
-      {loginButtonStyleData === "text" && (
+      {loginButtonStyleData === "text" || loginButtonStyleData === undefined ? (
         <div className="flex items-center border border-[#CCCCBE] rounded-[4px] p-2 mb-3">
           <div className="w-[20%]">
             <svg
@@ -50,6 +50,8 @@ export default function FormTwitterItem() {
           </div>
           <div className="w-[20%]"></div>
         </div>
+      ) : (
+        ""
       )}
     </>
   );
