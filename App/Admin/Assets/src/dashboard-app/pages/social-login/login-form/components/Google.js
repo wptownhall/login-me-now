@@ -8,12 +8,17 @@ function classNames(...classes) {
 }
 
 function Google() {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const enableSignInActiveGoogle = useSelector((state) => state.lfEnableSignInGoogle);
+  const enableSignInActiveGoogle = useSelector(
+    (state) => state.lfEnableSignInGoogle
+  );
   const handleActiveGoogle = () => {
     let assetStatus;
-    if (enableSignInActiveGoogle === false || enableSignInActiveGoogle === undefined) {
+    if (
+      enableSignInActiveGoogle === false ||
+      enableSignInActiveGoogle === undefined
+    ) {
       assetStatus = true;
     } else {
       assetStatus = false;
@@ -47,7 +52,7 @@ function Google() {
       className={`flex justify-between items-center p-4 rounded-[6px] mb-3 border border-[#9F9F9F]`}
     >
       <div className="flex items-center">
-      <svg
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           width="25"
           height="25"

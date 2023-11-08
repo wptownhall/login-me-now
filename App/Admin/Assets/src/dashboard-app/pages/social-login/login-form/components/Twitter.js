@@ -67,7 +67,7 @@ function Twitter() {
             fill="black"
           />
         </svg>
-        <span className="text-[18px] text-black ml-3">Twitter</span>
+        <span className="text-[18px] text-black ml-3">X (formerly Twitter)</span>
       </div>
 
       <Switch

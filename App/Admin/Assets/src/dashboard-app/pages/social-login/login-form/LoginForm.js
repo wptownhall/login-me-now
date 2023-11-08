@@ -14,6 +14,7 @@ function LoginForm() {
   const isTwitterActive = useSelector((state) => state.lfEnableSignInTwitter);
   const isFacebookActive = useSelector((state) => state.lfEnableSignInFacebook);
   const loginLayoutData = useSelector((state) => state.loginLayout);
+  const loginButtonStyleData = useSelector((state) => state.loginButtonStyle);
 
   return (
     <div className="py-12 flex">
@@ -46,7 +47,41 @@ function LoginForm() {
           {/* body start from here  */}
           <div className="bg-[#F0F2F4] py-20 px-16">
             {/* login box code start from here  */}
-            <div className="p-6 border border-[#9F9F9F] rounded-[8px] bg-[#ffffff]">
+            <div className="p-8 border border-[#9F9F9F] rounded-[8px] bg-[#ffffff]">
+              {loginLayoutData === "above" && (
+                <div className={`mb-6 ${loginButtonStyleData === "icon" && 'flex justify-around'}`}>
+                  {isGoogleActive && <FormGoogleItem />}
+                  {isFacebookActive && <FormFacebookItem />}
+                  {isTwitterActive && <FormTwitterItem />}
+                </div>
+              )}
+              {loginLayoutData === "aboveSeparator" && (
+                <>
+                  <div className={`mb-6 ${loginButtonStyleData === "icon" && 'flex justify-around'}`}>
+                    {isGoogleActive && <FormGoogleItem />}
+                    {isFacebookActive && <FormFacebookItem />}
+                    {isTwitterActive && <FormTwitterItem />}
+                  </div>
+                  <div
+                    className={`flex justify-between items-center ${
+                      isGoogleActive === true ||
+                      isFacebookActive === true ||
+                      isTwitterActive === true
+                        ? "mb-6"
+                        : ""
+                    }`}
+                  >
+                    <div className="w-[42%] h-[1px] bg-[#9F9F9F]"></div>
+                    <div className="w-[16%] text-center">
+                      <span className="text-[#646464] text-[18px] font-medium">
+                        OR
+                      </span>
+                    </div>
+                    <div className="w-[42%] h-[1px] bg-[#9F9F9F]"></div>
+                  </div>
+                </>
+              )}
+
               <div className="mb-6">
                 <p className="text-[#646464] text-[18px] mb-2">
                   Username or Email Address
@@ -64,7 +99,7 @@ function LoginForm() {
                 />
               </div>
 
-              <div className="flex justify-between items-start mb-10">
+              <div className={`flex justify-between items-start ${loginLayoutData === "bellow" || loginLayoutData === "bellowSeparator" && 'mb-10'}`}>
                 <div className="flex items-center">
                   <input type="checkbox" />
                   <span className="mt-[-4px] text-[#646464] text-[16px]">
@@ -75,20 +110,39 @@ function LoginForm() {
                   Log In
                 </button>
               </div>
-              {loginLayoutData === "bellowSeparator" && (<div className={`flex justify-between items-center ${isGoogleActive === true || isFacebookActive === true || isTwitterActive === true ? 'mb-6' : ''}`}>
-                <div className="w-[42%] h-[1px] bg-[#9F9F9F]"></div>
-                <div className="w-[16%] text-center">
-                  <span className="text-[#646464] text-[18px] font-medium">
-                    OR
-                  </span>
+              {loginLayoutData === "bellow" && (
+                <div className={`${loginButtonStyleData === "icon" && 'flex justify-around'}`}>
+                  {isGoogleActive && <FormGoogleItem />}
+                  {isFacebookActive && <FormFacebookItem />}
+                  {isTwitterActive && <FormTwitterItem />}
                 </div>
-                <div className="w-[42%] h-[1px] bg-[#9F9F9F]"></div>
-              </div>)}
-              
-
-              {isGoogleActive && <FormGoogleItem />}
-              {isFacebookActive && <FormFacebookItem />}
-              {isTwitterActive && <FormTwitterItem />}
+              )}
+              {loginLayoutData === "bellowSeparator" && (
+                <>
+                  <div
+                    className={`flex justify-between items-center ${
+                      isGoogleActive === true ||
+                      isFacebookActive === true ||
+                      isTwitterActive === true
+                        ? "mb-6"
+                        : ""
+                    }`}
+                  >
+                    <div className="w-[42%] h-[1px] bg-[#9F9F9F]"></div>
+                    <div className="w-[16%] text-center">
+                      <span className="text-[#646464] text-[18px] font-medium">
+                        OR
+                      </span>
+                    </div>
+                    <div className="w-[42%] h-[1px] bg-[#9F9F9F]"></div>
+                  </div>
+                  <div className={`${loginButtonStyleData === "icon" && 'flex justify-around'}`}>
+                  {isGoogleActive && <FormGoogleItem />}
+                  {isFacebookActive && <FormFacebookItem />}
+                  {isTwitterActive && <FormTwitterItem />}
+                  </div>
+                </>
+              )}
             </div>
             {/* login box code end from here  */}
           </div>
