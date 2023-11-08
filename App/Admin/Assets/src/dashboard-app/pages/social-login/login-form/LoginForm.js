@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Google from "./components/Google";
 import Facebook from "./components/Facebook";
 import Twitter from "./components/Twitter";
@@ -6,6 +6,8 @@ import FormGoogleItem from "./components/FormGoogleItem";
 import FormFacebookItem from "./components/FormFacebookItem";
 import FormTwitterItem from "./components/FormTwitterItem";
 import { useSelector } from "react-redux";
+import LoginLayout from "./components/LoginLayout";
+import LoginBtnStyle from "./components/LoginBtnStyle";
 
 function LoginForm() {
   const isGoogleActive = useSelector((state) => state.lfEnableSignInGoogle);
@@ -25,119 +27,8 @@ function LoginForm() {
 
         {/* Login option appearance code end here */}
 
-        <div className="mt-12">
-          <p class="mt-0 text-[20px] text-[#000000] tablet:w-full font-medium mb-8">
-            Login layout
-          </p>
-          <div className="flex items-center mb-4">
-            <input
-              defaultChecked={true}
-              id="bellow"
-              type="radio"
-              value=""
-              name="options"
-              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
-            />
-            <label
-              for="bellow"
-              class="ml-2 text-[18px] text-[#424344] dark:text-[#424344]"
-            >
-              Bellow
-            </label>
-          </div>
-
-          <div className="flex items-center mb-4">
-            <input
-              defaultChecked={true}
-              id="bellow_with_separator"
-              type="radio"
-              value=""
-              name="options"
-              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
-            />
-            <label
-              for="bellow_with_separator"
-              class="ml-2 text-[18px] text-[#424344] dark:text-[#424344]"
-            >
-              Below with separator
-            </label>
-          </div>
-
-          <div className="flex items-center mb-4">
-            <input
-              defaultChecked={true}
-              id="above"
-              type="radio"
-              value=""
-              name="options"
-              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
-            />
-            <label
-              for="above"
-              class="ml-2 text-[18px] text-[#424344] dark:text-[#424344]"
-            >
-              Above
-            </label>
-          </div>
-          <div className="flex items-center mb-4">
-            <input
-              defaultChecked={true}
-              id="above_with_separator"
-              type="radio"
-              value=""
-              name="options"
-              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
-            />
-            <label
-              for="above_with_separator"
-              class="ml-2 text-[18px] text-[#424344] dark:text-[#424344]"
-            >
-              Above with separator
-            </label>
-          </div>
-        </div>
-
-        {/* Login layout code end here */}
-
-        <div className="mt-12">
-          <p class="mt-0 text-[20px] text-[#000000] tablet:w-full font-medium mb-8">
-          Login form button style
-          </p>
-          <div className="flex items-center mb-4">
-            <input
-              defaultChecked={true}
-              id="login_text"
-              type="radio"
-              value=""
-              name="options"
-              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
-            />
-            <label
-              for="login_text"
-              class="ml-2 text-[18px] text-[#424344] dark:text-[#424344]"
-            >
-              Text
-            </label>
-          </div>
-
-          <div className="flex items-center mb-4">
-            <input
-              defaultChecked={true}
-              id="login_icon"
-              type="radio"
-              value=""
-              name="options"
-              class="w-4 h-4 !text-transparent bg-gray-100 !border-[#878787] border-[1px] focus:ring-blue-600 !mt-[2px]"
-            />
-            <label
-              for="login_icon"
-              class="ml-2 text-[18px] text-[#424344] dark:text-[#424344]"
-            >
-              Icon
-            </label>
-          </div>
-        </div>
-        {/* Login form button style end from here */}
+        <LoginLayout />
+        <LoginBtnStyle />
 
         {/* login item components end from here  */}
       </div>
