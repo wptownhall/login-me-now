@@ -34,8 +34,8 @@ export default function FormGoogleItem() {
         </div>
       )}
       {loginButtonStyleData === "text" || loginButtonStyleData === undefined ? (
-        <div className="flex items-center border border-[#CCCCBE] rounded-[4px] p-2 mb-3">
-          <div className="w-[20%]">
+        <div className="flex items-center border border-[#CCCCBE] rounded-[8px] p-3 mb-3">
+          <div className="w-[20%] flex justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
