@@ -93,8 +93,7 @@ function DashboardModules() {
                           </defs>
                         </svg>
                         <h1 className="text-[#1BD8B9] text-[16px] font-medium text-center mb-5">
-                          congratulations you have unlocked the all pro
-                          features!
+                          All the pro features are unlocked!
                         </h1>
                       </div>
                     ) : (
