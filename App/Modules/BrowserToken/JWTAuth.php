@@ -124,7 +124,7 @@ class JWTAuth {
 
 		/** Store the token ref in user meta using the $issuedAt, so we can block the token if needed */
 		BrowserToken::init()->insert( $user->data->ID, $rand_number, $expire, 'active' );
-		Logs::add( $user->data->ID, "Generated an extension token" );
+		Logs::add( $user->data->ID, "Generated a token for browser extension" );
 
 		if ( ! $additional_data ) {
 			return $token;
