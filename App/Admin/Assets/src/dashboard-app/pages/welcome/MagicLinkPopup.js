@@ -47,8 +47,8 @@ export default function MagicLinkPopup() {
 						leaveFrom="opacity-100"
 						leaveTo="opacity-0"
 					>
-						<div className="w-full h-full z-1 before:absolute before:left-0 before:top-0 before:content-[''] before:w-full before:h-full">
-							<div className="p-4 max-w-sm w-full bg-white rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden z-[2] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] shadow-[0_0_100px_200px_rgba(0,0,0,0.20)]">
+						<div className="z-1 before:absolute before:left-0 before:top-0 before:content-[''] before:w-full before:h-full bg-[#00000050] top-[-15px] left-[-15px] right-0 bottom-0 absolute h-screen w-screen">
+							<div className="p-4 max-w-sm w-full bg-white rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden z-[2] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] ">
 								<div className="flex items-start">
 									<div className="flex-shrink-0">
 										<CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
