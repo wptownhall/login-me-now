@@ -51,6 +51,11 @@ const initialState = wp.hooks.applyFilters("login_me_now_dashboard/datastore", {
   dmActivityLog: false,
   dmConditionalLogin: false,
   activeSocialLoginNavigationTab: "",
+  lfEnableSignInGoogle: false,
+  lfEnableSignInFacebook: false,
+  lfEnableSignInTwitter: false,
+  loginLayout: "",
+  loginButtonStyle: ""
 });
 
 const globalDataStore = createStore(

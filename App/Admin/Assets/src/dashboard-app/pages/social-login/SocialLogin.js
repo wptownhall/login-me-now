@@ -32,6 +32,11 @@ const SocialLogin = () => {
       //   icon: SettingsIcons["global-settings"],
       // },
       {
+        name: __("Login form", "login-me-now"),
+        slug: "login-form",
+        icon: SettingsIcons["login-form"],
+      },
+      {
         name: __("Google", "login-me-now"),
         slug: "google",
         icon: SettingsIcons["google-login"],
@@ -129,7 +134,7 @@ const SocialLogin = () => {
                 </>
               ))}
               {/* custom social login item code start from here */}
-              <div className="flex pl-[18px] py-3 cursor-pointer border-l-4 border-l-transparent hover:border-l-[#E2E8F0]">
+              <div className="flex pl-[18px] py-3 cursor-pointer border-l-4 border-l-transparent hover:border-l-[#E2E8F0] opacity-60">
                 <Tooltip title="Upcoming" placement="right">
                   <span className="flex">
                     <svg
@@ -161,7 +166,7 @@ const SocialLogin = () => {
                   </span>
                 </Tooltip>
               </div>
-              <div className="flex pl-[18px] py-3 cursor-pointer border-l-4 border-l-transparent hover:border-l-[#E2E8F0]">
+              <div className="flex pl-[18px] py-3 cursor-pointer border-l-4 border-l-transparent hover:border-l-[#E2E8F0] opacity-60">
                 <Tooltip title="Upcoming" placement="right">
                   <span className="flex">
                     <svg
