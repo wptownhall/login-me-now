@@ -4,7 +4,7 @@
  * Description: 1 click passwordless login, social login & user switching
  * Author: WPtownhall
  * Author URI: https://wptownhall.com/login-me-now/
- * Version: 1.3.0
+ * Version: 1.3.1
  * Requires PHP: 7.4
  * License: GPL2
  * Text Domain: login-me-now
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * This class holds the entire LoginMeNow plugin
  */
 final class LoginMeNow {
-	public string $version  = '1.3.0';
+	public string $version  = '1.3.1';
 	private string $min_php = '7.4';
 	public object $app;
 	private static $instance;
