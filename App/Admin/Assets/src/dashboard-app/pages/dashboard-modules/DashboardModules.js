@@ -126,7 +126,7 @@ function DashboardModules() {
                           <div className="inline-box-flex inline-size-auto">
                             <TickIcon />
                             <span className="ml-3 mb-[12px] text-[#D9F5EC] text-[16px] noto-serif responsive-span">
-                              Express login - WC and EDD
+                              Express login - WC & EDD
                             </span>
                           </div>
                           <div className="inline-box-flex inline-size-auto">
