@@ -29,7 +29,7 @@ export default function MainNav() {
   const SocialLoginStatus = navStatus.dmSocialLogin;
   navMenus = [
     {
-      name: __("Modules", "login-me-now"),
+      name: __("Dashboard", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "",
     },

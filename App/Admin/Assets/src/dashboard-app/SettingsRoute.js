@@ -7,7 +7,6 @@ import BrowserExtensions from "./pages/browser-extensions/BrowserExtensions";
 import DashboardModules from "./pages/dashboard-modules/DashboardModules";
 import SocialLogin from './pages/social-login/SocialLogin';
 import { useSelector } from "react-redux";
-import License from "./pages/license/License";
 
 function SettingsRoute() {
   const query = new URLSearchParams(useLocation().search);
@@ -26,10 +25,6 @@ function SettingsRoute() {
       routePage = <Welcome />;
     } else {
       switch (path) {
-        case "license":
-            routePage = <License />;
-          break;
-
         case "browser-extensions":
           if(browserExtensionStatus){
             routePage = <BrowserExtensions />;
