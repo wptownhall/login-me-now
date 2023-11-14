@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 import TickIcon from "./TickIcon";
 import Module from "./Module";
 import TemporaryLogin from "./modules/TemporaryLogin";
@@ -20,17 +20,15 @@ function DashboardModules() {
   return (
     <main className="py-[2.43rem]">
       <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
-        
         <div className="gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm py-8 px-4">
           <div className="">
             <section aria-labelledby="section-1-title h-full">
+              <div className="pb-4 px-4 mt-5">
+                <h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
+                  {__("Modules", "login-me-now")}
+                </h3>
+              </div>
 
-            <div className='pb-4 px-4 mt-5'>
-              <h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
-                {__('Modules', 'login-me-now')}
-              </h3>
-            </div>
-            
               <div class="w-fullpx-4 grid sm:grid-cols-2 large-grid extralarge-grid md:grid-cols-3">
                 <div
                   class={`mx-4 bg-[#023A2E] rounded-[8px] flex ${
@@ -225,15 +223,14 @@ function DashboardModules() {
                   isAvailable={true}
                 />
               </div>
-
             </section>
           </div>
         </div>
-
-        <div className="gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm py-8 px-4 mt-5">
-          <License />
-        </div>
-
+        {isProAvailable && (
+          <div className="gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm py-8 px-4 mt-5">
+            <License />
+          </div>
+        )}
       </div>
     </main>
   );
