@@ -6,14 +6,18 @@ const License = () => {
 
   let lmnProLic = useSelector((state) => state.lmnProLic);
   const dispatch = useDispatch();
-  const updateLicense = (License) => {
-    dispatch({ type: 'UPDATE_LMN_PRO_LIC', payload: License.target.value });
+  console.log(lmnProLic)
+
+  const updateLicense = (e) => {
+    const license = e.target.value;
+    console.log(license)
+    dispatch({ type: 'UPDATE_LMN_PRO_LIC', payload: license });
     
     const formData = new window.FormData();
     formData.append('action', 'login_me_now_pro_activate_license');
     formData.append('security', lmn_admin.update_nonce);
     formData.append('key', 'lmn_pro_lic');
-    formData.append('value', License.target.value);
+    formData.append('value', license);
 
     apiFetch({
       url: lmn_admin.ajax_url,
