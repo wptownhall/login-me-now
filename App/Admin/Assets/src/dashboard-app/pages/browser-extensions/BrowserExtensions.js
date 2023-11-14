@@ -130,9 +130,8 @@ const BrowserExtensions = () => {
                 </div>
               </section>
             </div>
-            <div className="grid grid-cols-1 lg:col-span-5 gap-4 h-full justify-self-end">
-              {/* <img src={browserSsImg} alt="" /> */}
-            </div>
+            <div className="grid grid-cols-1 lg:col-span-5 gap-4 h-full">
+            <iframe width="100%" height="338" src="https://www.youtube.com/embed/2_GOOzZkeSM" frameborder="0" allowfullscreen></iframe>            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-[32px] items-start lg:grid-cols-3 lg:gap-[32px] xl:gap-[32px] mt-[32px]">
