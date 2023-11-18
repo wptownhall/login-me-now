@@ -13,7 +13,8 @@ import ActivityLog from "./modules/ActivityLog";
 import BrowserExtension from "./modules/BrowserExtension";
 import UserSwitching from "./modules/UserSwitching";
 import ConditionalLogin from "./modules/ConditionalLogin";
-import License from "../license/License";
+import License from "./modules/License";
+
 
 function DashboardModules() {
   const isProAvailable = lmn_admin.pro_available ? true : false;
@@ -226,11 +227,7 @@ function DashboardModules() {
             </section>
           </div>
         </div>
-        {isProAvailable && (
-          <div className="gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm py-8 px-4 mt-5">
-            <License />
-          </div>
-        )}
+        <License />
       </div>
     </main>
   );

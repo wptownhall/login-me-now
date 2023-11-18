@@ -7,7 +7,13 @@ const License = () => {
   const [license, setLicense] = useState("")
   let lmnProLic = useSelector((state) => state.lmnProLic);
   const dispatch = useDispatch();
-  const updateLicense = () => {
+
+  console.log(lmnProLic)
+
+  const updateLicense = (e) => {
+    const license = e.target.value;
+    console.log(license)
+    
     dispatch({ type: 'UPDATE_LMN_PRO_LIC', payload: license });
     
     const formData = new window.FormData();

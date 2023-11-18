@@ -7,14 +7,9 @@ import GoogleInNativeLogin from "./google/GoogleInNativeLogin";
 import GoogleInUpdateExistingUserData from "./google/GoogleInUpdateExistingUserData";
 import GoogleCancelOnTapOutside from "./google/GoogleCancelOnTapOutside";
 import GoogleProDefaultUserRole from "./google/GoogleProDefaultUserRole";
-import GoogleProDefaultUserRoleCopy from "./google/GoogleProDefaultUserRoleCopy";
-import GoogleProSelectedPages from "./google/GoogleProSelectedPages";
 import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
-
-
 import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
 import OneTapToLogin from "./google/OneTapToLogin";
-import UserSwitching from "../settings/general/UserSwitching";
 import LoginForm from "./login-form/LoginForm";
 // import PasscodeInput from "./PasscodeInput";
 
@@ -23,11 +18,6 @@ function SettingsWrapper({ state }) {
   const wrappers = wp.hooks.applyFilters(
     "login_me_now_dashboard.settings_tab_wrappers",
     {
-      // "global-settings": (
-      //   <>
-      //     <UserSwitching />
-      //   </>
-      // ),
       "login-form": (
         <LoginForm />
       ),
