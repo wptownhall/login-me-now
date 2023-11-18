@@ -19,7 +19,7 @@ function GetExtenstions() {
             {__("Install extension", "login-me-now")}
           </h3>
           <SubTitle
-            size="!text-[14px]"
+            size="!text-[15px]"
             text="Easily access the dashboard panel with just one click"
           />
 

@@ -60,16 +60,15 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
   return (
     <div className={`mb-16 mx-4 flex`}>
       <div
-        class={`relative rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group flex flex-col justify-between ${
+        class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
           hover === true ? "bg-[#073A2E]" : "bg-[#F8FAFC]"
         }`}
         onMouseEnter={!isProAvailable === true ? handleMouseEnter : null}
         onMouseLeave={!isProAvailable === true ? handleMouseLeave : null}
       >
-        <div className={`px-8 pt-16 pb-10 text-center ${hover && "invisible"}`}>
+        <div className={`px-8 pt-16 pb-10 text-center responsive-box ${hover && "invisible"}`}>
           <div
             className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-            title="Pro"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,15 +85,15 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
               />
             </svg>
           </div>
-          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5 flex justify-center items-center">
+          <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5 flex justify-center items-center">
             Express login- WC
             {!isProAvailable && (
-              <span className="bg-[#0DA071] text-[#ffffff] px-2 py-1 text-[8px] rounded-[4px] ml-1.5">
-                Pro
+              <span className="bg-[#0DA071] text-[#ffffff] px-2.5 py-1 text-[10px] rounded-[3px] ml-1.5">
+                PRO
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Customers can log in to their accounts using the secret link
             associated with their username, no need to remember the username &
             password.
@@ -103,7 +102,7 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
         <div
           className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex ${
             isAvailable === true ? "justify-between" : "justify-center"
-          } items-center px-4 border-t-[1px] border-t-[#cacaca] group-hover:border-t-[#0DA071] border-b-[#cacaca] ${
+          } items-center px-4 border-t-[1px] border-t-[#cacaca] border-b-[#cacaca] ${
             hover && "invisible"
           }`}
         >
@@ -176,7 +175,7 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
               <button
                 className={`bg-white px-3 py-2 text-[16px] font-semibold text-[#073A2E] rounded-[8px]`}
               >
-                Upgrade to pro
+                Upgrade to PRO
               </button>
             </a>
             <p className="text-white mt-3">

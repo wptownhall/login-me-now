@@ -61,16 +61,15 @@ function ConditionalLogin({ colorChange, proItem, isAvailable }) {
   return (
     <div className="mb-16 mx-4 flex">
       <div
-        class={`relative rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group flex flex-col justify-between ${
+        class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
         }`}
         onMouseEnter={proItem === true ? handleMouseEnter : null}
         onMouseLeave={proItem === true ? handleMouseLeave : null}
       >
-        <div className={`px-8 pt-16 pb-10 text-center ${hover && "invisible"}`}>
+        <div className={`px-8 pt-16 pb-10 text-center responsive-box ${hover && "invisible"}`}>
           <div
             className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-            title="Pro"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +108,7 @@ function ConditionalLogin({ colorChange, proItem, isAvailable }) {
               </defs>
             </svg>
           </div>
-          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
+          <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5">
             Conditional login
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
@@ -117,13 +116,13 @@ function ConditionalLogin({ colorChange, proItem, isAvailable }) {
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Provide limited access to the dashboard and admin bar options to
             specific role based users such as shop manager, editor, etc.
           </p>
         </div>
         <div
-          className={`bg-[#F0F2F4] py-3 group-hover:border-t-[#0DA071] rounded-b-[8px] flex ${
+          className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex ${
             isAvailable === true ? "justify-between" : "justify-center"
           } items-center px-4 border-t-[1px] border-t-[#cacaca] border-b-[#cacaca] ${
             hover && "invisible"

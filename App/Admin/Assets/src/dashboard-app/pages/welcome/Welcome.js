@@ -7,7 +7,8 @@ import NeedSupport from "../components/NeedSupport";
 import Title from "../components/Title";
 import SubTitle from "../components/SubTitle";
 import { useState } from "react";
-import tempSsImg from "../../../../images/temporary-login-ss.png"
+import tempSsImg from "../../../../images/temporary-login-ss.png";
+import { Tooltip } from "antd";
 
 const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -65,7 +66,7 @@ const Welcome = () => {
       <main className="py-[2.43rem]">
         <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
           <h1 className="sr-only"> Login Me Now </h1>
-          <div className="grid grid-cols-2 gap-4 items-start lg:grid-cols-12 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm p-12 border-[1px] border-[#9F9F9F]">
+          <div className="grid grid-cols-2 gap-4 items-start lg:grid-cols-12 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm p-12">
             <div className="grid grid-cols-1 lg:col-span-7 gap-4 h-full">
               <section aria-labelledby="section-1-title h-full">
                 <h2 className="sr-only" id="section-1-title">
@@ -83,21 +84,23 @@ const Welcome = () => {
                         <div>
                           <label
                             htmlFor="expiration"
-                            className="text-[14px] text-[#1E293B] font-bold"
+                            className="text-[16px] text-[#1E293B] font-bold"
                           >
                             Set expiration time{" "}
-                            <span title="When will this link expire & no loner be accessible">
-                              <svg
-                                className="inline-block"
-                                fill="#9A9A9A"
-                                width="14px"
-                                height="14px"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M12,1A11,11,0,1,0,23,12,11.013,11.013,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9.011,9.011,0,0,1,12,21ZM13,8H11V6h2Zm0,10H11V10h2Z" />
-                              </svg>
-                            </span>
+                            <Tooltip title="When will this link expire & no loner be accessible">
+                              <span>
+                                <svg
+                                  className="inline-block"
+                                  fill="#9A9A9A"
+                                  width="14px"
+                                  height="14px"
+                                  viewBox="0 0 24 24"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path d="M12,1A11,11,0,1,0,23,12,11.013,11.013,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9.011,9.011,0,0,1,12,21ZM13,8H11V6h2Zm0,10H11V10h2Z" />
+                                </svg>
+                              </span>
+                            </Tooltip>
                           </label>
                           <input
                             className="mt-2 input-padding w-full"
@@ -127,7 +130,7 @@ const Welcome = () => {
             </div>
             <div className="grid grid-cols-1 lg:col-span-5 gap-4 h-full justify-self-end">
               {/* <img src={tempSsImg} alt="" /> */}
-              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-[32px] items-start lg:grid-cols-3 lg:gap-[32px] xl:gap-[32px] mt-[32px]">

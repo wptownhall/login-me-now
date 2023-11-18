@@ -129,7 +129,16 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 
 == Changelog ==
 
-= 1.1.0 – Oct 07, 2023 =
+= 1.3.0 – Nov 08, 2023 =
+* Add: Simple History Integration
+
+= 1.2.0 – Nov 01, 2023 =
+* Add: Module On-Off Facility 
+
+= 1.1.1 – Oct 15, 2023 =
+* Fix: Error
+
+= 1.1.0 – Oct 15, 2023 =
 * New: Google Login - OneTap Display Location
 * Drop: Google Login - Exclude Pages 
 * Fix: Google Login - Empty Button

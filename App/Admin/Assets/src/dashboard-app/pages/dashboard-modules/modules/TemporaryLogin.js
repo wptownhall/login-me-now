@@ -60,7 +60,7 @@ function TemporaryLogin({ colorChange, proItem }) {
 
   return (
     <div
-      className={`mb-16 mx-4 flex flex-col justify-between rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group ${
+      className={`mb-16 mx-4 flex flex-col justify-between rounded-[8px] border border-[#cacaca] ${
         hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
       }`}
     >
@@ -69,10 +69,9 @@ function TemporaryLogin({ colorChange, proItem }) {
         onMouseEnter={proItem === true ? handleMouseEnter : null}
         onMouseLeave={proItem === true ? handleMouseLeave : null}
       >
-        <div className={`px-8 pt-16 pb-10 text-center ${hover && "invisible"}`}>
+        <div className={`px-8 pt-16 pb-10 text-center responsive-box ${hover && "invisible"}`}>
           <div
             className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-            title="Pro"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +93,7 @@ function TemporaryLogin({ colorChange, proItem }) {
               </defs>
             </svg>
           </div>
-          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
+          <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5">
             Temporary login
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
@@ -102,14 +101,14 @@ function TemporaryLogin({ colorChange, proItem }) {
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Generate a tokenized link to create a temporary login. By opening
             the link, anyone can log in without requiring a password.
           </p>
         </div>
       </div>
       <div
-        className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[1px] border-t-[#cacaca] group-hover:border-t-[#0DA071] border-b-[#cacaca] ${
+        className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[1px] border-t-[#cacaca] border-b-[#cacaca] ${
           hover && "invisible"
         }`}
       >

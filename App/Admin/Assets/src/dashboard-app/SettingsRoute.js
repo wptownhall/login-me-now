@@ -7,7 +7,6 @@ import BrowserExtensions from "./pages/browser-extensions/BrowserExtensions";
 import DashboardModules from "./pages/dashboard-modules/DashboardModules";
 import SocialLogin from './pages/social-login/SocialLogin';
 import { useSelector } from "react-redux";
-import License from "./pages/license/License";
 
 function SettingsRoute() {
   const query = new URLSearchParams(useLocation().search);
@@ -19,17 +18,13 @@ function SettingsRoute() {
   const browserExtensionStatus = navStatus.dmBrowserExtension;
   const SocialLoginStatus = navStatus.dmSocialLogin;
 
-  let routePage = <p> Fallback Route Page </p>;
+  let routePage = <p> Login Me Now Dashboard Is Loading... </p>;
 
   if (lmn_admin.home_slug === page) {
     if ("getting-started" === currentEvent) {
       routePage = <Welcome />;
     } else {
       switch (path) {
-        case "license":
-            routePage = <License />;
-          break;
-
         case "browser-extensions":
           if(browserExtensionStatus){
             routePage = <BrowserExtensions />;

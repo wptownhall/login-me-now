@@ -3,6 +3,8 @@ import { Switch } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import {Tooltip} from "antd";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -24,7 +26,7 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
     let assetStatus;
     if (enableDmActivityLog === false || enableDmActivityLog === undefined) {
       assetStatus = true;
-    } else {
+    } else{
       assetStatus = false;
     }
 
@@ -55,16 +57,15 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
   return (
     <div className="mb-16 mx-4 flex">
       <div
-        class={`relative rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group flex flex-col justify-between ${
+        class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
         }`}
         onMouseEnter={proItem === true ? handleMouseEnter : null}
         onMouseLeave={proItem === true ? handleMouseLeave : null}
       >
-        <div className={`px-8 pt-16 pb-10 text-center ${hover && "invisible"}`}>
+        <div className={`px-8 pt-16 pb-10 text-center responsive-box ${hover && "invisible"}`}>
           <div
             className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-            title="Simple History Integration"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -82,20 +83,20 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
             </svg>
           </div>
           <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
-            Simple History Integration
+            <a className="border-b-[#2271b1] pb-1 border-b-[2px] border-dashed" href="https://wordpress.org/plugins/simple-history/" target="_blank">Simple History</a> Integration
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
                 Pro
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Keep an activity log of everything that occurs when a user logs in
             to the dashboard using the tokenized login link.
           </p>
         </div>
         <div
-          className={`bg-[#F0F2F4] py-3 group-hover:border-t-[#0DA071] border-t-[#cacaca] rounded-b-[8px] flex ${
+          className={`bg-[#F0F2F4] py-3 border-t-[#cacaca] rounded-b-[8px] flex ${
             isAvailable === true ? "justify-between" : "justify-center"
           } items-center px-4 border-t-[1px] border-b-[#cacaca] ${
             hover && "invisible"
@@ -105,15 +106,16 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
             <>
               <button
                 type="button"
-                className={`bg-[#F8FAFC] border border-[#cacaca]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071]`}
+                className={`bg-[#F8FAFC] border border-[#cacaca] invisible  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071]`}
               >
                 Settings
               </button>
+              <Tooltip placement="left" title={`${lmn_admin.simple_history_status === '1' ? '' : 'Please activate Simple History plugin to use this module'}`}>
               <Switch
-                onChange={handleDmActivityLog}
+                onChange={lmn_admin.simple_history_status === '1' ? handleDmActivityLog : null}
                 className={classNames(
-                  enableDmActivityLog ? "bg-lmn" : "bg-slate-200",
-                  "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
+                  (lmn_admin.simple_history_status === '1' ? enableDmActivityLog : false) ? "bg-lmn" : "bg-slate-200",
+                  `group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2`
                 )}
               >
                 <span
@@ -123,18 +125,19 @@ function ActivityLog({ colorChange, proItem, isAvailable }) {
                 <span
                   aria-hidden="true"
                   className={classNames(
-                    enableDmActivityLog ? "bg-lmn" : "bg-gray-200",
+                    (lmn_admin.simple_history_status === '1' ? enableDmActivityLog : false) ? "bg-lmn" : "bg-gray-200",
                     "pointer-events-none absolute mx-auto h-[16px] w-[32px] rounded-full transition-colors duration-200 ease-in-out"
                   )}
                 />
                 <span
                   aria-hidden="true"
                   className={classNames(
-                    enableDmActivityLog ? "translate-x-5" : "translate-x-0",
+                    (lmn_admin.simple_history_status === '1' ? enableDmActivityLog : false) ? "translate-x-5" : "translate-x-0",
                     "toggle-bubble pointer-events-none absolute left-0 inline-block h-[16px] w-[16px] transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
                   )}
                 />
               </Switch>
+              </Tooltip>
             </>
           ) : (
             <button

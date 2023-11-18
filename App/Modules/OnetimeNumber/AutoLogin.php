@@ -53,7 +53,7 @@ class AutoLogin {
 
 		delete_transient( $number );
 
-		$message = __( "Logged in using Browser Extension (token ID : {$number})", 'login-me-now' );
+		$message = __( "Logged in using browser extension", 'login-me-now' );
 
 		Logs::add( $user_id, $message );
 

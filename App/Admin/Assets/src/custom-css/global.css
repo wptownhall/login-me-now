@@ -183,8 +183,24 @@ body.active-modal {
   .large-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
   
+}
+
+@media (min-width: 1026px) and (max-width: 1460px) {
+  
+  .responsive-box{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .responsive-box h1{
+    font-size: 15px
+  }
+  .responsive-span{
+    font-size: 14px
+  }
+}
 /* ant design custom css */
 .ant-select-multiple .ant-select-selection-item {
   background: #2271b1 !important;
@@ -227,7 +243,13 @@ input[type="radio"]:checked::before {
 }
 input#site_wide,
 input#login_screen,
-input#selected_pages {
+input#selected_pages,
+input#bellow,
+input#bellow_with_separator,
+input#above,
+input#above_with_separator,
+input#login_text,
+input#login_icon{
   height: 20px !important;
   width: 20px !important;
   display: flex !important;
@@ -305,4 +327,19 @@ input#selected_pages {
 }
 .inline-size-auto{
   inline-size: auto;
+}
+a.mb-4.sm\:mb-0.border-lmn.text-lmn.active\:text-lmn.focus\:text-lmn.focus-visible\:text-lmn-hover.hover\:text-lmn-hover.inline-flex.items-center.px-1.border-b-2.text-\[16px\].leading-\[0\.875rem\].font-medium.active\:text-lmn:nth-child(1) {
+  border-bottom: none!important;
+  padding-right: 20px;
+  border-right: 1px solid #cacaca;
+}
+a.mb-4.sm\:mb-0.border-transparent.text-slate-600.active\:text-lmn.focus-visible\:border-slate-300.focus-visible\:text-slate-800.hover\:border-slate-300.hover\:text-slate-800.inline-flex.items-center.px-1.border-b-2.text-\[16px\].leading-\[0\.875rem\].font-medium:nth-child(1) {
+  padding-right: 20px;
+  border-right: 1px solid #cacaca;
+}
+a.mb-4.sm\:mb-0.border-transparent.text-slate-600.active\:text-lmn.focus-visible\:border-slate-300.focus-visible\:text-slate-800.hover\:border-slate-300.hover\:text-slate-800.inline-flex.items-center.px-1.border-b-2.text-\[16px\].leading-\[0\.875rem\].font-medium:nth-child(1):hover {
+  border-bottom-color: transparent;
+}
+a.border-lmn.text-lmn.focus\:text-lmn-hover.active\:text-lmn.hover\:text-lmn-hover.stroke-lmn.fill-lmn.focus\:stroke-lmn.focus\:fill-lmn.hover\:stroke-lmn.hover\:fill-lmn.border-l-4.group.cursor-pointer.py-3.pl-5.flex.items-center.text-base.font-medium .truncate {
+  font-size: 1.2rem;
 }

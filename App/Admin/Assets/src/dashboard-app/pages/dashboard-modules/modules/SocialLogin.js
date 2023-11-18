@@ -58,16 +58,15 @@ function SocialLogin({ colorChange, proItem }) {
   return (
     <div className="mb-16 mx-4 flex">
       <div
-        class={`relative rounded-[8px] border border-[#cacaca] hover:border-[#0DA071] group flex flex-col justify-between ${
+        class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
         }`}
         onMouseEnter={proItem === true ? handleMouseEnter : null}
         onMouseLeave={proItem === true ? handleMouseLeave : null}
       >
-        <div className={`px-8 pt-16 pb-10 text-center ${hover && "invisible"}`}>
+        <div className={`px-8 pt-16 pb-10 text-center responsive-box ${hover && "invisible"}`}>
           <div
             className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4"
-            title="Pro"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +84,7 @@ function SocialLogin({ colorChange, proItem }) {
               />
             </svg>
           </div>
-          <h1 className="text-[#000000] text-[16px] font-medium text-center mb-5">
+          <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5">
             Social login
             {proItem && (
               <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
@@ -93,13 +92,13 @@ function SocialLogin({ colorChange, proItem }) {
               </span>
             )}
           </h1>
-          <p className="text-[#6B6D71] text-[14px] text-center">
+          <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Simplify the login process and make it more convenient for users to
             login / register with social login options.
           </p>
         </div>
         <div
-          className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[1px] border-t-[#cacaca] group-hover:border-t-[#0DA071] border-b-[#cacaca] ${
+          className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex justify-between items-center px-4 border-t-[1px] border-t-[#cacaca] border-b-[#cacaca] ${
             hover && "invisible"
           }`}
         >
