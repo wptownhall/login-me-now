@@ -16,7 +16,6 @@ export default function License() {
   const updateLicense = () => {
     console.log(license);
     dispatch({ type: "UPDATE_LMN_PRO_LIC", payload: license });
-
     const formData = new window.FormData();
 
     formData.append("action", "login_me_now_pro_activate_license");
