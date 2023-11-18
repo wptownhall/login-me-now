@@ -14,7 +14,6 @@ export default function License() {
   }, [lmnProLic]);
 
   const updateLicense = () => {
-    console.log(license);
     dispatch({ type: "UPDATE_LMN_PRO_LIC", payload: license });
     const formData = new window.FormData();
 
@@ -22,8 +21,6 @@ export default function License() {
     formData.append("security", lmn_admin.update_nonce);
     formData.append("key", "lmn_pro_lic");
     formData.append("value", license);
-
-    console.log(license);
 
     apiFetch({
       url: lmn_admin.ajax_url,
@@ -35,13 +32,16 @@ export default function License() {
       } else {
         dispatch({ type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __('Successfully saved!', 'login-me-now') });
       }
+
+      console.log(license);
+      console.log(data);
     });
   };
 
   return (
     <div className="gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm p-8 mt-8">
       <h1 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800 mb-4">
-        Licence
+        License
       </h1>
       <div className="flex">
         <input
