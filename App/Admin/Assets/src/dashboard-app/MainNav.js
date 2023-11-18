@@ -29,7 +29,7 @@ export default function MainNav() {
   const SocialLoginStatus = navStatus.dmSocialLogin;
   navMenus = [
     {
-      name: __("Modules", "login-me-now"),
+      name: __("Dashboard", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "",
     },
@@ -129,10 +129,10 @@ export default function MainNav() {
                 ) : (
                   <button
                     type="button"
-                    className="sm:inline-flex items-center px-4 py-2 border border-lmn-hover text-[16px] font-medium rounded-md shadow-sm text-white hover:text-white focus-visible:bg-lmn-hover hover:bg-[#FF7C6E] focus:outline-none mr-4 mb-2 sm:mb-0 bg-[#F6756B]"
+                    className="sm:inline-flex items-center px-4 py-2 border border-[#1755aa] text-[16px] font-medium rounded-md shadow-sm text-white hover:text-white focus-visible:bg-[#1754aae3] hover:bg-[#1754aae3] focus:outline-none mr-4 mb-2 sm:mb-0 bg-[#1755aa]"
                     onClick={onUpgradeToPro}
                   >
-                    {__("UPGRADE TO PRO", "login-me-now")}
+                    {__("Upgrade to PRO", "login-me-now")}
                   </button>
                 )}
                 {wp.hooks.applyFilters(

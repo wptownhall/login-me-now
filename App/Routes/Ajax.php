@@ -66,7 +66,6 @@ class Ajax {
 				'enable_sign_in_twitter'           => 'bool',
 				'login_layout'                     => 'string',
 				'login_button_style'               => 'string',
-
 			]
 		);
 	}
