@@ -67,6 +67,7 @@ export default function License() {
           }`}
           type="password"
           name="lmn_pro_lic"
+          disabled={isLicenseActive}
           placeholder={
             isLicenseActive === true
               ? "License saved successfully!"
