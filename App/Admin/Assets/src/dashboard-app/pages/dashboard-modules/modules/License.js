@@ -11,8 +11,8 @@ export default function License() {
 
   useEffect(() => {
     setLicense(lmnProLic);
-
     lmnProLic !== "" && setIsLicenseActive(true);
+    console.log("clicked");
   }, [lmnProLic]);
   console.log(useSelector((state) => state));
 
