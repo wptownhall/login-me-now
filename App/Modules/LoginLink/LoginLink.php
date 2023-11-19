@@ -97,7 +97,7 @@ class LoginLink {
 
 		$token = Translator::encode( $user_id, $number, $expire );
 
-		Logs::add( $user_id, "Generated a login link" );
+		Logs::add( $user_id, "generated a temporary login link" );
 
 		return sprintf( '%s%s', admin_url( '/?lmn-token=' ), $token );
 	}

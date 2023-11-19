@@ -9,7 +9,6 @@ import trash from "../../../../images/trash.png";
 import { Tooltip } from "antd";
 
 function Table() {
-  const [extendTime, setExtendTime] = useState("");
   const [status, setStatus] = useState(false);
   const [tokensData, setTokensData] = useState([]);
   const [offset, setOffset] = useState(0);

@@ -6,8 +6,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { __ } from '@wordpress/i18n';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
-
-
 export default function MagicLinkPopup() {
 
 	const dispatch = useDispatch();

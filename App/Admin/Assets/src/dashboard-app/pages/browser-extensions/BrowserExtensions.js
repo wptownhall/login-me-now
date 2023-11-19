@@ -198,6 +198,7 @@ const BrowserExtensions = () => {
             </p>
           </div>
         </div>
+        </div>
       </main>
     </>
   );

@@ -44,7 +44,7 @@ class Authenticate {
 			exit();
 		}
 
-		$message = __( "Logged in using login link", 'login-me-now' );
+		$message = __( "logged in using temporary login link", 'login-me-now' );
 		Logs::add( $user_id, $message );
 		Auth::login( $user_id );
 	}
