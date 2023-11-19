@@ -35,7 +35,7 @@ const License = () => {
     });
   };
 
-  console.log(lmnProLic)
+  // console.log(lmnProLic)
 
   return (
     <section className={`text-[16px] block px-8 py-8 justify-between`}>

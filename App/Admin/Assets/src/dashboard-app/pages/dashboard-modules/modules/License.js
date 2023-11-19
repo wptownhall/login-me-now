@@ -4,15 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import apiFetch from "@wordpress/api-fetch";
 
 export default function License() {
-  const [license, setLicense] = useState(""); // Initialize with an empty string
+  const [license, setLicense] = useState(""); 
+  const [licenseSuccessfull , setLicenseSuccessfull] = useState("")
   const dispatch = useDispatch();
-  const lmnProLic = useSelector((state) => state.lmnProLic);
+  const lmnProLic = useSelector((state) => state);
 
   // Set the initial value of 'license' to 'lmnProLic' when the component mounts
   useEffect(() => {
     setLicense(lmnProLic);
   }, [lmnProLic]);
 
+  console.log(license)
   const updateLicense = () => {
     dispatch({ type: "UPDATE_LMN_PRO_LIC", payload: license });
     const formData = new window.FormData();
@@ -33,10 +35,12 @@ export default function License() {
         dispatch({ type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __('Successfully saved!', 'login-me-now') });
       }
 
-      console.log(license);
-      console.log(data);
+      console.log(licenseSuccessfull === "Successfully updated license!" ? true : false);
+      setLicenseSuccessfull(data.data.message);
+      console.log(lmn_admin.lmnProLic)
     });
   };
+  // console.log(lmnProLic)
 
   return (
     <div className="gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm p-8 mt-8">
@@ -49,14 +53,14 @@ export default function License() {
           className="block w-full h-[50px] !p-3 !border-slate-200"
           type="password"
           name="lmn_pro_lic"
-          value={license} 
+          value={license}
           placeholder="Enter your license here..."
         />
         <button
-          className="h-[50px] !p-3 !border-slate-200 border ml-3 rounded-[4px]"
+          className={`h-[50px] !p-3 !border-slate-200 border ml-3 rounded-[4px] ${licenseSuccessfull === "Successfully updated license!" ? 'bg-[#ff0e0e] text-white' : 'text-[#2271B1] bg-white'}`}
           onClick={updateLicense}
         >
-          Active
+          {licenseSuccessfull === "Successfully updated license!" ? 'Deactive' : 'Active'}
         </button>
       </div>
     </div>
