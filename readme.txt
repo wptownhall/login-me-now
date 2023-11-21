@@ -2,9 +2,9 @@
 Contributors: WPtownhall, HeyMehedi
 Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
-Tested up to: 6.3.1
+Tested up to: 6.4.1
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.3.1
 License: GPLv3 or Any Later Version
 Tags: login, password, secure-login, wp-login, social-login
 
@@ -128,6 +128,10 @@ No. That would be horrible not only for you but even more so for us (huge liabil
 Yes, you will know the activities in the dashboard of the recipient by checking the activity log option of this plugin. This means you can keep track of what the recipient is doing while they have temporary access to your website. 
 
 == Changelog ==
+
+= 1.3.1 – Nov 21, 2023 =
+* Fix: Simple History Message
+* Add: Browser Extension Explainer Video
 
 = 1.3.0 – Nov 08, 2023 =
 * Add: Simple History Integration
