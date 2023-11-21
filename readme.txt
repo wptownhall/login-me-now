@@ -1,4 +1,4 @@
-=== 1 click passwordless login, temporary login, social login & user switching by Login Me Now ===
+=== 1 click passwordless login, temporary login, social login & user switching - Login Me Now ===
 Contributors: WPtownhall, HeyMehedi
 Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
@@ -8,7 +8,7 @@ Stable tag: 1.3.1
 License: GPLv3 or Any Later Version
 Tags: login, password, secure-login, wp-login, social-login
 
-Login Me Now – 1 click passwordless login, social login & user switching
+1 click passwordless login, temporary login, social login & user switching - Login Me Now
 
 == Description ==
 [TRY LIVE DEMO](https://try.loginmenow.com/) | [ROADMAP](https://wptownhall.com/login-me-now/roadmap/) | [PRO](https://wptownhall.com/login-me-now/pricing/)  ( LIMITED LIFETIME DEAL🎁 ) 
@@ -44,6 +44,7 @@ That was pretty easy, right?
 <strong>PACKED WITH FEATURES</strong>
 
 <strong>EXPRESS LOGIN 🔐</strong>
+
 Generate login URL: Create a unique & conditional access link.
 
 <strong>Passwordless login:</strong> No need for a username/ email and password – simply use the link to log in.
@@ -51,12 +52,14 @@ Time expiration option: Set an expiration time with option ranging from a few ho
 
 
 <strong>SOCIAL LOGIN 💻</strong>
-<strong>GOOGLE :</strong>
+
+<strong>GOOGLE:</strong>
 
 <strong>User role selection:</strong> Set default role for users.
-Update existing user name: Automatically retrieve the existing user first, last, nick & display name from google account upon login using gmail. <strong>[PRO]</strong>
 
-<strong>Add user profile picture: </strong>Automatically retrieve the profile picture as avatar from users’ google account upon login or register using gmail. <strong>[PRO]</strong>
+<strong>Update existing user name:</strong> retrieve the existing user first, last, nick & display name from google account upon login using gmail. <strong>[PRO]</strong>
+
+<strong>Add user profile picture: </strong> retrieve the profile picture as avatar from users’ google account upon login or register using gmail. <strong>[PRO]</strong>
 
 <strong>One Tap prompt behavior:</strong> Enable/disable the option to close the prompt ( Google login box ) on outside click.
 
@@ -80,13 +83,14 @@ Use this shortcode to put Google login button on any page/ post/ block.
 == BROWSER EXTENSION AVAILABLE ==
 Experience instant dashboard access with just 1 click from browser extension.
 
-[youtube https://www.youtube.com/watch?v=2_GOOzZkeSM]
-
-[Install Chrome extension](https://chrome.google.com/webstore/detail/login-me-now-wordpress-lo/kkkofomlfhbepmpiplggmfpomdnkljoh?hl=en&authuser=0)
-[Install Mozilla addon](https://addons.mozilla.org/en-US/firefox/addon/login-me-now/)
+👉 [Install Chrome extension](https://chrome.google.com/webstore/detail/login-me-now-wordpress-lo/kkkofomlfhbepmpiplggmfpomdnkljoh?hl=en&authuser=0)
+👉 [Install Mozilla addon](https://addons.mozilla.org/en-US/firefox/addon/login-me-now/)
 
 == WHY TO USE BROWSER EXTENSION? ==
 This saves you time, especially if you frequently log in to multiple website dashboards throughout the day. With the browser extension, a secure dashboard login is just one click away. Say goodbye to the hassle of navigating to the login panel and entering your username/email and password. The login process is secure, fast, and smooth!
+
+[youtube https://www.youtube.com/watch?v=2_GOOzZkeSM]
+
 <strong>PS:</strong> The browser extension never tracks or saves any of your website data or login credentials. When it comes to dashboard login access, it is securely stored in an encrypted format within the browser extension using an industry-standard JWT token. The generated token cannot be compressed to encrypt login credentials.
 
 == WHO IS THIS PLUGIN FOR? ==
@@ -113,7 +117,7 @@ We prioritize providing excellent customer assistance, ensuring any issues or qu
 [All-in-One WordPress Content Restriction](https://wordpress.org/plugins/all-in-one-content-restriction/)
 
 == FIND AN ISSUE? ==
-We are right here to help you in [support forum](https://wordpress.org/support/plugin/login-me-now/). You ca post a topic. Please search existing topics before starting a new one.
+We are right here to help you in [support forum](https://wordpress.org/support/plugin/login-me-now/). You can post a topic. Please search existing topics before starting a new one.
 
 == Installation ==
 Install Login Me Now either via the WordPress.org plugin repository or by uploading the files to your server.
