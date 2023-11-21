@@ -92,6 +92,7 @@ export default function License() {
             isLicenseActivate === true ? "placeholder-[#9be99b]" : ""
           }`}
           type="text"
+          required
           name="lmn_pro_lic"
           placeholder={`${
             isLicenseActivate === true ? "*******" : "Enter your license"

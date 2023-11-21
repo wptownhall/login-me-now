@@ -60,7 +60,7 @@ function TemporaryLogin({ colorChange, proItem }) {
 
   return (
     <div
-      className={`mb-16 mx-4 flex flex-col justify-between rounded-[8px] border border-[#cacaca] ${
+      className={`mb-8 mx-4 flex flex-col justify-between rounded-[8px] border border-[#cacaca] ${
         hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"
       }`}
     >
