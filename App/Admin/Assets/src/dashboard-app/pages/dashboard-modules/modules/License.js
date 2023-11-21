@@ -4,38 +4,80 @@ import { useSelector, useDispatch } from "react-redux";
 import apiFetch from "@wordpress/api-fetch";
 
 export default function License() {
-  const [license, setLicense] = useState(""); // Initialize with an empty string
+  const [license, setLicense] = useState("");
+  const [isLicenseActivate, setIsLicenseActivate] = useState(false);
+  const [renderDeactivation, setRenderDeactivation] = useState(false);
   const dispatch = useDispatch();
   const lmnProLic = useSelector((state) => state.lmnProLic);
 
-  // Set the initial value of 'license' to 'lmnProLic' when the component mounts
   useEffect(() => {
     setLicense(lmnProLic);
+    lmnProLic !== "" && setIsLicenseActivate(true);
   }, [lmnProLic]);
 
+  useEffect(() => {
+    if (renderDeactivation) {
+      const timeoutId = setTimeout(() => {
+        setIsLicenseActivate(false);
+        setRenderDeactivation(false);
+      }, 2000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [renderDeactivation]);
+
   const updateLicense = () => {
-    dispatch({ type: "UPDATE_LMN_PRO_LIC", payload: license });
     const formData = new window.FormData();
 
     formData.append("action", "login_me_now_pro_activate_license");
     formData.append("security", lmn_admin.update_nonce);
     formData.append("key", "lmn_pro_lic");
-    formData.append("value", license);
+    formData.append("value", isLicenseActivate === true ? "" : license);
 
     apiFetch({
       url: lmn_admin.ajax_url,
       method: "POST",
       body: formData,
-    }).then((data) => {
-      if( false === data.success ) {
-        dispatch({ type: 'UPDATE_SETTINGS_NOT_SAVED_NOTIFICATION', payload: data.data});
-      } else {
-        dispatch({ type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __('Successfully saved!', 'login-me-now') });
-      }
+    })
+      .then((data) => {
+        console.log(data);
+        if (false === data.success) {
+          dispatch({
+            type: "UPDATE_SETTINGS_NOT_SAVED_NOTIFICATION",
+            payload: data.data,
+          });
+        } else {
+          dispatch({
+            type: "UPDATE_SETTINGS_SAVED_NOTIFICATION",
+            payload: __("Successfully saved!", "login-me-now"),
+          });
 
-      console.log(license);
-      console.log(data);
-    });
+          if ("" === data.data.license) {
+            setRenderDeactivation(true);
+          } else {
+            setIsLicenseActivate(true);
+          }
+        }
+      })
+      .catch((error) => {
+        console.error("Error updating license:", error);
+        dispatch({
+          type: "UPDATE_SETTINGS_NOT_SAVED_NOTIFICATION",
+          payload: "An error occurred while updating the license.",
+        });
+      })
+      .finally(() => {
+        // Always clear the input value after the API call
+        setLicense("");
+      });
+  };
+
+  const handleLicense = (e) => {
+    if (!isLicenseActivate) {
+      setLicense(e.target.value);
+    } else {
+      setLicense(""); // Clear the input value when isLicenseActivate is false
+    }
   };
 
   return (
@@ -45,18 +87,24 @@ export default function License() {
       </h1>
       <div className="flex">
         <input
-          onChange={(e) => setLicense(e.target.value)}
-          className="block w-full h-[50px] !p-3 !border-slate-200"
-          type="password"
+          onChange={handleLicense}
+          className={`block w-full h-[50px] !p-3 !border-slate-200 ${
+            isLicenseActivate === true ? "placeholder-[#9be99b]" : ""
+          }`}
+          type="text"
+          required
           name="lmn_pro_lic"
-          value={license} 
-          placeholder="Enter your license here..."
+          placeholder={`${
+            isLicenseActivate === true ? "*******" : "Enter your license"
+          }`}
+          value={isLicenseActivate === true ? "******************************" : license}
+          disabled={isLicenseActivate}
         />
         <button
-          className="h-[50px] !p-3 !border-slate-200 border ml-3 rounded-[4px]"
+          className={`h-[50px] ! w-[100px] !border-slate-200 border ml-3 rounded-[4px] text-[#5cabd3] font-semibold`}
           onClick={updateLicense}
         >
-          Active
+          {isLicenseActivate ? "Deactivate" : "Activate"}
         </button>
       </div>
     </div>
