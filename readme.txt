@@ -28,7 +28,6 @@ Creating a separate admin login for outsiders is always risky and time-consuming
 So what if this entire process gets replaced using a simple process without creating a new username? Instant, automated, and in one click?
 Using this plugin, you can create a self-expiring login link to grant temporary access to an individual (developer, support staff, or concerned person).
 
-
 <strong>SHARE LOGIN ACCESS IN SECONDS! ⏱️</strong>
 
 It takes just <strong>3 simple steps:</strong>
@@ -48,6 +47,7 @@ That was pretty easy, right?
 Generate login URL: Create a unique & conditional access link.
 
 <strong>Passwordless login:</strong> No need for a username/ email and password – simply use the link to log in.
+
 Time expiration option: Set an expiration time with option ranging from a few hours to a few days.
 
 
@@ -80,11 +80,21 @@ Use this shortcode to put Google login button on any page/ post/ block.
 * OTP login
 * Conditional login
 
+
+== COMING NEXT ==
+* Facebook login (SSO)
+* Signup/Login form builder
+* OTP login
+* Express login for WooCommerce
+* Conditional login
+
+
 == BROWSER EXTENSION AVAILABLE ==
+
 Experience instant dashboard access with just 1 click from browser extension.
 
-👉 [Install Chrome extension](https://chrome.google.com/webstore/detail/login-me-now-wordpress-lo/kkkofomlfhbepmpiplggmfpomdnkljoh?hl=en&authuser=0)
-👉 [Install Mozilla addon](https://addons.mozilla.org/en-US/firefox/addon/login-me-now/)
+👉 [Use Chrome extension](https://chrome.google.com/webstore/detail/login-me-now-wordpress-lo/kkkofomlfhbepmpiplggmfpomdnkljoh?hl=en&authuser=0)
+👉 [Use Mozilla addon](https://addons.mozilla.org/en-US/firefox/addon/login-me-now/)
 
 == WHY TO USE BROWSER EXTENSION? ==
 This saves you time, especially if you frequently log in to multiple website dashboards throughout the day. With the browser extension, a secure dashboard login is just one click away. Say goodbye to the hassle of navigating to the login panel and entering your username/email and password. The login process is secure, fast, and smooth!
@@ -92,6 +102,13 @@ This saves you time, especially if you frequently log in to multiple website das
 [youtube https://www.youtube.com/watch?v=2_GOOzZkeSM]
 
 <strong>PS:</strong> The browser extension never tracks or saves any of your website data or login credentials. When it comes to dashboard login access, it is securely stored in an encrypted format within the browser extension using an industry-standard JWT token. The generated token cannot be compressed to encrypt login credentials.
+
+
+== ACTIVITY LOG ==
+Keep an activity log of everything that occurs when a user logs in to the dashboard using the tokenized login link.
+
+This plugin comes with built in support for [Simple History](https://wordpress.org/plugins/simple-history/).
+
 
 == WHO IS THIS PLUGIN FOR? ==
 **For Websites Owner:**
@@ -113,8 +130,21 @@ Features of this plugin hit all the checkpoints for a full-fledged login manager
 We prioritize providing excellent customer assistance, ensuring any issues or queries you may have will be promptly addressed. Moreover, our team is dedicated to continuously improving the plugin, adding new features and updates to enhance its functionality and security. With our commitment to support and development, you can confidently rely on this plugin to provide your weoptimized and secured login experience.
 
 
+== Compatibility + Integration ==
+* Simple History
+* WooCommerce
+* Easy Digital Downloads (coming soon )
+* Directorist ( coming soon)
+* Fluent support (coming soon)
+* Dokan (coming soon)
+* BuddyBoss (coming soon)
+* BuddyPress (coming soon)
+* bbPress (coming soon)
+* Tutor LMS (coming soon) 
+
+
 == OTHER AMAZING PLUGIN BY US ==
-[All-in-One WordPress Content Restriction](https://wordpress.org/plugins/all-in-one-content-restriction/)
+👉 [All-in-One WordPress Content Restriction](https://wordpress.org/plugins/all-in-one-content-restriction/)
 
 == FIND AN ISSUE? ==
 We are right here to help you in [support forum](https://wordpress.org/support/plugin/login-me-now/). You can post a topic. Please search existing topics before starting a new one.
