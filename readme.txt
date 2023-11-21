@@ -80,6 +80,8 @@ Use this shortcode to put Google login button on any page/ post/ block.
 == BROWSER EXTENSION AVAILABLE ==
 Experience instant dashboard access with just 1 click from browser extension.
 
+[youtube https://www.youtube.com/watch?v=2_GOOzZkeSM]
+
 [Install Chrome extension](https://chrome.google.com/webstore/detail/login-me-now-wordpress-lo/kkkofomlfhbepmpiplggmfpomdnkljoh?hl=en&authuser=0)
 [Install Mozilla addon](https://addons.mozilla.org/en-US/firefox/addon/login-me-now/)
 
