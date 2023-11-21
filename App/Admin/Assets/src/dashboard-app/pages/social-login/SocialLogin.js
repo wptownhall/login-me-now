@@ -27,21 +27,6 @@ const SocialLogin = () => {
     "login_me_now_dashboard.settings_navigation",
     [
       {
-        name: __("General", "login-me-now"),
-        slug: "global-settings",
-        icon: SettingsIcons["global-settings"],
-      },
-      {
-        name: __("Login form", "login-me-now"),
-        slug: "login-form",
-        icon: SettingsIcons["login-form"],
-      },
-      {
-        name: __("Login form", "login-me-now"),
-        slug: "login-form",
-        icon: SettingsIcons["login-form"],
-      },
-      {
         name: __("Google", "login-me-now"),
         slug: "google",
         icon: SettingsIcons["google-login"],
