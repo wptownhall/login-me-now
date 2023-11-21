@@ -3,7 +3,7 @@ import { __ } from "@wordpress/i18n";
 
 function SubTitle({text, size}) {
   return (
-    <p className={`text-[18px] leading-[34px] text-slate-600 pb-7 text-justify ${size}`}>
+    <p className={`text-[16px] leading-[34px] text-slate-600 pb-7 text-justify ${size}`}>
 
       {__(
         `${text}`,
