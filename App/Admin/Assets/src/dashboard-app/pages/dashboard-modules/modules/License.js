@@ -21,10 +21,6 @@ export default function License() {
     }
   }, [lmnProLic]);
   
-
-
-  console.log(isLicenseActivate)
-  console.log("lmn policy", lmnProLic)
   useEffect(() => {
     if (renderDeactivation) {
       const timeoutId = setTimeout(() => {
@@ -90,8 +86,6 @@ export default function License() {
       setLicense("");
     }
   };
-
-  console.log(test?.data?.license)
 
   return (
     <div className="gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm p-8 mt-8">
