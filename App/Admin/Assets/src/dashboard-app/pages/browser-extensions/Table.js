@@ -4,8 +4,9 @@ import apiFetch from "@wordpress/api-fetch";
 import DeleteIcon from "../../../../icons/DeleteIcon";
 import Pause from "../../../../icons/Pause";
 import Play from "../../../../icons/Play";
-import { Tooltip } from "antd";
+import CloseIcon from "../../../../icons/CloseIcon";
 import trash from "../../../../images/trash.png";
+import { Tooltip } from "antd";
 
 function Table() {
   const [status, setStatus] = useState(false);
@@ -362,24 +363,25 @@ function Table() {
             <div onClick={handleDelete} className="overlay"></div>
             <div className="modal-content">
               <div>
-              <div className="flex justify-center">
-                  <img src={trash} alt="" className="w-[50px]"/>
+                <div className="flex justify-center">
+                  <img src={trash} alt="" />
                 </div>
                 <h1 className="text-center text-[#000000] my-4 text-[20px] leading-[32px] mb-[34px]">
-                  Sure to delete this token?
+                  Are you sure you want to delete
+                  <br /> your token?
                 </h1>
                 <div className="flex justify-between">
                   <button
-                    className="bg-[#ffffff] hover:bg-[#f5f5f5] text-[15px] text-[#72777b] border-[1px] border-[#BBBFC3] py-2 px-4 rounded h-[42px] w-[132px]"
-                    onClick={handleDelete}
-                  >
-                    No
-                  </button>
-                  <button
-                    className="bg-[#ea4545] hover:bg-[#ea4545dc] text-[15px] text-white py-2 px-4 rounded h-[42px] w-[200px] ml-[18px]"
+                    className="bg-[#d11a2a] hover:bg-[#ac0412] text-white font-bold py-2 px-4 rounded h-[42px] w-[142px]"
                     onClick={() => handleDeleteClick(deleteItem.token_id)}
                   >
-                    Yes
+                    Yes, Delete
+                  </button>
+                  <button
+                    className="bg-[#28a745] hover:bg-[#218838] text-white font-bold py-2 px-4 rounded h-[42px] w-[132px]"
+                    onClick={handleDelete}
+                  >
+                    No, keep
                   </button>
                 </div>
               </div>
