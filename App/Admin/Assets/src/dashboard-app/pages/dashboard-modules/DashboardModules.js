@@ -227,7 +227,8 @@ function DashboardModules() {
             </section>
           </div>
         </div>
-        <License />
+        {isProAvailable && <License />}
+        
       </div>
     </main>
   );
