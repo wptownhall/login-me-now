@@ -27,6 +27,7 @@ const initialState = wp.hooks.applyFilters("login_me_now_dashboard/datastore", {
   selectGoogleProDefaultUserRole: "subscriber",
   inputGoogleProRedirectUrl: "",
 
+
   getUserRoles: "subscriber",
   get_pages: "",
 
