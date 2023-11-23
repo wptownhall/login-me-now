@@ -95,7 +95,7 @@ export default function License() {
       <div className="flex">
         <input
           onChange={handleLicense}
-          className={`block w-full h-[50px] !p-3 !border-slate-200`}
+          className={`block w-[70%] h-[50px] !p-3 !border-slate-200`}
           type="text"
           required
           name="lmn_pro_lic"
@@ -106,13 +106,13 @@ export default function License() {
           disabled={isLicenseActivate}
         />
         <button
-          className={`h-[50px] ! w-[100px] !border-slate-200 border ml-3 rounded-[4px] text-[#5cabd3] font-semibold`}
+          className={`h-[50px] ! w-[100px] !border-slate-200 border ml-3 rounded-[4px]  font-semibold ${isLicenseActivate ? 'bg-[#de070f] text-white' : 'text-[#5cabd3]'} `}
           onClick={updateLicense}
         >
           {isLicenseActivate ? "Deactivate" : "Activate"}
         </button>
       </div>
-      <p className="text-[16px] font-medium text-[#878787] mt-4">Please enter your license key. An active license key is needed to unlock all the pro features and receive automatic plugin updates.</p>
+      <p className="text-[16px] font-medium text-[#878787] mt-4">An active license key is needed to unlock all the pro features and receive automatic plugin updates.</p>
     </div>
   );
 }
