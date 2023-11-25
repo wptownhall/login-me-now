@@ -81,9 +81,9 @@ body.active-modal {
   line-height: 1.4;
   background: #f6f6f6;
   border-radius: 8px;
-  max-width: 440px;
+  max-width: 420px;
   z-index: 99;
-  height: 312px;
+  height: 270px;
   width: 100%;
   display: flex;
   justify-content: center;

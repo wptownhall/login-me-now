@@ -132,7 +132,7 @@ const BrowserExtensions = () => {
               </section>
             </div>
 
-            <div className="grid grid-cols-1 lg:col-span-5 gap-4 h-full">
+            <div className="grid grid-cols-1 lg:col-span-5 gap-4 h-full ml-[50px]">
               <Video width="100%" height={300} />
             </div>
           </div>
