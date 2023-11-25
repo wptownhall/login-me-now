@@ -10,17 +10,12 @@ import GoogleProDefaultUserRole from "./google/GoogleProDefaultUserRole";
 import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
 import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
 import OneTapToLogin from "./google/OneTapToLogin";
-import LoginForm from "./login-form/LoginForm";
-// import PasscodeInput from "./PasscodeInput";
 
 
 function SettingsWrapper({ state }) {
   const wrappers = wp.hooks.applyFilters(
     "login_me_now_dashboard.settings_tab_wrappers",
     {
-      "login-form": (
-        <LoginForm />
-      ),
       "google": (
         <>
           <GoogleLogin />

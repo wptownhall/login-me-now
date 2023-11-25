@@ -60,7 +60,7 @@ function ExpressLoginEDD({ colorChange, isAvailable }) {
   };
 
   return (
-    <div className={`mb-16 mx-4 flex`}>
+    <div className={`mb-8 mx-4 flex`}>
       <div
         class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
           hover === true ? "bg-[#073A2E]" : "bg-[#F8FAFC]"

@@ -67,7 +67,7 @@ const Welcome = () => {
         <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
           <h1 className="sr-only"> Login Me Now </h1>
           <div className="grid grid-cols-2 gap-4 items-start lg:grid-cols-12 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm p-12">
-            <div className="grid grid-cols-1 lg:col-span-7 gap-4 h-full">
+            <div className="grid grid-cols-1 lg:col-span-7 gap-4 h-full mr-20">
               <section aria-labelledby="section-1-title h-full">
                 <h2 className="sr-only" id="section-1-title">
                   Welcome Banner

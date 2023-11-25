@@ -59,7 +59,7 @@ function UserSwitching({ colorChange, proItem }) {
   };
 
   return (
-    <div className="mb-16 mx-4 flex">
+    <div className="mb-8 mx-4 flex">
       <div
         class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
           hover === true ? "bg-[#0da071b0]" : "bg-[#F8FAFC]"

@@ -21,10 +21,10 @@ function DashboardModules() {
   return (
     <main className="py-[2.43rem]">
       <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
-        <div className="gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm py-8 px-4">
+        <div className="gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm pt-4 px-4">
           <div className="">
             <section aria-labelledby="section-1-title h-full">
-              <div className="pb-4 px-4 mt-5">
+              <div className="pb-4 px-4 mt-4">
                 <h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
                   {__("Modules", "login-me-now")}
                 </h3>
@@ -36,7 +36,7 @@ function DashboardModules() {
                     isProAvailable === true
                       ? "justify-center"
                       : "justify-between"
-                  } flex-col mb-16 `}
+                  } flex-col mb-8 `}
                 >
                   <div className="px-8 pt-16 pb-10 text-center responsive-box">
                     {isProAvailable === true ? (
@@ -227,7 +227,8 @@ function DashboardModules() {
             </section>
           </div>
         </div>
-        <License />
+        {isProAvailable && <License />}
+        
       </div>
     </main>
   );

@@ -11,6 +11,7 @@ import { useState } from "react";
 import lockImg from "../../../../images/lock.png";
 import browserSsImg from "../../../../images/browser-extension-ss.png";
 import { Tooltip } from "antd";
+import Video from "./Video";
 
 const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -71,7 +72,7 @@ const BrowserExtensions = () => {
         <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
           <h1 className="sr-only"> Login Me Now </h1>
           <div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-12 rounded-md bg-white overflow-hidden shadow-sm p-12">
-            <div className="grid grid-cols-1 lg:col-span-7 gap-4 h-full">
+            <div className="grid grid-cols-1 lg:col-span-7 gap-4 h-full mr-20">
               <section aria-labelledby="section-1-title h-full">
                 <h2 className="sr-only" id="section-1-title">
                   Browser Extensions Banner
@@ -130,9 +131,10 @@ const BrowserExtensions = () => {
                 </div>
               </section>
             </div>
-                           
-          <div className="grid grid-cols-1 lg:col-span-5 gap-4 h-full">
-              <iframe width="100%" height="338" src="https://www.youtube.com/embed/2_GOOzZkeSM" frameborder="0" allowfullscreen></iframe>            
+
+            <div className="grid grid-cols-1 lg:col-span-5 gap-4 h-full ml-[50px]">
+              <Video width="100%" height={300} />
+            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-[32px] items-start lg:grid-cols-3 lg:gap-[32px] xl:gap-[32px] mt-[32px]">

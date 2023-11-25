@@ -135,6 +135,7 @@ const globalDataReducer = (state = {}, action) => {
         ...state,
         lmnProLic: action.payload,
       };
+      
     case "ENABLE_DM_TEMPORARY_LOGIN":
       return {
         ...state,
