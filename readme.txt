@@ -4,7 +4,7 @@ Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
 Tested up to: 6.4.1
 Requires PHP: 7.4
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv3 or Any Later Version
 Tags: login, password, secure-login, wp-login, social-login
 
@@ -74,12 +74,6 @@ Use this shortcode to put Google login button on any page/ post/ block.
 == USER SWITCHING 👥 ==
 <strong>Instantly switch to any user account:</strong> You can effortlessly swap between user accounts. This feature is useful for any WP website where administrators need to switch between multiple accounts.
 
-== COMING NEXT ==
-* Facebook login (SSO)
-* Express login for WooCommerce
-* OTP login
-* Conditional login
-
 
 == COMING NEXT ==
 * Facebook login (SSO)
@@ -133,8 +127,8 @@ We prioritize providing excellent customer assistance, ensuring any issues or qu
 == Compatibility + Integration ==
 * Simple History
 * WooCommerce
-* Easy Digital Downloads (coming soon )
-* Directorist ( coming soon)
+* Easy Digital Downloads (coming soon)
+* Directorist (coming soon)
 * Fluent support (coming soon)
 * Dokan (coming soon)
 * BuddyBoss (coming soon)
@@ -164,6 +158,10 @@ No. That would be horrible not only for you but even more so for us (huge liabil
 Yes, you will know the activities in the dashboard of the recipient by checking the activity log option of this plugin. This means you can keep track of what the recipient is doing while they have temporary access to your website. 
 
 == Changelog ==
+
+
+= 1.3.2 – Nov 26, 2023 =
+* Fix: License Issue
 
 = 1.3.1 – Nov 21, 2023 =
 * Fix: Simple History Message
