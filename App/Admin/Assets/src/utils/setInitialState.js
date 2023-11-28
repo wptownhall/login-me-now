@@ -2,7 +2,12 @@ import apiFetch from "@wordpress/api-fetch";
 
 const setInitialState = (store) => {
   apiFetch({
-    path: "/login-me-now/admin/settings/",
+    path: "/login-me-now/admin/settings/?" + Math.random(),
+    headers: { 
+      'Cache-Control' : 'no-cache',
+      'X-LiteSpeed-Cache-Control' : 'no-cache',
+      'Cache-Control' : 'no-cache',
+    }
   }).then((data) => {
     const initialState = {
       settingsSavedNotification: "",
