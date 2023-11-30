@@ -6,9 +6,9 @@ Tested up to: 6.4.1
 Requires PHP: 7.4
 Stable tag: 1.3.2
 License: GPLv3 or Any Later Version
-Tags: login, password, secure-login, wp-login, social-login
+Tags: login, password, secure-login, wp-login, social-login, google-login, one-click, google-avatar, delegate-access, browser-extension
 
-1 click passwordless login, temporary login, social login & user switching - Login Me Now
+It feels like 8 plugins in one, it provides over 25 features making it the ultimate WP login solution.
 
 == Description ==
 [TRY LIVE DEMO](https://try.loginmenow.com/) | [ROADMAP](https://wptownhall.com/login-me-now/roadmap/) | [PRO](https://wptownhall.com/login-me-now/pricing/)  ( LIMITED LIFETIME DEAL🎁 ) 
@@ -160,7 +160,8 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 == Changelog ==
 
 
-= 1.3.2 – Nov 26, 2023 =
+= 1.3.2 – Nov 28, 2023 =
+* Add: Settings Cache Issue
 * Fix: License Issue
 
 = 1.3.1 – Nov 21, 2023 =

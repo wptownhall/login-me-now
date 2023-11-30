@@ -34,7 +34,7 @@ class Ajax {
 	}
 
 	public function login_me_now_login_link_generate() {
-		$error = $this->check_permissions( 'login_me_now_generate_token_nonce', 'manage_options' );
+		$error = $this->check_permissions( 'login_me_now_generate_token_nonce' );
 		if ( $error ) {
 			wp_send_json_error( $error );
 		}
