@@ -13,7 +13,7 @@ if ( $do_not_show ) {
 	return;
 }
 
-$html = '<div class="lmnExt" id="lmnExt">';
+$html = '<div class="lmnExt" id="lmnExt" style="display: flex">';
 $html .= sprintf( '<div id="lmnEmail" data-email="%s"></div>', esc_attr( $current_user->user_email ) );
 $html .= sprintf( '<div id="lmnSiteUrl" data-siteurl="%s"></div>', esc_url( get_site_url() ) );
 $html .= sprintf( '<div id="lmnSecurity" data-security="%s"></div>', esc_attr( wp_create_nonce( 'login_me_now_generate_token_nonce' ) ) );
