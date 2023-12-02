@@ -4,7 +4,7 @@ Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
 Tested up to: 6.4.1
 Requires PHP: 7.4
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv3 or Any Later Version
 Tags: login, password, secure-login, wp-login, social-login, google-login, one-click, google-avatar, delegate-access, browser-extension
 
@@ -160,8 +160,12 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 == Changelog ==
 
 
+= 1.3.3 – Dec 02, 2023 =
+* Add: Save to Extension - for non-admin
+* Improved: Save to Extension - don't show again.
+
 = 1.3.2 – Nov 28, 2023 =
-* Add: Settings Cache Issue
+* Fix: Settings Cache Issue
 * Fix: License Issue
 
 = 1.3.1 – Nov 21, 2023 =
