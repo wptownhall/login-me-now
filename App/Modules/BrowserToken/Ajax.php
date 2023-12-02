@@ -4,7 +4,7 @@
  *
  * @package Login Me Now
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.3.3
  */
 
 namespace LoginMeNow\BrowserToken;
@@ -29,10 +29,15 @@ class Ajax {
 		$this->action( 'wp_ajax_login_me_now_browser_tokens', 'login_me_now_browser_tokens' );
 		$this->action( 'wp_ajax_login_me_now_browser_token_update_status', 'login_me_now_browser_token_update_status' );
 		$this->action( 'wp_ajax_login_me_now_browser_token_drop', 'login_me_now_browser_token_drop' );
+		$this->action( 'wp_ajax_login_me_now_hide_save_to_browser_extension', 'login_me_now_hide_save_to_browser_extension' );
+	}
+
+	public function login_me_now_hide_save_to_browser_extension() {
+		wp_send_json_success( update_user_meta( get_current_user_id(), 'login_me_now_hide_save_to_browser_extension', true ) );
 	}
 
 	public function login_me_now_browser_token_generate() {
-		$error = $this->check_permissions( 'login_me_now_generate_token_nonce', 'manage_options' );
+		$error = $this->check_permissions( 'login_me_now_generate_token_nonce' );
 		if ( $error ) {
 			wp_send_json_error( $error );
 		}
