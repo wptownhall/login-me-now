@@ -13,12 +13,14 @@ if ( $do_not_show ) {
 	return;
 }
 
-$html = '<div class="lmnExt" id="lmnExt" style="display: flex">';
+$html = '<div class="lmnExt" id="lmnExt">';
 $html .= sprintf( '<div id="lmnEmail" data-email="%s"></div>', esc_attr( $current_user->user_email ) );
 $html .= sprintf( '<div id="lmnSiteUrl" data-siteurl="%s"></div>', esc_url( get_site_url() ) );
 $html .= sprintf( '<div id="lmnSecurity" data-security="%s"></div>', esc_attr( wp_create_nonce( 'login_me_now_generate_token_nonce' ) ) );
 $html .= sprintf( '<div id="lmnAjaxUrl" data-ajaxurl="%s"></div>', esc_url( admin_url( 'admin-ajax.php' ) ) );
-$html .= '<div style="display: flex; align-items: center">';
+
+$html .= '<div class="popup-content-wrapper">';
+$html .= '<div style="display: flex; align-items: center; padding: 20px 0; justify-content: center">';
 $html .= esc_html( __( 'To enjoy effortless and quick access, save this dashboard login', 'login-me-now' ) );
 $html .= sprintf(
 	'<input type="datetime-local" id="lmnExpiration" name="lmnExpiration" min="%s" max="%s">',
@@ -32,8 +34,10 @@ $html .= sprintf(
 );
 
 $html .= '</div>';
-$html .= '<p id="lmn-later" style="text-decoration: underline; position: absolute; right: 30px; cursor: pointer">' . esc_html__( "Don't show this again", 'login-me-now' ) . '</p>';
+$html .= '<div></div>';
+$html .= '<p id="lmn-later">' . esc_html__( "Don't show this again", 'login-me-now' ) . '</p>';
 
+$html .= '</div>';
 $html .= '</div>';
 echo $html;
 ?>
@@ -77,10 +81,10 @@ echo $html;
 	.lmnExt {
 		display: none;
 		position: fixed;
-		height: 60px;
 		width: 100%;
+		height: auto;
 		left: 0;
-		bottom: -60px;
+		bottom: -70px;
 		background: #3A86FF;
 		color: #fff;
 		text-align: center;
