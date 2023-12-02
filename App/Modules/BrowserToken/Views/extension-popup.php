@@ -20,8 +20,10 @@ $html .= sprintf( '<div id="lmnSecurity" data-security="%s"></div>', esc_attr( w
 $html .= sprintf( '<div id="lmnAjaxUrl" data-ajaxurl="%s"></div>', esc_url( admin_url( 'admin-ajax.php' ) ) );
 
 $html .= '<div class="popup-content-wrapper">';
-$html .= '<div style="display: flex; align-items: center; padding: 20px 0; justify-content: center">';
+$html .= '<div style="display: flex; align-items: center; justify-content: center">';
+$html .= '<p>';
 $html .= esc_html( __( 'To enjoy effortless and quick access, save this dashboard login', 'login-me-now' ) );
+$html .= '</p>';
 $html .= sprintf(
 	'<input type="datetime-local" id="lmnExpiration" name="lmnExpiration" min="%s" max="%s">',
 	date( 'Y-m-d\TH:i' ),
@@ -34,8 +36,7 @@ $html .= sprintf(
 );
 
 $html .= '</div>';
-$html .= '<div></div>';
-$html .= '<p id="lmn-later">' . esc_html__( "Don't show this again", 'login-me-now' ) . '</p>';
+$html .= '<a id="lmn-later">' . esc_html__( "Don't show this again", 'login-me-now' ) . '</a>';
 
 $html .= '</div>';
 $html .= '</div>';
@@ -56,7 +57,7 @@ echo $html;
 			const formData = new window.FormData();
 			formData.append("action", "login_me_now_hide_save_to_browser_extension");
 			postJSON(formData);
-			
+
 			lmnExt.style.bottom = '-60px';
 			setTimeout(() => {
 				lmnExt.style.setProperty('display', 'none', 'important');
@@ -93,10 +94,19 @@ echo $html;
 		align-items: center;
 		transition: bottom 1.0s ease;
 	}
-	.lmnExt p {
+	.lmnExt p,
+	.lmnExt a {
 		font-size: 16px;
 		margin-right: 10px;
+		color: #fff;
+		margin: 1em 0;
 	}
+	#lmn-later {
+		cursor: pointer;
+		border-bottom: 1px solid #fff;
+		padding-bottom: 5px;
+	}
+
 	#lmnExt button {
 		padding: 5px 15px;
 		margin: 0 5px;
@@ -128,5 +138,12 @@ echo $html;
 		color-scheme: dark;
 		background: #1a3b66;
 		color: white;
+	}
+
+	.popup-content-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 90%;
 	}
 </style>

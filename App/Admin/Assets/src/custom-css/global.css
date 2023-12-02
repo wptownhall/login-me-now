@@ -163,35 +163,7 @@ body.active-modal {
   margin-bottom: 10px;
   width: 100%;
 }
-#lmn-later {
-  text-decoration: underline;
-  cursor: pointer;
-  position: absolute;
-  right: 30px;
-  padding: 20px 0;
-}
-.popup-content-wrapper{
-  display: flex; justify-content: space-around;
-}
-#lmnExt{
-  justify-content: left;
-  padding-left:13%
-}
-@media (min-width: 620px) and (max-width: 1086px) {
-  #lmn-later {
-  position: unset;
-  }
-  .popup-content-wrapper{
-    display: block; justify-content: space-around;
-  }
-  #lmn-later{
-    padding-top: 0!important;
-  }
-  #lmnExt{
-    justify-content: center;
-    padding-left:0
-  }
-}
+
 
 @media (min-width: 1291px) {
   .extralarge-grid {
