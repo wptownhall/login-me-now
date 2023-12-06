@@ -47,6 +47,10 @@ class ComposerStaticInit184d419aeb5d10103d268eb48787b93d
             'LoginMeNow\\Abstracts\\' => 21,
             'LoginMeNow\\' => 11,
         ),
+        'H' => 
+        array (
+            'HeyMehedi\\Utils\\' => 16,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -73,8 +77,8 @@ class ComposerStaticInit184d419aeb5d10103d268eb48787b93d
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -139,6 +143,10 @@ class ComposerStaticInit184d419aeb5d10103d268eb48787b93d
         'LoginMeNow\\' => 
         array (
             0 => __DIR__ . '/../..' . '/App',
+        ),
+        'HeyMehedi\\Utils\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/heymehedi/utils/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (

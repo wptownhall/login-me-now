@@ -8,21 +8,20 @@
 namespace LoginMeNow\FacebookLogin;
 
 use Google_Client;
+use LoginMeNow\Model\Auth;
 use LoginMeNow\Model\Settings;
 use LoginMeNow\Traits\Hookable;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Utils\User;
 use WP_Error;
 
 class Authenticate {
 	use Hookable;
-	use Singleton;
 
 	public function __construct() {
-		$this->action( 'init', 'endpoint' );
+		$this->action( 'init', 'listen' );
 	}
 
-	public function endpoint(): void {
-
+	public function listen(): void {
 		if ( array_key_exists( 'lmn-google', $_GET ) ) {
 
 			$nonce = ! empty( $_POST['wpnonce'] )
@@ -47,7 +46,7 @@ class Authenticate {
 				return;
 			}
 
-			if ( $_POST['g_csrf_token'] != $_COOKIE['g_csrf_token'] ) {
+			if ( $_POST['g_csrf_token'] !== $_COOKIE['g_csrf_token'] ) {
 				error_log( 'Login Me Now - g_csrf_token is not same in post and cookie' );
 
 				return;
@@ -70,9 +69,9 @@ class Authenticate {
 				$redirect_uri = apply_filters( 'login_me_now_google_login_redirect_url', $redirect_uri );
 
 				if ( $wp_user ) {
-					$action = $this->login_user( $wp_user->ID, $payload, $redirect_uri );
+					$action = $this->login( $wp_user->ID, $payload, $redirect_uri );
 				} else {
-					$action = $this->register_user( $payload, $redirect_uri );
+					$action = $this->register( $payload, $redirect_uri );
 				}
 
 				if ( is_wp_error( $action ) ) {
@@ -90,9 +89,7 @@ class Authenticate {
 		}
 	}
 
-	public function register_user( array $payload, string $redirect_uri ) {
-		$errors = new WP_Error();
-
+	private function unique_username( array $payload ): string {
 		$username_parts = [];
 		if ( isset( $payload['given_name'] ) ) {
 			$username_parts[] = sanitize_user( $payload['given_name'], true );
@@ -116,57 +113,41 @@ class Authenticate {
 			$username = $default_user_name . $suffix;
 			$suffix++;
 		}
-		$new_user_id = register_new_user( sanitize_user( $username ), $payload['email'] );
 
-		if ( is_wp_error( $new_user_id ) ) {
+		return $username;
+	}
+
+	public function register( array $payload, string $redirect_uri ) {
+		$errors = new WP_Error();
+
+		$username = $this->unique_username( $payload );
+		$user_id  = register_new_user( sanitize_user( $username ), sanitize_email( $payload['email'] ) );
+
+		if ( is_wp_error( $user_id ) ) {
 			$errors->add( 'registration_failed', __( '<strong>Error</strong>: Registration Failed', 'login-me-now' ) );
 		}
 
-		$user_data                 = [];
-		$user_data['ID']           = $new_user_id;
-		$user_data['first_name']   = $payload['given_name'];
-		$user_data['last_name']    = $payload['family_name'];
-		$user_data['display_name'] = $payload['name'];
-		$user_id                   = wp_update_user( $user_data );
+		do_action( 'login_me_now_google_login_after_registration', $user_id, $payload );
 
-		do_action( 'login_me_now_before_auth_google_login', $user_id );
-
-		update_user_meta( $new_user_id, 'login_me_now_facebook_profile_picture_url', esc_url_raw( $payload['picture'] ) );
-		update_user_meta( $new_user_id, 'nickname', $payload['given_name'] );
-
-		wp_set_current_user( $new_user_id );
-		wp_set_auth_cookie( $new_user_id, true );
+		User::set_role( $user_id );
+		User::update_profile( $user_id, $payload );
 
 		if ( $errors->has_errors() ) {
 			return $errors;
 		}
 
-		if ( wp_safe_redirect( $redirect_uri ) ) {
-			exit;
-		}
+		Auth::login( $user_id, $redirect_uri );
 	}
 
-	public function login_user( int $id, array $payload, string $redirect_uri ): void{
+	public function login( int $user_id, array $payload, string $redirect_uri ): void {
+
+		do_action( 'login_me_now_google_login_before_login', $user_id, $payload );
+
 		$update_existing_data = Settings::init()->get( 'google_update_existing_user_data', false );
-
 		if ( $update_existing_data ) {
-			$user_data                 = [];
-			$user_data['ID']           = $id;
-			$user_data['first_name']   = $payload['given_name'];
-			$user_data['last_name']    = $payload['family_name'];
-			$user_data['display_name'] = $payload['name'];
-
-			wp_update_user( $user_data );
-			update_user_meta( $id, 'nickname', $payload['given_name'] );
+			User::update_profile( $user_id, $payload );
 		}
 
-		update_user_meta( $id, 'login_me_now_facebook_profile_picture_url', esc_url_raw( $payload['picture'] ) );
-		wp_clear_auth_cookie();
-		wp_set_current_user( $id );
-		wp_set_auth_cookie( $id, true );
-
-		if ( wp_safe_redirect( $redirect_uri ) ) {
-			exit;
-		}
+		Auth::login( $user_id, $redirect_uri );
 	}
 }

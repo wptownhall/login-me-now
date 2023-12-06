@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f37e6464d87f2e169dcbdc4db831d61",
+    "content-hash": "dd2d8d23a15b7e53bdf83e33867df7b9",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -564,6 +564,47 @@
                 }
             ],
             "time": "2023-08-03T15:06:02+00:00"
+        },
+        {
+            "name": "heymehedi/utils",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HeyMehedi/Utils.git",
+                "reference": "00475e7c409b80fc3a3d19dff911e5bffbdf4485"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HeyMehedi/Utils/zipball/00475e7c409b80fc3a3d19dff911e5bffbdf4485",
+                "reference": "00475e7c409b80fc3a3d19dff911e5bffbdf4485",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HeyMehedi\\Utils\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Collections of Some Utilities",
+            "keywords": [
+                "boilerplate",
+                "helpers",
+                "utilities",
+                "utils",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/HeyMehedi/Utils/issues",
+                "source": "https://github.com/HeyMehedi/Utils/tree/v1.1.0"
+            },
+            "time": "2023-12-02T07:08:45+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1275,5 +1316,5 @@
         "php": ">=7.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
