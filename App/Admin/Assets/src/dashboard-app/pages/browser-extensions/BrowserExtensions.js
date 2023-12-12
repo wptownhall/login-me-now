@@ -72,7 +72,7 @@ const BrowserExtensions = () => {
         <div className="max-w-3xl mx-auto px-6 lg:max-w-screen-2xl">
           <h1 className="sr-only"> Login Me Now </h1>
           <div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-12 rounded-md bg-white overflow-hidden shadow-sm p-12">
-            <div className="grid grid-cols-1 lg:col-span-7 gap-4 h-full mr-20">
+            <div className="grid grid-cols-1 lg:col-span-7 gap-4 h-full">
               <section aria-labelledby="section-1-title h-full">
                 <h2 className="sr-only" id="section-1-title">
                   Browser Extensions Banner
@@ -121,7 +121,7 @@ const BrowserExtensions = () => {
                       <span className="ml-2 relative z-0 inline-flex flex-col sm:flex-row justify-start w-full">
                         <button
                           type="submit"
-                          className="sm:inline-flex items-center p-[13px] border border-transparent text-[16px] font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
+                          className="sm:inline-flex items-center p-[14px] border border-transparent text-[12px] font-medium rounded-md shadow-sm text-white bg-lmn focus-visible:bg-lmn-hover hover:bg-lmn-hover focus:outline-none mr-4 mb-2 sm:mb-0"
                         >
                           {__("Generate token", "login-me-now")}
                         </button>
