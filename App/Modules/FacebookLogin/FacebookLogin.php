@@ -29,6 +29,7 @@ class FacebookLogin extends ModuleBase {
 		// }
 
 		( new Enqueuer() );
+		( new Ajax() );
 		( new Authenticate() );
 		( new Button() );
 		( new Profile() );

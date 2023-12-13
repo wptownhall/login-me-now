@@ -1,8 +1,8 @@
 <?php
 /**
  * @author  HeyMehedi
- * @since   1.1.0
- * @version 1.1.0
+ * @since   1.4.0
+ * @version 1.4.0
  */
 
 namespace LoginMeNow\FacebookLogin;
@@ -16,7 +16,6 @@ class Profile {
 
 	public function __construct() {
 		$this->filter( 'get_avatar_url', 'avatar', 10, 2 );
-
 	}
 
 	public function avatar( $url, $id_or_email ) {

@@ -5,9 +5,6 @@
  * @version 1.4.0
  */
 
-use LoginMeNow\Utils\Random;
-
-$random = Random::number();
 $appId  = '1066164867842887';
 ?>
 
@@ -47,55 +44,78 @@ $appId  = '1066164867842887';
         // After clicking and successful login send the access Token of users to the backend to verify it again
         // After getting a good response, redirect to wp-admin page.
         //
-		if (typeof LoginMeNowFacebookLogin === 'undefined') {
-			let LoginMeNowFacebookLogin  = {
 
-				init: function() {
-					let self = this;
-					let loginButtons = document.querySelectorAll('.lmn_fb_login_button');
+	    document.addEventListener('DOMContentLoaded', function () {
 
-					window.fbAsyncInit = function() {
-						FB.init({
-							appId: <?php echo esc_attr( $appId ); ?>,
-							status: false,
-							cookie: true,
-							xfbml: true,
-							version: "v4.0"
-						});
-					}
-					
-					loginButtons.forEach(button => {
-						button.addEventListener('click', function (event) {
-							event.preventDefault();
-							self.tryLogin();
-						});
-					});
-				},
+			if (typeof LoginMeNowFacebookLogin === 'undefined') {
+				var LoginMeNowFacebookLogin  = {
 
-				tryLogin: function () {
-					if (typeof FB === "undefined") {
-						console.log("Facebook Login: API is not loaded yet");
-						return;
-					}
+					init: function() {
+						var self = this;
+						var loginButtons = document.querySelectorAll('.lmn_fb_login_button');
 
-					let self = this;
-					FB.login(
-						function (response) {
-							if( response.authResponse.accessToken ) {
-								self.sendRequest(response.authResponse.accessToken);
-							} else {
-								console.log("Login Failed, something wen't wrong.");
-							}
+						window.fbAsyncInit = function() {
+							FB.init({
+								appId: <?php echo esc_attr( $appId ); ?>,
+								status: false,
+								cookie: true,
+								xfbml: true,
+								version: "v4.0"
+							});
 						}
-					);
-				},
 
-				sendRequest: function (accessToken) {
-					console.log(accessToken);
-				}
-			};
+						loginButtons.forEach(button => {
+							button.addEventListener('click', function (event) {
+								console.log(button)
+								event.preventDefault();
+								self.tryLogin();
+							});
+						});
+					},
 
-			LoginMeNowFacebookLogin.init();
-		}
+					tryLogin: function () {
+						if (typeof FB === "undefined") {
+							console.log("Facebook Login: API is not loaded yet");
+							return;
+						}
+
+						var self = this;
+						FB.login(
+							function (response) {
+								console.log(response);
+								if( response.authResponse.accessToken ) {
+									self.sendRequest(response.authResponse.accessToken);
+								} else {
+									console.log("Login Failed, something wen't wrong.");
+								}
+							}
+						);
+					},
+
+					sendRequest: function (accessToken) {
+						console.log( 'Access Token: ', accessToken );
+						fetch('<?php echo admin_url( 'admin-ajax.php' ); ?>', {
+							method: 'POST',
+							body: new URLSearchParams({
+								action: 'login_me_now_facebook_login',
+								security: '<?php echo wp_create_nonce( 'login_me_now_facebook_login_nonce' ); ?>',
+								accessToken: accessToken,
+							}),
+						})
+						.then(response => {
+							if (!response.ok) {
+								throw new Error('Network response was not ok');
+							}
+							return response.json();
+						})
+						.then(data => {
+							console.log(data.data)
+						})
+					}
+				};
+
+				LoginMeNowFacebookLogin.init();
+			}
+		});
     </script>
 </div>

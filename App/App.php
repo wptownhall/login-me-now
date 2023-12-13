@@ -41,7 +41,7 @@ class App {
 		 *  Modules Initialize
 		 */
 		AutoLogin::init();
-		GoogleLogin::init();
+		// GoogleLogin::init();
 		LoginLink::init();
 		BrowserToken::init();
 		FacebookLogin::init();

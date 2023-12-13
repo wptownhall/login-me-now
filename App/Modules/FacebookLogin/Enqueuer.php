@@ -14,7 +14,6 @@ class Enqueuer extends EnqueuerBase {
 	public function __construct() {
 		$this->action( 'wp_enqueue_scripts', 'load_sdk', 50 );
 		$this->action( 'login_enqueue_scripts', 'load_sdk', 1 );
-
 	}
 
 	public function load_sdk() {
