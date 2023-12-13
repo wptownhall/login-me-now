@@ -11,6 +11,7 @@ use LoginMeNow\Admin\Admin;
 use LoginMeNow\BrowserToken\BrowserToken;
 use LoginMeNow\FacebookLogin\FacebookLogin;
 use LoginMeNow\GoogleLogin\GoogleLogin;
+use LoginMeNow\LoginForm\LoginForm;
 use LoginMeNow\LoginLink\LoginLink;
 use LoginMeNow\OnetimeNumber\AutoLogin;
 use LoginMeNow\Routes\AdminSettings;
@@ -44,6 +45,7 @@ class App {
 		LoginLink::init();
 		BrowserToken::init();
 		FacebookLogin::init();
+		LoginForm::init();
 
 		/**
 		 *  Third-party Modules

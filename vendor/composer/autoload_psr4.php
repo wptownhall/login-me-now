@@ -19,6 +19,7 @@ return array(
     'LoginMeNow\\OnetimeNumber\\' => array($baseDir . '/App/Modules/OnetimeNumber'),
     'LoginMeNow\\Model\\' => array($baseDir . '/App/Models'),
     'LoginMeNow\\LoginLink\\' => array($baseDir . '/App/Modules/LoginLink'),
+    'LoginMeNow\\LoginForm\\' => array($baseDir . '/App/Modules/LoginForm'),
     'LoginMeNow\\GoogleLogin\\' => array($baseDir . '/App/Modules/GoogleLogin'),
     'LoginMeNow\\FacebookLogin\\' => array($baseDir . '/App/Modules/FacebookLogin'),
     'LoginMeNow\\BrowserToken\\' => array($baseDir . '/App/Modules/BrowserToken'),

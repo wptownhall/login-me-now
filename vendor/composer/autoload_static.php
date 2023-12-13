@@ -40,6 +40,7 @@ class ComposerStaticInit184d419aeb5d10103d268eb48787b93d
             'LoginMeNow\\OnetimeNumber\\' => 25,
             'LoginMeNow\\Model\\' => 17,
             'LoginMeNow\\LoginLink\\' => 21,
+            'LoginMeNow\\LoginForm\\' => 21,
             'LoginMeNow\\GoogleLogin\\' => 23,
             'LoginMeNow\\FacebookLogin\\' => 25,
             'LoginMeNow\\BrowserToken\\' => 24,
@@ -119,6 +120,10 @@ class ComposerStaticInit184d419aeb5d10103d268eb48787b93d
         'LoginMeNow\\LoginLink\\' => 
         array (
             0 => __DIR__ . '/../..' . '/App/Modules/LoginLink',
+        ),
+        'LoginMeNow\\LoginForm\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/App/Modules/LoginForm',
         ),
         'LoginMeNow\\GoogleLogin\\' => 
         array (

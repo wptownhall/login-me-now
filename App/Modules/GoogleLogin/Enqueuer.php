@@ -20,7 +20,6 @@ class Enqueuer extends EnqueuerBase {
 	public function __construct() {
 		$this->action( 'wp_enqueue_scripts', 'enqueue_scripts', 50 );
 		$this->action( 'login_enqueue_scripts', 'enqueue_scripts', 1 );
-		$this->action( 'login_footer', 'wp_login_script', 50 );
 
 		$this->action( 'wp_footer', 'credential', 50 );
 		$this->action( 'login_footer', 'credential', 50 );
@@ -28,7 +27,7 @@ class Enqueuer extends EnqueuerBase {
 
 	public function wp_login_script() {?>
 		<script type="text/javascript">
-			jQuery("#wp-login-google-login-button").prependTo("#loginform");
+			jQuery("#wp-login-login-me-now-buttons").prependTo("#loginform");
 		</script>
 	<?php }
 

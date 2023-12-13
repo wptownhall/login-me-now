@@ -13,7 +13,8 @@
             "LoginMeNow\\UserSwitching\\": "App/Modules/UserSwitching",
             "LoginMeNow\\LoginLink\\": "App/Modules/LoginLink",
             "LoginMeNow\\BrowserToken\\": "App/Modules/BrowserToken",
-            "LoginMeNow\\AdvanceSharing\\": "App/Modules/AdvanceSharing"
+            "LoginMeNow\\AdvanceSharing\\": "App/Modules/AdvanceSharing",
+            "LoginMeNow\\LoginForm\\": "App/Modules/LoginForm"
         }
     },
     "authors": [

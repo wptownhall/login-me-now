@@ -109,6 +109,7 @@ final class LoginMeNow {
 		define( 'LOGIN_ME_NOW_INCLUDES', LOGIN_ME_NOW_APP_PATH . 'Common' );
 		define( 'LOGIN_ME_NOW_MODULES', LOGIN_ME_NOW_APP_PATH . 'Modules' );
 		define( 'LOGIN_ME_NOW_ASSETS', LOGIN_ME_NOW_URL . 'assets' );
+		define( 'LOGIN_ME_NOW_TEMPLATE_PATH', LOGIN_ME_NOW_PATH . '/templates/' );
 
 		define( 'LOGIN_ME_NOW_ADMIN_URL', LOGIN_ME_NOW_APP_URL . 'Admin' );
 		define( 'LOGIN_ME_NOW_ADMIN_PATH', LOGIN_ME_NOW_APP_PATH . 'Admin' );
