@@ -7,7 +7,9 @@
 
 namespace LoginMeNow\FacebookLogin;
 
-class Button {
+use LoginMeNow\Abstracts\LoginButtonBase;
+
+class Button extends LoginButtonBase {
 
 	public function shortcodes(): void {
 		add_shortcode( 'login_me_now_facebook_button', [$this, 'button'] );

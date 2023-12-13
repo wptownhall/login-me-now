@@ -10,7 +10,7 @@ namespace LoginMeNow\Abstracts;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
 
-abstract class LoginButton {
+abstract class LoginButtonBase {
 	use Singleton;
 	use Hookable;
 

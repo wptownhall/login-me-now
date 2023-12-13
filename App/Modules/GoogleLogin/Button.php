@@ -7,9 +7,9 @@
 
 namespace LoginMeNow\GoogleLogin;
 
-use LoginMeNow\Abstracts\LoginButton;
+use LoginMeNow\Abstracts\LoginButtonBase;
 
-class Button extends LoginButton {
+class Button extends LoginButtonBase {
 
 	public function shortcodes(): void {
 		add_shortcode( 'login_me_now_google_button', [$this, 'button'] );

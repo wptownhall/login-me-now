@@ -40,7 +40,11 @@ class Ajax {
 			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
 		}
 
-		wp_send_json_success( $user_data );
+		$auth     = new Authenticate( $user_data );
+		$response = $auth->authenticate();
+
+		wp_send_json_success( $response );
+
 		wp_die();
 	}
 

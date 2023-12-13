@@ -2,14 +2,14 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.4.0
  */
 
 namespace LoginMeNow\Model;
 
 class Auth {
 
-	public static function login( int $user_id, string $redirect_uri = '' ): void {
+	public static function login( int $user_id, string $redirect_uri = '', bool $redirect_return = false ) {
 		include ABSPATH . "wp-includes/pluggable.php";
 		if ( is_user_logged_in() ) {
 			$current_user_id = get_current_user_id();
@@ -26,6 +26,10 @@ class Auth {
 
 		if ( ! $redirect_uri ) {
 			$redirect_uri = admin_url();
+		}
+
+		if ( $redirect_return ) {
+			return $redirect_uri;
 		}
 
 		if ( wp_safe_redirect( $redirect_uri ) ) {

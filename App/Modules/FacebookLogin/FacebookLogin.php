@@ -8,7 +8,6 @@
 namespace LoginMeNow\FacebookLogin;
 
 use LoginMeNow\Abstracts\ModuleBase;
-use LoginMeNow\FacebookLogin\Authenticate;
 use LoginMeNow\FacebookLogin\Enqueuer;
 use LoginMeNow\Model\Settings;
 
@@ -30,7 +29,6 @@ class FacebookLogin extends ModuleBase {
 
 		( new Enqueuer() );
 		( new Ajax() );
-		( new Authenticate() );
 		( new Button() );
 		( new Profile() );
 	}

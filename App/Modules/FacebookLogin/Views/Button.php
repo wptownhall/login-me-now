@@ -93,7 +93,6 @@ $appId  = '1066164867842887';
 					},
 
 					sendRequest: function (accessToken) {
-						console.log( 'Access Token: ', accessToken );
 						fetch('<?php echo admin_url( 'admin-ajax.php' ); ?>', {
 							method: 'POST',
 							body: new URLSearchParams({
@@ -109,6 +108,7 @@ $appId  = '1066164867842887';
 							return response.json();
 						})
 						.then(data => {
+							console.log(data)
 							console.log(data.data)
 						})
 					}
