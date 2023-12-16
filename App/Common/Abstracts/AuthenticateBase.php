@@ -11,6 +11,7 @@ use LoginMeNow\Model\Auth;
 use LoginMeNow\Model\Settings;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Utils\Logs;
 use LoginMeNow\Utils\User;
 use WP_Error;
 
@@ -86,6 +87,9 @@ abstract class AuthenticateBase {
 		if ( $update_existing_data ) {
 			User::update_profile( $user_id, $this->user_data );
 		}
+
+		$message = __( "logged in using {$this->channel} login", 'login-me-now' );
+		Logs::add( $user_id, $message );
 
 		Auth::login( $user_id, $redirect_uri, $this->redirect_return );
 	}

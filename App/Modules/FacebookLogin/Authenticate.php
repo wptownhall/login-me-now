@@ -27,10 +27,9 @@ class Authenticate extends AuthenticateBase {
 		if ( is_wp_error( $action ) ) {
 			error_log( 'Login Me Now - ' . print_r( $action ) );
 
-			return;
+			return ['error message goes here'];
 		}
 
-		return [34334];
-
+		return $redirect_uri;
 	}
 }

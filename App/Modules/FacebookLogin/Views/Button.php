@@ -5,7 +5,7 @@
  * @version 1.4.0
  */
 
-$appId  = '1066164867842887';
+$appId = '1066164867842887';
 ?>
 
 <div class="lmn_fb_login">
@@ -34,13 +34,17 @@ $appId  = '1066164867842887';
             margin-left: 8px;
             font-size: 14px;
         }
+
+		.lmn_fb_login .lmn_fb_login_button[disabled] {
+			background: #ddd;
+		}
     </style>
 
     <script>
         // Challenge
         // If has token and app id is valid then run code
         // If not then show error message console
-        // When someone clicks the button, just login to the app
+        // When someone clicks the just login to the app
         // After clicking and successful login send the access Token of users to the backend to verify it again
         // After getting a good response, redirect to wp-admin page.
         //
@@ -50,9 +54,11 @@ $appId  = '1066164867842887';
 			if (typeof LoginMeNowFacebookLogin === 'undefined') {
 				var LoginMeNowFacebookLogin  = {
 
+					buttons: function() {
+						return document.querySelectorAll('.lmn_fb_login_button');
+					},
 					init: function() {
 						var self = this;
-						var loginButtons = document.querySelectorAll('.lmn_fb_login_button');
 
 						window.fbAsyncInit = function() {
 							FB.init({
@@ -64,10 +70,10 @@ $appId  = '1066164867842887';
 							});
 						}
 
-						loginButtons.forEach(button => {
+						this.buttons().forEach(button => {
 							button.addEventListener('click', function (event) {
-								console.log(button)
 								event.preventDefault();
+								self.enableButton(true);
 								self.tryLogin();
 							});
 						});
@@ -76,6 +82,7 @@ $appId  = '1066164867842887';
 					tryLogin: function () {
 						if (typeof FB === "undefined") {
 							console.log("Facebook Login: API is not loaded yet");
+							this.enableButton(false);
 							return;
 						}
 
@@ -86,6 +93,7 @@ $appId  = '1066164867842887';
 								if( response.authResponse.accessToken ) {
 									self.sendRequest(response.authResponse.accessToken);
 								} else {
+									self.enableButton(false);
 									console.log("Login Failed, something wen't wrong.");
 								}
 							}
@@ -93,24 +101,36 @@ $appId  = '1066164867842887';
 					},
 
 					sendRequest: function (accessToken) {
+						var self = this;
 						fetch('<?php echo admin_url( 'admin-ajax.php' ); ?>', {
 							method: 'POST',
 							body: new URLSearchParams({
 								action: 'login_me_now_facebook_login',
 								security: '<?php echo wp_create_nonce( 'login_me_now_facebook_login_nonce' ); ?>',
+								redirect_uri: '<?php echo admin_url(); ?>',
 								accessToken: accessToken,
 							}),
 						})
 						.then(response => {
 							if (!response.ok) {
+								self.enableButton(false);
 								throw new Error('Network response was not ok');
 							}
 							return response.json();
 						})
 						.then(data => {
-							console.log(data)
-							console.log(data.data)
+							if (data.success) {
+								window.location.href = data.data;
+							} else {
+								self.enableButton(false);
+								console.log("Login Failed, something wen't wrong.");
+							}
 						})
+					},
+					enableButton: function(status) {
+						this.buttons().forEach(button => {
+							button.disabled = status;
+						});
 					}
 				};
 

@@ -18,7 +18,6 @@ class Profile {
 
 	public function __construct() {
 		$this->filter( 'get_avatar_url', 'avatar', 10, 2 );
-
 	}
 
 	public function avatar( $url, $id_or_email ) {
