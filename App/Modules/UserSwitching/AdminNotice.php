@@ -2,11 +2,12 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.4.0
  */
 
 namespace LoginMeNow\UserSwitching;
 
+use LoginMeNow\Model\Settings;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
 
@@ -27,6 +28,10 @@ class AdminNotice {
 	}
 
 	public function user_switching(): void {
+		$enable = Settings::init()->get( 'user_switching', false );
+		if ( ! $enable ) {
+			return;
+		}
 		?>
 		<div class="error">
 			<p>

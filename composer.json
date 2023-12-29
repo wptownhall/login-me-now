@@ -2,18 +2,19 @@
     "name": "halalbrains/login-me-now",
     "autoload": {
         "psr-4": {
-            "LoginMeNow\\": "App",
-            "LoginMeNow\\Abstracts\\": "App/Common/Abstracts",
-            "LoginMeNow\\Traits\\": "App/Common/Traits",
-            "LoginMeNow\\Model\\": "App/Models",
-            "LoginMeNow\\Routes\\": "App/Routes",
-            "LoginMeNow\\GoogleLogin\\": "App/Modules/GoogleLogin",
-            "LoginMeNow\\FacebookLogin\\": "App/Modules/FacebookLogin",
-            "LoginMeNow\\OnetimeNumber\\": "App/Modules/OnetimeNumber",
-            "LoginMeNow\\UserSwitching\\": "App/Modules/UserSwitching",
-            "LoginMeNow\\LoginLink\\": "App/Modules/LoginLink",
-            "LoginMeNow\\BrowserToken\\": "App/Modules/BrowserToken",
-            "LoginMeNow\\AdvanceSharing\\": "App/Modules/AdvanceSharing"
+            "LoginMeNow\\": "app",
+            "LoginMeNow\\Abstracts\\": "app/Common/Abstracts",
+            "LoginMeNow\\Traits\\": "app/Common/Traits",
+            "LoginMeNow\\Model\\": "app/Models",
+            "LoginMeNow\\Routes\\": "app/Routes",
+            "LoginMeNow\\GoogleLogin\\": "app/Modules/GoogleLogin",
+            "LoginMeNow\\FacebookLogin\\": "app/Modules/FacebookLogin",
+            "LoginMeNow\\OnetimeNumber\\": "app/Modules/OnetimeNumber",
+            "LoginMeNow\\UserSwitching\\": "app/Modules/UserSwitching",
+            "LoginMeNow\\LoginLink\\": "app/Modules/LoginLink",
+            "LoginMeNow\\BrowserToken\\": "app/Modules/BrowserToken",
+            "LoginMeNow\\AdvanceSharing\\": "app/Modules/AdvanceSharing",
+            "LoginMeNow\\LoginForm\\": "app/Modules/LoginForm"
         }
     },
     "authors": [
@@ -24,7 +25,8 @@
     "require": {
         "php": ">=7.4",
         "firebase/php-jwt": "^6.3",
-        "google/apiclient": "^2.12.1"
+        "google/apiclient": "^2.12.1",
+        "heymehedi/utils": "^1.1"
     },
     "scripts": {
         "pre-autoload-dump": "Google\\Task\\Composer::cleanup"

@@ -4,7 +4,7 @@
  * Description: 1 click passwordless login, social login & user switching
  * Author: WPtownhall
  * Author URI: https://wptownhall.com/login-me-now/
- * Version: 1.3.3
+ * Version: 1.4.0
  * Requires PHP: 7.4
  * License: GPL2
  * Text Domain: login-me-now
@@ -32,6 +32,7 @@
  * **********************************************************************
  */
 
+use HeyMehedi\Utils\Config;
 use LoginMeNow\App;
 
 // don't call the file directly
@@ -39,22 +40,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * LoginMeNow class
- *
- * This class holds the entire LoginMeNow plugin
- */
+include __DIR__ . '/vendor/autoload.php';
+
 final class LoginMeNow {
-	public string $version  = '1.3.3';
-	private string $min_php = '7.4';
 	public object $app;
 	private static $instance;
 
-	/**
-	 * Initializes the LoginMeNow() class
-	 * Checks for an existing LoginMeNow() instance
-	 * and if it doesn't find one, creates it.
-	 */
 	public static function init(): object {
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof LoginMeNow ) ) {
 			self::$instance = new LoginMeNow();
@@ -64,13 +55,7 @@ final class LoginMeNow {
 		return self::$instance;
 	}
 
-	/**
-	 * Setup the plugin
-	 *
-	 * Sets up all the appropriate hooks and actions within our plugin.
-	 */
 	private function setup(): void {
-		// dry check on older PHP versions, if found deactivate itself with an error
 		register_activation_hook( __FILE__, [$this, 'auto_deactivate'] );
 
 		if ( ! $this->is_supported_php() ) {
@@ -78,26 +63,19 @@ final class LoginMeNow {
 		}
 
 		$this->define_constants();
-		$this->includes();
-		$this->app = App::init();
+		$this->app = new App();
 
 		do_action( 'login_me_now_loaded' );
 	}
 
-	/**
-	 * Check if the PHP version is supported
-	 */
 	public function is_supported_php(): bool {
-		if ( version_compare( PHP_VERSION, $this->min_php, '<' ) ) {
+		if ( version_compare( PHP_VERSION, Config::get( 'min_php' ), '<' ) ) {
 			return false;
 		}
 
 		return true;
 	}
 
-	/**
-	 * Bail out if the php version is lower than
-	 */
 	public function auto_deactivate(): void {
 		if ( $this->is_supported_php() ) {
 			return;
@@ -120,32 +98,26 @@ final class LoginMeNow {
 		);
 	}
 
-	/**
-	 * Define the constants
-	 */
 	private function define_constants(): void {
-		define( 'LOGIN_ME_NOW_VERSION', $this->version );
+		define( 'LOGIN_ME_NOW_VERSION', Config::get( 'version' ) );
 		define( 'LOGIN_ME_NOW_FILE', __FILE__ );
 		define( 'LOGIN_ME_NOW_URL', plugins_url( '', LOGIN_ME_NOW_FILE ) );
 		define( 'LOGIN_ME_NOW_PATH', dirname( LOGIN_ME_NOW_FILE ) );
-		define( 'LOGIN_ME_NOW_APP_PATH', LOGIN_ME_NOW_PATH . '/App/' );
-		define( 'LOGIN_ME_NOW_APP_URL', LOGIN_ME_NOW_URL . '/App/' );
+		define( 'LOGIN_ME_NOW_APP_PATH', LOGIN_ME_NOW_PATH . '/app/' );
+		define( 'LOGIN_ME_NOW_APP_URL', LOGIN_ME_NOW_URL . '/app/' );
 
 		define( 'LOGIN_ME_NOW_INCLUDES', LOGIN_ME_NOW_APP_PATH . 'Common' );
 		define( 'LOGIN_ME_NOW_MODULES', LOGIN_ME_NOW_APP_PATH . 'Modules' );
-		define( 'LOGIN_ME_NOW_ASSETS', LOGIN_ME_NOW_APP_URL . 'Assets' );
+		define( 'LOGIN_ME_NOW_ASSETS', LOGIN_ME_NOW_URL . 'assets' );
+		define( 'LOGIN_ME_NOW_TEMPLATE_PATH', LOGIN_ME_NOW_PATH . '/templates/' );
 
 		define( 'LOGIN_ME_NOW_ADMIN_URL', LOGIN_ME_NOW_APP_URL . 'Admin' );
 		define( 'LOGIN_ME_NOW_ADMIN_PATH', LOGIN_ME_NOW_APP_PATH . 'Admin' );
 
-		define( 'LOGIN_ME_NOW_MENU_SLUG', apply_filters( 'login_me_now_menu_slug', 'login-me-now' ) );
-		define( 'LOGIN_ME_NOW_MENU_CAPABILITY', apply_filters( 'login_me_now_menu_capability', 'manage_options' ) );
+		define( 'LOGIN_ME_NOW_MENU_SLUG', apply_filters( 'login_me_now_menu_slug', Config::get( 'menu_slug' ) ) );
+		define( 'LOGIN_ME_NOW_MENU_CAPABILITY', apply_filters( 'login_me_now_menu_capability', Config::get( 'menu_cap' ) ) );
 
-		define( 'LOGIN_ME_NOW_PRO_UPGRADE_URL', 'https://wptownhall.com/login-me-now/pricing/' );
-	}
-
-	private function includes(): void {
-		include __DIR__ . '/vendor/autoload.php';
+		define( 'LOGIN_ME_NOW_PRO_UPGRADE_URL', Config::get( 'pro_upgrade_url' ) );
 	}
 }
 

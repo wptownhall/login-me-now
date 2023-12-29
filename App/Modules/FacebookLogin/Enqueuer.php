@@ -1,26 +1,22 @@
 <?php
 /**
  * @author  WPtownhall
- * @since   1.0.0
- * @version 1.0.0
+ * @since   1.4.0
+ * @version 1.4.0
  */
 
 namespace LoginMeNow\FacebookLogin;
 
 use LoginMeNow\Abstracts\EnqueuerBase;
-use LoginMeNow\Traits\Hookable;
 
-/**
- * Assets Enqueuer
- */
 class Enqueuer extends EnqueuerBase {
-	use Hookable;
 
 	public function __construct() {
-		$this->action( 'wp_footer', 'load_sdk' );
+		$this->action( 'wp_enqueue_scripts', 'load_sdk', 50 );
+		$this->action( 'login_enqueue_scripts', 'load_sdk', 1 );
 	}
 
 	public function load_sdk() {
-		echo '<script defer src="https://connect.facebook.net/en_US/sdk.js"></script>';
+		wp_enqueue_script( 'login-me-now-facebook-sdk-js', 'https://connect.facebook.net/en_US/sdk.js' );
 	}
 }
