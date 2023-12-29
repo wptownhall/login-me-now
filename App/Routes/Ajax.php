@@ -59,7 +59,6 @@ class Ajax {
 				'user_switching'                   => 'bool',
 				'temporary_login'                  => 'bool',
 				'browser_extension'                => 'bool',
-				'user_switching'                   => 'bool',
 				'activity_logs'                    => 'bool',
 				'enable_sign_in_google'            => 'bool',
 				'enable_sign_in_facebook'          => 'bool',
