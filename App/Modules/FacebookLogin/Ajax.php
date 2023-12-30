@@ -32,12 +32,16 @@ class Ajax {
 
 		$access_token = (string) isset( $_POST['accessToken'] ) ? sanitize_text_field( $_POST['accessToken'] ) : null;
 		if ( ! $access_token ) {
-			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
+			wp_send_json_error( __( "Not authenticated", 'login-me-now' ) );
 		}
 
 		$user_data = $this->getRemoteUserGraph( $access_token );
 		if ( ! $user_data ) {
 			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
+		}
+
+		if ( ! isset( $user_data['email'] ) ) {
+			wp_send_json_error( __( "Please give the email permission", 'login-me-now' ) );
 		}
 
 		$auth     = new Authenticate( $user_data );
@@ -54,6 +58,8 @@ class Ajax {
 		$response            = file_get_contents( $fbApiUrl );
 		$data                = json_decode( $response, true );
 		$data['accessToken'] = $access_token;
+
+		error_log( print_r( $response, true ) );
 
 		if ( ! isset( $data['id'] ) ) {
 			$data['message'] = 'Something went wrong';
