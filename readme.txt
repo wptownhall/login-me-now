@@ -1,14 +1,14 @@
-=== 1 click passwordless login, temporary login, social login & user switching by Login Me Now ===
+=== 1 click passwordless login, temporary login, social login & user switching - Login Me Now ===
 Contributors: WPtownhall, HeyMehedi
 Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
-Tested up to: 6.3.1
+Tested up to: 6.4.2
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.4.0
 License: GPLv3 or Any Later Version
-Tags: login, password, secure-login, wp-login, social-login
+Tags: login, password, secure-login, wp-login, social-login, google-login, one-click, google-avatar, delegate-access, browser-extension
 
-Login Me Now – 1 click passwordless login, social login & user switching
+It feels like 8 plugins in one, it provides over 25 features making it the ultimate WP login solution.
 
 == Description ==
 [TRY LIVE DEMO](https://try.loginmenow.com/) | [ROADMAP](https://wptownhall.com/login-me-now/roadmap/) | [PRO](https://wptownhall.com/login-me-now/pricing/)  ( LIMITED LIFETIME DEAL🎁 ) 
@@ -28,7 +28,6 @@ Creating a separate admin login for outsiders is always risky and time-consuming
 So what if this entire process gets replaced using a simple process without creating a new username? Instant, automated, and in one click?
 Using this plugin, you can create a self-expiring login link to grant temporary access to an individual (developer, support staff, or concerned person).
 
-
 <strong>SHARE LOGIN ACCESS IN SECONDS! ⏱️</strong>
 
 It takes just <strong>3 simple steps:</strong>
@@ -44,19 +43,23 @@ That was pretty easy, right?
 <strong>PACKED WITH FEATURES</strong>
 
 <strong>EXPRESS LOGIN 🔐</strong>
+
 Generate login URL: Create a unique & conditional access link.
 
 <strong>Passwordless login:</strong> No need for a username/ email and password – simply use the link to log in.
+
 Time expiration option: Set an expiration time with option ranging from a few hours to a few days.
 
 
 <strong>SOCIAL LOGIN 💻</strong>
-<strong>GOOGLE :</strong>
+
+<strong>GOOGLE:</strong>
 
 <strong>User role selection:</strong> Set default role for users.
-Update existing user name: Automatically retrieve the existing user first, last, nick & display name from google account upon login using gmail. <strong>[PRO]</strong>
 
-<strong>Add user profile picture: </strong>Automatically retrieve the profile picture as avatar from users’ google account upon login or register using gmail. <strong>[PRO]</strong>
+<strong>Update existing user name:</strong> retrieve the existing user first, last, nick & display name from google account upon login using gmail. <strong>[PRO]</strong>
+
+<strong>Add user profile picture: </strong> retrieve the profile picture as avatar from users’ google account upon login or register using gmail. <strong>[PRO]</strong>
 
 <strong>One Tap prompt behavior:</strong> Enable/disable the option to close the prompt ( Google login box ) on outside click.
 
@@ -71,21 +74,35 @@ Use this shortcode to put Google login button on any page/ post/ block.
 == USER SWITCHING 👥 ==
 <strong>Instantly switch to any user account:</strong> You can effortlessly swap between user accounts. This feature is useful for any WP website where administrators need to switch between multiple accounts.
 
+
 == COMING NEXT ==
 * Facebook login (SSO)
-* Express login for WooCommerce
+* Signup/Login form builder
 * OTP login
+* Express login for WooCommerce
 * Conditional login
 
+
 == BROWSER EXTENSION AVAILABLE ==
+
 Experience instant dashboard access with just 1 click from browser extension.
 
-[Install Chrome extension](https://chrome.google.com/webstore/detail/login-me-now-wordpress-lo/kkkofomlfhbepmpiplggmfpomdnkljoh?hl=en&authuser=0)
-[Install Mozilla addon](https://addons.mozilla.org/en-US/firefox/addon/login-me-now/)
+👉 [Use Chrome extension](https://chrome.google.com/webstore/detail/login-me-now-wordpress-lo/kkkofomlfhbepmpiplggmfpomdnkljoh?hl=en&authuser=0)
+👉 [Use Mozilla addon](https://addons.mozilla.org/en-US/firefox/addon/login-me-now/)
 
 == WHY TO USE BROWSER EXTENSION? ==
 This saves you time, especially if you frequently log in to multiple website dashboards throughout the day. With the browser extension, a secure dashboard login is just one click away. Say goodbye to the hassle of navigating to the login panel and entering your username/email and password. The login process is secure, fast, and smooth!
+
+[youtube https://www.youtube.com/watch?v=2_GOOzZkeSM]
+
 <strong>PS:</strong> The browser extension never tracks or saves any of your website data or login credentials. When it comes to dashboard login access, it is securely stored in an encrypted format within the browser extension using an industry-standard JWT token. The generated token cannot be compressed to encrypt login credentials.
+
+
+== ACTIVITY LOG ==
+Keep an activity log of everything that occurs when a user logs in to the dashboard using the tokenized login link.
+
+This plugin comes with built in support for [Simple History](https://wordpress.org/plugins/simple-history/).
+
 
 == WHO IS THIS PLUGIN FOR? ==
 **For Websites Owner:**
@@ -107,11 +124,24 @@ Features of this plugin hit all the checkpoints for a full-fledged login manager
 We prioritize providing excellent customer assistance, ensuring any issues or queries you may have will be promptly addressed. Moreover, our team is dedicated to continuously improving the plugin, adding new features and updates to enhance its functionality and security. With our commitment to support and development, you can confidently rely on this plugin to provide your weoptimized and secured login experience.
 
 
+== Compatibility + Integration ==
+* Simple History
+* WooCommerce
+* Easy Digital Downloads (coming soon)
+* Directorist (coming soon)
+* Fluent support (coming soon)
+* Dokan (coming soon)
+* BuddyBoss (coming soon)
+* BuddyPress (coming soon)
+* bbPress (coming soon)
+* Tutor LMS (coming soon) 
+
+
 == OTHER AMAZING PLUGIN BY US ==
-[All-in-One WordPress Content Restriction](https://wordpress.org/plugins/all-in-one-content-restriction/)
+👉 [All-in-One WordPress Content Restriction](https://wordpress.org/plugins/all-in-one-content-restriction/)
 
 == FIND AN ISSUE? ==
-We are right here to help you in [support forum](https://wordpress.org/support/plugin/login-me-now/). You ca post a topic. Please search existing topics before starting a new one.
+We are right here to help you in [support forum](https://wordpress.org/support/plugin/login-me-now/). You can post a topic. Please search existing topics before starting a new one.
 
 == Installation ==
 Install Login Me Now either via the WordPress.org plugin repository or by uploading the files to your server.
@@ -128,6 +158,19 @@ No. That would be horrible not only for you but even more so for us (huge liabil
 Yes, you will know the activities in the dashboard of the recipient by checking the activity log option of this plugin. This means you can keep track of what the recipient is doing while they have temporary access to your website. 
 
 == Changelog ==
+
+
+= 1.3.3 – Dec 02, 2023 =
+* Add: Save to Extension - for non-admin
+* Improved: Save to Extension - don't show again.
+
+= 1.3.2 – Nov 28, 2023 =
+* Fix: Settings Cache Issue
+* Fix: License Issue
+
+= 1.3.1 – Nov 21, 2023 =
+* Fix: Simple History Message
+* Add: Browser Extension Explainer Video
 
 = 1.3.0 – Nov 08, 2023 =
 * Add: Simple History Integration

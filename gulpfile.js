@@ -32,6 +32,7 @@ gulp.task('zip', function () {
 			'!package.json',
 			'!package-lock.json',
 			'!todo.txt',
+			'!README.md',
 			'!sftp-config.json',
 			'!App/Admin/Assets/src/**',
 			'!App/Admin/package-lock.json',
@@ -40,7 +41,8 @@ gulp.task('zip', function () {
 			'!App/Admin/tailwind.config.js',
 			'!App/Admin/webpack.config.js',
 			'!testing.html',
-			'!Tests'
+			'!Tests',
+			'!Tests/**'
 		], { base: '..' })
 	.pipe(zip(project.name+'.zip'))
 	.pipe(gulp.dest('__build'));
