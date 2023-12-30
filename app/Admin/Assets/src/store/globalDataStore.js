@@ -61,6 +61,7 @@ const initialState = wp.hooks.applyFilters("login_me_now_dashboard/datastore", {
   enableFacebookLogin: false,
   enableFacebookNativeLogin: true,
   selectFacebookProDefaultUserRole: "subscriber",
+  enableFacebookUpdateExistingUserData: true,
 });
 
 const globalDataStore = createStore(

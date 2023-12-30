@@ -236,6 +236,11 @@ const globalDataReducer = (state = {}, action) => {
         ...state,
         selectFacebookProDefaultUserRole: action.payload,
       };
+    case "UPDATE_ENABLE_FACEBOOK_UPDATE_EXISTING_USER_DATA":
+      return {
+        ...state,
+        enableFacebookUpdateExistingUserData: action.payload,
+      };
     default:
       return state;
   }

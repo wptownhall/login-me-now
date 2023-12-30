@@ -14,6 +14,7 @@ import FacebookAppId from "./facebook/FacebookAppId";
 import FacebookLogin from "./facebook/FacebookLogin";
 import FacebookInNativeLogin from "./facebook/FacebookNativeLogin";
 import FacebookProDefaultUserRole from "./facebook/FacebookProDefaultUserRole";
+import FacebookInUpdateExistingUserData from "./facebook/FacebookInUpdateExistingUserData";
 // import PasscodeInput from "./PasscodeInput";
 
 
@@ -40,6 +41,7 @@ function SettingsWrapper({ state }) {
           <FacebookAppId />
           <FacebookInNativeLogin />
           <FacebookProDefaultUserRole />
+          <FacebookInUpdateExistingUserData />
         </>
       ),
     }
