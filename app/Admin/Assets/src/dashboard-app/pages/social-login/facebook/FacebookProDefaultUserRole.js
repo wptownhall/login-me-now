@@ -39,7 +39,7 @@ const FacebookProDefaultUserRole = () => {
     });
   };
 
-  const role = useSelector((state) => state.selectGoogleProDefaultUserRole);
+  const role = useSelector((state) => state.selectFacebookProDefaultUserRole);
 	let currentOption = 'Subscriber';
 	if (getUserRoles && Object.hasOwnProperty.call(getUserRoles, role)) {
 		currentOption = getUserRoles[role];
