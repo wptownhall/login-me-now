@@ -40,12 +40,17 @@ class ComposerStaticInit184d419aeb5d10103d268eb48787b93d
             'LoginMeNow\\OnetimeNumber\\' => 25,
             'LoginMeNow\\Model\\' => 17,
             'LoginMeNow\\LoginLink\\' => 21,
+            'LoginMeNow\\LoginForm\\' => 21,
             'LoginMeNow\\GoogleLogin\\' => 23,
             'LoginMeNow\\FacebookLogin\\' => 25,
             'LoginMeNow\\BrowserToken\\' => 24,
             'LoginMeNow\\AdvanceSharing\\' => 26,
             'LoginMeNow\\Abstracts\\' => 21,
             'LoginMeNow\\' => 11,
+        ),
+        'H' => 
+        array (
+            'HeyMehedi\\Utils\\' => 16,
         ),
         'G' => 
         array (
@@ -73,8 +78,8 @@ class ComposerStaticInit184d419aeb5d10103d268eb48787b93d
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -94,51 +99,59 @@ class ComposerStaticInit184d419aeb5d10103d268eb48787b93d
         ),
         'LoginMeNow\\UserSwitching\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App/Modules/UserSwitching',
+            0 => __DIR__ . '/../..' . '/app/Modules/UserSwitching',
         ),
         'LoginMeNow\\Traits\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App/Common/Traits',
+            0 => __DIR__ . '/../..' . '/app/Common/Traits',
         ),
         'LoginMeNow\\Routes\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App/Routes',
+            0 => __DIR__ . '/../..' . '/app/Routes',
         ),
         'LoginMeNow\\OnetimeNumber\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App/Modules/OnetimeNumber',
+            0 => __DIR__ . '/../..' . '/app/Modules/OnetimeNumber',
         ),
         'LoginMeNow\\Model\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App/Models',
+            0 => __DIR__ . '/../..' . '/app/Models',
         ),
         'LoginMeNow\\LoginLink\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App/Modules/LoginLink',
+            0 => __DIR__ . '/../..' . '/app/Modules/LoginLink',
+        ),
+        'LoginMeNow\\LoginForm\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/Modules/LoginForm',
         ),
         'LoginMeNow\\GoogleLogin\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App/Modules/GoogleLogin',
+            0 => __DIR__ . '/../..' . '/app/Modules/GoogleLogin',
         ),
         'LoginMeNow\\FacebookLogin\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App/Modules/FacebookLogin',
+            0 => __DIR__ . '/../..' . '/app/Modules/FacebookLogin',
         ),
         'LoginMeNow\\BrowserToken\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App/Modules/BrowserToken',
+            0 => __DIR__ . '/../..' . '/app/Modules/BrowserToken',
         ),
         'LoginMeNow\\AdvanceSharing\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App/Modules/AdvanceSharing',
+            0 => __DIR__ . '/../..' . '/app/Modules/AdvanceSharing',
         ),
         'LoginMeNow\\Abstracts\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App/Common/Abstracts',
+            0 => __DIR__ . '/../..' . '/app/Common/Abstracts',
         ),
         'LoginMeNow\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/App',
+            0 => __DIR__ . '/../..' . '/app',
+        ),
+        'HeyMehedi\\Utils\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/heymehedi/utils/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (

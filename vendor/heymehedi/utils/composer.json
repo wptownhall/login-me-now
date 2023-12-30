@@ -1,0 +1,16 @@
+{
+    "name": "heymehedi/utils",
+    "description": "Collections of Some Utilities",
+    "type": "library",
+    "keywords": ["wordpress", "utils", "utilities", "helpers", "boilerplate"],
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "HeyMehedi\\Utils\\": "src/"
+        }
+    },
+    "minimum-stability": "alpha",
+    "require": {
+        "php": ">=7.4"
+    }
+}
