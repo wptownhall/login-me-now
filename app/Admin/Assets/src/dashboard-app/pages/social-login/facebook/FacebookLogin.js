@@ -7,29 +7,29 @@ function classNames(...classes) {
 	return classes.filter(Boolean).join(' ')
 }
 
-const GoogleLogin = () => {
+const FacebookLogin = () => {
 
 	const dispatch = useDispatch();
 
-	const enableGoogleLogin = useSelector((state) => state.enableGoogleLogin);
-	const enableGoogleLoginStatus = false === enableGoogleLogin ? false : true;
+	const enableFacebookLogin = useSelector((state) => state.enableFacebookLogin);
+	const enableFacebookLoginStatus = false === enableFacebookLogin ? false : true;
 
 	const updateLogsStatus = () => {
 
 		let assetStatus;
-		if (enableGoogleLogin === false) {
+		if (enableFacebookLogin === false) {
 			assetStatus = true;
 		} else {
 			assetStatus = false;
 		}
 
-		dispatch({ type: 'UPDATE_ENABLE_GOOGLE_LOGIN', payload: assetStatus });
+		dispatch({ type: 'UPDATE_ENABLE_FACEBOOK_LOGIN', payload: assetStatus });
 
 		const formData = new window.FormData();
 
 		formData.append('action', 'login_me_now_update_admin_setting');
 		formData.append('security', lmn_admin.update_nonce);
-		formData.append('key', 'google_login');
+		formData.append('key', 'facebook_login');
 		formData.append('value', assetStatus);
 
 		apiFetch({
@@ -45,14 +45,14 @@ const GoogleLogin = () => {
 		<section className='block pb-6 pt-12 justify-between'>
 			<div className='mr-16 w-full flex items-center'>
 				<h3 className="p-0 flex-1 justify-right inline-flex text-[24px] leading-6 font-semibold text-slate-800">
-					{__('Google', 'login-me-now')}
+					{__('Facebook', 'login-me-now')}
 				</h3>
 				<Switch
 
-					checked={enableGoogleLoginStatus}
+					checked={enableFacebookLoginStatus}
 					onChange={updateLogsStatus}
 					className={classNames(
-						enableGoogleLoginStatus ? 'bg-lmn' : 'bg-slate-200',
+						enableFacebookLoginStatus ? 'bg-lmn' : 'bg-slate-200',
 						'group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2'
 					)}
 				>
@@ -60,14 +60,14 @@ const GoogleLogin = () => {
 					<span
 						aria-hidden="true"
 						className={classNames(
-							enableGoogleLoginStatus ? 'bg-lmn' : 'bg-gray-200',
+							enableFacebookLoginStatus ? 'bg-lmn' : 'bg-gray-200',
 							'pointer-events-none absolute mx-auto h-[16px] w-[32px] rounded-full transition-colors duration-200 ease-in-out'
 						)}
 					/>
 					<span
 						aria-hidden="true"
 						className={classNames(
-							enableGoogleLoginStatus ? 'translate-x-5' : 'translate-x-0',
+							enableFacebookLoginStatus ? 'translate-x-5' : 'translate-x-0',
 							'toggle-bubble pointer-events-none absolute left-0 inline-block h-[16px] w-[16px] transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out'
 						)}
 					/>
@@ -75,10 +75,10 @@ const GoogleLogin = () => {
 				
 			</div>
 			<p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
-				{__('Enable google login', 'login-me-now')}
+				{__('Enable facebook login', 'login-me-now')}
 			</p>
 		</section>
 	);
 };
 
-export default GoogleLogin;
+export default FacebookLogin;

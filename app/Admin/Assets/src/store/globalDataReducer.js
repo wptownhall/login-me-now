@@ -221,6 +221,21 @@ const globalDataReducer = (state = {}, action) => {
         ...state,
         enableFacebookAppID: action.payload,
       };
+    case "UPDATE_ENABLE_FACEBOOK_LOGIN":
+      return {
+        ...state,
+        enableFacebookLogin: action.payload,
+      };
+    case "UPDATE_ENABLE_FACEBOOK_NATIVE_LOGIN":
+      return {
+        ...state,
+        enableFacebookNativeLogin: action.payload,
+      };
+    case "UPDATE_SELECT_FACEBOOK_PRO_DEFAULT_USER_ROLE":
+      return {
+        ...state,
+        selectFacebookProDefaultUserRole: action.payload,
+      };
     default:
       return state;
   }

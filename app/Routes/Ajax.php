@@ -50,6 +50,9 @@ class Ajax {
 				'google_onetap'                    => 'bool',
 				'google_cancel_on_tap_outside'     => 'bool',
 				'google_onetap_display_location'   => 'string',
+				'facebook_login'                     => 'bool',
+				'facebook_native_login'              => 'bool',
+				'facebook_pro_default_user_role'     => 'string'
 			]
 		);
 	}

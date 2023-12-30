@@ -10,7 +10,10 @@ import GoogleProDefaultUserRole from "./google/GoogleProDefaultUserRole";
 import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
 import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
 import OneTapToLogin from "./google/OneTapToLogin";
-import FacebooAppId from "./facebook/FacebooAppId";
+import FacebookAppId from "./facebook/FacebookAppId";
+import FacebookLogin from "./facebook/FacebookLogin";
+import FacebookInNativeLogin from "./facebook/FacebookNativeLogin";
+import FacebookProDefaultUserRole from "./facebook/FacebookProDefaultUserRole";
 // import PasscodeInput from "./PasscodeInput";
 
 
@@ -33,7 +36,10 @@ function SettingsWrapper({ state }) {
       ),
       "facebook": (
         <>
-          <FacebooAppId />
+          <FacebookLogin />
+          <FacebookAppId />
+          <FacebookInNativeLogin />
+          <FacebookProDefaultUserRole />
         </>
       ),
     }
