@@ -16,6 +16,7 @@ import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
 import OneTapToLogin from "./google/OneTapToLogin";
 import UserSwitching from "../settings/general/UserSwitching";
 import LoginForm from "./login-form/LoginForm";
+import FacebooAppId from "./facebook/FacebooAppId";
 // import PasscodeInput from "./PasscodeInput";
 
 
@@ -42,6 +43,11 @@ function SettingsWrapper({ state }) {
           <GoogleInUpdateExistingUserData />
           <GoogleUpdateUserAvatar />
           <GoogleProRedirectUrl />
+        </>
+      ),
+      "facebook": (
+        <>
+          <FacebooAppId />
         </>
       ),
     }

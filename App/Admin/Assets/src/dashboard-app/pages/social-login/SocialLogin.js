@@ -41,6 +41,11 @@ const SocialLogin = () => {
         slug: "google",
         icon: SettingsIcons["google-login"],
       },
+      {
+        name: __("Facebook", "login-me-now"),
+        slug: "facebook",
+        icon: SettingsIcons["facebook-login"],
+      },
     ]
   );
 
@@ -134,38 +139,6 @@ const SocialLogin = () => {
                 </>
               ))}
               {/* custom social login item code start from here */}
-              <div className="flex pl-[18px] py-3 cursor-pointer border-l-4 border-l-transparent hover:border-l-[#E2E8F0] opacity-60">
-                <Tooltip title="Upcoming" placement="right">
-                  <span className="flex">
-                    <svg
-                      className="flex-shrink-0 mr-4 stroke-inherit"
-                      height="25px"
-                      width="25px"
-                      fill="#1877F2"
-                      viewBox="0 0 1920 1920"
-                      xmlns="http://www.w3.org/2000/svg"
-                      stroke="#1877F2"
-                    >
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                      <g
-                        id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></g>
-                      <g id="SVGRepo_iconCarrier">
-                        {" "}
-                        <path
-                          d="M1168.737 487.897c44.672-41.401 113.824-36.889 118.9-36.663l289.354-.113 6.317-417.504L1539.65 22.9C1511.675 16.02 1426.053 0 1237.324 0 901.268 0 675.425 235.206 675.425 585.137v93.97H337v451.234h338.425V1920h451.234v-789.66h356.7l62.045-451.233H1126.66v-69.152c0-54.937 14.214-96.112 42.078-122.058"
-                          fill-rule="evenodd"
-                        ></path>{" "}
-                      </g>
-                    </svg>
-                    <span className="text-[16px] text-[#1e293b] font-medium">
-                      Facebook
-                    </span>
-                  </span>
-                </Tooltip>
-              </div>
               <div className="flex pl-[18px] py-3 cursor-pointer border-l-4 border-l-transparent hover:border-l-[#E2E8F0] opacity-60">
                 <Tooltip title="Upcoming" placement="right">
                   <span className="flex">

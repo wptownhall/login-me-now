@@ -55,7 +55,8 @@ const initialState = wp.hooks.applyFilters("login_me_now_dashboard/datastore", {
   lfEnableSignInFacebook: false,
   lfEnableSignInTwitter: false,
   loginLayout: "",
-  loginButtonStyle: ""
+  loginButtonStyle: "",
+  enableFacebookAppID: "",
 });
 
 const globalDataStore = createStore(

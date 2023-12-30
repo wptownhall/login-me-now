@@ -215,6 +215,11 @@ const globalDataReducer = (state = {}, action) => {
         ...state,
         loginButtonStyle: action.payload,
       };
+    case "UPDATE_FACEBOOK_APP_ID":
+      return {
+        ...state,
+        enableFacebookAppID: action.payload,
+      };
     default:
       return state;
   }
