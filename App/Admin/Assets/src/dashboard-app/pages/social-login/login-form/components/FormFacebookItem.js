@@ -6,7 +6,7 @@ export default function FormFacebookItem() {
   return (
     <>
       {loginButtonStyleData === "icon" && (
-        <div className="bg-[#1877F2] flex items-center justify-center shadow-md h-[50px] w-[50px] rounded-[4px] mx-4">
+        <div className="bg-[#1877F2] flex items-center justify-center shadow-md h-[50px] w-[50px] rounded-[4px] mx-2">
           <svg
             class="flex-shrink-0 stroke-inherit"
             height="34px"

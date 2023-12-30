@@ -6,7 +6,7 @@ export default function FormGoogleItem() {
   return (
     <>
       {loginButtonStyleData === "icon" && (
-        <div className="bg-white flex items-center justify-center shadow-md h-[50px] w-[50px] rounded-[4px]">
+        <div className="bg-white flex items-center justify-center shadow-md h-[50px] w-[50px] rounded-[4px] mx-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
