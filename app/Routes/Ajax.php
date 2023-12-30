@@ -66,7 +66,13 @@ class Ajax {
 				'login_layout'                     => 'string',
 				'login_button_style'               => 'string',
 				'facebook_app_id'                 => 'string',
-			]
+				
+				'enable_sign_in_email_address'     => 'bool',
+				'enable_sign_in_phone_number'      => 'bool',
+				'enable_sign_in_username'          => 'bool',
+				'enable_sign_in_google'            => 'bool',
+				'enable_sign_in_facebook'          => 'bool',
+		]
 		);
 	}
 

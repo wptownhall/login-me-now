@@ -265,6 +265,23 @@ input#login_icon {
   z-index: 9;
   transition: 0.7s;
 }
+.no-number-arrows::-webkit-inner-spin-button,
+.no-number-arrows::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+input.react-international-phone-input {
+  width: 100%;
+}
+input.react-international-phone-input {
+  height: 50px!important;
+  border: 2px solid #E5E7EB!important;
+}
+button.react-international-phone-country-selector-button {
+  height: 50px!important;
+  border-left: 2px solid #E5E7EB!important;
+  border-bottom: 2px solid #E5E7EB!important;
+  border-top: 2px solid #E5E7EB!important;
+}
 
 @keyframes dot-pulse-before {
   0% {

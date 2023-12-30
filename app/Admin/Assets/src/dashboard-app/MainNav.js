@@ -2,7 +2,6 @@ import { Disclosure } from "@headlessui/react";
 import { Link, useLocation } from "react-router-dom";
 import { __ } from "@wordpress/i18n";
 import { Fragment, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 export default function MainNav() {
   const [isSticky, setIsSticky] = useState(false);
@@ -23,32 +22,29 @@ export default function MainNav() {
   }, []);
 
   let navMenus = [];
-  const navStatus = useSelector((state) => state);
-  const temporaryLoginStatus = navStatus.dmTemporaryLogin;
-  const browserExtensionStatus = navStatus.dmBrowserExtension;
-  const SocialLoginStatus = navStatus.dmSocialLogin;
+
   navMenus = [
     {
-      name: __("Dashboard", "login-me-now"),
+      name: __("Temporary login", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "",
     },
-    temporaryLoginStatus && {
-      name: __("Temporary login", "login-me-now"),
-      slug: lmn_admin.home_slug,
-      path: "temporary-login",
-    },
-    browserExtensionStatus && {
+    {
       name: __("Browser extension", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "browser-extensions",
     },
-    SocialLoginStatus && {
+    {
       name: __("Social login", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "social-login",
     },
-  ].filter(Boolean);
+    {
+      name: __("Settings", "login-me-now"),
+      slug: lmn_admin.home_slug,
+      path: "settings",
+    },
+  ];
 
   const onInstallExtension = () => {
     window.open(lmn_admin.extension_url, "_blank");
@@ -95,7 +91,6 @@ export default function MainNav() {
                         "" !== menu.path ? "&path=" + menu.path : ""
                       }`,
                     }}
-                    
                     className={`${
                       activePage === menu.slug && activePath === menu.path
                         ? "mb-4 sm:mb-0 border-lmn text-lmn active:text-lmn focus:text-lmn focus-visible:text-lmn-hover hover:text-lmn-hover inline-flex items-center px-1 border-b-2 text-[16px] leading-[0.875rem] font-medium"
@@ -129,10 +124,10 @@ export default function MainNav() {
                 ) : (
                   <button
                     type="button"
-                    className="sm:inline-flex items-center px-4 py-2 border border-[#1755aa] text-[16px] font-medium rounded-md shadow-sm text-white hover:text-white focus-visible:bg-[#1754aae3] hover:bg-[#1754aae3] focus:outline-none mr-4 mb-2 sm:mb-0 bg-[#1755aa]"
+                    className="sm:inline-flex items-center px-4 py-2 border border-lmn-hover text-[16px] font-medium rounded-md shadow-sm text-white hover:text-white focus-visible:bg-lmn-hover hover:bg-[#FF7C6E] focus:outline-none mr-4 mb-2 sm:mb-0 bg-[#F6756B]"
                     onClick={onUpgradeToPro}
                   >
-                    {__("Upgrade to PRO", "login-me-now")}
+                    {__("UPGRADE TO PRO", "login-me-now")}
                   </button>
                 )}
                 {wp.hooks.applyFilters(
