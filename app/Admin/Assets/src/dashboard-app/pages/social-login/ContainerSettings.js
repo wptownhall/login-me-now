@@ -15,6 +15,8 @@ import FacebookLogin from "./facebook/FacebookLogin";
 import FacebookInNativeLogin from "./facebook/FacebookNativeLogin";
 import FacebookProDefaultUserRole from "./facebook/FacebookProDefaultUserRole";
 import FacebookInUpdateExistingUserData from "./facebook/FacebookInUpdateExistingUserData";
+import FacebookUpdateUserAvatar from "./facebook/FacebookUpdateUserAvatar";
+import FacebookProRedirectUrl from "./facebook/FacebookProRedirectUrl";
 // import PasscodeInput from "./PasscodeInput";
 
 
@@ -42,6 +44,8 @@ function SettingsWrapper({ state }) {
           <FacebookInNativeLogin />
           <FacebookProDefaultUserRole />
           <FacebookInUpdateExistingUserData />
+          <FacebookUpdateUserAvatar />
+          <FacebookProRedirectUrl />
         </>
       ),
     }

@@ -241,6 +241,16 @@ const globalDataReducer = (state = {}, action) => {
         ...state,
         enableFacebookUpdateExistingUserData: action.payload,
       };
+    case "UPDATE_ENABLE_FACEBOOK_UPDATE_EXISTING_USER_AVATAR":
+      return {
+        ...state,
+        enableFacebookUpdateExistingUserAvatar: action.payload,
+      };
+    case "UPDATE_INPUT_FACEBOOK_PRO_REDIRECT_URL":
+      return {
+        ...state,
+        inputFacebookProRedirectUrl: action.payload,
+      };
     default:
       return state;
   }

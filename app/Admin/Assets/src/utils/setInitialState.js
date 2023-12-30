@@ -59,7 +59,9 @@ const setInitialState = (store) => {
       enableFacebookLogin: data.facebook_login,
       enableFacebookNativeLogin: data.facebook_native_login,
       selectFacebookProDefaultUserRole: data.facebook_pro_default_user_role,
-      enableFacebookUpdateExistingUserData: data.facebook_update_existing_user_data
+      enableFacebookUpdateExistingUserData: data.facebook_update_existing_user_data,
+      enableGoogleUpdateExistingUserAvatar: data.facebook_pro_user_avatar,
+      inputFacebookProRedirectUrl: data.facebook_pro_redirect_url,
     };
 
     store.dispatch({ type: "UPDATE_INITIAL_STATE", payload: initialState });

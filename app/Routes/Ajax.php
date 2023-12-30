@@ -38,22 +38,24 @@ class Ajax {
 		return apply_filters(
 			'login_me_now_admin_settings_datatypes',
 			[
-				'logs'                             => 'bool',
-				'logs_expiration'                  => 'integer',
+				'logs'                             		=> 'bool',
+				'logs_expiration'                 	 	=> 'integer',
 
-				'user_switching'                   => 'bool',
+				'user_switching'                   		=> 'bool',
 
-				'google_login'                     => 'bool',
-				'google_client_id'                 => 'string',
-				'google_native_login'              => 'bool',
-				'google_update_existing_user_data' => 'bool',
-				'google_onetap'                    => 'bool',
-				'google_cancel_on_tap_outside'     => 'bool',
-				'google_onetap_display_location'   => 'string',
-				'facebook_login'                     => 'bool',
-				'facebook_native_login'              => 'bool',
-				'facebook_pro_default_user_role'     => 'string',
-				'facebook_update_existing_user_data' => 'bool'
+				'google_login'                     		=> 'bool',
+				'google_client_id'                 		=> 'string',
+				'google_native_login'              		=> 'bool',
+				'google_update_existing_user_data' 		=> 'bool',
+				'google_onetap'                    		=> 'bool',
+				'google_cancel_on_tap_outside'     		=> 'bool',
+				'google_onetap_display_location'   		=> 'string',
+				'facebook_login'                     	=> 'bool',
+				'facebook_native_login'              	=> 'bool',
+				'facebook_pro_default_user_role'     	=> 'string',
+				'facebook_update_existing_user_data' 	=> 'bool',
+				'facebook_pro_user_avatar' 				=> 'bool',
+				'facebook_pro_redirect_url'             => 'string'
 			]
 		);
 	}
