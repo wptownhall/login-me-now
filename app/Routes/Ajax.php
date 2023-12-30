@@ -52,7 +52,8 @@ class Ajax {
 				'google_onetap_display_location'   => 'string',
 				'facebook_login'                     => 'bool',
 				'facebook_native_login'              => 'bool',
-				'facebook_pro_default_user_role'     => 'string'
+				'facebook_pro_default_user_role'     => 'string',
+				'facebook_update_existing_user_data' => 'bool'
 			]
 		);
 	}
