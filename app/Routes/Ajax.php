@@ -4,7 +4,7 @@
  *
  * @package Login Me Now
  * @since   1.0.0
- * @version 1.2.0
+ * @version 1.1.0
  */
 
 namespace LoginMeNow\Routes;
@@ -41,6 +41,8 @@ class Ajax {
 				'logs'                             => 'bool',
 				'logs_expiration'                  => 'integer',
 
+				'user_switching'                   => 'bool',
+
 				'google_login'                     => 'bool',
 				'google_client_id'                 => 'string',
 				'google_native_login'              => 'bool',
@@ -48,31 +50,7 @@ class Ajax {
 				'google_onetap'                    => 'bool',
 				'google_cancel_on_tap_outside'     => 'bool',
 				'google_onetap_display_location'   => 'string',
-
-				'dm_advance_share'                 => 'bool',
-				'dm_express_login_wc'              => 'bool',
-				'dm_express_login_edd'             => 'bool',
-				'dm_express_login_email'           => 'bool',
-				'dm_otp_login'                     => 'bool',
-
-				'social_login'                     => 'bool',
-				'user_switching'                   => 'bool',
-				'temporary_login'                  => 'bool',
-				'browser_extension'                => 'bool',
-				'activity_logs'                    => 'bool',
-				'enable_sign_in_google'            => 'bool',
-				'enable_sign_in_facebook'          => 'bool',
-				'enable_sign_in_twitter'           => 'bool',
-				'login_layout'                     => 'string',
-				'login_button_style'               => 'string',
-				'facebook_app_id'                 => 'string',
-				
-				'enable_sign_in_email_address'     => 'bool',
-				'enable_sign_in_phone_number'      => 'bool',
-				'enable_sign_in_username'          => 'bool',
-				'enable_sign_in_google'            => 'bool',
-				'enable_sign_in_facebook'          => 'bool',
-		]
+			]
 		);
 	}
 
