@@ -10,8 +10,6 @@ import GoogleProDefaultUserRole from "./google/GoogleProDefaultUserRole";
 import GoogleProRedirectUrl from "./google/GoogleProRedirectUrl";
 import GoogleUpdateUserAvatar from "./google/GoogleUpdateUserAvatar";
 import OneTapToLogin from "./google/OneTapToLogin";
-import UserSwitching from "../settings/general/UserSwitching";
-import LoginForm from "./login-form/LoginForm";
 import FacebooAppId from "./facebook/FacebooAppId";
 // import PasscodeInput from "./PasscodeInput";
 
