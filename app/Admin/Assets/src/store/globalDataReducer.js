@@ -221,6 +221,36 @@ const globalDataReducer = (state = {}, action) => {
         ...state,
         enableFacebookAppID: action.payload,
       };
+    case "UPDATE_ENABLE_FACEBOOK_LOGIN":
+      return {
+        ...state,
+        enableFacebookLogin: action.payload,
+      };
+    case "UPDATE_ENABLE_FACEBOOK_NATIVE_LOGIN":
+      return {
+        ...state,
+        enableFacebookNativeLogin: action.payload,
+      };
+    case "UPDATE_SELECT_FACEBOOK_PRO_DEFAULT_USER_ROLE":
+      return {
+        ...state,
+        selectFacebookProDefaultUserRole: action.payload,
+      };
+    case "UPDATE_ENABLE_FACEBOOK_UPDATE_EXISTING_USER_DATA":
+      return {
+        ...state,
+        enableFacebookUpdateExistingUserData: action.payload,
+      };
+    case "UPDATE_ENABLE_FACEBOOK_UPDATE_EXISTING_USER_AVATAR":
+      return {
+        ...state,
+        enableFacebookUpdateExistingUserAvatar: action.payload,
+      };
+    case "UPDATE_INPUT_FACEBOOK_PRO_REDIRECT_URL":
+      return {
+        ...state,
+        inputFacebookProRedirectUrl: action.payload,
+      };
     default:
       return state;
   }

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Listbox } from "@headlessui/react";
 import apiFetch from "@wordpress/api-fetch";
 
-
 const FacebookAppId = () => {
   const dispatch = useDispatch();
   const enableFacebookLogin = useSelector((state) => state.enableFacebookLogin);

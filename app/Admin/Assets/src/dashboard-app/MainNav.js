@@ -39,16 +39,6 @@ export default function MainNav() {
       slug: lmn_admin.home_slug,
       path: "social-login",
     },
-    {
-      name: __("Realtime Login", "login-me-now"),
-      slug: lmn_admin.home_slug,
-      path: "realtime-login",
-    },
-    {
-      name: __("Settings", "login-me-now"),
-      slug: lmn_admin.home_slug,
-      path: "settings",
-    },
   ];
 
   const onInstallExtension = () => {

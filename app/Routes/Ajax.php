@@ -38,18 +38,41 @@ class Ajax {
 		return apply_filters(
 			'login_me_now_admin_settings_datatypes',
 			[
-				'logs'                             => 'bool',
-				'logs_expiration'                  => 'integer',
 
-				'user_switching'                   => 'bool',
+				'logs'                             		=> 'bool',
+				'logs_expiration'                  		=> 'integer',
 
-				'google_login'                     => 'bool',
-				'google_client_id'                 => 'string',
-				'google_native_login'              => 'bool',
-				'google_update_existing_user_data' => 'bool',
-				'google_onetap'                    => 'bool',
-				'google_cancel_on_tap_outside'     => 'bool',
-				'google_onetap_display_location'   => 'string',
+				'google_login'                     		=> 'bool',
+				'google_client_id'                 		=> 'string',
+				'google_native_login'              		=> 'bool',
+				'google_update_existing_user_data' 		=> 'bool',
+				'google_onetap'                    		=> 'bool',
+				'google_cancel_on_tap_outside'     		=> 'bool',
+				'google_onetap_display_location'   		=> 'string',
+
+				'dm_advance_share'                 		=> 'bool',
+				'dm_express_login_wc'              		=> 'bool',
+				'dm_express_login_edd'             		=> 'bool',
+				'dm_express_login_email'           		=> 'bool',
+				'dm_otp_login'                     		=> 'bool',
+
+				'social_login'                     		=> 'bool',
+				'user_switching'                   		=> 'bool',
+				'temporary_login'                  		=> 'bool',
+				'browser_extension'                		=> 'bool',
+				'activity_logs'                    		=> 'bool',
+				'enable_sign_in_google'            		=> 'bool',
+				'enable_sign_in_facebook'          		=> 'bool',
+				'enable_sign_in_twitter'           		=> 'bool',
+				'login_layout'                     		=> 'string',
+				'login_button_style'               		=> 'string',
+				'user_switching'                   		=> 'bool',
+				'facebook_login'                     	=> 'bool',
+				'facebook_native_login'              	=> 'bool',
+				'facebook_pro_default_user_role'     	=> 'string',
+				'facebook_update_existing_user_data' 	=> 'bool',
+				'facebook_pro_user_avatar' 				=> 'bool',
+				'facebook_pro_redirect_url'             => 'string'
 			]
 		);
 	}
