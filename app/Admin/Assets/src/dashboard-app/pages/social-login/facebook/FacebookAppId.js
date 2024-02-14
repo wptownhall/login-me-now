@@ -12,7 +12,7 @@ const FacebookAppId = () => {
 console.log("redux data: ", useSelector((state) => state))
 
   const updateFacebookAppID = (appID) => {
-    console.log("data check", appID.target.value)
+    // console.log("data check", appID.target.value)
     dispatch({
       type: "UPDATE_FACEBOOK_APP_ID",
       payload: appID.target.value,

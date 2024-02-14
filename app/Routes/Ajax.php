@@ -67,7 +67,9 @@ class Ajax {
 				'login_layout'                     		=> 'string',
 				'login_button_style'               		=> 'string',
 				'user_switching'                   		=> 'bool',
+
 				'facebook_login'                     	=> 'bool',
+				'facebook_app_id'                     	=> 'string',
 				'facebook_native_login'              	=> 'bool',
 				'facebook_pro_default_user_role'     	=> 'string',
 				'facebook_update_existing_user_data' 	=> 'bool',
