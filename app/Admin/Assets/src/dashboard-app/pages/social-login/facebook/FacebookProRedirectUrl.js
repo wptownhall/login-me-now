@@ -5,10 +5,6 @@ import apiFetch from "@wordpress/api-fetch";
 import ProBtn from "../google/components/ProBtn";
 import { Tooltip } from "antd";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
 const FacebookProRedirectUrl = () => {
   const enableFacebookLogin = useSelector((state) => state.enableFacebookLogin);
   const enableFacebookLoginStatus = false === enableFacebookLogin ? false : true;
@@ -16,8 +12,7 @@ const FacebookProRedirectUrl = () => {
   const inputFacebookProRedirectUrl = useSelector(
     (state) => state.inputFacebookProRedirectUrl
   );
-  const inputFacebookProRedirectUrlStatus =
-    false === inputFacebookProRedirectUrl ? false : true;
+
   const isProAvailable = lmn_admin.pro_available ? true : false;
 
   const updateFacebookProRedirectUrl = (URL) => {

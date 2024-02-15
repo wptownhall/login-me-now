@@ -18,18 +18,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 class FacebookLogin extends ModuleBase {
 
 	public function setup(): void {
-
-		$enable     = Settings::init()->get( 'facebook_login', false );
-		$app_id     = Settings::init()->get( 'facebook_login_app_id', '' );
-		$app_secret = Settings::init()->get( 'facebook_login_app_secret', '' );
-
-		// if ( ! $enable || ! $app_id || ! $app_secret ) {
-		// 	return;
-		// }
+		if ( ! self::show() ) {
+			return;
+		}
 
 		( new Enqueuer() );
 		( new Ajax() );
 		( new Button() );
-		( new Profile() );
+	}
+
+	public static function show(): bool {
+		$enable = Settings::init()->get( 'facebook_login', false );
+		$app_id = Settings::init()->get( 'facebook_app_id', '' );
+
+		if ( $enable && $app_id ) {
+			return true;
+		}
+
+		return false;
 	}
 }

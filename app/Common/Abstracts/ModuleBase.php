@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.4.0
  */
 
 namespace LoginMeNow\Abstracts;
@@ -19,4 +19,5 @@ abstract class ModuleBase {
 	}
 
 	abstract public function setup(): void;
+	abstract public static function show(): bool;
 }

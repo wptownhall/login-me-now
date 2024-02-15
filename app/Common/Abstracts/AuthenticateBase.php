@@ -64,17 +64,17 @@ abstract class AuthenticateBase {
 		$user_id  = register_new_user( sanitize_user( $username ), sanitize_email( $this->user_data['email'] ) );
 
 		if ( is_wp_error( $user_id ) ) {
-			$errors->add( 'registration_failed', __( '<strong>Error</strong>: Registration Failed', 'login-me-now' ) );
+			$errors->add( 'registration_failed', __( '<strong>Error</strong>: Registration Failed', 'login-me-now' ), $user_id );
+		}
+
+		if ( $errors->has_errors() ) {
+			return $errors;
 		}
 
 		do_action( "login_me_now_{$this->channel}_login_after_registration", $user_id, $this->user_data );
 
 		User::set_role( $user_id );
 		User::update_profile( $user_id, $this->user_data );
-
-		if ( $errors->has_errors() ) {
-			return $errors;
-		}
 
 		Auth::login( $user_id, $redirect_uri );
 	}

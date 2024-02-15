@@ -16,6 +16,10 @@ class Button extends LoginButtonBase {
 	}
 
 	public function button(): string {
+		if ( ! FacebookLogin::show() ) {
+			return '';
+		}
+
 		return $this->html();
 	}
 

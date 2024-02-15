@@ -9,10 +9,7 @@ const FacebookAppId = () => {
   const enableFacebookLoginStatus = false === enableFacebookLogin ? false : true;
   let enableFacebookAppID = useSelector((state) => state.enableFacebookAppID);
 
-console.log("redux data: ", useSelector((state) => state))
-
   const updateFacebookAppID = (appID) => {
-    // console.log("data check", appID.target.value)
     dispatch({
       type: "UPDATE_FACEBOOK_APP_ID",
       payload: appID.target.value,
@@ -44,13 +41,13 @@ console.log("redux data: ", useSelector((state) => state))
     >
       <div className="mr-16 w-full flex space-y-3">
         <span class="text-black-400 w-[30%]">
-          {__("Enter", "login-me-now")}
+          {__("Enter ", "login-me-now")}
           <a
             class="text-[#2271B1] text-[16px]"
             target="_blank"
             href="https://developers.facebook.com/apps/"
           >
-            {__(" Facebook App ID", "login-me-now")}
+            {__("Facebook App ID", "login-me-now")}
           </a>
           {__(" here ", "login-me-now")}
         </span>
@@ -60,7 +57,7 @@ console.log("redux data: ", useSelector((state) => state))
           value={enableFacebookAppID}
           type="text"
           name="name"
-          placeholder="ex: ********-**********-************"
+          placeholder="ex: 10************57"
         />
       </div>
     </section>

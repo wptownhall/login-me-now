@@ -44,7 +44,7 @@ function SettingsWrapper({ state }) {
           <FacebookInNativeLogin />
           <FacebookProDefaultUserRole />
           <FacebookInUpdateExistingUserData />
-          <FacebookUpdateUserAvatar />
+          {/* <FacebookUpdateUserAvatar /> */}
           <FacebookProRedirectUrl />
         </>
       ),

@@ -8,7 +8,9 @@
 namespace LoginMeNow\LoginForm;
 
 use LoginMeNow\FacebookLogin\Button as FacebookButton;
+use LoginMeNow\FacebookLogin\FacebookLogin;
 use LoginMeNow\GoogleLogin\Button as GoogleButton;
+use LoginMeNow\GoogleLogin\GoogleLogin;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
 
@@ -31,6 +33,11 @@ class LoginForm {
 	}
 
 	public function login_buttons( bool $return = false, $before = false, $after = true ) {
+
+		if ( ! $this->show() ) {
+			return;
+		}
+
 		$buttons = $this->buttons();
 
 		ob_start();
@@ -51,5 +58,16 @@ class LoginForm {
 		];
 
 		return $array;
+	}
+
+	public function show(): bool {
+		if (
+			FacebookLogin::show()
+			|| GoogleLogin::show()
+		) {
+			return true;
+		}
+
+		return false;
 	}
 }

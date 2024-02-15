@@ -32,7 +32,7 @@ class Ajax {
 
 		$access_token = (string) isset( $_POST['accessToken'] ) ? sanitize_text_field( $_POST['accessToken'] ) : null;
 		if ( ! $access_token ) {
-			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
+			wp_send_json_error( __( "Not authenticated", 'login-me-now' ) );
 		}
 
 		$user_data = $this->getRemoteUserGraph( $access_token );
@@ -40,6 +40,10 @@ class Ajax {
 			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
 		}
 
+		if ( ! isset( $user_data['email'] ) ) {
+			wp_send_json_error( __( "Please give the email permission", 'login-me-now' ) );
+		}
+		
 		$auth     = new Authenticate( $user_data );
 		$response = $auth->authenticate();
 
