@@ -43,9 +43,10 @@ class Ajax {
 		if ( ! isset( $user_data['email'] ) ) {
 			wp_send_json_error( __( "Please give the email permission", 'login-me-now' ) );
 		}
-		
-		$auth     = new Authenticate( $user_data );
-		$response = $auth->authenticate();
+
+		$user_data['picture'] = $user_data['picture']['data']['url'] ?? '';
+		$auth                 = new Authenticate( $user_data );
+		$response             = $auth->authenticate();
 
 		wp_send_json_success( $response );
 

@@ -2,22 +2,22 @@
 /**
  * @author  WPtownhall
  * @since  	1.0.0
- * @version 1.0.0
+ * @version 1.4.0
  */
 
 namespace LoginMeNow\GoogleLogin;
 
 use Google_Client;
-use LoginMeNow\Model\Auth;
+use LoginMeNow\Abstracts\AuthenticateBase;
 use LoginMeNow\Model\Settings;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
-use LoginMeNow\Utils\User;
-use WP_Error;
 
-class Authenticate {
+class Authenticate extends AuthenticateBase {
 	use Hookable;
 	use Singleton;
+
+	public string $channel = 'google';
 
 	public function __construct() {
 		$this->action( 'init', 'listen' );
@@ -26,9 +26,7 @@ class Authenticate {
 	public function listen(): void {
 		if ( array_key_exists( 'lmn-google', $_GET ) ) {
 
-			$nonce = ! empty( $_POST['wpnonce'] )
-				? sanitize_text_field( wp_unslash( $_POST['wpnonce'] ) )
-				: '';
+			$nonce = ! empty( $_POST['wpnonce'] ) ? sanitize_text_field( wp_unslash( $_POST['wpnonce'] ) ) : '';
 
 			if ( ! wp_verify_nonce( $nonce, 'lmn-google-nonce' ) ) {
 				error_log( 'Login Me Now - WP Nonce Verify Failed' );
@@ -63,93 +61,25 @@ class Authenticate {
 			$id_token  = sanitize_text_field( wp_unslash( $_POST['credential'] ) );
 			$client_id = Settings::init()->get( 'google_client_id' );
 			$client    = new Google_Client( ['client_id' => esc_html( $client_id )] );
-			$payload   = $client->verifyIdToken( $id_token );
+			$data      = $client->verifyIdToken( $id_token );
 
-			if ( $payload ) {
-				$wp_user      = get_user_by( 'email', sanitize_email( $payload['email'] ) );
-				$redirect_uri = ! empty( $_POST['redirect_uri'] ) ? esc_url_raw( wp_unslash( $_POST['redirect_uri'] ) ) : '';
-				$redirect_uri = apply_filters( 'login_me_now_google_login_redirect_url', $redirect_uri );
-
-				if ( $wp_user ) {
-					$action = $this->login( $wp_user->ID, $payload, $redirect_uri );
-				} else {
-					$action = $this->register( $payload, $redirect_uri );
-				}
-
-				if ( is_wp_error( $action ) ) {
-					error_log( 'Login Me Now - ' . print_r( $action ) );
-
-					return;
-				}
-
-			} else {
-				error_log( 'Login Me Now - invalid id' );
+			if ( ! $data || is_wp_error( $data ) ) {
+				error_log( 'Login Me Now - ' . print_r( $data ) );
 
 				return;
 			}
 
+			error_log( print_r( $data ,true) );
+
+			$this->user_data['ID']           = '';
+			$this->user_data['email']        = $data['email'] ?? '';
+			$this->user_data['first_name']   = $data['given_name'] ?? '';
+			$this->user_data['last_name']    = $data['family_name'] ?? '';
+			$this->user_data['display_name'] = $data['name'] ?? '';
+			$this->user_data['name']         = $data['name'] ?? '';
+			$this->user_data['picture']      = $data['picture'] ?? '';
+
+			$this->authenticate();
 		}
-	}
-
-	private function unique_username( array $payload ): string {
-		$username_parts = [];
-		if ( isset( $payload['given_name'] ) ) {
-			$username_parts[] = sanitize_user( $payload['given_name'], true );
-		}
-
-		if ( isset( $payload['family_name'] ) ) {
-			$username_parts[] = sanitize_user( $payload['family_name'], true );
-		}
-
-		if ( empty( $username_parts ) ) {
-			$email_parts      = explode( '@', $payload['email'] );
-			$email_username   = $email_parts[0];
-			$username_parts[] = sanitize_user( $email_username, true );
-		}
-
-		$username = strtolower( implode( '.', $username_parts ) );
-
-		$default_user_name = $username;
-		$suffix            = 1;
-		while ( username_exists( $username ) ) {
-			$username = $default_user_name . $suffix;
-			$suffix++;
-		}
-
-		return $username;
-	}
-
-	public function register( array $payload, string $redirect_uri ) {
-		$errors = new WP_Error();
-
-		$username = $this->unique_username( $payload );
-		$user_id  = register_new_user( sanitize_user( $username ), sanitize_email( $payload['email'] ) );
-
-		if ( is_wp_error( $user_id ) ) {
-			$errors->add( 'registration_failed', __( '<strong>Error</strong>: Registration Failed', 'login-me-now' ) );
-		}
-
-		do_action( 'login_me_now_google_login_after_registration', $user_id, $payload );
-
-		User::set_role( $user_id );
-		User::update_profile( $user_id, $payload );
-
-		if ( $errors->has_errors() ) {
-			return $errors;
-		}
-
-		Auth::login( $user_id, $redirect_uri );
-	}
-
-	public function login( int $user_id, array $payload, string $redirect_uri ): void {
-
-		do_action( 'login_me_now_google_login_before_login', $user_id, $payload );
-
-		$update_existing_data = Settings::init()->get( 'google_update_existing_user_data', false );
-		if ( $update_existing_data ) {
-			User::update_profile( $user_id, $payload );
-		}
-
-		Auth::login( $user_id, $redirect_uri );
 	}
 }

@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.4.0
  */
 
 namespace LoginMeNow\Utils;
@@ -62,21 +62,29 @@ class User {
 		return $avatar_url;
 	}
 
-	public static function update_profile( int $user_id, array $payload ) {
-
+	public static function update_profile( int $user_id, array $data, string $channel ): void {
 		$user_data                 = [];
 		$user_data['ID']           = $user_id;
-		$user_data['first_name']   = $payload['given_name'];
-		$user_data['last_name']    = $payload['family_name'];
-		$user_data['display_name'] = $payload['name'];
+		$user_data['first_name']   = $data['first_name'] ?? '';
+		$user_data['last_name']    = $data['last_name'] ?? '';
+		$user_data['display_name'] = $data['display_name'] ?? '';
+		$user_data['picture']      = $data['picture'] ?? '';
 
 		wp_update_user( $user_data );
-		update_user_meta( $user_id, 'nickname', $payload['given_name'] );
-		update_user_meta( $user_id, 'login_me_now_google_profile_picture_url', esc_url_raw( $payload['picture'] ) );
+		update_user_meta( $user_id, 'nickname', $user_data['first_name'] );
+
+		if ( isset( $user_data['picture'] ) && ! empty( $user_data['picture'] ) ) {
+			update_user_meta(
+				$user_id,
+				"login_me_now_{$channel}_profile_picture_url",
+				esc_url_raw( $user_data['picture']
+				)
+			);
+		}
 	}
 
-	public static function set_role( int $user_id ) {
-		$default_role = Settings::init()->get( 'google_pro_default_user_role', false );
+	public static function set_role( int $user_id, string $channel ): void {
+		$default_role = Settings::init()->get( "{$channel}_pro_default_user_role", false );
 
 		if ( ! is_wp_error( $user_id ) && $default_role ) {
 			$user = new WP_User( $user_id );
