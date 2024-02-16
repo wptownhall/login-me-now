@@ -8,6 +8,7 @@
 namespace LoginMeNow\FacebookLogin;
 
 use LoginMeNow\Abstracts\LoginButtonBase;
+use LoginMeNow\Model\Settings;
 
 class Button extends LoginButtonBase {
 
@@ -31,5 +32,9 @@ class Button extends LoginButtonBase {
 		$html = ob_get_clean();
 
 		return $html;
+	}
+
+	public function native_login(): bool {
+		return Settings::init()->get( 'facebook_native_login', true );
 	}
 }

@@ -17,6 +17,7 @@ abstract class LoginButtonBase {
 	abstract public function button(): string;
 	abstract public function html( int $width = 300 ): string;
 	abstract public function shortcodes(): void;
+	abstract public function native_login(): bool;
 
 	public function __construct() {
 		$this->action( 'init', 'shortcodes' );

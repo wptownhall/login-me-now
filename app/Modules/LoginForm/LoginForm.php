@@ -33,7 +33,6 @@ class LoginForm {
 	}
 
 	public function login_buttons( bool $return = false, $before = false, $after = true ) {
-
 		if ( ! $this->show() ) {
 			return;
 		}
@@ -52,10 +51,17 @@ class LoginForm {
 	}
 
 	public function buttons(): array {
-		$array = [
-			'google'   => new GoogleButton(),
-			'facebook' => new FacebookButton(),
-		];
+		$array    = [];
+		$google   = new GoogleButton();
+		$facebook = new FacebookButton();
+
+		if ( $google->native_login() ) {
+			$array['google'] = $google;
+		}
+
+		if ( $facebook->native_login() ) {
+			$array['facebook'] = $facebook;
+		}
 
 		return $array;
 	}

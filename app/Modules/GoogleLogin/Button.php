@@ -8,6 +8,7 @@
 namespace LoginMeNow\GoogleLogin;
 
 use LoginMeNow\Abstracts\LoginButtonBase;
+use LoginMeNow\Model\Settings;
 
 class Button extends LoginButtonBase {
 
@@ -32,5 +33,9 @@ class Button extends LoginButtonBase {
 			</div>';
 
 		return $html;
+	}
+
+	public function native_login(): bool {
+		return Settings::init()->get( 'google_native_login', true );
 	}
 }

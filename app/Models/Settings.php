@@ -30,25 +30,31 @@ class Settings {
 		$defaults = apply_filters(
 			'login_me_now_dashboard_rest_options',
 			[
-				'logs'                             => true,
-				'logs_expiration'                  => 7,
+				'logs'                               => true,
+				'logs_expiration'                    => 7,
 
-				'google_login'                     => false,
-				'google_client_id'                 => '',
-				'google_native_login'              => true,
-				'google_update_existing_user_data' => false,
-				'google_pro_user_avatar'           => false,
-				'google_cancel_on_tap_outside'     => false,
-				'google_onetap_display_location'   => 'siteWide',
+				'google_login'                       => false,
+				'google_client_id'                   => '',
+				'google_native_login'                => true,
+				'google_update_existing_user_data'   => false,
+				'google_pro_user_avatar'             => false,
+				'google_cancel_on_tap_outside'       => false,
+				'google_onetap_display_location'     => 'siteWide',
 
-				'activity_logs'                    => false,
-				'social_login'                     => true,
-				'temporary_login'                  => true,
-				'browser_extension'                => true,
-				'user_switching'                   => true,
+				'facebook_login'                     => false,
+				'facebook_app_id'                    => '',
+				'facebook_native_login'              => true,
+				'facebook_update_existing_user_data' => false,
+				'facebook_pro_user_avatar'           => false,
 
-				'get_user_roles'                   => Helper::get_user_roles(),
-				'get_pages'                        => Helper::get_pages(), // #Improvement Needed
+				'activity_logs'                      => false,
+				'social_login'                       => true,
+				'temporary_login'                    => true,
+				'browser_extension'                  => true,
+				'user_switching'                     => true,
+
+				'get_user_roles'                     => Helper::get_user_roles(),
+				'get_pages'                          => Helper::get_pages(), // #Improvement Needed
 			]
 		);
 
