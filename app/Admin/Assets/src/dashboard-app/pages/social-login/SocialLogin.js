@@ -132,20 +132,17 @@ const SocialLogin = () => {
               <div className="flex pl-[18px] py-3 cursor-pointer border-l-4 border-l-transparent hover:border-l-[#E2E8F0] opacity-60">
                 <Tooltip title="Upcoming" placement="right">
                   <span className="flex">
-                    <svg
-                      className="flex-shrink-0 mr-4 stroke-inherit"
-                      width="30"
-                      height="30"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill="#55acee"
-                        d="M17.316 6.246c.008.162.011.326.011.488c0 4.99-3.797 10.742-10.74 10.742c-2.133 0-4.116-.625-5.787-1.697a7.577 7.577 0 0 0 5.588-1.562a3.779 3.779 0 0 1-3.526-2.621a3.858 3.858 0 0 0 1.705-.065a3.779 3.779 0 0 1-3.028-3.703v-.047a3.766 3.766 0 0 0 1.71.473a3.775 3.775 0 0 1-1.168-5.041a10.716 10.716 0 0 0 7.781 3.945a3.813 3.813 0 0 1-.097-.861a3.773 3.773 0 0 1 3.774-3.773a3.77 3.77 0 0 1 2.756 1.191a7.602 7.602 0 0 0 2.397-.916a3.789 3.789 0 0 1-1.66 2.088a7.55 7.55 0 0 0 2.168-.594a7.623 7.623 0 0 1-1.884 1.953"
-                      />
+                    <svg 
+                    className="flex-shrink-0 mr-4 stroke-inherit"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    x="0px" y="0px"
+                     width="30px" 
+                     height="30px" viewBox="0 0 30 30"
+                     >
+                     <path d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"></path>
                     </svg>
                     <span className="text-[16px] text-[#1e293b] font-medium">
-                      Twitter
+                      X (twitter) 
                     </span>
                   </span>
                 </Tooltip>

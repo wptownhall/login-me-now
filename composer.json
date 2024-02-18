@@ -1,5 +1,5 @@
 {
-    "name": "halalbrains/login-me-now",
+    "name": "wptownhall/login-me-now",
     "autoload": {
         "psr-4": {
             "LoginMeNow\\": "app",

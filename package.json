@@ -1,12 +1,12 @@
 {
 	"name": "login-me-now",
-	"version": "1.0.0",
+	"version": "1.4.0",
 	"main": "gulpfile.js",
 	"author": "WPtownhall",
 	"license": "(GPL-3.0)",
 	"scripts": {
-		"build-admin": "cd App/Admin && npm run build",
-		"start-admin": "cd App/Admin && npm start",
+		"build-admin": "cd app/Admin && npm run build",
+		"start-admin": "cd app/Admin && npm start",
 		"build": "npm run build-admin && gulp build"
 	},
 	"devDependencies": {

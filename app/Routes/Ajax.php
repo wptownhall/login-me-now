@@ -4,7 +4,7 @@
  *
  * @package Login Me Now
  * @since   1.0.0
- * @version 1.1.0
+ * @version 1.4.0
  */
 
 namespace LoginMeNow\Routes;
@@ -45,7 +45,6 @@ class Ajax {
 				'google_login'                       => 'bool',
 				'google_client_id'                   => 'string',
 				'google_native_login'                => 'bool',
-				'google_update_existing_user_data'   => 'bool',
 				'google_onetap'                      => 'bool',
 				'google_cancel_on_tap_outside'       => 'bool',
 				'google_onetap_display_location'     => 'string',
@@ -71,10 +70,6 @@ class Ajax {
 				'facebook_login'                     => 'bool',
 				'facebook_app_id'                    => 'string',
 				'facebook_native_login'              => 'bool',
-				'facebook_pro_default_user_role'     => 'string',
-				'facebook_update_existing_user_data' => 'bool',
-				// 'facebook_pro_user_avatar' 				=> 'bool',
-				'facebook_pro_redirect_url'          => 'string',
 			]
 		);
 	}
