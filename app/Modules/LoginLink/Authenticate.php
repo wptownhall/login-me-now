@@ -9,10 +9,10 @@ namespace LoginMeNow\LoginLink;
 
 use LoginMeNow\Helper;
 use LoginMeNow\Model\Auth;
-use LoginMeNow\Utils\Logs;
 use LoginMeNow\Model\UserToken;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Utils\Logs;
 
 class Authenticate {
 	use Singleton;
@@ -44,8 +44,9 @@ class Authenticate {
 			exit();
 		}
 
-		$message = __( "logged in using temporary login link", 'login-me-now' );
+		$redirect_uri = apply_filters( 'login_me_now_temporary_login_redirect_uri', '' );
+		$message      = __( "logged in using temporary login link", 'login-me-now' );
 		Logs::add( $user_id, $message );
-		Auth::login( $user_id );
+		Auth::login( $user_id, $redirect_uri );
 	}
 }
