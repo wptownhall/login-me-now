@@ -95,14 +95,14 @@ class AdminMenu {
 	 * Render Tokens
 	 */
 	public function tokens_callback(): void {
-		Helper::get_template_part( '/App/Admin/Views/menu-page/token-status', new TokensListTable );
+		Helper::get_template_part( '/app/Admin/Views/menu-page/token-status', new TokensListTable );
 	}
 
 	/**
 	 * Render Logs
 	 */
 	public function logs_callback(): void {
-		Helper::get_template_part( '/App/Admin/Views/menu-page/all-logs', new LogsListTable );
+		Helper::get_template_part( '/app/Admin/Views/menu-page/all-logs', new LogsListTable );
 	}
 
 	/**

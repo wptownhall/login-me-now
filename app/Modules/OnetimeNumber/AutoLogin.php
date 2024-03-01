@@ -38,7 +38,7 @@ class AutoLogin {
 		if ( ! $t_value ) {
 			$title   = __( 'Invalid number', 'login-me-now' );
 			$message = __( 'Request a new access link in order to obtain dashboard access', 'login-me-now' );
-			Helper::get_template_part( '/App/Admin/Views/messages/error', ['title' => $title, 'message' => $message] );
+			Helper::get_template_part( '/app/Admin/Views/messages/error', ['title' => $title, 'message' => $message] );
 			exit();
 		}
 
@@ -46,7 +46,7 @@ class AutoLogin {
 		if ( ! $user_id ) {
 			$title   = __( 'User not found', 'login-me-now' );
 			$message = __( 'Request a new access link in order to obtain dashboard access', 'login-me-now' );
-			Helper::get_template_part( '/App/Admin/Views/messages/error', ['title' => $title, 'message' => $message] );
+			Helper::get_template_part( '/app/Admin/Views/messages/error', ['title' => $title, 'message' => $message] );
 			exit();
 		}
 
