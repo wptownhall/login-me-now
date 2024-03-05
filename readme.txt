@@ -2,7 +2,7 @@
 Contributors: WPtownhall, HeyMehedi
 Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
-Tested up to: 6.4.2
+Tested up to: 6.4.3
 Requires PHP: 7.4
 Stable tag: 1.4.0
 License: GPLv3 or Any Later Version
@@ -77,7 +77,7 @@ Use this shortcode to put Google login button on any page/ post/ block.
 
 == COMING NEXT ==
 * Facebook login (SSO)
-* Signup/Login form builder
+* Sign Up/Login form builder
 * OTP login
 * Express login for WooCommerce
 * Conditional login
@@ -159,6 +159,9 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 
 == Changelog ==
 
+= 1.4.0 – Mar 05, 2024 =
+* New: Facebook Login
+* Fix: User Switching Notice
 
 = 1.3.3 – Dec 02, 2023 =
 * Add: Save to Extension - for non-admin
