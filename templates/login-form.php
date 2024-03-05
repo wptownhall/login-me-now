@@ -5,7 +5,6 @@
  * @version 1.4.0
  */
 
- echo count( $buttons );
 if ( ! $buttons || 0 === count( $buttons ) ) {
 	return;
 }
