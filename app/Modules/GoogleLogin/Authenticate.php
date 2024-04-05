@@ -69,8 +69,6 @@ class Authenticate extends AuthenticateBase {
 				return;
 			}
 
-			error_log( print_r( $data ,true) );
-
 			$this->user_data['ID']           = '';
 			$this->user_data['email']        = $data['email'] ?? '';
 			$this->user_data['first_name']   = $data['given_name'] ?? '';

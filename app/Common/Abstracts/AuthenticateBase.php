@@ -54,7 +54,8 @@ abstract class AuthenticateBase {
 		$username_parts = [];
 
 		if ( isset( $this->user_data['name'] ) ) {
-			$username_parts[] = sanitize_user( $this->user_data['name'], true );
+			$name             = str_replace( ' ', '.', $this->user_data['name'] );
+			$username_parts[] = sanitize_user( $name, true );
 		}
 
 		if ( empty( $username_parts ) ) {
