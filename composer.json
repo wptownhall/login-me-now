@@ -29,6 +29,7 @@
         "heymehedi/utils": "^1.1"
     },
     "scripts": {
+        "build": "composer --no-plugins --no-interaction install --no-scripts --no-dev",
         "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
     },
     "extra": {

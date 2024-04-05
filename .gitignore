@@ -1,6 +1,6 @@
 notes.txt
 .DS_Store
-App/Admin/node_modules
+app/Admin/node_modules
 **/node_modules
 **/.DS_Store
 **/build
