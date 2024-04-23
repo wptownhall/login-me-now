@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.4.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 
 use LoginMeNow\Model\Settings;
@@ -10,46 +10,20 @@ use LoginMeNow\Model\Settings;
 $appId = Settings::init()->get( 'facebook_app_id', '' );
 ?>
 
-<div class="lmn_fb_login">
-    <button type="button" class="lmn_fb_login_button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1365.3 1365.3" height="20" width="20">
-            <path d="M1365.3 682.7A682.7 682.7 0 10576 1357V880H402.7V682.7H576V532.3c0-171.1 102-265.6 257.9-265.6 74.6 0 152.8 13.3 152.8 13.3v168h-86.1c-84.8 0-111.3 52.6-111.3 106.6v128h189.4L948.4 880h-159v477a682.8 682.8 0 00576-674.3" fill="#fff"></path>
-        </svg>
+<div class="lmn_facebook_login">
+
+	<a data-action="lmn-connect-facebook" href="#" class="lmn_btn lmn_facebook_login_button">
+
+		<span class="svg-bg">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1365.3 1365.3" height="20" width="20">
+				<path d="M1365.3 682.7A682.7 682.7 0 10576 1357V880H402.7V682.7H576V532.3c0-171.1 102-265.6 257.9-265.6 74.6 0 152.8 13.3 152.8 13.3v168h-86.1c-84.8 0-111.3 52.6-111.3 106.6v128h189.4L948.4 880h-159v477a682.8 682.8 0 00576-674.3" fill="#fff"></path>
+			</svg>
+		</span>
+
         <span><?php esc_html_e( 'Continue with Facebook', 'login-me-now' );?></span>
-    </button>
-
-    <style>
-        .lmn_fb_login .lmn_fb_login_button {
-            border: 0px;
-            border-radius: 4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            padding: 10px 15px;
-            background-color: #1877F2;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .lmn_fb_login .lmn_fb_login_button span {
-            margin-left: 8px;
-            font-size: 14px;
-        }
-
-		.lmn_fb_login .lmn_fb_login_button[disabled] {
-			background: #ddd;
-		}
-    </style>
+	</a>
 
     <script>
-        // Challenge
-        // If has token and app id is valid then run code
-        // If not then show error message console
-        // When someone clicks the just login to the app
-        // After clicking and successful login send the access Token of users to the backend to verify it again
-        // After getting a good response, redirect to wp-admin page.
-        //
 
 	    document.addEventListener('DOMContentLoaded', function () {
 
@@ -57,7 +31,7 @@ $appId = Settings::init()->get( 'facebook_app_id', '' );
 				var LoginMeNowFacebookLogin  = {
 
 					buttons: function() {
-						return document.querySelectorAll('.lmn_fb_login_button');
+						return document.querySelectorAll('.lmn_facebook_login_button');
 					},
 					init: function() {
 						var self = this;
@@ -68,7 +42,7 @@ $appId = Settings::init()->get( 'facebook_app_id', '' );
 								status: false,
 								cookie: true,
 								xfbml: true,
-								version: "v4.0"
+      							version: 'v2.7'
 							});
 						}
 

@@ -8,6 +8,9 @@
 if ( ! $buttons || 0 === count( $buttons ) ) {
 	return;
 }
+
+wp_enqueue_style( 'login-me-now-social-login-main' );
+wp_enqueue_script( 'login-me-now-social-login-main' );
 ?>
 
 <div id="wp-login-login-me-now-buttons">
@@ -28,11 +31,4 @@ if ( ! $buttons || 0 === count( $buttons ) ) {
 		</div>
 	<?php endif;?>
 
-	<style>
-		#wp-login-login-me-now-buttons {
-			display: flex;
-			flex-direction:
-			column;gap: 8px;
-		}
-	</style>
 </div>

@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since  	1.0.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 
 namespace LoginMeNow\GoogleLogin;
@@ -17,7 +17,8 @@ class Authenticate extends AuthenticateBase {
 	use Hookable;
 	use Singleton;
 
-	public string $channel = 'google';
+	public string $channel       = 'google';
+	public bool $redirect_return = true;
 
 	public function __construct() {
 		$this->action( 'init', 'listen' );
@@ -26,42 +27,31 @@ class Authenticate extends AuthenticateBase {
 	public function listen(): void {
 		if ( array_key_exists( 'lmn-google', $_GET ) ) {
 
-			$nonce = ! empty( $_POST['wpnonce'] ) ? sanitize_text_field( wp_unslash( $_POST['wpnonce'] ) ) : '';
+			$client_id     = Settings::init()->get( 'google_client_id' );
+			$client_secret = Settings::init()->get( 'google_client_secret' ) ?? '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';
+			$redirect_uri  = home_url( 'wp-login.php?lmn-google' );
 
-			if ( ! wp_verify_nonce( $nonce, 'lmn-google-nonce' ) ) {
-				error_log( 'Login Me Now - WP Nonce Verify Failed' );
+			$client = new Google_Client(
+				[
+					'client_id'     => $client_id,
+					'client_secret' => $client_secret,
+					'redirect_uri'  => $redirect_uri,
+				]
+			);
 
-				return;
-			}
+			$tokens = $client->fetchAccessTokenWithAuthCode( $_GET['code'] );
 
-			if ( ! isset( $_POST['g_csrf_token'] ) && ! empty( $_POST['g_csrf_token'] ) ) {
-				error_log( 'Login Me Now - Post g_csrf_token not available' );
+			error_log( '$tokens: ' . print_r( $tokens, true ) );
 
-				return;
-			}
+			$id_token = $tokens['id_token'] ?? '';
 
-			if ( ! isset( $_COOKIE['g_csrf_token'] ) && ! empty( $_COOKIE['g_csrf_token'] ) ) {
-				error_log( 'Login Me Now - Cookie g_csrf_token not available' );
-
-				return;
-			}
-
-			if ( $_POST['g_csrf_token'] !== $_COOKIE['g_csrf_token'] ) {
-				error_log( 'Login Me Now - g_csrf_token is not same in post and cookie' );
+			if ( ! $id_token || is_wp_error( $id_token ) ) {
+				error_log( 'Login Me Now - ' . print_r( $id_token ) );
 
 				return;
 			}
 
-			if ( ! isset( $_POST['credential'] ) && ! empty( $_POST['credential'] ) ) {
-				error_log( 'Login Me Now - Credential is not available' );
-
-				return;
-			}
-
-			$id_token  = sanitize_text_field( wp_unslash( $_POST['credential'] ) );
-			$client_id = Settings::init()->get( 'google_client_id' );
-			$client    = new Google_Client( ['client_id' => esc_html( $client_id )] );
-			$data      = $client->verifyIdToken( $id_token );
+			$data = $client->verifyIdToken( $id_token );
 
 			if ( ! $data || is_wp_error( $data ) ) {
 				error_log( 'Login Me Now - ' . print_r( $data ) );

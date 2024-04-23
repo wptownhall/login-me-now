@@ -27,6 +27,7 @@ class GoogleLogin extends ModuleBase {
 		Authenticate::init();
 		Button::init();
 		Profile::init();
+		( new Button() );
 
 		if ( ! defined( 'LOGIN_ME_NOW_PRO_VERSION' ) ) {
 			OneTap::init();
@@ -42,5 +43,28 @@ class GoogleLogin extends ModuleBase {
 		}
 
 		return false;
+	}
+
+	public static function create_auth_url() {
+		$client_id    = Settings::init()->get( 'google_client_id' );
+		$redirect_uri = home_url( 'wp-login.php?lmn-google' );
+		$auth         = 'https://accounts.google.com/o/oauth2/v2/auth';
+		$scopes       = [
+			'email',
+			'profile',
+		];
+
+		$args = [
+			'response_type' => 'code',
+			'client_id'     => urlencode( $client_id ),
+			'redirect_uri'  => urlencode( $redirect_uri ),
+			'wpnonce'       => wp_create_nonce( 'lmn-google-nonce' ),
+		];
+
+		if ( count( $scopes ) ) {
+			$args['scope'] = urlencode( implode( ' ', array_unique( $scopes ) ) );
+		}
+
+		return add_query_arg( $args, $auth );
 	}
 }

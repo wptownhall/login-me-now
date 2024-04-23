@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.4.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 
 namespace LoginMeNow\FacebookLogin;
@@ -17,6 +17,6 @@ class Enqueuer extends EnqueuerBase {
 	}
 
 	public function load_sdk() {
-		wp_enqueue_script( 'login-me-now-facebook-sdk-js', 'https://connect.facebook.net/en_US/sdk.js' );
+		wp_enqueue_script( 'login-me-now-facebook-sdk-js', '//connect.facebook.net/en_US/sdk.js' );
 	}
 }

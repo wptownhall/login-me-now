@@ -6,7 +6,7 @@
  */
 
 return [
-	'version'         => '1.4.0',
+	'version'         => time(),
 	'min_php'         => '7.4',
 	'db_version'      => '1.0.0',
 	'menu_slug'       => 'login-me-now',

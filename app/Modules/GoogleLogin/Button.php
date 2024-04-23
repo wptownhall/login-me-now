@@ -1,7 +1,7 @@
 <?php
 /**
  * @author  WPtownhall
- * @since   1.1.0
+ * @since   1.4.0
  * @version 1.4.0
  */
 
@@ -17,20 +17,19 @@ class Button extends LoginButtonBase {
 	}
 
 	public function button(): string {
+		if ( ! GoogleLogin::show() ) {
+			return '';
+		}
+
 		return $this->html();
 	}
 
 	public function html( int $width = 270 ): string {
 		$width = apply_filters( 'login_me_now_google_button_width', $width );
-		$html  = '<div class="g_id_signin"
-			data-type="standard"
-			data-shape="rectangular"
-			data-theme="outline"
-			data-text="continue_with"
-			data-size="large"
-			data-logo_alignment="center"
-			data-width="' . $width . '">
-			</div>';
+
+		ob_start();
+		include_once __DIR__ . '/Views/Button.php';
+		$html = ob_get_clean();
 
 		return $html;
 	}

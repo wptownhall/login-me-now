@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.4.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 
 namespace LoginMeNow\LoginForm;
@@ -10,6 +10,7 @@ namespace LoginMeNow\LoginForm;
 use LoginMeNow\Abstracts\EnqueuerBase;
 
 class Enqueuer extends EnqueuerBase {
+
 	public function __construct() {
 		$this->action( 'login_footer', 'wp_login_script', 50 );
 	}

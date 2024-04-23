@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 
 namespace LoginMeNow;
@@ -36,6 +36,7 @@ class App {
 		AdminSettings::init();
 		Ajax::init();
 		AutoLogin::init();
+		Enqueuer::init();
 
 		/**
 		 *  Modules Initialize

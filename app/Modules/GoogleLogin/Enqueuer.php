@@ -21,8 +21,8 @@ class Enqueuer extends EnqueuerBase {
 		$this->action( 'wp_enqueue_scripts', 'enqueue_scripts', 50 );
 		$this->action( 'login_enqueue_scripts', 'enqueue_scripts', 1 );
 
-		$this->action( 'wp_footer', 'credential', 50 );
-		$this->action( 'login_footer', 'credential', 50 );
+		// $this->action( 'wp_footer', 'credential', 50 );
+		// $this->action( 'login_footer', 'credential', 50 );
 	}
 
 	public function wp_login_script() {?>
