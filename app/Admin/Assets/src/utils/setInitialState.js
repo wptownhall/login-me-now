@@ -21,6 +21,7 @@ const setInitialState = (store) => {
 
       enableGoogleLogin: data.google_login,
       enableGoogleClientID: data.google_client_id,
+      enableGoogleClientSecret: data.google_client_secret,
       enableGoogleNativeLogin: data.google_native_login,
       enableGoogleUpdateExistingUserData: data.google_update_existing_user_data,
       enableGoogleUpdateExistingUserAvatar: data.google_pro_user_avatar,
@@ -56,6 +57,7 @@ const setInitialState = (store) => {
       loginLayout: data.login_layout,
       loginButtonStyle: data.login_button_style,
       enableFacebookAppID: data.facebook_app_id,
+      enableFacebookAppSecret: data.facebook_app_secret,
       enableFacebookLogin: data.facebook_login,
       enableFacebookNativeLogin: data.facebook_native_login,
       selectFacebookProDefaultUserRole: data.facebook_pro_default_user_role,

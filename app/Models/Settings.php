@@ -35,6 +35,7 @@ class Settings {
 
 				'google_login'                       => false,
 				'google_client_id'                   => '',
+				'google_client_secret'               => '',
 				'google_native_login'                => true,
 				'google_update_existing_user_data'   => false,
 				'google_pro_user_avatar'             => false,
@@ -43,6 +44,7 @@ class Settings {
 
 				'facebook_login'                     => false,
 				'facebook_app_id'                    => '',
+				'facebook_app_secret'                => '',
 				'facebook_native_login'              => true,
 				'facebook_update_existing_user_data' => false,
 				'facebook_pro_user_avatar'           => false,

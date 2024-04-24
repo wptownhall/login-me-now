@@ -44,6 +44,7 @@ class Ajax {
 
 				'google_login'                       => 'bool',
 				'google_client_id'                   => 'string',
+				'google_client_secret'               => 'string',
 				'google_native_login'                => 'bool',
 				'google_onetap'                      => 'bool',
 				'google_cancel_on_tap_outside'       => 'bool',
@@ -69,6 +70,7 @@ class Ajax {
 
 				'facebook_login'                     => 'bool',
 				'facebook_app_id'                    => 'string',
+				'facebook_app_secret'                => 'string',
 				'facebook_native_login'              => 'bool',
 			]
 		);

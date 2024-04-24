@@ -60,6 +60,11 @@ const globalDataReducer = (state = {}, action) => {
         ...state,
         enableGoogleClientID: action.payload,
       };
+    case "UPDATE_GOOGLE_CLIENT_SECRET":
+      return {
+        ...state,
+        enableGoogleClientSecret: action.payload,
+      };
     case "UPDATE_ENABLE_GOOGLE_NATIVE_LOGIN":
       return {
         ...state,
@@ -220,6 +225,11 @@ const globalDataReducer = (state = {}, action) => {
       return {
         ...state,
         enableFacebookAppID: action.payload,
+      };
+    case "UPDATE_FACEBOOK_APP_SECRET":
+      return {
+        ...state,
+        enableFacebookAppSecret: action.payload,
       };
     case "UPDATE_ENABLE_FACEBOOK_LOGIN":
       return {

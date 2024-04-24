@@ -28,7 +28,7 @@ class Authenticate extends AuthenticateBase {
 		if ( array_key_exists( 'lmn-google', $_GET ) ) {
 
 			$client_id     = Settings::init()->get( 'google_client_id' );
-			$client_secret = Settings::init()->get( 'google_client_secret' ) ?? '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';
+			$client_secret = Settings::init()->get( 'google_client_secret' );
 			$redirect_uri  = home_url( 'wp-login.php?lmn-google' );
 
 			$client = new Google_Client(

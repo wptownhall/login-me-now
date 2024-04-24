@@ -35,10 +35,11 @@ class GoogleLogin extends ModuleBase {
 	}
 
 	public static function show(): bool {
-		$enable    = Settings::init()->get( 'google_login', false );
-		$client_id = Settings::init()->get( 'google_client_id', '' );
+		$enable        = Settings::init()->get( 'google_login', false );
+		$client_id     = Settings::init()->get( 'google_client_id', '' );
+		$client_secret = Settings::init()->get( 'google_client_secret', '' );
 
-		if ( $enable && $client_id ) {
+		if ( $enable && $client_id && $client_secret ) {
 			return true;
 		}
 

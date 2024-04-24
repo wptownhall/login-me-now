@@ -14,6 +14,7 @@ const initialState = wp.hooks.applyFilters("login_me_now_dashboard/datastore", {
 
   enableGoogleLogin: false,
   enableGoogleClientID: "",
+  enableGoogleClientSecret: "",
   enableGoogleNativeLogin: true,
   enableGoogleAutoSignIn: false,
   enableGoogleUpdateExistingUserData: true,
@@ -58,6 +59,7 @@ const initialState = wp.hooks.applyFilters("login_me_now_dashboard/datastore", {
   loginLayout: "",
   loginButtonStyle: "",
   enableFacebookAppID: "",
+  enableFacebookAppSecret: "",
   enableFacebookLogin: false,
   enableFacebookNativeLogin: true,
   selectFacebookProDefaultUserRole: "subscriber",
