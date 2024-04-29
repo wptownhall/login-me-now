@@ -29,13 +29,20 @@ class Enqueuer extends EnqueuerBase {
 	}
 
 	public function local_script() {
+		$redirect = admin_url();
+
 		$data = [
 			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
 			'facebook_app_id'           => Settings::init()->get( 'facebook_app_id', '' ),
-			'facebook_pro_redirect_url' => Settings::init()->get( 'facebook_pro_redirect_url', '' ),
+			'facebook_pro_redirect_url' => $redirect,
 			'google_client_id'          => Settings::init()->get( 'google_client_id', '' ),
-			'google_pro_redirect_url'   => Settings::init()->get( 'google_pro_redirect_url', '' ),
+			'google_pro_redirect_url'   => $redirect,
 		];
+
+		if ( defined( 'LOGIN_ME_NOW_PRO_VERSION' ) ) {
+			$data['facebook_pro_redirect_url'] = Settings::init()->get( 'facebook_pro_redirect_url', '' );
+			$data['google_pro_redirect_url']   = Settings::init()->get( 'google_pro_redirect_url', '' );
+		}
 
 		wp_localize_script( 'login-me-now-social-login-main', 'login_me_now_social_login_main_obj', $data );
 	}

@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.1.0
+ * @version 1.5.0
  */
 
 namespace LoginMeNow\GoogleLogin;
@@ -21,18 +21,12 @@ class Enqueuer extends EnqueuerBase {
 		$this->action( 'wp_enqueue_scripts', 'enqueue_scripts', 50 );
 		$this->action( 'login_enqueue_scripts', 'enqueue_scripts', 1 );
 
-		// $this->action( 'wp_footer', 'credential', 50 );
-		// $this->action( 'login_footer', 'credential', 50 );
+		$this->action( 'wp_footer', 'credential', 50 );
+		$this->action( 'login_footer', 'credential', 50 );
 	}
 
-	public function wp_login_script() {?>
-		<script type="text/javascript">
-			jQuery("#wp-login-login-me-now-buttons").prependTo("#loginform");
-		</script>
-	<?php }
-
 	public function enqueue_scripts() {
-		wp_enqueue_script( 'login-me-now-google-client-js', 'https://accounts.google.com/gsi/client' );
+		wp_enqueue_script( 'login-me-now-google-client-js', '//accounts.google.com/gsi/client' );
 	}
 
 	public function credential() {
@@ -60,5 +54,6 @@ class Enqueuer extends EnqueuerBase {
 			<?php endif;?>
 			>
 		</div>
-	<?php }
+	<?php
+}
 }

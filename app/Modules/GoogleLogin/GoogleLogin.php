@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 
 namespace LoginMeNow\GoogleLogin;
@@ -27,7 +27,6 @@ class GoogleLogin extends ModuleBase {
 		Authenticate::init();
 		Button::init();
 		Profile::init();
-		( new Button() );
 
 		if ( ! defined( 'LOGIN_ME_NOW_PRO_VERSION' ) ) {
 			OneTap::init();
