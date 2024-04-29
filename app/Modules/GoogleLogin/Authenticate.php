@@ -45,8 +45,8 @@ class Authenticate extends AuthenticateBase {
 
 		$client = new Google_Client(
 			[
-				'client_id'     => $client_id,
-				'client_secret' => $client_secret,
+				'client_id'     => esc_html( $client_id ),
+				'client_secret' => esc_html( $client_secret ),
 				'redirect_uri'  => $redirect_uri,
 			]
 		);
@@ -55,7 +55,7 @@ class Authenticate extends AuthenticateBase {
 		$id_token = $tokens['id_token'] ?? '';
 
 		if ( ! $id_token || is_wp_error( $id_token ) ) {
-			error_log( 'Login Me Now - ' . print_r( $id_token ) );
+			error_log( 'Login Me Now (! $id_token || is_wp_error( $id_token )- ' . print_r( $id_token, true ) );
 
 			return;
 		}
@@ -63,7 +63,7 @@ class Authenticate extends AuthenticateBase {
 		$data = $client->verifyIdToken( $id_token );
 
 		if ( ! $data || is_wp_error( $data ) ) {
-			error_log( 'Login Me Now - ' . print_r( $data ) );
+			error_log( 'Login Me Now ( ! $data || is_wp_error( $data ) )- ' . print_r( $data, true ) );
 
 			return;
 		}

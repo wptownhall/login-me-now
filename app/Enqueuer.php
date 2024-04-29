@@ -40,8 +40,8 @@ class Enqueuer extends EnqueuerBase {
 		];
 
 		if ( defined( 'LOGIN_ME_NOW_PRO_VERSION' ) ) {
-			$data['facebook_pro_redirect_url'] = Settings::init()->get( 'facebook_pro_redirect_url', '' );
-			$data['google_pro_redirect_url']   = Settings::init()->get( 'google_pro_redirect_url', '' );
+			$data['facebook_pro_redirect_url'] = Settings::init()->get( 'facebook_pro_redirect_url', $redirect );
+			$data['google_pro_redirect_url']   = Settings::init()->get( 'google_pro_redirect_url', $redirect );
 		}
 
 		wp_localize_script( 'login-me-now-social-login-main', 'login_me_now_social_login_main_obj', $data );
