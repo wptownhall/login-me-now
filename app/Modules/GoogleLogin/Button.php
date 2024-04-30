@@ -1,8 +1,8 @@
 <?php
 /**
  * @author  WPtownhall
- * @since   1.4.0
- * @version 1.4.0
+ * @since   1.5.0
+ * @version 1.5.0
  */
 
 namespace LoginMeNow\GoogleLogin;
