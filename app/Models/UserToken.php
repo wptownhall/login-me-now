@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.5.0
  */
 namespace LoginMeNow\Model;
 
@@ -123,7 +123,7 @@ class UserToken {
 		return $results;
 	}
 
-	public function is_valid( int $user_id, int $number ): bool {
+	public function is_valid( int $user_id, int $number, int $expire ): bool {
 		$user_meta = get_user_meta( $user_id, $this->token_key, false );
 
 		if ( ! is_array( $user_meta ) ) {
@@ -132,9 +132,12 @@ class UserToken {
 
 		foreach ( $user_meta as $token ) {
 			$_number = (int) $token['number'] ?? 0;
+			$_expire = (int) $token['expire'] ?? 0;
 			$status  = $token['status'] ?? '';
+
 			if (
 				$_number === $number
+				&& $_expire === $expire
 				&& 'pause' !== $status
 				&& ! Time::expired( $token['expire'] )
 			) {
@@ -159,7 +162,7 @@ class UserToken {
 			return false;
 		}
 
-		if ( ! self::is_valid( $user_id, $number ) ) {
+		if ( ! self::is_valid( $user_id, $number, $expire ) ) {
 			return false;
 		}
 

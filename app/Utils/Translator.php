@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.5.0
  */
 
 namespace LoginMeNow\Utils;
@@ -18,7 +18,7 @@ class Translator {
 	}
 
 	public static function decode( string $data ): array{
-		$decodedData = base64_decode( $data );
+		$decodedData = base64_decode( $data, true );
 		$items       = explode( " ", $decodedData );
 
 		return $items;

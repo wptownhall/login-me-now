@@ -62,7 +62,7 @@ class LoginLink {
 		$expire    = apply_filters( 'login_me_now_login_link_expire', $secs, $issued_at );
 
 		$number = Random::number();
-		$token  = Translator::encode( $user->data->ID, $number, $expire );
+		$token  = Translator::encode( $user->data->ID, $number, $expire, '==' );
 
 		UserToken::init()->insert(
 			$user->data->ID,
@@ -95,7 +95,7 @@ class LoginLink {
 		$number  = $meta_value['number'] ?? 0;
 		$expire  = $meta_value['expire'] ?? 0;
 
-		$token = Translator::encode( $user_id, $number, $expire );
+		$token = Translator::encode( $user_id, $number, $expire, '==' );
 
 		Logs::add( $user_id, "generated a temporary login link" );
 
