@@ -2,9 +2,10 @@
 /**
  * @author  WPtownhall
  * @since   0.96
- * @version 0.96
+ * @version 1.5.0
  */
 
+use LoginMeNow\Model\Settings;
 use LoginMeNow\UserSwitching\AdminNotice;
 
 /**
@@ -40,6 +41,11 @@ use LoginMeNow\UserSwitching\AdminNotice;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
+
+$enable = Settings::init()->get( 'user_switching', false );
+if ( ! $enable ) {
+	return;
 }
 
 add_action( 'plugins_loaded', function () {
