@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.4.0
- * @version 1.4.0
+ * @version 1.5.0
  */
 
 namespace LoginMeNow\Abstracts;
@@ -32,7 +32,7 @@ abstract class AuthenticateBase {
 
 	public function authenticate() {
 		$wp_user      = get_user_by( 'email', sanitize_email( $this->user_data['email'] ) );
-		$redirect_uri = ! empty( $_POST['redirect_uri'] ) ? esc_url_raw( wp_unslash( $_POST['redirect_uri'] ) ) : '';
+		$redirect_uri = ! empty( $_POST['redirect_uri'] ) ? esc_url_raw( wp_unslash( $_POST['redirect_uri'] ) ) : admin_url();
 		$redirect_uri = apply_filters( "login_me_now_{$this->channel}_login_redirect_url", $redirect_uri );
 
 		if ( $wp_user ) {
@@ -101,7 +101,7 @@ abstract class AuthenticateBase {
 		Auth::login( $user_id, $redirect_uri );
 	}
 
-	public function login( int $user_id, string $redirect_uri ): void {
+	public function login( int $user_id, string $redirect_uri ) {
 
 		do_action( "login_me_now_{$this->channel}_login_before_login", $user_id, $this->user_data );
 

@@ -115,10 +115,12 @@ class Authenticate extends AuthenticateBase {
 			return;
 		}
 
+		$this->redirect_return = false;
+
 		$this->_auth( $data );
 	}
 
-	private function _auth( array $data ): void {
+	private function _auth( array $data ) {
 		$this->user_data['ID']           = '';
 		$this->user_data['email']        = $data['email'] ?? '';
 		$this->user_data['first_name']   = $data['given_name'] ?? '';

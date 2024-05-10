@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.1.0
+ * @version 1.5.0
  */
 
 namespace LoginMeNow\GoogleLogin;
@@ -34,17 +34,19 @@ class OneTap {
 	private function show(): bool {
 		$show_on = Settings::init()->get( 'google_onetap_display_location', 'side_wide' );
 
+		$return = false;
+
 		switch ( $show_on ) {
 			case 'side_wide':
 			case 'selected_pages':
-				return true;
+				$return = true;
 				break;
 
 			case 'login_screen':
-				return is_login();
+				$return = is_login();
 				break;
 		}
 
-		return false;
+		return $return;
 	}
 }
