@@ -7,6 +7,7 @@
 
 namespace LoginMeNow\FacebookLogin;
 
+use HeyMehedi\Utils\User;
 use LoginMeNow\Abstracts\LoginButtonBase;
 use LoginMeNow\Model\Settings;
 
@@ -18,6 +19,10 @@ class Button extends LoginButtonBase {
 
 	public function button(): string {
 		if ( ! FacebookLogin::show() ) {
+			return '';
+		}
+
+		if ( User::is_logged_in() ) {
 			return '';
 		}
 

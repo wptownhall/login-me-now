@@ -35,4 +35,10 @@ class User {
 
 		return '';
 	}
+
+	public static function is_logged_in(): bool {
+		self::includes();
+
+		return is_user_logged_in();
+	}
 }
