@@ -31,7 +31,7 @@ $appId = Settings::init()->get( 'facebook_app_id', '' );
 								status: false,
 								cookie: true,
 								xfbml: true,
-      							version: 'v2.7'
+      							version: 'v4.0'
 							});
 						}
 						this.buttons().forEach(button => {
