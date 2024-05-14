@@ -4,7 +4,7 @@ Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.4.0
+Stable tag: 1.5.0
 License: GPLv3 or Any Later Version
 Tags: login, password, secure-login, wp-login, social-login, google-login, one-click, google-avatar, delegate-access, browser-extension
 
@@ -158,6 +158,14 @@ No. That would be horrible not only for you but even more so for us (huge liabil
 Yes, you will know the activities in the dashboard of the recipient by checking the activity log option of this plugin. This means you can keep track of what the recipient is doing while they have temporary access to your website. 
 
 == Changelog ==
+
+= 1.5.0 – May 15, 2024 =
+* Fix: Google Button Width Issue
+* Fix: Username Space Issue
+* Fix: User Switching Issue
+* Fix: Onetap Redirect Issue
+* Add: Hook login_me_now_temporary_login_redirect_uri
+
 
 = 1.4.0 – Mar 05, 2024 =
 * New: Facebook Login
