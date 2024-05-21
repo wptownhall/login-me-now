@@ -29,9 +29,9 @@ class LoginsServiceProvider extends ProviderBase {
 
 	public function get_logins(): array {
 		return [
-			GoogleLogin::class,
-			FacebookLogin::class,
 			BrowserTokenLogin::class,
+			FacebookLogin::class,
+			GoogleLogin::class,
 			LinkLogin::class,
 		];
 	}

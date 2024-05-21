@@ -7,8 +7,10 @@
 
 namespace LoginMeNow\Logins\BrowserTokenLogin;
 
+use LoginMeNow\DTO\LoginDTO;
 use LoginMeNow\Helper;
 use LoginMeNow\Model\Auth;
+use LoginMeNow\Repositories\AccountRepository;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
 
@@ -52,6 +54,13 @@ class AutoLogin {
 
 		delete_transient( $number );
 
-		Auth::login( $user_id );
+		$redirect_uri = apply_filters( 'login_me_now_browser_token_login_redirect_uri', '' );
+
+		$dto = ( new LoginDTO )
+			->set_user_id( $user_id )
+			->set_redirect_uri( $redirect_uri )
+			->set_redirect_return( false );
+
+		( new AccountRepository )->login( $dto );
 	}
 }

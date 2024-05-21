@@ -9,7 +9,7 @@
 
 namespace LoginMeNow\Logins\BrowserTokenLogin;
 
-use LoginMeNow\Model\BrowserTokenLogin;
+use LoginMeNow\Model\BrowserTokenModel;
 use LoginMeNow\Traits\AjaxCheck;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
@@ -78,7 +78,7 @@ class Ajax {
 
 		$offset = (int) $_POST['offset'] ?? 0;
 		$limit  = (int) $_POST['limit'] ?? 10;
-		$tokens = BrowserTokenLogin::init()->get_all( $offset, $limit );
+		$tokens = BrowserTokenModel::init()->get_all( $offset, $limit );
 
 		if ( ! is_array( $tokens ) || ! $tokens ) {
 			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
@@ -101,7 +101,7 @@ class Ajax {
 			wp_send_json_error( __( "No meta id provided", 'login-me-now' ) );
 		}
 
-		$updated = BrowserTokenLogin::init()->update( $token_id, $status );
+		$updated = BrowserTokenModel::init()->update( $token_id, $status );
 
 		wp_send_json_success( $updated );
 		wp_die();
@@ -118,7 +118,7 @@ class Ajax {
 			wp_send_json_error( __( "No meta id provided", 'login-me-now' ) );
 		}
 
-		$deleted = BrowserTokenLogin::init()->drop( $token_id );
+		$deleted = BrowserTokenModel::init()->drop( $token_id );
 
 		wp_send_json_success( $deleted );
 		wp_die();
