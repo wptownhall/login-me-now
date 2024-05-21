@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.4.0
- * @version 1.4.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow\Abstracts;
@@ -20,6 +20,6 @@ abstract class LoginButtonBase {
 	abstract public function native_login(): bool;
 
 	public function __construct() {
-		$this->action( 'init', 'shortcodes' );
+		$this->action( 'init', [$this, 'shortcodes'] );
 	}
 }

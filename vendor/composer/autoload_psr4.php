@@ -22,7 +22,7 @@ return array(
     'LoginMeNow\\LoginForm\\' => array($baseDir . '/app/Modules/LoginForm'),
     'LoginMeNow\\GoogleLogin\\' => array($baseDir . '/app/Modules/GoogleLogin'),
     'LoginMeNow\\FacebookLogin\\' => array($baseDir . '/app/Modules/FacebookLogin'),
-    'LoginMeNow\\BrowserToken\\' => array($baseDir . '/app/Modules/BrowserToken'),
+    'LoginMeNow\\BrowserTokenLogin\\' => array($baseDir . '/app/Modules/BrowserTokenLogin'),
     'LoginMeNow\\AdvanceSharing\\' => array($baseDir . '/app/Modules/AdvanceSharing'),
     'LoginMeNow\\Abstracts\\' => array($baseDir . '/app/Common/Abstracts'),
     'LoginMeNow\\' => array($baseDir . '/app'),

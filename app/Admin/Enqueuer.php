@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow\Admin;
@@ -16,8 +16,8 @@ use LoginMeNow\Helper;
 class Enqueuer extends EnqueuerBase {
 
 	public function __construct() {
-		$this->action( 'admin_init', 'settings_admin_scripts' );
-		$this->action( 'after_setup_theme', 'init_admin_settings', 99 );
+		$this->action( 'admin_init', [$this, 'settings_admin_scripts'] );
+		$this->action( 'after_setup_theme', [$this, 'init_admin_settings'], 99 );
 	}
 
 	public function admin_register_scripts(): void {
@@ -45,8 +45,8 @@ class Enqueuer extends EnqueuerBase {
 			)
 		) { //phpcs:ignore
 			/** @psalm-suppress PossiblyInvalidArgument */// phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$this->action( 'admin_enqueue_scripts', 'styles_scripts' );
-			$this->filter( 'admin_footer_text', 'admin_footer_link', 99 );
+			$this->action( 'admin_enqueue_scripts', [$this, 'styles_scripts'] );
+			$this->filter( 'admin_footer_text', [$this, 'admin_footer_link'], 99 );
 		}
 	}
 
@@ -162,7 +162,7 @@ class Enqueuer extends EnqueuerBase {
 	 * Admin settings init.
 	 */
 	public function init_admin_settings() {
-		$this->action( 'admin_head', 'admin_submenu_css' );
+		$this->action( 'admin_head', [$this, 'admin_submenu_css'] );
 	}
 
 	/**

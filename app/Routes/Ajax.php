@@ -4,13 +4,13 @@
  *
  * @package Login Me Now
  * @since   1.0.0
- * @version 1.4.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow\Routes;
 
-use LoginMeNow\Model\BrowserToken;
-use LoginMeNow\Model\Settings;
+use LoginMeNow\Model\BrowserTokenLogin;
+use LoginMeNow\Repositories\SettingsRepository as Settings;
 use LoginMeNow\Traits\AjaxCheck;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
@@ -27,8 +27,8 @@ class Ajax {
 	private array $errors;
 
 	public function __construct() {
-		$this->action( 'wp_ajax_login_me_now_update_admin_setting', 'login_me_now_update_admin_setting' );
-		$this->action( 'wp_ajax_update_status_of_token', 'update_status_of_token' );
+		$this->action( 'wp_ajax_login_me_now_update_admin_setting', [$this, 'login_me_now_update_admin_setting'] );
+		$this->action( 'wp_ajax_update_status_of_token', [$this, 'update_status_of_token'] );
 	}
 
 	/**
@@ -39,39 +39,38 @@ class Ajax {
 			'login_me_now_admin_settings_datatypes',
 			[
 
-				'logs'                               => 'bool',
-				'logs_expiration'                    => 'integer',
+				'logs'                           => 'bool',
+				'logs_expiration'                => 'integer',
 
-				'google_login'                       => 'bool',
-				'google_client_id'                   => 'string',
-				'google_client_secret'               => 'string',
-				'google_native_login'                => 'bool',
-				'google_onetap'                      => 'bool',
-				'google_cancel_on_tap_outside'       => 'bool',
-				'google_onetap_display_location'     => 'string',
+				'google_login'                   => 'bool',
+				'google_client_id'               => 'string',
+				'google_client_secret'           => 'string',
+				'google_native_login'            => 'bool',
+				'google_onetap'                  => 'bool',
+				'google_cancel_on_tap_outside'   => 'bool',
+				'google_onetap_display_location' => 'string',
 
-				'dm_advance_share'                   => 'bool',
-				'dm_express_login_wc'                => 'bool',
-				'dm_express_login_edd'               => 'bool',
-				'dm_express_login_email'             => 'bool',
-				'dm_otp_login'                       => 'bool',
+				'dm_advance_share'               => 'bool',
+				'dm_express_login_wc'            => 'bool',
+				'dm_express_login_edd'           => 'bool',
+				'dm_express_login_email'         => 'bool',
+				'dm_otp_login'                   => 'bool',
 
-				'social_login'                       => 'bool',
-				'user_switching'                     => 'bool',
-				'temporary_login'                    => 'bool',
-				'browser_extension'                  => 'bool',
-				'activity_logs'                      => 'bool',
-				'enable_sign_in_google'              => 'bool',
-				'enable_sign_in_facebook'            => 'bool',
-				'enable_sign_in_twitter'             => 'bool',
-				'login_layout'                       => 'string',
-				'login_button_style'                 => 'string',
-				'user_switching'                     => 'bool',
+				'social_login'                   => 'bool',
+				'user_switching'                 => 'bool',
+				'temporary_login'                => 'bool',
+				'browser_extension'              => 'bool',
+				'activity_logs'                  => 'bool',
+				'enable_sign_in_google'          => 'bool',
+				'enable_sign_in_facebook'        => 'bool',
+				'enable_sign_in_twitter'         => 'bool',
+				'login_layout'                   => 'string',
+				'login_button_style'             => 'string',
 
-				'facebook_login'                     => 'bool',
-				'facebook_app_id'                    => 'string',
-				'facebook_app_secret'                => 'string',
-				'facebook_native_login'              => 'bool',
+				'facebook_login'                 => 'bool',
+				'facebook_app_id'                => 'string',
+				'facebook_app_secret'            => 'string',
+				'facebook_native_login'          => 'bool',
 			]
 		);
 	}
@@ -128,7 +127,7 @@ class Ajax {
 			wp_die();
 		}
 
-		BrowserToken::init()->update( $id, $status );
+		BrowserTokenLogin::init()->update( $id, $status );
 		wp_die();
 	}
 }

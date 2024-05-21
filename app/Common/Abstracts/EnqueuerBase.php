@@ -17,9 +17,9 @@ abstract class EnqueuerBase {
 	private string $version = LOGIN_ME_NOW_VERSION;
 
 	public function __construct() {
-		$this->action( 'wp_enqueue_scripts', 'wp_enqueue_scripts', 15 );
-		$this->action( 'admin_enqueue_scripts', 'admin_enqueue_scripts' );
-		$this->action( 'login_enqueue_scripts', 'login_enqueue_scripts' );
+		$this->action( 'wp_enqueue_scripts', [$this, 'wp_enqueue_scripts'], 15 );
+		$this->action( 'admin_enqueue_scripts', [$this, 'admin_enqueue_scripts'] );
+		$this->action( 'login_enqueue_scripts', [$this, 'login_enqueue_scripts'] );
 	}
 
 	public function admin_enqueue_scripts(): void {}

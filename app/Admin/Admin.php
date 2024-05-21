@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow\Admin;
@@ -20,7 +20,7 @@ class Admin {
 		Enqueuer::init();
 		AfterActivation::init();
 
-		$this->filter( 'simple_history/row_sender_image_output', 'add_simple_history_image', 10, 2 );
+		$this->filter( 'simple_history/row_sender_image_output', [$this, 'add_simple_history_image'], 10, 2 );
 	}
 
 	public function add_simple_history_image( $sender_image_html, $row ) {

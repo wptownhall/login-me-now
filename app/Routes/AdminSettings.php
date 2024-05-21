@@ -8,7 +8,7 @@
 namespace LoginMeNow\Routes;
 
 use LoginMeNow\Abstracts\RouteBase;
-use LoginMeNow\Model\Settings;
+use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
 use WP_REST_Server;

@@ -2,18 +2,36 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow\Traits;
 
 trait Hookable {
 
-	public function action( string $tag, string $function, int $priority = 10, int $accepted_args = 1 ): void{
-		add_action( $tag, [$this, $function], $priority, $accepted_args );
+	public function action( string $hook_name, array $callback, int $priority = 10, int $accepted_args = 1 ): void {
+		add_action(
+			$hook_name,
+			function ( $args ) use ( $callback ) {
+				$class = new $callback[0];
+
+				return $class->{$callback[1]}( $args );
+			},
+			$priority,
+			$accepted_args
+		);
 	}
 
-	public function filter( string $tag, string $function, int $priority = 10, int $accepted_args = 1 ): void{
-		add_filter( $tag, [$this, $function], $priority, $accepted_args );
+	public function filter( string $hook_name, array $callback, int $priority = 10, int $accepted_args = 1 ): void {
+		add_filter(
+			$hook_name,
+			function ( $args ) use ( $callback ) {
+				$class = new $callback[0];
+
+				return $class->{$callback[1]}( $args );
+			},
+			$priority,
+			$accepted_args
+		);
 	}
 }

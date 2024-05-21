@@ -2,7 +2,7 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow\Admin;
@@ -21,7 +21,7 @@ class AdminMenu {
 	use Hookable;
 
 	public function __construct() {
-		$this->action( 'admin_menu', 'admin_menu' );
+		$this->action( 'admin_menu', [$this, 'admin_menu'] );
 	}
 
 	public function admin_menu(): void {

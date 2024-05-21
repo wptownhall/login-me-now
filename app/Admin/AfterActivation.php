@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Admin;
 
-use LoginMeNow\Model\BrowserToken;
+use LoginMeNow\Model\BrowserTokenLogin;
 use LoginMeNow\Traits\Singleton;
 use LoginMeNow\Utils\Random;
 
@@ -22,7 +22,7 @@ class AfterActivation {
 	}
 
 	public function update(): void {
-		BrowserToken::init()->create_table();
+		BrowserTokenLogin::init()->create_table();
 
 		/**
 		 * Add the secret key if not exist

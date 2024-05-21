@@ -2,18 +2,14 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.5.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow;
 
 use LoginMeNow\Admin\Admin;
-use LoginMeNow\BrowserToken\BrowserToken;
-use LoginMeNow\FacebookLogin\FacebookLogin;
-use LoginMeNow\GoogleLogin\GoogleLogin;
-use LoginMeNow\LoginForm\LoginForm;
-use LoginMeNow\LoginLink\LoginLink;
-use LoginMeNow\OnetimeNumber\AutoLogin;
+use LoginMeNow\Providers\IntegrationsServiceProvider;
+use LoginMeNow\Providers\LoginsServiceProvider;
 use LoginMeNow\Routes\AdminSettings;
 use LoginMeNow\Routes\Ajax;
 
@@ -35,22 +31,9 @@ class App {
 		 */
 		AdminSettings::init();
 		Ajax::init();
-		AutoLogin::init();
 		Enqueuer::init();
 
-		/**
-		 *  Modules Initialize
-		 */
-		AutoLogin::init();
-		GoogleLogin::init();
-		LoginLink::init();
-		BrowserToken::init();
-		FacebookLogin::init();
-		LoginForm::init();
-
-		/**
-		 *  Third-party Modules
-		 */
-		include_once LOGIN_ME_NOW_MODULES . '/UserSwitching/UserSwitching.php';
+		LoginsServiceProvider::init()->boot();
+		IntegrationsServiceProvider::init()->boot();
 	}
 }

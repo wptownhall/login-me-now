@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Utils;
 
-use LoginMeNow\Model\Settings;
+use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
 
 class Module {
 	public static function is_active( string $key, bool $default = false ): bool {

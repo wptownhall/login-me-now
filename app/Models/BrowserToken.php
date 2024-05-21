@@ -11,7 +11,7 @@ use LoginMeNow\Traits\Singleton;
 use LoginMeNow\Utils\Time;
 use LoginMeNow\Utils\User;
 
-class BrowserToken {
+class BrowserTokenLogin {
 	use Singleton;
 
 	private $wpdb;

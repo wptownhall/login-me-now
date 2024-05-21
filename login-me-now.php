@@ -4,7 +4,7 @@
  * Description: 1 click passwordless login, social login & user switching
  * Author: WPtownhall
  * Author URI: https://wptownhall.com/login-me-now/
- * Version: 1.5.0
+ * Version: 1.6.0
  * Requires PHP: 7.4
  * License: GPL2
  * Text Domain: login-me-now
@@ -107,7 +107,7 @@ final class LoginMeNow {
 		define( 'LOGIN_ME_NOW_APP_URL', LOGIN_ME_NOW_URL . '/app/' );
 
 		define( 'LOGIN_ME_NOW_INCLUDES', LOGIN_ME_NOW_APP_PATH . 'Common' );
-		define( 'LOGIN_ME_NOW_MODULES', LOGIN_ME_NOW_APP_PATH . 'Modules' );
+		define( 'LOGIN_ME_NOW_LOGINS', LOGIN_ME_NOW_APP_PATH . 'Logins' );
 		define( 'LOGIN_ME_NOW_ASSETS', LOGIN_ME_NOW_URL . 'assets' );
 		define( 'LOGIN_ME_NOW_PUBLIC', LOGIN_ME_NOW_URL . '/public/' );
 		define( 'LOGIN_ME_NOW_TEMPLATE_PATH', LOGIN_ME_NOW_PATH . '/templates/' );

@@ -35,7 +35,7 @@ const BrowserExtensions = () => {
     setSetTime(e.target.value);
   };
 
-  const onBrowserToken = (e) => {
+  const onBrowserTokenLogin = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
@@ -82,7 +82,7 @@ const BrowserExtensions = () => {
                     <Title text="Experience instant dashboard access with just 1 click" />
                     <SubTitle text="Generate a token to save this dashboard access in the browser extension, allowing you to effortlessly log in directly from extension. No need to navigate to the dashboard login panel and enter login credentials." />
                     <form
-                      onSubmit={onBrowserToken}
+                      onSubmit={onBrowserTokenLogin}
                       className="inline-flex flex-nowrap items-end"
                     >
                       <span className="relative z-0 inline-flex flex-col sm:flex-row justify-start w-full">

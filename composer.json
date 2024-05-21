@@ -12,7 +12,7 @@
             "LoginMeNow\\OnetimeNumber\\": "app/Modules/OnetimeNumber",
             "LoginMeNow\\UserSwitching\\": "app/Modules/UserSwitching",
             "LoginMeNow\\LoginLink\\": "app/Modules/LoginLink",
-            "LoginMeNow\\BrowserToken\\": "app/Modules/BrowserToken",
+            "LoginMeNow\\BrowserTokenLogin\\": "app/Modules/BrowserTokenLogin",
             "LoginMeNow\\AdvanceSharing\\": "app/Modules/AdvanceSharing",
             "LoginMeNow\\LoginForm\\": "app/Modules/LoginForm"
         }

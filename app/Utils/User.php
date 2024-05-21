@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Utils;
 
-use LoginMeNow\Model\Settings;
+use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
 use WP_User;
 
 class User {
