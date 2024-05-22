@@ -2,13 +2,12 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow\Logins\BrowserTokenLogin;
 
 use Exception;
-use LoginMeNow\Model\BrowserTokenLogin;
 use LoginMeNow\Model\BrowserTokenModel;
 use LoginMeNow\Traits\Singleton;
 use LoginMeNow\Utils\Logs;
@@ -243,8 +242,8 @@ class JWTAuth {
 			if ( 'user_id' === $return_type ) {
 				$message = __( "logged in using browser extension (ID: {$token_id})", 'login-me-now' );
 				Logs::add( $token->data->user->id, $message );
-		
-				return (Int) $token->data->user->id;
+
+				return (int) $token->data->user->id;
 			}
 
 			/** The token already signed, now create the object with no sensible user data to the client*/

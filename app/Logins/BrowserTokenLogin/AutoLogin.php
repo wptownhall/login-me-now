@@ -9,7 +9,6 @@ namespace LoginMeNow\Logins\BrowserTokenLogin;
 
 use LoginMeNow\DTO\LoginDTO;
 use LoginMeNow\Helper;
-use LoginMeNow\Model\Auth;
 use LoginMeNow\Repositories\AccountRepository;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
