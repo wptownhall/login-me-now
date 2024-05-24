@@ -2,12 +2,12 @@
 /**
  * @author  WPtownhall
  * @since   1.0.0
- * @version 1.2.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow\Admin;
 
-use LoginMeNow\Model\BrowserTokenLogin;
+use LoginMeNow\Model\BrowserTokenModel;
 use LoginMeNow\Traits\Singleton;
 use LoginMeNow\Utils\Random;
 
@@ -22,7 +22,7 @@ class AfterActivation {
 	}
 
 	public function update(): void {
-		BrowserTokenLogin::init()->create_table();
+		BrowserTokenModel::init()->create_table();
 
 		/**
 		 * Add the secret key if not exist

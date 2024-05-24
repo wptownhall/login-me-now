@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Logins\GoogleLogin;
 
-use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
+use LoginMeNow\Repositories\SettingsRepository;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
 use LoginMeNow\Utils\User;
@@ -26,7 +26,7 @@ class Profile {
 			return $url;
 		}
 
-		$user_avatar = Settings::init()->get( 'google_pro_user_avatar', false );
+		$user_avatar = SettingsRepository::get( 'google_pro_user_avatar', false );
 		if ( ! $user_avatar ) {
 			return $url;
 		}

@@ -30,13 +30,6 @@ class TokensListTable extends \WP_List_Table {
 		] );
 	}
 
-	/**
-	 * Get all tokens
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return Array|Object|NULL
-	 */
 	public static function get_tokens( $per_page, $current_page ) {
 		global $wpdb;
 

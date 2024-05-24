@@ -5,7 +5,7 @@
  * @version 1.6.0
  */
 
-use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
+use LoginMeNow\Repositories\SettingsRepository;
 use LoginMeNow\UserSwitching\AdminNotice;
 
 /**
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$enable = Settings::init()->get( 'user_switching', false );
+$enable = SettingsRepository::get( 'user_switching', false );
 if ( ! $enable ) {
 	return;
 }

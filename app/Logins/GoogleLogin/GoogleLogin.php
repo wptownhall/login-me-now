@@ -8,9 +8,8 @@
 namespace LoginMeNow\Logins\GoogleLogin;
 
 use LoginMeNow\Abstracts\ModuleBase;
-use LoginMeNow\Logins\GoogleLogin\Authenticate;
 use LoginMeNow\Logins\GoogleLogin\Enqueuer;
-use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
+use LoginMeNow\Repositories\SettingsRepository;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -25,7 +24,8 @@ class GoogleLogin extends ModuleBase {
 
 		Profile::init();
 		Enqueuer::init();
-		Authenticate::init();
+		Route::init();
+		Controller::init();
 		Button::init();
 
 		if ( ! defined( 'LOGIN_ME_NOW_PRO_VERSION' ) ) {
@@ -34,9 +34,9 @@ class GoogleLogin extends ModuleBase {
 	}
 
 	public static function show(): bool {
-		$enable        = Settings::init()->get( 'google_login', false );
-		$client_id     = Settings::init()->get( 'google_client_id', '' );
-		$client_secret = Settings::init()->get( 'google_client_secret', '' );
+		$enable        = SettingsRepository::init()->get( 'google_login', false );
+		$client_id     = SettingsRepository::init()->get( 'google_client_id', '' );
+		$client_secret = SettingsRepository::init()->get( 'google_client_secret', '' );
 
 		if ( $enable && $client_id && $client_secret ) {
 			return true;
@@ -46,7 +46,7 @@ class GoogleLogin extends ModuleBase {
 	}
 
 	public static function create_auth_url() {
-		$client_id    = Settings::init()->get( 'google_client_id' );
+		$client_id    = SettingsRepository::init()->get( 'google_client_id' );
 		$redirect_uri = home_url( 'wp-login.php?lmn-google' );
 		$auth         = 'https://accounts.google.com/o/oauth2/v2/auth';
 		$scopes       = [

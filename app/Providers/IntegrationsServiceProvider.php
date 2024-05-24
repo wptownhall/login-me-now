@@ -9,7 +9,7 @@ namespace LoginMeNow\Providers;
 
 use LoginMeNow\Abstracts\IntegrationBase;
 use LoginMeNow\Abstracts\ProviderBase;
-use LoginMeNow\Integrations\Directorist;
+use LoginMeNow\Integrations\Directorist\Directorist;
 use LoginMeNow\Integrations\WooCommerce;
 
 class IntegrationsServiceProvider extends ProviderBase {

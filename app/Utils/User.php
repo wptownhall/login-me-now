@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Utils;
 
-use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
+use LoginMeNow\Repositories\SettingsRepository;
 use WP_User;
 
 class User {
@@ -84,7 +84,7 @@ class User {
 	}
 
 	public static function set_role( int $user_id, string $channel ): void {
-		$default_role = Settings::init()->get( "{$channel}_pro_default_user_role", false );
+		$default_role = SettingsRepository::get( "{$channel}_pro_default_user_role", false );
 
 		if ( ! is_wp_error( $user_id ) && $default_role ) {
 			$user = new WP_User( $user_id );

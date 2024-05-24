@@ -9,8 +9,8 @@
 
 namespace LoginMeNow\Routes;
 
-use LoginMeNow\Model\BrowserTokenLogin;
-use LoginMeNow\Repositories\SettingsRepository as Settings;
+use LoginMeNow\Model\BrowserTokenModel;
+use LoginMeNow\Repositories\SettingsRepository;
 use LoginMeNow\Traits\AjaxCheck;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
@@ -106,7 +106,7 @@ class Ajax {
 		}
 		// @codingStandardsIgnoreEnd
 
-		Settings::init()->update( $sub_option_key, $sub_option_value );
+		SettingsRepository::update( $sub_option_key, $sub_option_value );
 
 		$response_data = [
 			'message' => __( 'Successfully saved data!', 'login-me-now' ),
@@ -127,7 +127,7 @@ class Ajax {
 			wp_die();
 		}
 
-		BrowserTokenLogin::init()->update( $id, $status );
+		( new BrowserTokenModel )->update( $id, $status );
 		wp_die();
 	}
 }

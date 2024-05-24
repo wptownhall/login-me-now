@@ -9,7 +9,7 @@ namespace LoginMeNow\Logins\GoogleLogin;
 
 use HeyMehedi\Utils\User;
 use LoginMeNow\Abstracts\LoginButtonBase;
-use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
+use LoginMeNow\Repositories\SettingsRepository;
 
 class Button extends LoginButtonBase {
 
@@ -40,6 +40,6 @@ class Button extends LoginButtonBase {
 	}
 
 	public function native_login(): bool {
-		return Settings::init()->get( 'google_native_login', true );
+		return SettingsRepository::get( 'google_native_login', true );
 	}
 }

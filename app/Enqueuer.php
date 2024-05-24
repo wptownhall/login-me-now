@@ -2,13 +2,13 @@
 /**
  * @author  WPtownhall
  * @since   1.5.0
- * @version 1.5.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow;
 
 use LoginMeNow\Abstracts\EnqueuerBase;
-use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
+use LoginMeNow\Repositories\SettingsRepository;
 
 class Enqueuer extends EnqueuerBase {
 
@@ -33,15 +33,15 @@ class Enqueuer extends EnqueuerBase {
 
 		$data = [
 			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
-			'facebook_app_id'           => Settings::init()->get( 'facebook_app_id', '' ),
+			'facebook_app_id'           => SettingsRepository::get( 'facebook_app_id', '' ),
 			'facebook_pro_redirect_url' => $redirect,
-			'google_client_id'          => Settings::init()->get( 'google_client_id', '' ),
+			'google_client_id'          => SettingsRepository::get( 'google_client_id', '' ),
 			'google_pro_redirect_url'   => $redirect,
 		];
 
 		if ( defined( 'LOGIN_ME_NOW_PRO_VERSION' ) ) {
-			$data['facebook_pro_redirect_url'] = Settings::init()->get( 'facebook_pro_redirect_url', $redirect );
-			$data['google_pro_redirect_url']   = Settings::init()->get( 'google_pro_redirect_url', $redirect );
+			$data['facebook_pro_redirect_url'] = SettingsRepository::get( 'facebook_pro_redirect_url', $redirect );
+			$data['google_pro_redirect_url']   = SettingsRepository::get( 'google_pro_redirect_url', $redirect );
 		}
 
 		wp_localize_script( 'login-me-now-social-login-main', 'login_me_now_social_login_main_obj', $data );

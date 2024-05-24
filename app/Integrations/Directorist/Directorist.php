@@ -5,7 +5,7 @@
  * @version 1.6.0
  */
 
-namespace LoginMeNow\Integrations;
+namespace LoginMeNow\Integrations\Directorist;
 
 use LoginMeNow\Abstracts\IntegrationBase;
 

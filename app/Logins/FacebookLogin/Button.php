@@ -2,14 +2,14 @@
 /**
  * @author  WPtownhall
  * @since   1.4.0
- * @version 1.4.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow\Logins\FacebookLogin;
 
 use HeyMehedi\Utils\User;
 use LoginMeNow\Abstracts\LoginButtonBase;
-use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
+use LoginMeNow\Repositories\SettingsRepository;
 
 class Button extends LoginButtonBase {
 
@@ -40,6 +40,6 @@ class Button extends LoginButtonBase {
 	}
 
 	public function native_login(): bool {
-		return Settings::init()->get( 'facebook_native_login', true );
+		return SettingsRepository::get( 'facebook_native_login', true );
 	}
 }

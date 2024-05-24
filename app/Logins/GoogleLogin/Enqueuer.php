@@ -8,7 +8,7 @@
 namespace LoginMeNow\Logins\GoogleLogin;
 
 use LoginMeNow\Abstracts\EnqueuerBase;
-use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
+use LoginMeNow\Repositories\SettingsRepository;
 use LoginMeNow\Traits\Hookable;
 
 /**
@@ -32,8 +32,8 @@ class Enqueuer extends EnqueuerBase {
 	public function credential() {
 		global $wp;
 		$nonce          = wp_create_nonce( 'lmn-google-nonce' );
-		$client_id      = Settings::init()->get( 'google_client_id' );
-		$cancel_outside = Settings::init()->get( 'google_cancel_on_tap_outside', true );
+		$client_id      = SettingsRepository::get( 'google_client_id' );
+		$cancel_outside = SettingsRepository::get( 'google_cancel_on_tap_outside', true );
 		$current_url    = home_url( add_query_arg( [], $wp->request ) );
 		$login_uri      = home_url() . '/?lmn-google';
 		$show_onetap    = apply_filters( 'login_me_now_google_login_show_onetap', true );

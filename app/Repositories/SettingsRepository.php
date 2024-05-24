@@ -1,31 +1,38 @@
 <?php
 /**
- * @author  wpWax
- * @since   1.6.0
+ * @author  WPtownhall
+ * @since  	1.6.0
  * @version 1.6.0
  */
 
 namespace LoginMeNow\Repositories;
 
 use LoginMeNow\Helper;
-use LoginMeNow\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 class SettingsRepository {
-	use Singleton;
-
-	private string $option_name = 'login_me_now_admin_settings';
-	private array $settings;
+	private static string $option_name = 'login_me_now_admin_settings';
+	private static array $settings;
+	private static $instance;
 
 	public function __construct() {
-		$this->settings = get_option( $this->option_name, [] );
+		self::$settings = get_option( self::$option_name, [] );
+	}
+
+	public static function init(): object {
+		$class = get_called_class();
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new $class();
+		}
+
+		return self::$instance;
 	}
 
 	public function get_all(): array {
-		$db_option = get_option( $this->option_name, [] );
+		$db_option = get_option( self::$option_name, [] );
 
 		$defaults = apply_filters(
 			'login_me_now_dashboard_rest_options',
@@ -65,15 +72,15 @@ class SettingsRepository {
 		return $updated_option;
 	}
 
-	public function get( string $key, $default = null ) {
-		$this->settings = get_option( $this->option_name, [] );
+	public static function get( string $key, $default = null ) {
+		self::$settings = get_option( self::$option_name, [] );
 
-		return $this->settings[$key] ?? $default;
+		return self::$settings[$key] ?? $default;
 	}
 
-	public function update( string $key, $value ): void {
-		$this->settings       = get_option( $this->option_name, [] );
-		$this->settings[$key] = $value;
-		update_option( $this->option_name, $this->settings );
+	public static function update( string $key, $value ): void {
+		self::$settings       = get_option( self::$option_name, [] );
+		self::$settings[$key] = $value;
+		update_option( self::$option_name, self::$settings );
 	}
 }

@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Logins\GoogleLogin;
 
-use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
+use LoginMeNow\Repositories\SettingsRepository;
 use LoginMeNow\Traits\Hookable;
 use LoginMeNow\Traits\Singleton;
 
@@ -32,7 +32,7 @@ class OneTap {
 	}
 
 	private function show(): bool {
-		$show_on = Settings::init()->get( 'google_onetap_display_location', 'side_wide' );
+		$show_on = SettingsRepository::get( 'google_onetap_display_location', 'side_wide' );
 
 		$return = false;
 

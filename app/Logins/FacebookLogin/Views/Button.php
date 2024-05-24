@@ -2,12 +2,12 @@
 /**
  * @author  WPtownhall
  * @since   1.4.0
- * @version 1.5.0
+ * @version 1.6.0
  */
 
-use LoginMeNow\Repositories\SettingsRepository  as  Settings;;
+use LoginMeNow\Repositories\SettingsRepository;
 
-$appId = Settings::init()->get( 'facebook_app_id', '' );
+$appId = SettingsRepository::get( 'facebook_app_id', '' );
 ?>
 
 <div class="lmn_facebook_login">

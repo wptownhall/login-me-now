@@ -22,13 +22,6 @@ class LogsListTable extends \WP_List_Table {
 		] );
 	}
 
-	/**
-	 * Get all logs
-	 *
-	 * @since 0.96
-	 *
-	 * @return Array|Object|NULL
-	 */
 	public static function get_logs( int $per_page, int $current_page ) {
 		global $wpdb;
 
