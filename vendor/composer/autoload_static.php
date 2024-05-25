@@ -43,7 +43,7 @@ class ComposerStaticInit184d419aeb5d10103d268eb48787b93d
             'LoginMeNow\\LoginForm\\' => 21,
             'LoginMeNow\\GoogleLogin\\' => 23,
             'LoginMeNow\\FacebookLogin\\' => 25,
-            'LoginMeNow\\BrowserTokenLogin\\' => 24,
+            'LoginMeNow\\BrowserTokenLogin\\' => 29,
             'LoginMeNow\\AdvanceSharing\\' => 26,
             'LoginMeNow\\Abstracts\\' => 21,
             'LoginMeNow\\' => 11,
