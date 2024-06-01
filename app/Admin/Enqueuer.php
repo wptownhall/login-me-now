@@ -8,7 +8,7 @@
 namespace LoginMeNow\Admin;
 
 use LoginMeNow\Common\EnqueuerBase;
-use LoginMeNow\Helper;
+use LoginMeNow\Utils\Helper;
 
 /**
  * Assets Enqueuer

@@ -8,7 +8,7 @@
 namespace LoginMeNow\Logins\BrowserTokenLogin;
 
 use LoginMeNow\DTO\LoginDTO;
-use LoginMeNow\Helper;
+use LoginMeNow\Utils\Helper;
 use LoginMeNow\Repositories\AccountRepository;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;

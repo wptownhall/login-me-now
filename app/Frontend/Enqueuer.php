@@ -1,11 +1,11 @@
 <?php
 /**
  * @author  WPtownhall
- * @since   1.5.0
+ * @since   1.6.0
  * @version 1.6.0
  */
 
-namespace LoginMeNow;
+namespace LoginMeNow\Frontend;
 
 use LoginMeNow\Common\EnqueuerBase;
 use LoginMeNow\Repositories\SettingsRepository;

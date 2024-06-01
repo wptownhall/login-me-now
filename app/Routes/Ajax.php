@@ -9,15 +9,11 @@
 
 namespace LoginMeNow\Routes;
 
-use LoginMeNow\Model\BrowserTokenModel;
-use LoginMeNow\Repositories\SettingsRepository;
 use LoginMeNow\Common\AjaxCheck;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+use LoginMeNow\Model\BrowserTokenModel;
+use LoginMeNow\Repositories\SettingsRepository;
 
 class Ajax {
 	use Singleton;
@@ -28,7 +24,6 @@ class Ajax {
 
 	public function __construct() {
 		$this->action( 'wp_ajax_login_me_now_update_admin_setting', [$this, 'login_me_now_update_admin_setting'] );
-		$this->action( 'wp_ajax_update_status_of_token', [$this, 'update_status_of_token'] );
 	}
 
 	/**
@@ -113,21 +108,5 @@ class Ajax {
 		];
 
 		wp_send_json_success( $response_data );
-	}
-
-	/**
-	 * Update Particular Extension Token Status
-	 */
-	public function update_status_of_token() {
-		$status = ! empty( $_POST['status'] ) ? sanitize_text_field( $_POST['status'] ) : false;
-		$id     = ! empty( $_POST['id'] ) ? sanitize_text_field( $_POST['id'] ) : 0;
-
-		if ( ! $status && ! $id ) {
-			wp_send_json( __( "Something wen't wrong!" ) );
-			wp_die();
-		}
-
-		( new BrowserTokenModel )->update( $id, $status );
-		wp_die();
 	}
 }

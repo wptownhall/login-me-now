@@ -18,13 +18,13 @@ class LoginFormsServiceProvider extends ProviderBase {
 	use \LoginMeNow\Common\Hookable;
 
 	public function boot() {
-		$this->action( 'login_footer', 'wp_login_script', 50 );
+		$this->action( 'login_footer', [$this, 'wp_login_script'], 50 );
 
-		$this->action( 'login_form', 'login_buttons' );
-		$this->action( 'register_form', 'login_buttons' );
-		$this->filter( 'login_form_top', 'login_buttons_filter' );
+		$this->action( 'login_form', [$this, 'login_buttons'] );
+		$this->action( 'register_form', [$this, 'login_buttons'] );
+		$this->filter( 'login_form_top', [$this, 'login_buttons_filter'] );
 
-		$this->action( 'woocommerce_login_form_start', 'login_buttons' );
+		$this->action( 'woocommerce_login_form_start', [$this, 'login_buttons'] );
 	}
 
 	public function login_buttons_filter() {

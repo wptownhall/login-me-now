@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Utils;
 
-use LoginMeNow\Helper;
+use LoginMeNow\Utils\Helper;
 
 class Logs {
 	public static function add( int $user_id, string $message ): void {

@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Admin;
 
-use LoginMeNow\Helper;
+use LoginMeNow\Utils\Helper;
 use LoginMeNow\Utils\Time;
 
 if ( ! class_exists( 'WP_List_Table' ) ) {

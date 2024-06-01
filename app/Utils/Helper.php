@@ -1,11 +1,11 @@
 <?php
 /**
  * @author  WPtownhall
- * @since   1.0.0
- * @version 1.0.0
+ * @since   1.6.0
+ * @version 1.6.0
  */
 
-namespace LoginMeNow;
+namespace LoginMeNow\Utils;
 
 class Helper {
 
@@ -40,7 +40,7 @@ class Helper {
 		return $tokens;
 	}
 
-	public static function generate_status_options( string $active, int $id ): string{
+	public static function generate_status_options( string $active, int $id ): string {
 		$status = [
 			'active'  => __( 'Active', 'login-me-now' ),
 			'blocked' => __( 'Block', 'login-me-now' ),
@@ -63,7 +63,7 @@ class Helper {
 	/**
 	 * Get plugin status
 	 */
-	public static function get_plugin_status( string $plugin_init_file ): string{
+	public static function get_plugin_status( string $plugin_init_file ): string {
 		$installed_plugins = get_plugins();
 
 		if ( ! isset( $installed_plugins[$plugin_init_file] ) ) {
@@ -81,7 +81,7 @@ class Helper {
 		return $roles;
 	}
 
-	public static function get_pages(): array{
+	public static function get_pages(): array {
 		$return = [];
 		$pages  = get_pages();
 
@@ -101,7 +101,7 @@ class Helper {
 	/**
 	 * Get current user IP Address.
 	 */
-	static function get_ip_address() {
+	public static function get_ip_address() {
 		if ( isset( $_SERVER['HTTP_X_REAL_IP'] ) ) {
 			return sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_REAL_IP'] ) );
 		} elseif ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
@@ -115,7 +115,7 @@ class Helper {
 		return '0.0.0.0';
 	}
 
-	static function lmn_get_pro_url() {
+	public static function lmn_get_pro_url() {
 		return '#';
 	}
 

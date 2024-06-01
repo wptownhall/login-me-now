@@ -5,7 +5,7 @@
  * @version 1.6.0
  */
 
-namespace LoginMeNow\Integrations;
+namespace LoginMeNow\Integrations\WooCommerce;
 
 use LoginMeNow\Common\IntegrationBase;
 

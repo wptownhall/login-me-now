@@ -1,8 +1,8 @@
 <?php
 /**
  * @author  WPtownhall
- * @since   1.0.0
- * @version 1.4.0
+ * @since   1.6.0
+ * @version 1.6.0
  */
 
 namespace LoginMeNow\Common;

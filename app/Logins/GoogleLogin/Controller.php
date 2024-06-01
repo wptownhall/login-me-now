@@ -8,9 +8,9 @@
 namespace LoginMeNow\Logins\GoogleLogin;
 
 use Google_Client;
+use LoginMeNow\Common\Singleton;
 use LoginMeNow\DTO\UserDataDTO;
 use LoginMeNow\Repositories\SettingsRepository;
-use LoginMeNow\Common\Singleton;
 
 class Controller {
 	use Singleton;
@@ -117,7 +117,7 @@ class Controller {
 		$this->redirect_return = false;
 
 		$userDataDTO = ( new UserDataDTO )
-			->set_id( $data['ID'] ?? '' )
+			->set_id( $data['ID'] ?? 0 )
 			->set_user_email( $data['email'] ?? '' )
 			->set_name( $data['name'] ?? '' )
 			->set_first_name( $data['given_name'] ?? '' )

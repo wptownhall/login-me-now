@@ -1,13 +1,16 @@
 <?php
 /**
  * Plugin Name: Login Me Now
+ * Author URI: https://wptownhall.com/login-me-now/
  * Description: 1 click passwordless login, social login & user switching
  * Author: WPtownhall
- * Author URI: https://wptownhall.com/login-me-now/
+ * Author URI: https://profiles.wordpress.org/wptownhall/
  * Version: 1.6.0
+ * Tested up to: 6.5
  * Requires PHP: 7.4
- * License: GPL2
+ * License: GPLv2 or later
  * Text Domain: login-me-now
+ * Domain Path: /languages
  *
  * Released under the GPL license
  * http://www.opensource.org/licenses/gpl-license.php
@@ -32,10 +35,6 @@
  * **********************************************************************
  */
 
-use HeyMehedi\Utils\Config;
-use LoginMeNow\App;
-
-// don't call the file directly
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -43,91 +42,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 include __DIR__ . '/vendor/autoload.php';
 
 final class LoginMeNow {
-	public object $app;
-	private static $instance;
+	private static LoginMeNow $instance;
 
-	public static function init(): object {
-		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof LoginMeNow ) ) {
-			self::$instance = new LoginMeNow();
-			self::$instance->setup();
+	public static function instance(): LoginMeNow {
+		if ( empty( self::$instance ) ) {
+			self::$instance = new self;
 		}
 
 		return self::$instance;
 	}
 
-	private function setup(): void {
-		register_activation_hook( __FILE__, [$this, 'auto_deactivate'] );
+	public function load(): void {
+		register_activation_hook(
+			__FILE__, function () {
+				new LoginMeNow\Setup\Activate( __FILE__ );
+			}
+		);
 
-		if ( ! $this->is_supported_php() ) {
-			return;
-		}
+		register_deactivation_hook(
+			__FILE__, function () {
+				new LoginMeNow\Setup\Deactivate();
+			}
+		);
 
-		$this->define_constants();
-		$this->app = new App();
+		$application = \LoginMeNow\Boot\App::instance();
+		$application->boot( __FILE__, __DIR__ );
 
-		do_action( 'login_me_now_loaded' );
-	}
+		add_action(
+			'plugins_loaded', function () use ( $application ): void {
 
-	public function is_supported_php(): bool {
-		if ( version_compare( PHP_VERSION, Config::get( 'min_php' ), '<' ) ) {
-			return false;
-		}
+				do_action( 'before_login_me_now_load' );
 
-		return true;
-	}
+				$application->load();
 
-	public function auto_deactivate(): void {
-		if ( $this->is_supported_php() ) {
-			return;
-		}
-
-		deactivate_plugins( basename( __FILE__ ) );
-
-		$error = __( '<h1>An Error Occurred</h1>', 'login-me-now' );
-		$error .= __( '<h2>Your installed PHP Version is: ', 'login-me-now' ) . PHP_VERSION . '</h2>';
-		$error .= __( '<p>The <strong>Login Me Now</strong> plugin requires PHP version <strong>', 'login-me-now' ) . $this->min_php . __( '</strong> or greater', 'login-me-now' );
-		$error .= __( '<p>The version of your PHP is ', 'login-me-now' ) . '<a href="http://php.net/supported-versions.php" target="_blank"><strong>' . __( 'unsupported and old', 'login-me-now' ) . '</strong></a>.';
-		$error .= __( 'You should update your PHP software or contact your host regarding this matter.</p>', 'login-me-now' );
-		wp_die(
-			wp_kses_post( $error ),
-			esc_html__( 'Plugin Activation Error', 'login-me-now' ),
-			[
-				'response'  => 200,
-				'back_link' => true,
-			]
+				do_action( 'after_login_me_now_load' );
+			}
 		);
 	}
-
-	private function define_constants(): void {
-		define( 'LOGIN_ME_NOW_VERSION', Config::get( 'version' ) );
-		define( 'LOGIN_ME_NOW_FILE', __FILE__ );
-		define( 'LOGIN_ME_NOW_URL', plugins_url( '', LOGIN_ME_NOW_FILE ) );
-		define( 'LOGIN_ME_NOW_PATH', dirname( LOGIN_ME_NOW_FILE ) );
-		define( 'LOGIN_ME_NOW_APP_PATH', LOGIN_ME_NOW_PATH . '/app/' );
-		define( 'LOGIN_ME_NOW_APP_URL', LOGIN_ME_NOW_URL . '/app/' );
-
-		define( 'LOGIN_ME_NOW_INCLUDES', LOGIN_ME_NOW_APP_PATH . 'Common' );
-		define( 'LOGIN_ME_NOW_LOGINS', LOGIN_ME_NOW_APP_PATH . 'Logins' );
-		define( 'LOGIN_ME_NOW_ASSETS', LOGIN_ME_NOW_URL . 'assets' );
-		define( 'LOGIN_ME_NOW_PUBLIC', LOGIN_ME_NOW_URL . '/public/' );
-		define( 'LOGIN_ME_NOW_TEMPLATE_PATH', LOGIN_ME_NOW_PATH . '/templates/' );
-
-		define( 'LOGIN_ME_NOW_ADMIN_URL', LOGIN_ME_NOW_APP_URL . 'Admin' );
-		define( 'LOGIN_ME_NOW_ADMIN_PATH', LOGIN_ME_NOW_APP_PATH . 'Admin' );
-
-		define( 'LOGIN_ME_NOW_MENU_SLUG', apply_filters( 'login_me_now_menu_slug', Config::get( 'menu_slug' ) ) );
-		define( 'LOGIN_ME_NOW_MENU_CAPABILITY', apply_filters( 'login_me_now_menu_capability', Config::get( 'menu_cap' ) ) );
-
-		define( 'LOGIN_ME_NOW_PRO_UPGRADE_URL', Config::get( 'pro_upgrade_url' ) );
-	}
 }
 
-/**
- * Init the LoginMeNow plugin
- */
-function LoginMeNow() {
-	return LoginMeNow::init();
-}
-
-// kick it off
-LoginMeNow();
+LoginMeNow::instance()->load();

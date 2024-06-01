@@ -9,24 +9,22 @@ namespace LoginMeNow\Providers;
 
 use LoginMeNow\Common\IntegrationBase;
 use LoginMeNow\Common\ProviderBase;
-use LoginMeNow\Integrations\Directorist\Directorist;
-use LoginMeNow\Integrations\WooCommerce;
 
 class IntegrationsServiceProvider extends ProviderBase {
 
 	public function boot() {
-		foreach ( $this->get_integrations() as $_integration ) {
-			$integration = new $_integration();
-			if ( $integration instanceof IntegrationBase ) {
-				$integration->boot();
+		foreach ( $this->get() as $_i ) {
+			$i = new $_i();
+			if ( $i instanceof IntegrationBase ) {
+				$i->boot();
 			}
 		}
 	}
 
-	public function get_integrations(): array {
+	public function get(): array {
 		return [
-			Directorist::class,
-			WooCommerce::class,
+			\LoginMeNow\Integrations\Directorist\Directorist::class,
+			\LoginMeNow\Integrations\WooCommerce\WooCommerce::class,
 		];
 	}
 }

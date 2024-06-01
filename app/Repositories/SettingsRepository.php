@@ -7,11 +7,7 @@
 
 namespace LoginMeNow\Repositories;
 
-use LoginMeNow\Helper;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+use LoginMeNow\Utils\Helper;
 
 class SettingsRepository {
 	private static string $option_name = 'login_me_now_admin_settings';

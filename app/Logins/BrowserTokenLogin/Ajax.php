@@ -9,10 +9,10 @@
 
 namespace LoginMeNow\Logins\BrowserTokenLogin;
 
-use LoginMeNow\Model\BrowserTokenModel;
 use LoginMeNow\Common\AjaxCheck;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;
+use LoginMeNow\Model\BrowserTokenModel;
 use LoginMeNow\Utils\Time;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -30,6 +30,7 @@ class Ajax {
 		$this->action( 'wp_ajax_login_me_now_browser_token_update_status', [$this, 'login_me_now_browser_token_update_status'] );
 		$this->action( 'wp_ajax_login_me_now_browser_token_drop', [$this, 'login_me_now_browser_token_drop'] );
 		$this->action( 'wp_ajax_login_me_now_hide_save_to_browser_extension', [$this, 'login_me_now_hide_save_to_browser_extension'] );
+		$this->action( 'wp_ajax_update_status_of_token', [$this, 'update_status_of_token'] );
 	}
 
 	public function login_me_now_hide_save_to_browser_extension() {
@@ -121,6 +122,22 @@ class Ajax {
 		$deleted = BrowserTokenModel::init()->drop( $token_id );
 
 		wp_send_json_success( $deleted );
+		wp_die();
+	}
+
+	/**
+	 * Update Particular Extension Token Status
+	 */
+	public function update_status_of_token() {
+		$status = ! empty( $_POST['status'] ) ? sanitize_text_field( $_POST['status'] ) : false;
+		$id     = ! empty( $_POST['id'] ) ? sanitize_text_field( $_POST['id'] ) : 0;
+
+		if ( ! $status && ! $id ) {
+			wp_send_json( __( "Something wen't wrong!" ) );
+			wp_die();
+		}
+
+		( new BrowserTokenModel )->update( $id, $status );
 		wp_die();
 	}
 }

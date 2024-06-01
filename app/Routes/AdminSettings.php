@@ -1,21 +1,17 @@
 <?php
 /**
  * @author 	WPtownhall
- * @since	1.0.0
+ * @since	1.6.0
  * @version 1.6.0
  */
 
 namespace LoginMeNow\Routes;
 
-use LoginMeNow\Common\RouteBase;
-use LoginMeNow\Repositories\SettingsRepository;
 use LoginMeNow\Common\Hookable;
+use LoginMeNow\Common\RouteBase;
 use LoginMeNow\Common\Singleton;
+use LoginMeNow\Repositories\SettingsRepository;
 use WP_REST_Server;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
 
 class AdminSettings extends RouteBase {
 	use Singleton;

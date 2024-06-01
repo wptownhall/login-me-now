@@ -9,7 +9,7 @@ namespace LoginMeNow\Admin;
 
 use LoginMeNow\Admin\LogsListTable;
 use LoginMeNow\Admin\TokensListTable;
-use LoginMeNow\Helper;
+use LoginMeNow\Utils\Helper;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;
 
