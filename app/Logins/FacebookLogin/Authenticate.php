@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Logins\FacebookLogin;
 
-use LoginMeNow\Abstracts\AuthenticateBase;
+use LoginMeNow\Common\AuthenticateBase;
 
 class Authenticate extends AuthenticateBase {
 	public string $channel       = 'facebook';

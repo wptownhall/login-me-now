@@ -10,8 +10,8 @@ namespace LoginMeNow\Admin;
 use LoginMeNow\Admin\LogsListTable;
 use LoginMeNow\Admin\TokensListTable;
 use LoginMeNow\Helper;
-use LoginMeNow\Traits\Hookable;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Hookable;
+use LoginMeNow\Common\Singleton;
 
 /**
  * Administration Menu Class

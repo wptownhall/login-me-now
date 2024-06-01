@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Providers;
 
-use LoginMeNow\Abstracts\ProviderBase;
+use LoginMeNow\Common\ProviderBase;
 use LoginMeNow\Logins\FacebookLogin\Button as FacebookButton;
 use LoginMeNow\Logins\FacebookLogin\FacebookLogin;
 use LoginMeNow\Logins\GoogleLogin\Button as GoogleButton;
@@ -15,7 +15,7 @@ use LoginMeNow\Logins\GoogleLogin\GoogleLogin;
 
 class LoginFormsServiceProvider extends ProviderBase {
 
-	use \LoginMeNow\Traits\Hookable;
+	use \LoginMeNow\Common\Hookable;
 
 	public function boot() {
 		$this->action( 'login_footer', 'wp_login_script', 50 );

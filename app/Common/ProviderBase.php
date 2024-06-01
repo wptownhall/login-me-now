@@ -5,9 +5,9 @@
  * @version 1.5.0
  */
 
-namespace LoginMeNow\Abstracts;
+namespace LoginMeNow\Common;
 
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Singleton;
 
 abstract class ProviderBase {
 	use Singleton;

@@ -9,7 +9,7 @@ namespace LoginMeNow\Logins\BrowserTokenLogin;
 
 use Exception;
 use LoginMeNow\Model\BrowserTokenModel;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Singleton;
 use LoginMeNow\Utils\Logs;
 use LoginMeNow\Utils\Random;
 use LoginMeNow\Utils\Time;

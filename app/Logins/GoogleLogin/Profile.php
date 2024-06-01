@@ -8,8 +8,8 @@
 namespace LoginMeNow\Logins\GoogleLogin;
 
 use LoginMeNow\Repositories\SettingsRepository;
-use LoginMeNow\Traits\Hookable;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Hookable;
+use LoginMeNow\Common\Singleton;
 use LoginMeNow\Utils\User;
 
 class Profile {

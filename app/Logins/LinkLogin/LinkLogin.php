@@ -7,9 +7,9 @@
 
 namespace LoginMeNow\Logins\LinkLogin;
 
-use LoginMeNow\Abstracts\LoginBase;
+use LoginMeNow\Common\LoginBase;
 use LoginMeNow\Model\UserToken;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Singleton;
 use LoginMeNow\Utils\Logs;
 use LoginMeNow\Utils\Module;
 use LoginMeNow\Utils\Random;

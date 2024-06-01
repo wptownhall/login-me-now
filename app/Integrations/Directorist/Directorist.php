@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Integrations\Directorist;
 
-use LoginMeNow\Abstracts\IntegrationBase;
+use LoginMeNow\Common\IntegrationBase;
 
 class Directorist extends IntegrationBase {
 	public function boot(): void {

@@ -10,9 +10,9 @@
 namespace LoginMeNow\Logins\BrowserTokenLogin;
 
 use LoginMeNow\Model\BrowserTokenModel;
-use LoginMeNow\Traits\AjaxCheck;
-use LoginMeNow\Traits\Hookable;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\AjaxCheck;
+use LoginMeNow\Common\Hookable;
+use LoginMeNow\Common\Singleton;
 use LoginMeNow\Utils\Time;
 
 if ( ! defined( 'ABSPATH' ) ) {

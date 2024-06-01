@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\DTO;
 
-use LoginMeNow\Abstracts\DTOBase;
+use LoginMeNow\Common\DTOBase;
 
 class UserDataDTO extends DTOBase {
 	public string $user_email;

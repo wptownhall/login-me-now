@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Integrations;
 
-use LoginMeNow\Abstracts\IntegrationBase;
+use LoginMeNow\Common\IntegrationBase;
 
 class WooCommerce extends IntegrationBase {
 	public function boot(): void {

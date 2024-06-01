@@ -7,8 +7,8 @@
 
 namespace LoginMeNow\Logins\GoogleLogin;
 
-use LoginMeNow\Traits\Hookable;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Hookable;
+use LoginMeNow\Common\Singleton;
 
 class Route {
 	use Hookable;

@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Logins\FacebookLogin;
 
-use LoginMeNow\Abstracts\ModuleBase;
+use LoginMeNow\Common\ModuleBase;
 use LoginMeNow\Logins\FacebookLogin\Enqueuer;
 use LoginMeNow\Repositories\SettingsRepository;
 

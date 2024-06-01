@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Logins\GoogleLogin;
 
-use LoginMeNow\Abstracts\ModuleBase;
+use LoginMeNow\Common\ModuleBase;
 use LoginMeNow\Logins\GoogleLogin\Enqueuer;
 use LoginMeNow\Repositories\SettingsRepository;
 

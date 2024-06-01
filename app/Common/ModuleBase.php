@@ -5,10 +5,10 @@
  * @version 1.4.0
  */
 
-namespace LoginMeNow\Abstracts;
+namespace LoginMeNow\Common;
 
-use LoginMeNow\Traits\Hookable;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Hookable;
+use LoginMeNow\Common\Singleton;
 
 abstract class ModuleBase {
 	use Singleton;

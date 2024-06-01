@@ -6,7 +6,7 @@
  */
 namespace LoginMeNow\Model;
 
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Singleton;
 use LoginMeNow\Utils\Time;
 use LoginMeNow\Utils\Translator;
 use LoginMeNow\Utils\User;

@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Logins\FacebookLogin;
 
-use LoginMeNow\Abstracts\EnqueuerBase;
+use LoginMeNow\Common\EnqueuerBase;
 
 class Enqueuer extends EnqueuerBase {
 

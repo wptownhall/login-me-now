@@ -7,8 +7,8 @@
 
 namespace LoginMeNow\UserSwitching;
 
-use LoginMeNow\Traits\Hookable;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Hookable;
+use LoginMeNow\Common\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

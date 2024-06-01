@@ -92,4 +92,16 @@ class User {
 			$user->add_role( $default_role );
 		}
 	}
+
+	private static function includes() {
+		if ( ! function_exists( 'get_userdata' ) ) {
+			require_once ABSPATH . WPINC . '/pluggable.php';
+		}
+	}
+
+	public static function is_logged_in(): bool {
+		self::includes();
+
+		return is_user_logged_in();
+	}
 }

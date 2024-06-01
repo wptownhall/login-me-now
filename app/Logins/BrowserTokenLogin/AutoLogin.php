@@ -10,8 +10,8 @@ namespace LoginMeNow\Logins\BrowserTokenLogin;
 use LoginMeNow\DTO\LoginDTO;
 use LoginMeNow\Helper;
 use LoginMeNow\Repositories\AccountRepository;
-use LoginMeNow\Traits\Hookable;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Hookable;
+use LoginMeNow\Common\Singleton;
 
 class AutoLogin {
 	use Singleton;

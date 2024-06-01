@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Logins\BrowserTokenLogin;
 
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Singleton;
 use LoginMeNow\Utils\Random;
 use LoginMeNow\Utils\Time;
 use WP_Error;

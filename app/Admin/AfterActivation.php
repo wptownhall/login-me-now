@@ -8,7 +8,7 @@
 namespace LoginMeNow\Admin;
 
 use LoginMeNow\Model\BrowserTokenModel;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Singleton;
 use LoginMeNow\Utils\Random;
 
 /**

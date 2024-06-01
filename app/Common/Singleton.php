@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-namespace LoginMeNow\Traits;
+namespace LoginMeNow\Common;
 
 trait Singleton {
 

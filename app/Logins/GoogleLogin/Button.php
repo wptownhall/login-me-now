@@ -7,9 +7,9 @@
 
 namespace LoginMeNow\Logins\GoogleLogin;
 
-use HeyMehedi\Utils\User;
-use LoginMeNow\Abstracts\LoginButtonBase;
+use LoginMeNow\Common\LoginButtonBase;
 use LoginMeNow\Repositories\SettingsRepository;
+use LoginMeNow\Utils\User;
 
 class Button extends LoginButtonBase {
 

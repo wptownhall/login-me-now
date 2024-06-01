@@ -11,8 +11,8 @@ use LoginMeNow\DTO\LoginDTO;
 use LoginMeNow\Helper;
 use LoginMeNow\Model\UserToken;
 use LoginMeNow\Repositories\AccountRepository;
-use LoginMeNow\Traits\Hookable;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Hookable;
+use LoginMeNow\Common\Singleton;
 use LoginMeNow\Utils\Logs;
 
 class Authenticate {

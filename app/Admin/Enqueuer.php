@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Admin;
 
-use LoginMeNow\Abstracts\EnqueuerBase;
+use LoginMeNow\Common\EnqueuerBase;
 use LoginMeNow\Helper;
 
 /**

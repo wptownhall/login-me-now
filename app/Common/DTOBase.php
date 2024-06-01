@@ -5,7 +5,7 @@
  * @version 1.6.0
  */
 
-namespace LoginMeNow\Abstracts;
+namespace LoginMeNow\Common;
 
 abstract class DTOBase {
 

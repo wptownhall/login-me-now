@@ -9,7 +9,7 @@ namespace LoginMeNow\Logins\BrowserTokenLogin;
 
 defined( 'ABSPATH' ) || exit;
 
-use LoginMeNow\Abstracts\RouteBase;
+use LoginMeNow\Common\RouteBase;
 use LoginMeNow\Logins\BrowserTokenLogin\JWTAuth;
 use LoginMeNow\Logins\BrowserTokenLogin\OnetimeNumber;
 use WP_REST_Request;

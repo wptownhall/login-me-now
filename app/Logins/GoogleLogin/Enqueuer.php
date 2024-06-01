@@ -7,9 +7,9 @@
 
 namespace LoginMeNow\Logins\GoogleLogin;
 
-use LoginMeNow\Abstracts\EnqueuerBase;
+use LoginMeNow\Common\EnqueuerBase;
 use LoginMeNow\Repositories\SettingsRepository;
-use LoginMeNow\Traits\Hookable;
+use LoginMeNow\Common\Hookable;
 
 /**
  * Assets Enqueuer

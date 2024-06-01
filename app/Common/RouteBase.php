@@ -5,11 +5,11 @@
  * @version 1.0.0
  */
 
-namespace LoginMeNow\Abstracts;
+namespace LoginMeNow\Common;
 
 defined( 'ABSPATH' ) || exit;
 
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Singleton;
 use WP_Error;
 use WP_REST_Request;
 use \WP_REST_Controller;

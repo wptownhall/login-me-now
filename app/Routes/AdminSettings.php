@@ -7,10 +7,10 @@
 
 namespace LoginMeNow\Routes;
 
-use LoginMeNow\Abstracts\RouteBase;
+use LoginMeNow\Common\RouteBase;
 use LoginMeNow\Repositories\SettingsRepository;
-use LoginMeNow\Traits\Hookable;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Hookable;
+use LoginMeNow\Common\Singleton;
 use WP_REST_Server;
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -7,8 +7,8 @@
 
 namespace LoginMeNow\Providers;
 
-use LoginMeNow\Abstracts\IntegrationBase;
-use LoginMeNow\Abstracts\ProviderBase;
+use LoginMeNow\Common\IntegrationBase;
+use LoginMeNow\Common\ProviderBase;
 use LoginMeNow\Integrations\Directorist\Directorist;
 use LoginMeNow\Integrations\WooCommerce;
 

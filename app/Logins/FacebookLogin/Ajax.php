@@ -7,7 +7,7 @@
 
 namespace LoginMeNow\Logins\FacebookLogin;
 
-use LoginMeNow\Traits\Hookable;
+use LoginMeNow\Common\Hookable;
 
 class Ajax {
 	use Hookable;

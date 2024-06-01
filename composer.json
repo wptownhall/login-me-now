@@ -2,19 +2,7 @@
     "name": "wptownhall/login-me-now",
     "autoload": {
         "psr-4": {
-            "LoginMeNow\\": "app",
-            "LoginMeNow\\Abstracts\\": "app/Common/Abstracts",
-            "LoginMeNow\\Traits\\": "app/Common/Traits",
-            "LoginMeNow\\Model\\": "app/Models",
-            "LoginMeNow\\Routes\\": "app/Routes",
-            "LoginMeNow\\GoogleLogin\\": "app/Modules/GoogleLogin",
-            "LoginMeNow\\FacebookLogin\\": "app/Modules/FacebookLogin",
-            "LoginMeNow\\OnetimeNumber\\": "app/Modules/OnetimeNumber",
-            "LoginMeNow\\UserSwitching\\": "app/Modules/UserSwitching",
-            "LoginMeNow\\LoginLink\\": "app/Modules/LoginLink",
-            "LoginMeNow\\BrowserTokenLogin\\": "app/Modules/BrowserTokenLogin",
-            "LoginMeNow\\AdvanceSharing\\": "app/Modules/AdvanceSharing",
-            "LoginMeNow\\LoginForm\\": "app/Modules/LoginForm"
+            "LoginMeNow\\": "app"
         }
     },
     "authors": [

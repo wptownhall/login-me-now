@@ -7,8 +7,8 @@
 
 namespace LoginMeNow\Providers;
 
-use LoginMeNow\Abstracts\LoginBase;
-use LoginMeNow\Abstracts\ProviderBase;
+use LoginMeNow\Common\LoginBase;
+use LoginMeNow\Common\ProviderBase;
 use LoginMeNow\Logins\BrowserTokenLogin\BrowserTokenLogin;
 use LoginMeNow\Logins\FacebookLogin\FacebookLogin;
 use LoginMeNow\Logins\GoogleLogin\GoogleLogin;

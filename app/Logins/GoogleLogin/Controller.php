@@ -10,7 +10,7 @@ namespace LoginMeNow\Logins\GoogleLogin;
 use Google_Client;
 use LoginMeNow\DTO\UserDataDTO;
 use LoginMeNow\Repositories\SettingsRepository;
-use LoginMeNow\Traits\Singleton;
+use LoginMeNow\Common\Singleton;
 
 class Controller {
 	use Singleton;
@@ -60,7 +60,7 @@ class Controller {
 		}
 
 		$userDataDTO = ( new UserDataDTO )
-			->set_id( $data['ID'] ?? '' )
+			->set_id( $data['ID'] ?? 0 )
 			->set_user_email( $data['email'] ?? '' )
 			->set_first_name( $data['given_name'] ?? '' )
 			->set_last_name( $data['family_name'] ?? '' )

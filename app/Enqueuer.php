@@ -7,7 +7,7 @@
 
 namespace LoginMeNow;
 
-use LoginMeNow\Abstracts\EnqueuerBase;
+use LoginMeNow\Common\EnqueuerBase;
 use LoginMeNow\Repositories\SettingsRepository;
 
 class Enqueuer extends EnqueuerBase {
