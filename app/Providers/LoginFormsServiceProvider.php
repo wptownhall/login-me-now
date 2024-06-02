@@ -23,8 +23,6 @@ class LoginFormsServiceProvider extends ProviderBase {
 		$this->action( 'login_form', [$this, 'login_buttons'] );
 		$this->action( 'register_form', [$this, 'login_buttons'] );
 		$this->filter( 'login_form_top', [$this, 'login_buttons_filter'] );
-
-		$this->action( 'woocommerce_login_form_start', [$this, 'login_buttons'] );
 	}
 
 	public function login_buttons_filter() {
