@@ -53,3 +53,7 @@
 	flex-direction:
 	column;gap: 8px;
 }
+
+.directorist-registration-wrapper #wp-login-login-me-now-buttons {
+	margin-bottom: 10px;
+}
