@@ -9,7 +9,7 @@ namespace LoginMeNow\Logins\LinkLogin;
 
 use LoginMeNow\DTO\LoginDTO;
 use LoginMeNow\Utils\Helper;
-use LoginMeNow\Model\UserToken;
+use LoginMeNow\Models\UserToken;
 use LoginMeNow\Repositories\AccountRepository;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;

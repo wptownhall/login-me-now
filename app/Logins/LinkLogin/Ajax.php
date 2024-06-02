@@ -9,7 +9,7 @@
 
 namespace LoginMeNow\Logins\LinkLogin;
 
-use LoginMeNow\Model\UserToken;
+use LoginMeNow\Models\UserToken;
 use LoginMeNow\Common\AjaxCheck;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;

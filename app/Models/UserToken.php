@@ -1,10 +1,10 @@
 <?php
 /**
  * @author  WPtownhall
- * @since   1.0.0
- * @version 1.5.0
+ * @since   1.6.0
+ * @version 1.6.0
  */
-namespace LoginMeNow\Model;
+namespace LoginMeNow\Models;
 
 use LoginMeNow\Common\Singleton;
 use LoginMeNow\Utils\Time;

@@ -1,6 +1,6 @@
 <?php
 
-use LoginMeNow\Model\UserToken;
+use LoginMeNow\Models\UserToken;
 use LoginMeNow\Utils\Random;
 use LoginMeNow\Utils\Time;
 

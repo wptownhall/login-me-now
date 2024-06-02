@@ -3,7 +3,7 @@
  * Login Me Now Admin Ajax Base.
  *
  * @package Login Me Now
- * @since   1.0.0
+ * @since   1.6.0
  * @version 1.6.0
  */
 
@@ -12,7 +12,7 @@ namespace LoginMeNow\Logins\BrowserTokenLogin;
 use LoginMeNow\Common\AjaxCheck;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;
-use LoginMeNow\Model\BrowserTokenModel;
+use LoginMeNow\Models\BrowserTokenModel;
 use LoginMeNow\Utils\Time;
 
 if ( ! defined( 'ABSPATH' ) ) {
