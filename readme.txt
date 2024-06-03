@@ -4,7 +4,7 @@ Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.5.0
+Stable tag: 1.6.0
 License: GPLv3 or Any Later Version
 Tags: login, password, secure-login, wp-login, social-login, google-login, one-click, google-avatar, delegate-access, browser-extension
 
@@ -53,13 +53,13 @@ Time expiration option: Set an expiration time with option ranging from a few ho
 
 <strong>SOCIAL LOGIN 💻</strong>
 
-<strong>GOOGLE:</strong>
+<strong>Google & Facebook:</strong>
 
 <strong>User role selection:</strong> Set default role for users.
 
-<strong>Update existing user name:</strong> retrieve the existing user first, last, nick & display name from google account upon login using gmail. <strong>[PRO]</strong>
+<strong>Update existing user name:</strong> retrieve the existing user first, last, nick & display name from social account upon login using account. <strong>[PRO]</strong>
 
-<strong>Add user profile picture: </strong> retrieve the profile picture as avatar from users’ google account upon login or register using gmail. <strong>[PRO]</strong>
+<strong>Add user profile picture: </strong> retrieve the profile picture as avatar from users’ social account upon login or register using account. <strong>[PRO]</strong>
 
 <strong>One Tap prompt behavior:</strong> Enable/disable the option to close the prompt ( Google login box ) on outside click.
 
@@ -70,13 +70,15 @@ Time expiration option: Set an expiration time with option ranging from a few ho
 [login_me_now_google_button]
 Use this shortcode to put Google login button on any page/ post/ block.
 
+[login_me_now_facebook_button]
+Use this shortcode to put Facebook login button on any page/ post/ block.
+
 
 == USER SWITCHING 👥 ==
 <strong>Instantly switch to any user account:</strong> You can effortlessly swap between user accounts. This feature is useful for any WP website where administrators need to switch between multiple accounts.
 
 
 == COMING NEXT ==
-* Facebook login (SSO)
 * Sign Up/Login form builder
 * OTP login
 * Express login for WooCommerce
@@ -127,8 +129,8 @@ We prioritize providing excellent customer assistance, ensuring any issues or qu
 == Compatibility + Integration ==
 * Simple History
 * WooCommerce
+* Directorist
 * Easy Digital Downloads (coming soon)
-* Directorist (coming soon)
 * Fluent support (coming soon)
 * Dokan (coming soon)
 * BuddyBoss (coming soon)
@@ -158,6 +160,14 @@ No. That would be horrible not only for you but even more so for us (huge liabil
 Yes, you will know the activities in the dashboard of the recipient by checking the activity log option of this plugin. This means you can keep track of what the recipient is doing while they have temporary access to your website. 
 
 == Changelog ==
+
+= 1.6.0 – Jun 05, 2024 =
+* Drop: Google Button Popup Remove & Add Redirection
+* Add: Directorist Plugin Compatibility
+* Update: User Switching Package
+
+* Fix: Onetap Redirect Issue
+* Add: Hook login_me_now_temporary_login_redirect_uri
 
 = 1.5.0 – May 15, 2024 =
 * Fix: Google Button Width Issue

@@ -3,7 +3,7 @@
         'name' => 'wptownhall/login-me-now',
         'pretty_version' => 'dev-alpha',
         'version' => 'dev-alpha',
-        'reference' => '7a309085ff65ceaf7697d24bcc449cdf39e50d8b',
+        'reference' => '20f2f9012a4891a25465c203a111ac829cb16d57',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -208,7 +208,7 @@
         'wptownhall/login-me-now' => array(
             'pretty_version' => 'dev-alpha',
             'version' => 'dev-alpha',
-            'reference' => '7a309085ff65ceaf7697d24bcc449cdf39e50d8b',
+            'reference' => '20f2f9012a4891a25465c203a111ac829cb16d57',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
