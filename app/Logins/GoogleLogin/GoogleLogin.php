@@ -34,9 +34,9 @@ class GoogleLogin extends ModuleBase {
 	}
 
 	public static function show(): bool {
-		$enable        = SettingsRepository::init()->get( 'google_login', false );
-		$client_id     = SettingsRepository::init()->get( 'google_client_id', '' );
-		$client_secret = SettingsRepository::init()->get( 'google_client_secret', '' );
+		$enable        = SettingsRepository::get( 'google_login', false );
+		$client_id     = SettingsRepository::get( 'google_client_id', '' );
+		$client_secret = SettingsRepository::get( 'google_client_secret', '' );
 
 		if ( $enable && $client_id && $client_secret ) {
 			return true;
@@ -46,7 +46,7 @@ class GoogleLogin extends ModuleBase {
 	}
 
 	public static function create_auth_url() {
-		$client_id    = SettingsRepository::init()->get( 'google_client_id' );
+		$client_id    = SettingsRepository::get( 'google_client_id' );
 		$redirect_uri = home_url( 'wp-login.php?lmn-google' );
 		$auth         = 'https://accounts.google.com/o/oauth2/v2/auth';
 		$scopes       = [

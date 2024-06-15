@@ -8,7 +8,6 @@
 namespace LoginMeNow\Logins\FacebookLogin;
 
 use LoginMeNow\Common\ModuleBase;
-use LoginMeNow\Logins\FacebookLogin\Enqueuer;
 use LoginMeNow\Repositories\SettingsRepository;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,13 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class FacebookLogin extends ModuleBase {
+	const DEFAULT_GRAPH_VERSION = 'v20.0';
 
 	public function setup(): void {
 		if ( ! self::show() ) {
 			return;
 		}
 
-		( new Enqueuer() );
+		( new Route() );
 		( new Ajax() );
 		( new Button() );
 	}
@@ -36,5 +36,33 @@ class FacebookLogin extends ModuleBase {
 		}
 
 		return false;
+	}
+
+	public static function create_auth_url() {
+		$client_id    = SettingsRepository::get( 'facebook_app_id' );
+		$redirect_uri = home_url( 'wp-login.php?lmn-facebook' );
+
+		$args = [
+			'client_id'     => urlencode( $client_id ),
+			'response_type' => 'code',
+			'redirect_uri'  => urlencode( $redirect_uri ),
+			'scope'         => 'public_profile,email',
+		];
+
+		return add_query_arg( $args, self::getEndpointAuthorization() );
+	}
+
+	public static function getEndpointAuthorization() {
+		$endpointAuthorization = 'https://www.facebook.com/';
+
+		if ( ! empty( $_SERVER['HTTP_USER_AGENT'] ) ) {
+			if ( preg_match( '/Android|iPhone|iP[ao]d|Mobile/', $_SERVER['HTTP_USER_AGENT'] ) ) {
+				$endpointAuthorization = 'https://m.facebook.com/';
+			}
+		}
+
+		$endpointAuthorization .= self::DEFAULT_GRAPH_VERSION . '/dialog/oauth';
+
+		return $endpointAuthorization;
 	}
 }

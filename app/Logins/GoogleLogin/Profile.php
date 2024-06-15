@@ -17,7 +17,6 @@ class Profile {
 	use Hookable;
 
 	public function __construct() {
-		// $this->filter( 'get_avatar_url', [$this, 'avatar'], 10, 2 );
 		add_filter( 'get_avatar_url', [$this, 'avatar'], 10, 3 );
 	}
 

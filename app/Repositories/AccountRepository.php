@@ -16,15 +16,16 @@ class AccountRepository {
 
 	public array $user_data;
 	public string $channel;
+	public string $redirect_uri;
 
 	public function login( LoginDTO $dto ) {
 		include ABSPATH . "wp-includes/pluggable.php";
 
 		do_action( "login_me_now_before_login", $dto );
 
-		$user_id         = $dto->get_user_id();
-		$redirect_uri    = $dto->get_redirect_uri();
-		$redirect_return = $dto->is_redirect_return();
+		$user_id            = $dto->get_user_id();
+		$this->redirect_uri = $dto->get_redirect_uri();
+		$redirect_return    = $dto->is_redirect_return();
 
 		if ( is_user_logged_in() ) {
 			$current_user_id = get_current_user_id();
@@ -33,6 +34,7 @@ class AccountRepository {
 			}
 		}
 
+		error_log( print_r( $this->redirect_uri ,true) );
 		$user = get_user_by( 'id', $user_id );
 
 		wp_clear_auth_cookie();
@@ -41,11 +43,15 @@ class AccountRepository {
 
 		do_action( "login_me_now_after_login", $user_id, $dto );
 
+		error_log( print_r( $this->redirect_uri, true ) );
+
+		$this->handlePopupRedirectAfterAuthentication();
+
 		if ( $redirect_return ) {
-			return $redirect_uri;
+			return $this->redirect_uri;
 		}
 
-		if ( wp_safe_redirect( $redirect_uri ) ) {
+		if ( wp_safe_redirect( $this->redirect_uri ) ) {
 			exit;
 		}
 	}
@@ -138,5 +144,68 @@ class AccountRepository {
 		}
 
 		do_action( "login_me_now_after_profile_data_update", $user_id, $UserDataDTO );
+	}
+
+	protected function handlePopupRedirectAfterAuthentication() {
+		?>
+            <!doctype html>
+            <html lang=en>
+            <head>
+                <meta charset=utf-8>
+                <title><?php _e( 'Authentication successful', 'login-me-now' );?></title>
+                <script type="text/javascript">
+                    try {
+                        if (window.opener !== null && window.opener !== window) {
+                            var sameOrigin = true;
+                            try {
+                                var currentOrigin = window.location.protocol + '//' + window.location.hostname;
+                                if (window.opener.location.href.substring(0, currentOrigin.length) !== currentOrigin) {
+                                    sameOrigin = false;
+                                }
+
+                            } catch (e) {
+                                /**
+                                 * Blocked cross origin
+                                 */
+                                sameOrigin = false;
+                            }
+                            if (sameOrigin) {
+                                var url = <?php echo wp_json_encode( $this->redirect_uri ); ?>;
+                                if (typeof window.opener.lmnRedirect === 'function') {
+                                    window.opener.lmnRedirect(url);
+                                } else {
+                                    window.opener.location = url;
+                                }
+                                window.close();
+                            } else {
+                                window.location.reload(true);
+                            }
+                        } else {
+                            if (window.opener === null) {
+                                /**
+                                 * Cross-Origin-Opener-Policy blocked the access to the opener
+                                 */
+                                if (typeof BroadcastChannel === "function") {
+                                    const _lmnLoginBroadCastChannel = new BroadcastChannel('lmn_login_broadcast_channel');
+                                    _lmnLoginBroadCastChannel.postMessage({
+                                        action: 'redirect',
+                                        href:<?php echo wp_json_encode( $this->redirect_uri ); ?>});
+                                    _lmnLoginBroadCastChannel.close();
+                                    window.close();
+                                } else {
+                                    window.location.reload(true);
+                                }
+                            } else {
+                                window.location.reload(true);
+                            }
+                        }
+                    } catch (e) {
+                        window.location.reload(true);
+                    }
+                </script>
+            </head>
+            <body><a href="<?php echo esc_url( $this->redirect_uri ); ?>"><?php echo 'Continue...'; ?></a></body>
+            </html>
+        <?php exit;
 	}
 }

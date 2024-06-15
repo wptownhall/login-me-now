@@ -7,6 +7,7 @@ let widthPopup = '600';
 let heightPopup = '600';
 let redirectMan ;
 let loginAfterRedirect = login_me_now_social_login_main_obj.google_pro_redirect_url;
+let scriptOptions = {}
 
 window.LMNPopup = function (url, title, w, h) {
     const userAgent = navigator.userAgent,
@@ -241,7 +242,6 @@ function lmnInit(className, apiKey = '') {
     }
 }
 
-let scriptOptions = {}
 
 window._lmnDOMReady = function (callback) {
 	if ( document.readyState === "complete" || document.readyState === "interactive" ) {
@@ -271,12 +271,29 @@ if (window.opener) {
 }
 
 window._lmnDOMReady(function () {
+    window.lmnRedirect = function (url) {
+        const overlay = document.createElement('div');
+        overlay.id = "lmn-redirect-overlay";
+        let overlayHTML = '';
+        
+        const overlayContainer = "<div id='lmn-redirect-overlay-container'>",
+            overlayContainerClose = "</div>",
+            overlaySpinner = "<div id='lmn-redirect-overlay-spinner'></div>";
 
-    let targetWindow = scriptOptions._targetWindow || 'prefer-popup',
-        lastPopup = false;
+        overlayHTML = overlayContainer + overlaySpinner + overlayContainerClose;
 
+        overlay.insertAdjacentHTML("afterbegin", overlayHTML);
+        document.body.appendChild(overlay);
+        
+        setTimeout(() => {
+            window.location = url;  
+        }, 3000);
+    };
 
-    const buttonLinks = document.querySelectorAll(' a[data-action="lmn-connect-google"]');
+    let targetWindow = scriptOptions._targetWindow || 'prefer-popup'
+    let lastPopup = false;
+
+    const buttonLinks = document.querySelectorAll(' a[data-action="lmn-connect-lmn"]');
     buttonLinks.forEach(function (buttonLink) {
         buttonLink.addEventListener('click', function (e) {
             
@@ -342,7 +359,7 @@ if (typeof BroadcastChannel === "function") {
     _lmnLoginBroadCastChannel.onmessage = (event) => {
         if (window?._lmnHasOpenedPopup && event.data?.action === 'reload') {
             window._lmnHasOpenedPopup = false;
-
+            
             const url = event.data?.href;
             _lmnLoginBroadCastChannel.close();
             if (typeof window.lmnRedirect === 'function') {
