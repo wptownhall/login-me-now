@@ -23,7 +23,6 @@ class FacebookLogin extends ModuleBase {
 		}
 
 		( new Route() );
-		( new Ajax() );
 		( new Button() );
 	}
 
