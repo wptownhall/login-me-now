@@ -11,7 +11,7 @@ Tags: login, password, secure-login, wp-login, social-login, google-login, one-c
 It feels like 8 plugins in one, it provides over 25 features making it the ultimate WP login solution.
 
 == Description ==
-[TRY LIVE DEMO](https://try.loginmenow.com/) | [ROADMAP](https://wptownhall.com/login-me-now/roadmap/) | [PRO](https://wptownhall.com/login-me-now/pricing/)  ( LIMITED LIFETIME DEAL🎁 ) 
+[TRY LIVE DEMO](https://try.loginmenow.com/) | [ROADMAP](https://loginmenow.com/roadmap/) | [PRO](https://loginmenow.com/pricing/)  ( LIMITED LIFETIME DEAL🎁 ) 
 
 Experience a hassle-free WordPress login experience with just one click.
 
@@ -161,10 +161,11 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 
 == Changelog ==
 
-= 1.6.0 – Jun 05, 2024 =
+= 1.6.0 – Jun 18, 2024 =
 * Drop: Google Button Popup Remove & Add Redirection
 * Add: Directorist Plugin Compatibility
 * Update: User Switching Package
+* Fix: Facebook Popup
 
 * Fix: Onetap Redirect Issue
 * Add: Hook login_me_now_temporary_login_redirect_uri

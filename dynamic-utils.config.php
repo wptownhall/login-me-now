@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'version'         => time(),
+	'version'         => '1.6.0',
 	'min_php'         => '7.4',
 	'db_version'      => '1.0.0',
 	'menu_slug'       => 'login-me-now',

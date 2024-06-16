@@ -1,10 +1,9 @@
 <?php
 /**
  * Plugin Name: Login Me Now
- * Author URI: https://wptownhall.com/login-me-now/
  * Description: 1 click passwordless login, social login & user switching
- * Author: WPtownhall
- * Author URI: https://profiles.wordpress.org/wptownhall/
+ * Author: Login Me Now
+ * Author URI: https://loginmenow.com/
  * Version: 1.6.0
  * Tested up to: 6.5
  * Requires PHP: 7.4

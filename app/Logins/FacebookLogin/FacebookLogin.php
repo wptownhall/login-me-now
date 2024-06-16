@@ -27,10 +27,11 @@ class FacebookLogin extends ModuleBase {
 	}
 
 	public static function show(): bool {
-		$enable = SettingsRepository::get( 'facebook_login', false );
-		$app_id = SettingsRepository::get( 'facebook_app_id', '' );
+		$enable     = SettingsRepository::get( 'facebook_login', false );
+		$app_id     = SettingsRepository::get( 'facebook_app_id', '' );
+		$app_secret = SettingsRepository::get( 'facebook_app_secret', '' );
 
-		if ( $enable && $app_id ) {
+		if ( $enable && $app_id && $app_secret ) {
 			return true;
 		}
 
