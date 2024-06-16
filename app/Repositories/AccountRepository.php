@@ -23,9 +23,10 @@ class AccountRepository {
 
 		do_action( "login_me_now_before_login", $dto );
 
-		$user_id            = $dto->get_user_id();
 		$this->redirect_uri = $dto->get_redirect_uri();
+		$user_id            = $dto->get_user_id();
 		$redirect_return    = $dto->is_redirect_return();
+		$channel_name       = $dto->get_channel_name();
 
 		if ( is_user_logged_in() ) {
 			$current_user_id = get_current_user_id();
@@ -34,7 +35,6 @@ class AccountRepository {
 			}
 		}
 
-		error_log( print_r( $this->redirect_uri ,true) );
 		$user = get_user_by( 'id', $user_id );
 
 		wp_clear_auth_cookie();
@@ -43,9 +43,9 @@ class AccountRepository {
 
 		do_action( "login_me_now_after_login", $user_id, $dto );
 
-		error_log( print_r( $this->redirect_uri, true ) );
-
-		$this->handlePopupRedirectAfterAuthentication();
+		if ( 'facebook' === $channel_name || 'google' === $channel_name ) {
+			$this->handlePopupRedirectAfterAuthentication();
+		}
 
 		if ( $redirect_return ) {
 			return $this->redirect_uri;
@@ -86,6 +86,7 @@ class AccountRepository {
 		User::update_profile( $user_id, $this->user_data, $this->channel );
 
 		$dto = ( new LoginDTO )
+			->set_channel_name( $this->channel )
 			->set_user_id( $user_id )
 			->set_redirect_uri( $userDataDTO->get_redirect_uri() )
 			->set_redirect_return( false );
@@ -146,6 +147,10 @@ class AccountRepository {
 		do_action( "login_me_now_after_profile_data_update", $user_id, $UserDataDTO );
 	}
 
+	/**
+	 * This code method inspired by
+	 * Nextend Social Login and Register
+	 */
 	protected function handlePopupRedirectAfterAuthentication() {
 		?>
             <!doctype html>

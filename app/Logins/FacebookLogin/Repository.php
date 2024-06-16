@@ -5,7 +5,7 @@
  * @version 1.6.0
  */
 
-namespace LoginMeNow\Logins\GoogleLogin;
+namespace LoginMeNow\Logins\FacebookLogin;
 
 use LoginMeNow\DTO\LoginDTO;
 use LoginMeNow\DTO\UserDataDTO;
@@ -18,14 +18,14 @@ class Repository {
 		$redirect_uri = $this->redirect_uri();
 
 		$userDataDTO->set_redirect_uri( $redirect_uri );
-		$userDataDTO->set_channel_name( 'google' );
+		$userDataDTO->set_channel_name( 'facebook' );
 
 		if ( $wp_user ) {
 			$dto = ( new LoginDTO )
 				->set_user_id( $wp_user->ID )
 				->set_redirect_uri( $redirect_uri )
 				->set_redirect_return( false )
-				->set_channel_name( 'google' );
+				->set_channel_name( 'facebook' );
 
 			$action = ( new AccountRepository )->login( $dto );
 
@@ -45,6 +45,6 @@ class Repository {
 	private function redirect_uri() {
 		$redirect_uri = ! empty( $_POST['redirect_uri'] ) ? esc_url_raw( wp_unslash( $_POST['redirect_uri'] ) ) : admin_url();
 
-		return apply_filters( "login_me_now_google_login_redirect_url", $redirect_uri );
+		return apply_filters( "login_me_now_facebook_login_redirect_url", $redirect_uri );
 	}
 }

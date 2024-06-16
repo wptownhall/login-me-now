@@ -26,6 +26,9 @@ class Button extends LoginButtonBase {
 			return '';
 		}
 
+		wp_enqueue_style( 'login-me-now-social-login-main' );
+		wp_enqueue_script( 'login-me-now-social-login-main' );
+
 		return $this->html();
 	}
 

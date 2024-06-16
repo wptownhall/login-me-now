@@ -80,6 +80,7 @@ class Enqueuer extends EnqueuerBase {
 			'plugin_name'            => __( 'Login Me Now PRO', 'login-me-now' ),
 			'ajax_url'               => admin_url( 'admin-ajax.php' ),
 			'google_redirect_url'    => home_url( 'wp-login.php?lmn-google' ),
+			'facebook_redirect_url'  => home_url( 'wp-login.php?lmn-facebook' ),
 			'show_self_branding'     => $show_self_branding,
 			'admin_url'              => admin_url( 'admin.php' ),
 			'home_slug'              => LOGIN_ME_NOW_MENU_SLUG,

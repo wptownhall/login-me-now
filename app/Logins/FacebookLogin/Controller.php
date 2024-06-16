@@ -7,70 +7,71 @@
 
 namespace LoginMeNow\Logins\FacebookLogin;
 
+use LoginMeNow\DTO\UserDataDTO;
+use LoginMeNow\Repositories\SettingsRepository;
+
 class Controller {
-
-	public string $client_id     = '1066164867842887';
-	public string $client_secret = '2ae0c11478a6f7b7d7c89242198d6e06';
-
 	public function listen() {
 		if ( ! array_key_exists( 'lmn-facebook', $_GET ) ) {
 			return;
 		}
 
-		$token = $_GET['code'];
-
-		if ( ! $token ) {
+		$code = $_GET['code'];
+		if ( ! $code ) {
 			wp_send_json_error( __( "Not authenticated", 'login-me-now' ) );
 		}
 
-		$this->facebook_login( $token );
+		$this->remote( $code );
 	}
 
-	public function facebook_login( $code ) {
-		$http_args = [
+	private function remote( $code ) {
+		$access_token = $this->generate_acces_token( $code );
+		if ( ! $access_token ) {
+			wp_send_json_error( __( "Token not matching", 'login-me-now' ) );
+		}
+
+		$user_data = $this->get_remote_user_graph( $access_token );
+		if ( ! $user_data ) {
+			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
+		} elseif ( ! isset( $user_data['email'] ) ) {
+			wp_send_json_error( __( "Please give the email permission", 'login-me-now' ) );
+		}
+
+		$userDataDTO = ( new UserDataDTO )
+			->set_user_email( $user_data['email'] )
+			->set_display_name( $user_data['name'] ?? '' )
+			->set_user_avatar_url( $user_data['picture']['data']['url'] ?? '' );
+
+		( new Repository )->auth( $userDataDTO );
+	}
+
+	private function generate_acces_token( string $code ) {
+		$args = [
 			'timeout'    => 15,
 			'user-agent' => 'WordPress',
 			'body'       => [
-				'client_id'     => $this->client_id,
-				'client_secret' => $this->client_secret,
+				'client_id'     => SettingsRepository::get( 'facebook_app_id' ),
+				'client_secret' => SettingsRepository::get( 'facebook_app_secret' ),
 				'redirect_uri'  => home_url( 'wp-login.php?lmn-facebook' ),
 				'code'          => $code,
 			],
 		];
 
-		$request = wp_remote_get( 'https://graph.facebook.com/v20.0/oauth/access_token', $http_args );
+		$request = wp_remote_get(
+			'https://graph.facebook.com/v20.0/oauth/access_token',
+			$args
+		);
 
 		if ( wp_remote_retrieve_response_code( $request ) !== 200 ) {
-			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
+			wp_send_json_error( __( "Unexpected response", 'login-me-now' ) );
 		} else {
-			$res = json_decode( wp_remote_retrieve_body( $request ), true );
+			$body = json_decode( wp_remote_retrieve_body( $request ), true );
 		}
 
-		$access_token = $res['access_token'] ?? '';
-		if ( ! $access_token ) {
-			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
-		}
-
-		$user_data = $this->getRemoteUserGraph( $access_token );
-
-		if ( ! $user_data ) {
-			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
-		}
-
-		if ( ! isset( $user_data['email'] ) ) {
-			wp_send_json_error( __( "Please give the email permission", 'login-me-now' ) );
-		}
-
-		$user_data['picture'] = $user_data['picture']['data']['url'] ?? '';
-		$auth                 = new Authenticate( $user_data );
-		$response             = $auth->authenticate();
-
-		wp_send_json_success( $response );
-
-		wp_die();
+		return $body['access_token'] ?? '';
 	}
 
-	private function getRemoteUserGraph( string $access_token ): array {
+	private function get_remote_user_graph( string $access_token ): array {
 		$fbApiUrl = 'https://graph.facebook.com/v20.0/me?fields=id,name,email,picture.type(large)&access_token=' . $access_token;
 
 		$response            = file_get_contents( $fbApiUrl );

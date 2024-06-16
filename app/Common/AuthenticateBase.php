@@ -7,10 +7,10 @@
 
 namespace LoginMeNow\Common;
 
-use LoginMeNow\DTO\LoginDTO;
-use LoginMeNow\Repositories\AccountRepository;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;
+use LoginMeNow\DTO\LoginDTO;
+use LoginMeNow\Repositories\AccountRepository;
 
 abstract class AuthenticateBase {
 	use Singleton;
@@ -36,7 +36,8 @@ abstract class AuthenticateBase {
 			$dto = ( new LoginDTO )
 				->set_user_id( $wp_user->ID )
 				->set_redirect_uri( $redirect_uri )
-				->set_redirect_return( false );
+				->set_redirect_return( false )
+				->set_channel_name( $this->channel );
 
 			$action = ( new AccountRepository )->login( $dto );
 

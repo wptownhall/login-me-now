@@ -285,15 +285,13 @@ window._lmnDOMReady(function () {
         overlay.insertAdjacentHTML("afterbegin", overlayHTML);
         document.body.appendChild(overlay);
         
-        setTimeout(() => {
-            window.location = url;  
-        }, 3000);
+        window.location = url;
     };
 
     let targetWindow = scriptOptions._targetWindow || 'prefer-popup'
     let lastPopup = false;
 
-    const buttonLinks = document.querySelectorAll(' a[data-action="lmn-connect-lmn"]');
+    const buttonLinks = document.querySelectorAll(' a[data-action="lmn-connect"]');
     buttonLinks.forEach(function (buttonLink) {
         buttonLink.addEventListener('click', function (e) {
             

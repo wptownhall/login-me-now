@@ -99,6 +99,13 @@ const FacebookAppId = () => {
         />
       </div>
 
+      <div className="mr-16 w-full flex space-y-3 al mt-3">
+        {__("Redirect URL ", "login-me-now")}
+        
+        <pre> {lmn_admin.facebook_redirect_url}</pre>
+
+      </div>
+
       <div className="mr-16 w-full flex space-y-3 al">
         
         {/* <span class="text-black-400 w-[30%] text-[16px] mt-5">

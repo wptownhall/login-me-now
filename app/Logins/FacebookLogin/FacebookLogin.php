@@ -49,10 +49,10 @@ class FacebookLogin extends ModuleBase {
 			'scope'         => 'public_profile,email',
 		];
 
-		return add_query_arg( $args, self::getEndpointAuthorization() );
+		return add_query_arg( $args, self::endpoint() );
 	}
 
-	public static function getEndpointAuthorization() {
+	public static function endpoint() {
 		$endpointAuthorization = 'https://www.facebook.com/';
 
 		if ( ! empty( $_SERVER['HTTP_USER_AGENT'] ) ) {

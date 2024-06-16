@@ -13,6 +13,7 @@ class LoginDTO extends DTOBase {
 	public int $user_id;
 	public string $redirect_uri;
 	public bool $redirect_return;
+	public string $channel_name;
 
 	public function set_user_id( int $user_id ) {
 		$this->user_id = $user_id;
@@ -42,5 +43,15 @@ class LoginDTO extends DTOBase {
 
 	public function is_redirect_return() {
 		return $this->redirect_return;
+	}
+
+	public function set_channel_name( string $channel_name ) {
+		$this->channel_name = $channel_name;
+
+		return $this;
+	}
+
+	public function get_channel_name() {
+		return $this->channel_name ?? '';
 	}
 }
