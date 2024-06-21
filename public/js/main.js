@@ -5,8 +5,6 @@ window._lmnHasOpenedPopup = true;
 window._lmnWebViewNoticeElement = null;
 let widthPopup = '600';
 let heightPopup = '600';
-let redirectMan ;
-let loginAfterRedirect = login_me_now_social_login_main_obj.google_pro_redirect_url;
 let scriptOptions = {}
 
 window.LMNPopup = function (url, title, w, h) {
@@ -251,25 +249,6 @@ window._lmnDOMReady = function (callback) {
 	}
 };
 
-if (window.opener) {
-    window.opener.location.href = loginAfterRedirect;
-    window.close();
-} else {
-    /**
-     * Cross-Origin-Opener-Policy blocked the access to the opener
-     */
-    if (typeof BroadcastChannel === "function") {
-        const lmnVerifySettingsBroadCastChannel = new BroadcastChannel("lmn_verify_settings_broadcast_channel");
-        lmnVerifySettingsBroadCastChannel.postMessage({action: 'reload'});
-        lmnVerifySettingsBroadCastChannel.close();
-        window.close();
-    } else {
-        window._lmnDOMReady(function () {
-            document.body.innerHTML = 'Close this window and refresh the parent window!';
-        });
-    }
-}
-
 window._lmnDOMReady(function () {
     window.lmnRedirect = function (url) {
         const overlay = document.createElement('div');
@@ -308,7 +287,7 @@ window._lmnDOMReady(function () {
                     href += '?';
                 }
 
-                const redirectTo = redirectMan;
+                const redirectTo = '';
                 if (redirectTo === 'current') {
                     href += 'redirect=' + encodeURIComponent(window.location.href) + '&';
                 } else if (redirectTo && redirectTo !== '') {

@@ -24,7 +24,7 @@ class AdminSettings extends RouteBase {
 			[
 				[
 					'methods'             => WP_REST_Server::READABLE,
-					'callback'            => [SettingsRepository::class, 'get_all'],
+					'callback'            => [SettingsRepository::init(), 'get_all'],
 					'permission_callback' => [$this, 'get_permissions_check'],
 					'args'                => [],
 				],

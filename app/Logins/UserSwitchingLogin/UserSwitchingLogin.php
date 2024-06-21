@@ -24,9 +24,11 @@ class UserSwitchingLogin extends LoginBase {
 			if ( is_plugin_active( 'user-switching/user-switching.php' ) ) {
 				AdminNotice::init();
 			} else {
-				include_once 'user-switching.php';
+				if ( ! class_exists( 'user_switching' ) ) {
+					include_once 'user-switching.php';
+				}
 			}
-		}, 11 );
+		}, 99 );
 	}
 
 	public static function show(): bool {

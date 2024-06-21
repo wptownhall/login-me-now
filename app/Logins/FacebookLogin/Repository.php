@@ -43,8 +43,6 @@ class Repository {
 	}
 
 	private function redirect_uri() {
-		$redirect_uri = ! empty( $_POST['redirect_uri'] ) ? esc_url_raw( wp_unslash( $_POST['redirect_uri'] ) ) : admin_url();
-
-		return apply_filters( "login_me_now_facebook_login_redirect_url", $redirect_uri );
+		return apply_filters( "login_me_now_facebook_login_redirect_url", admin_url() );
 	}
 }

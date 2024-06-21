@@ -45,14 +45,13 @@ class Controller {
 		$tokens   = $client->fetchAccessTokenWithAuthCode( $_GET['code'] );
 		$id_token = $tokens['id_token'] ?? '';
 
-		if ( ! $id_token || is_wp_error( $id_token ) ) {
-			error_log( 'Login Me Now (! $id_token || is_wp_error( $id_token )- ' . print_r( $id_token, true ) );
+		if ( ! $tokens || is_wp_error( $tokens ) || ! $id_token || is_wp_error( $id_token ) ) {
+			error_log( 'Login Me Now (! $tokens || is_wp_error( $tokens )- ' . print_r( $tokens, true ) );
 
 			return;
 		}
 
 		$data = $client->verifyIdToken( $id_token );
-
 		if ( ! $data || is_wp_error( $data ) ) {
 			error_log( 'Login Me Now ( ! $data || is_wp_error( $data ) )- ' . print_r( $data, true ) );
 

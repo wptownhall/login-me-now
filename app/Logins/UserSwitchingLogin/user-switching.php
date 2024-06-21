@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Main singleton class for the User Switching plugin.
  */
-class login_me_now_user_switching {
+class user_switching {
 	/**
 	 * The name used to identify the application during a WordPress redirect.
 	 *
@@ -64,7 +64,7 @@ class login_me_now_user_switching {
 		add_filter( 'user_has_cap', array( $this, 'filter_user_has_cap' ), 10, 4 );
 		add_filter( 'map_meta_cap', array( $this, 'filter_map_meta_cap' ), 10, 4 );
 		add_filter( 'user_row_actions', array( $this, 'filter_user_row_actions' ), 10, 2 );
-		add_action( 'plugins_loaded', array( $this, 'action_plugins_loaded' ), 1 );
+		add_action( 'init', array( $this, 'action_plugins_loaded' ), 1 );
 		add_action( 'init', array( $this, 'action_init' ) );
 		add_action( 'all_admin_notices', array( $this, 'action_admin_notices' ), 1 );
 		add_action( 'wp_logout', 'user_switching_clear_olduser_cookie' );
@@ -380,7 +380,7 @@ class login_me_now_user_switching {
 		 * @since 1.7.0
 		 *
 		 * @param string       $redirect_to   The target redirect location, or an empty string if none is specified.
-		 * @param string|null  $redirect_type The redirect type, see the `login_me_now_user_switching::REDIRECT_*` constants.
+		 * @param string|null  $redirect_type The redirect type, see the `user_switching::REDIRECT_*` constants.
 		 * @param WP_User|null $new_user      The user being switched to, or null if there is none.
 		 * @param WP_User|null $old_user      The user being switched from, or null if there is none.
 		 */
@@ -1188,13 +1188,13 @@ class login_me_now_user_switching {
 	/**
 	 * Singleton instantiator.
 	 *
-	 * @return login_me_now_user_switching User Switching instance.
+	 * @return user_switching User Switching instance.
 	 */
 	public static function get_instance() {
 		static $instance;
 
 		if ( ! isset( $instance ) ) {
-			$instance = new login_me_now_user_switching();
+			$instance = new user_switching();
 		}
 
 		return $instance;
@@ -1218,8 +1218,8 @@ if ( ! function_exists( 'user_switching_set_olduser_cookie' ) ) {
 	 * @return void
 	 */
 	function user_switching_set_olduser_cookie( $old_user_id, $pop = false, $token = '' ) {
-		$secure_auth_cookie = login_me_now_user_switching::secure_auth_cookie();
-		$secure_olduser_cookie = login_me_now_user_switching::secure_olduser_cookie();
+		$secure_auth_cookie = user_switching::secure_auth_cookie();
+		$secure_olduser_cookie = user_switching::secure_olduser_cookie();
 		$expiration = time() + 172800; // 48 hours
 		$auth_cookie = user_switching_get_auth_cookie();
 		$olduser_cookie = wp_generate_auth_cookie( $old_user_id, $expiration, 'logged_in', $token );
@@ -1318,7 +1318,7 @@ if ( ! function_exists( 'user_switching_clear_olduser_cookie' ) ) {
 			setcookie( USER_SWITCHING_SECURE_COOKIE,  ' ', $expire, SITECOOKIEPATH, COOKIE_DOMAIN );
 			setcookie( USER_SWITCHING_OLDUSER_COOKIE, ' ', $expire, COOKIEPATH, COOKIE_DOMAIN );
 		} else {
-			if ( login_me_now_user_switching::secure_auth_cookie() ) {
+			if ( user_switching::secure_auth_cookie() ) {
 				$scheme = 'secure_auth';
 			} else {
 				$scheme = 'auth';
@@ -1345,10 +1345,8 @@ if ( ! function_exists( 'user_switching_get_olduser_cookie' ) ) {
 	 * @return string|false The old user cookie, or boolean false if there isn't one.
 	 */
 	function user_switching_get_olduser_cookie() {
-		
-		$index = defined( 'USER_SWITCHING_OLDUSER_COOKIE' ) ? USER_SWITCHING_OLDUSER_COOKIE : '' ;
-		if ( isset( $_COOKIE[ $index ] ) ) {
-			return wp_unslash( $_COOKIE[ $index ] );
+		if ( isset( $_COOKIE[ USER_SWITCHING_OLDUSER_COOKIE ] ) ) {
+			return wp_unslash( $_COOKIE[ USER_SWITCHING_OLDUSER_COOKIE ] );
 		} else {
 			return false;
 		}
@@ -1362,7 +1360,7 @@ if ( ! function_exists( 'user_switching_get_auth_cookie' ) ) {
 	 * @return array<int,string> Array of originating user authentication cookie values. Empty array if there are none.
 	 */
 	function user_switching_get_auth_cookie() {
-		if ( login_me_now_user_switching::secure_auth_cookie() ) {
+		if ( user_switching::secure_auth_cookie() ) {
 			$auth_cookie_name = USER_SWITCHING_SECURE_COOKIE;
 		} else {
 			$auth_cookie_name = USER_SWITCHING_COOKIE;
@@ -1518,9 +1516,9 @@ if ( ! function_exists( 'current_user_switched' ) ) {
 			return false;
 		}
 
-		return login_me_now_user_switching::get_old_user();
+		return user_switching::get_old_user();
 	}
 }
 
-$GLOBALS['user_switching'] = login_me_now_user_switching::get_instance();
+$GLOBALS['user_switching'] = user_switching::get_instance();
 $GLOBALS['user_switching']->init_hooks();

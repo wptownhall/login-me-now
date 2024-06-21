@@ -162,10 +162,10 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 == Changelog ==
 
 = 1.6.0 – Jun 18, 2024 =
-* Drop: Google Button Popup Remove & Add Redirection
+* Fix: Google Prompt Box & Redirect Wrong URL
+* Fix: Facebook Prompt Box & Redirect Wrong URL
 * Add: Directorist Plugin Compatibility
 * Update: User Switching Package
-* Fix: Facebook Popup
 
 * Fix: Onetap Redirect Issue
 * Add: Hook login_me_now_temporary_login_redirect_uri

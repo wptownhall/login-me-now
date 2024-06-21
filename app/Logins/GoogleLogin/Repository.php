@@ -17,7 +17,7 @@ class Repository {
 		$wp_user      = get_user_by( 'email', sanitize_email( $userDataDTO->get_user_email() ) );
 		$redirect_uri = $this->redirect_uri();
 
-		$userDataDTO->set_redirect_uri( $this->redirect_uri() );
+		$userDataDTO->set_redirect_uri( $redirect_uri );
 		$userDataDTO->set_channel_name( 'google' );
 
 		if ( $wp_user ) {
