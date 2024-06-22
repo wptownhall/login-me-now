@@ -126,7 +126,7 @@ function ExpressLoginEmail({ colorChange }) {
             />
           </Switch>
         </div>
-        <a href="https://wptownhall.com/login-me-now/pricing/" target="_blank">
+        <a href="https://loginmenow.com/pricing/" target="_blank">
           <button
             className={`bg-white px-4 py-3 text-[18px] font-semibold text-[#0DA071] rounded-[8px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
               !hover && "invisible"

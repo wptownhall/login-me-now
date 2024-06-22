@@ -7,9 +7,6 @@
 
 namespace LoginMeNow\Admin;
 
-use LoginMeNow\Admin\LogsListTable;
-use LoginMeNow\Admin\TokensListTable;
-use LoginMeNow\Utils\Helper;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;
 
@@ -22,6 +19,58 @@ class AdminMenu {
 
 	public function __construct() {
 		$this->action( 'admin_menu', [$this, 'admin_menu'] );
+
+		add_filter( 'admin_head', [$this, 'add_active_class_to_admin_menu'], 10 );
+	}
+
+	function add_active_class_to_admin_menu() {
+		// Get the current screen
+		$screen = get_current_screen();
+
+		if ( 'toplevel_page_login-me-now' === $screen->id ) {
+			$nth = [
+				'temporary-login'    => 3,
+				'browser-extensions' => 4,
+				'social-login'       => 5,
+			];
+
+			$path       = $_GET['path'] ?? '';
+			$active_nth = $nth[$path] ?? '';
+		}
+
+		$style = '';
+		if ( $active_nth ) {
+			$style = '#toplevel_page_login-me-now .wp-submenu li:nth-child(' . $active_nth . ') a {
+					color: #fff;
+					font-weight: 600;
+				}';
+
+			$style .= '#toplevel_page_login-me-now .wp-submenu li:nth-child(2) a {
+					color: rgba(240,246,252,.7) !important;
+					font-weight: normal;
+
+				}';
+		}
+
+		echo '<style>
+				#toplevel_page_login-me-now .wp-submenu li:nth-child(6) a {
+					font-weight: 600;
+					background-color: #93003f;
+					color: #fff;
+					margin: 3px 10px 0;
+					display: block;
+					text-align: center;
+					border-radius: 3px;
+					transition: all .3s;
+				}
+
+				#toplevel_page_login-me-now .wp-submenu li:nth-child(6) a:hover {
+					background-color: #c60055;
+    				box-shadow: none;
+				}
+
+				' . $style . '
+			</style>';
 	}
 
 	public function admin_menu(): void {
@@ -40,69 +89,56 @@ class AdminMenu {
 			$login_me_now_icon,
 		);
 
-		// add_submenu_page(
-		// 	LOGIN_ME_NOW_MENU_SLUG,
-		// 	__( 'Dashboard', 'login-me-now' ),
-		// 	__( 'Dashboard', 'login-me-now' ),
-		// 	LOGIN_ME_NOW_MENU_CAPABILITY,
-		// 	LOGIN_ME_NOW_MENU_SLUG,
-		// 	[$this, 'render_admin_dashboard'],
-		// );
+		add_submenu_page(
+			LOGIN_ME_NOW_MENU_SLUG,
+			__( 'Dashboard', 'login-me-now' ),
+			__( 'Dashboard', 'login-me-now' ),
+			LOGIN_ME_NOW_MENU_CAPABILITY,
+			LOGIN_ME_NOW_MENU_SLUG,
+			[$this, 'render_admin_dashboard'],
+		);
 
-		// add_submenu_page(
-		// 	LOGIN_ME_NOW_MENU_SLUG,
-		// 	__( 'Advance Sharing', 'login-me-now' ),
-		// 	__( 'Advance Sharing', 'login-me-now' ),
-		// 	LOGIN_ME_NOW_MENU_CAPABILITY,
-		// 	LOGIN_ME_NOW_MENU_SLUG . '-advance-sharing',
-		// 	[$this, 'settings'],
-		// );
+		add_submenu_page(
+			LOGIN_ME_NOW_MENU_SLUG,
+			__( 'Temporary Login', 'login-me-now' ),
+			__( 'Temporary Login', 'login-me-now' ),
+			LOGIN_ME_NOW_MENU_CAPABILITY,
+			LOGIN_ME_NOW_MENU_SLUG . '&path=temporary-login',
+			[$this, 'render_admin_dashboard'],
+		);
 
-		// add_submenu_page(
-		// 	LOGIN_ME_NOW_MENU_SLUG,
-		// 	__( 'Browsers', 'login-me-now' ),
-		// 	__( 'Browsers', 'login-me-now' ),
-		// 	LOGIN_ME_NOW_MENU_CAPABILITY,
-		// 	LOGIN_ME_NOW_MENU_SLUG . '-browser-extensions',
-		// 	[$this, 'render_admin_dashboard'],
-		// );
+		add_submenu_page(
+			LOGIN_ME_NOW_MENU_SLUG,
+			__( 'Browser Extension', 'login-me-now' ),
+			__( 'Browser Extension', 'login-me-now' ),
+			LOGIN_ME_NOW_MENU_CAPABILITY,
+			LOGIN_ME_NOW_MENU_SLUG . '&path=browser-extensions',
+			[$this, 'render_admin_dashboard'],
+		);
 
-		// add_submenu_page(
-		// 	LOGIN_ME_NOW_MENU_SLUG,
-		// 	__( 'Settings', 'login-me-now' ),
-		// 	__( 'Settings', 'login-me-now' ),
-		// 	LOGIN_ME_NOW_MENU_CAPABILITY,
-		// 	LOGIN_ME_NOW_MENU_SLUG . '-settings',
-		// 	[$this, 'settings'],
-		// );
+		add_submenu_page(
+			LOGIN_ME_NOW_MENU_SLUG,
+			__( 'Social Login', 'login-me-now' ),
+			__( 'Social Login', 'login-me-now' ),
+			LOGIN_ME_NOW_MENU_CAPABILITY,
+			LOGIN_ME_NOW_MENU_SLUG . '&path=social-login',
+			[$this, 'render_admin_dashboard'],
+		);
 
-		// add_submenu_page(
-		// 	LOGIN_ME_NOW_MENU_SLUG,
-		// 	__( 'Logs', 'login-me-now' ),
-		// 	__( 'Logs', 'login-me-now' ),
-		// 	LOGIN_ME_NOW_MENU_CAPABILITY,
-		// 	LOGIN_ME_NOW_MENU_SLUG . '-logs',
-		// 	[$this, 'logs_callback']
-		// );
+		if ( ! defined( 'LOGIN_ME_NOW_PRO_VERSION' ) ) {
+			add_submenu_page(
+				LOGIN_ME_NOW_MENU_SLUG,
+				__( 'Upgrade', 'login-me-now' ),
+				__( 'Upgrade', 'login-me-now' ),
+				LOGIN_ME_NOW_MENU_CAPABILITY,
+				LOGIN_ME_NOW_MENU_SLUG . '-upgrade-to-pro',
+				[$this, 'render_admin_dashboard']
+			);
 
-		// Rewrite the menu item.
-		// global $submenu;
-		// $submenu[LOGIN_ME_NOW_MENU_SLUG][1][2] = 'admin.php?page=login-me-now&path=browser-extensions';
-		// $submenu[LOGIN_ME_NOW_MENU_SLUG][2][2] = 'admin.php?page=login-me-now&path=settings';
-	}
-
-	/**
-	 * Render Tokens
-	 */
-	public function tokens_callback(): void {
-		Helper::get_template_part( '/app/Admin/Views/menu-page/token-status', new TokensListTable );
-	}
-
-	/**
-	 * Render Logs
-	 */
-	public function logs_callback(): void {
-		Helper::get_template_part( '/app/Admin/Views/menu-page/all-logs', new LogsListTable );
+			// Rewrite the menu item.
+			global $submenu;
+			$submenu[LOGIN_ME_NOW_MENU_SLUG][4][2] = 'https://loginmenow.com/pricing/';
+		}
 	}
 
 	/**

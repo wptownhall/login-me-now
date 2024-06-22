@@ -8,7 +8,7 @@ return [
 	'menu_cap'        => 'manage_options',
 	'environment'     => 'production',
 
-	'pro_upgrade_url' => 'https://wptownhall.com/login-me-now/pricing/',
+	'pro_upgrade_url' => 'https://loginmenow.com/pricing/',
 
 	'project_key'     => 'login_me_now',
 	'key_prefix'      => '_',

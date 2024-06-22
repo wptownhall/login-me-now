@@ -157,7 +157,7 @@ function DashboardModules() {
                   {!isProAvailable && (
                     <div className="bg-black py-3 text-center rounded-b-[8px] border-t-[2px] border-t-[#000000] ">
                       <a
-                        href="https://wptownhall.com/login-me-now/pricing/"
+                        href="https://loginmenow.com/pricing/"
                         target="_blank"
                       >
                         <button

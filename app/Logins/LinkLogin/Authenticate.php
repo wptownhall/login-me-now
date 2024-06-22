@@ -7,12 +7,12 @@
 
 namespace LoginMeNow\Logins\LinkLogin;
 
-use LoginMeNow\DTO\LoginDTO;
-use LoginMeNow\Utils\Helper;
-use LoginMeNow\Models\UserToken;
-use LoginMeNow\Repositories\AccountRepository;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;
+use LoginMeNow\DTO\LoginDTO;
+use LoginMeNow\Models\UserToken;
+use LoginMeNow\Repositories\AccountRepository;
+use LoginMeNow\Utils\Helper;
 use LoginMeNow\Utils\Logs;
 
 class Authenticate {
@@ -45,7 +45,7 @@ class Authenticate {
 			exit();
 		}
 
-		$redirect_uri = apply_filters( 'login_me_now_temporary_login_redirect_uri', '' );
+		$redirect_uri = apply_filters( 'login_me_now_temporary_login_redirect_uri', admin_url() );
 		$message      = __( "logged in using temporary login link", 'login-me-now' );
 		Logs::add( $user_id, $message );
 

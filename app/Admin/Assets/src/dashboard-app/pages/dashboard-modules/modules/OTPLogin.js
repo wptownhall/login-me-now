@@ -13,13 +13,6 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
   const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
 
-  const handleMouseEnter = () => {
-    setHover(true);
-  };
-  const handleMouseLeave = () => {
-    setHover(false);
-  };
-
   const enableDmOTPLogin = useSelector((state) => state.dmOTPLogin);
 
   const handleDmOTPLogin = () => {
@@ -56,18 +49,8 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
 
   return (
     <div className={`mb-8 mx-4 flex`}>
-      <div
-        class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
-          hover === true ? "bg-[#073A2E]" : "bg-[#F8FAFC]"
-        }`}
-        onMouseEnter={!isProAvailable === true ? handleMouseEnter : null}
-        onMouseLeave={!isProAvailable === true ? handleMouseLeave : null}
-      >
-        <div
-          className={`px-8 pt-16 pb-10 text-center responsive-box ${
-            hover && "invisible"
-          }`}
-        >
+      <div class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between}`}>
+        <div className={`px-8 pt-16 pb-10 text-center responsive-box`}>
           <div className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,11 +77,6 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
           </div>
           <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5 flex justify-center items-center">
             OTP login
-            {!isProAvailable && (
-              <span className="bg-[#0DA071] text-[#ffffff] px-2.5 py-1 text-[10px] rounded-[3px] ml-1.5">
-                PRO
-              </span>
-            )}
           </h1>
           <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Simplify users login with OTP authentication. Forget password
@@ -168,27 +146,7 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
             </button>
           )}
         </div>
-        {!isProAvailable && (
-          <div
-            className={`text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
-              !hover && "invisible"
-            }`}
-          >
-            <a
-              href="https://wptownhall.com/login-me-now/pricing/"
-              target="_blank"
-            >
-              <button
-                className={`bg-white px-3 py-2 text-[16px] font-semibold text-[#073A2E] rounded-[8px]`}
-              >
-                Upgrade to PRO
-              </button>
-            </a>
-            <p className="text-white mt-3">
-              This module is available in the pro version
-            </p>
-          </div>
-        )}
+        
       </div>
     </div>
   );

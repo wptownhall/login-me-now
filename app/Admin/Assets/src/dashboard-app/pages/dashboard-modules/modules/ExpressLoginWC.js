@@ -169,7 +169,7 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
             }`}
           >
             <a
-              href="https://wptownhall.com/login-me-now/pricing/"
+              href="https://loginmenow.com/pricing/"
               target="_blank"
             >
               <button
