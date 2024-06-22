@@ -104,7 +104,7 @@ const FacebookInUpdateExistingUserData = () => {
       </div>
       <p className="mt-6 w-9/12 text-[16px] text-slate-500 tablet:w-full leading-[1.7]">
         {__(
-          "Automatically retrieve the existing user first, last, nick & display name from facebook account upon login using gmail",
+          "Automatically retrieve the existing user first, last, nick & display name from facebook account upon login using facebook",
           "login-me-now"
         )}
       </p>

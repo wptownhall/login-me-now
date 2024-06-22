@@ -8,9 +8,8 @@
 namespace LoginMeNow\Logins\BrowserTokenLogin;
 
 use Exception;
-use LoginMeNow\Models\BrowserTokenModel;
 use LoginMeNow\Common\Singleton;
-use LoginMeNow\Utils\Logs;
+use LoginMeNow\Models\BrowserTokenModel;
 use LoginMeNow\Utils\Random;
 use LoginMeNow\Utils\Time;
 use LoginMeNow\Utils\User;
@@ -124,7 +123,8 @@ class JWTAuth {
 
 		/** Store the token ref in user meta using the $issuedAt, so we can block the token if needed */
 		BrowserTokenModel::init()->insert( $user->data->ID, $rand_number, $expire, 'active' );
-		Logs::add( $user->data->ID, "generated a token for browser extension (Token ID: {$rand_number})" );
+
+		\LoginMeNow\Integrations\SimpleHistory\Logs::add( $user->data->ID, "generated a token for browser extension (Token ID: {$rand_number})" );
 
 		if ( ! $additional_data ) {
 			return $token;
@@ -156,8 +156,6 @@ class JWTAuth {
 	 * @param WP_REST_Request $request
 	 * @param bool|string $token
 	 * @param string $return_type | token, data, user | default data
-	 *
-	 * @return WP_Error | Object | Array
 	 */
 	public function validate_token( WP_REST_Request $request, $return_type = 'data' ) {
 		$req_token = $request->get_param( 'token' );
@@ -241,7 +239,7 @@ class JWTAuth {
 
 			if ( 'user_id' === $return_type ) {
 				$message = __( "logged in using browser extension (ID: {$token_id})", 'login-me-now' );
-				Logs::add( $token->data->user->id, $message );
+				\LoginMeNow\Integrations\SimpleHistory\Logs::add( $token->data->user->id, $message );
 
 				return (int) $token->data->user->id;
 			}

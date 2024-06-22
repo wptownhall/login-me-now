@@ -24,8 +24,9 @@ class AdminMenu {
 	}
 
 	function add_active_class_to_admin_menu() {
-		// Get the current screen
-		$screen = get_current_screen();
+		$screen     = get_current_screen();
+		$active_nth = '';
+		$style      = '';
 
 		if ( 'toplevel_page_login-me-now' === $screen->id ) {
 			$nth = [
@@ -38,7 +39,6 @@ class AdminMenu {
 			$active_nth = $nth[$path] ?? '';
 		}
 
-		$style = '';
 		if ( $active_nth ) {
 			$style = '#toplevel_page_login-me-now .wp-submenu li:nth-child(' . $active_nth . ') a {
 					color: #fff;

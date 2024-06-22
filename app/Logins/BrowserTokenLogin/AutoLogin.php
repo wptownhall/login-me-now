@@ -7,11 +7,11 @@
 
 namespace LoginMeNow\Logins\BrowserTokenLogin;
 
-use LoginMeNow\DTO\LoginDTO;
-use LoginMeNow\Utils\Helper;
-use LoginMeNow\Repositories\AccountRepository;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;
+use LoginMeNow\DTO\LoginDTO;
+use LoginMeNow\Repositories\AccountRepository;
+use LoginMeNow\Utils\Helper;
 
 class AutoLogin {
 	use Singleton;
@@ -53,7 +53,7 @@ class AutoLogin {
 
 		delete_transient( $number );
 
-		$redirect_uri = apply_filters( 'login_me_now_browser_token_login_redirect_uri', '' );
+		$redirect_uri = apply_filters( 'login_me_now_browser_token_login_redirect_uri', admin_url() );
 
 		$dto = ( new LoginDTO )
 			->set_user_id( $user_id )

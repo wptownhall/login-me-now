@@ -7,6 +7,8 @@
 namespace LoginMeNow\Setup;
 
 use HeyMehedi\Utils\Config;
+use LoginMeNow\Models\BrowserTokenModel;
+use LoginMeNow\Utils\Random;
 
 class Activate {
 	public string $file_name;
@@ -14,6 +16,7 @@ class Activate {
 	public function __construct( $file_name ) {
 		$this->file_name = $file_name;
 		$this->auto_deactivate();
+		$this->setup();
 	}
 
 	public function auto_deactivate(): void {
@@ -36,5 +39,27 @@ class Activate {
 				'back_link' => true,
 			]
 		);
+	}
+
+	public function setup(): void {
+		BrowserTokenModel::init()->create_table();
+
+		/**
+		 * Add the secret key if not exist
+		 */
+		$key = get_option( 'login_me_now_secret_key' );
+		if ( ! $key ) {
+			$key = Random::key();
+			update_option( 'login_me_now_secret_key', $key );
+		}
+
+		/**
+		 * Add the algorithm if not exist
+		 */
+		$algo = get_option( 'login_me_now_algorithm' );
+		if ( ! $algo ) {
+			$algo = 'HS256';
+			update_option( 'login_me_now_algorithm', $algo );
+		}
 	}
 }

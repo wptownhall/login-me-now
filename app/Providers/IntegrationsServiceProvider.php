@@ -25,6 +25,7 @@ class IntegrationsServiceProvider extends ProviderBase {
 		return [
 			\LoginMeNow\Integrations\Directorist\Directorist::class,
 			\LoginMeNow\Integrations\WooCommerce\WooCommerce::class,
+			\LoginMeNow\Integrations\SimpleHistory\SimpleHistory::class,
 		];
 	}
 }

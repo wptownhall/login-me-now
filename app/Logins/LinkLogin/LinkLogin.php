@@ -8,9 +8,8 @@
 namespace LoginMeNow\Logins\LinkLogin;
 
 use LoginMeNow\Common\LoginBase;
-use LoginMeNow\Models\UserToken;
 use LoginMeNow\Common\Singleton;
-use LoginMeNow\Utils\Logs;
+use LoginMeNow\Models\UserToken;
 use LoginMeNow\Utils\Module;
 use LoginMeNow\Utils\Random;
 use LoginMeNow\Utils\Time;
@@ -79,6 +78,8 @@ class LinkLogin extends LoginBase {
 			]
 		);
 
+		\LoginMeNow\Integrations\SimpleHistory\Logs::add( $user->data->ID, "generated a temporary login link" );
+
 		return $token;
 	}
 
@@ -102,7 +103,7 @@ class LinkLogin extends LoginBase {
 
 		$token = Translator::encode( $user_id, $number, $expire, '==' );
 
-		Logs::add( $user_id, "generated a temporary login link" );
+		\LoginMeNow\Integrations\SimpleHistory\Logs::add( $user_id, "generated a temporary login link" );
 
 		return sprintf( '%s%s', admin_url( '/?lmn-token=' ), $token );
 	}

@@ -13,8 +13,6 @@ use LoginMeNow\DTO\LoginDTO;
 use LoginMeNow\Models\UserToken;
 use LoginMeNow\Repositories\AccountRepository;
 use LoginMeNow\Utils\Helper;
-use LoginMeNow\Utils\Logs;
-
 class Authenticate {
 	use Singleton;
 	use Hookable;
@@ -47,7 +45,7 @@ class Authenticate {
 
 		$redirect_uri = apply_filters( 'login_me_now_temporary_login_redirect_uri', admin_url() );
 		$message      = __( "logged in using temporary login link", 'login-me-now' );
-		Logs::add( $user_id, $message );
+		\LoginMeNow\Integrations\SimpleHistory\Logs::add( $user_id, $message );
 
 		$dto = ( new LoginDTO )
 			->set_user_id( $user_id )

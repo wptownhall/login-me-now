@@ -25,16 +25,23 @@ class Ajax {
 	use AjaxCheck;
 
 	public function __construct() {
+		$this->action( 'wp_ajax_login_me_now_hide_save_to_browser_extension', [$this, 'login_me_now_hide_save_to_browser_extension'] );
+
 		$this->action( 'wp_ajax_login_me_now_browser_token_generate', [$this, 'login_me_now_browser_token_generate'] );
 		$this->action( 'wp_ajax_login_me_now_browser_tokens', [$this, 'login_me_now_browser_tokens'] );
 		$this->action( 'wp_ajax_login_me_now_browser_token_update_status', [$this, 'login_me_now_browser_token_update_status'] );
 		$this->action( 'wp_ajax_login_me_now_browser_token_drop', [$this, 'login_me_now_browser_token_drop'] );
-		$this->action( 'wp_ajax_login_me_now_hide_save_to_browser_extension', [$this, 'login_me_now_hide_save_to_browser_extension'] );
 		$this->action( 'wp_ajax_update_status_of_token', [$this, 'update_status_of_token'] );
 	}
 
 	public function login_me_now_hide_save_to_browser_extension() {
-		wp_send_json_success( update_user_meta( get_current_user_id(), 'login_me_now_hide_save_to_browser_extension', true ) );
+		wp_send_json_success(
+			update_user_meta(
+				get_current_user_id(),
+				'login_me_now_hide_save_to_browser_extension',
+				true
+			)
+		);
 	}
 
 	public function login_me_now_browser_token_generate() {
