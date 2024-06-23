@@ -9,10 +9,10 @@
 
 namespace LoginMeNow\Logins\LinkLogin;
 
-use LoginMeNow\Models\UserToken;
 use LoginMeNow\Common\AjaxCheck;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;
+use LoginMeNow\Models\UserToken;
 use LoginMeNow\Utils\Time;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -90,8 +90,6 @@ class Ajax {
 
 		$updated = UserToken::init()->update_status( $umeta_id, $status );
 
-		error_log( $status );
-
 		wp_send_json_success( $updated );
 		wp_die();
 	}
@@ -128,8 +126,6 @@ class Ajax {
 		}
 
 		$deleted = UserToken::init()->drop( $umeta_id );
-
-		error_log( $umeta_id );
 
 		wp_send_json_success( $deleted );
 		wp_die();

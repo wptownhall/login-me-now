@@ -13,6 +13,7 @@ use LoginMeNow\DTO\LoginDTO;
 use LoginMeNow\Models\UserToken;
 use LoginMeNow\Repositories\AccountRepository;
 use LoginMeNow\Utils\Helper;
+
 class Authenticate {
 	use Singleton;
 	use Hookable;
@@ -50,7 +51,8 @@ class Authenticate {
 		$dto = ( new LoginDTO )
 			->set_user_id( $user_id )
 			->set_redirect_uri( $redirect_uri )
-			->set_redirect_return( false );
+			->set_redirect_return( false )
+			->set_channel_name( 'link_login' );
 
 		( new AccountRepository )->login( $dto );
 	}

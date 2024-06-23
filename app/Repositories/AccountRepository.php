@@ -82,13 +82,16 @@ class AccountRepository {
 
 		do_action( "login_me_now_after_registration", $user_id, $userDataDTO );
 
-		User::set_role( $user_id, $this->channel );
-		User::update_profile( $user_id, $this->user_data, $this->channel );
+		$channel_name = $userDataDTO->get_channel_name();
+		$redirect_uri = $userDataDTO->get_redirect_uri();
+
+		User::set_role( $user_id, $channel_name );
+		$this->update_profile( $user_id, $userDataDTO );
 
 		$dto = ( new LoginDTO )
-			->set_channel_name( $this->channel )
+			->set_channel_name( $channel_name )
 			->set_user_id( $user_id )
-			->set_redirect_uri( $userDataDTO->get_redirect_uri() )
+			->set_redirect_uri( $redirect_uri )
 			->set_redirect_return( false );
 
 		( new AccountRepository )->login( $dto );
@@ -124,6 +127,8 @@ class AccountRepository {
 
 		do_action( "login_me_now_before_profile_data_update", $user_id, $UserDataDTO );
 
+		$channel = $UserDataDTO->get_channel_name();
+
 		$user_data                 = [];
 		$user_data['ID']           = $user_id;
 		$user_data['first_name']   = $UserDataDTO->get_first_name();
@@ -131,7 +136,6 @@ class AccountRepository {
 		$user_data['display_name'] = $UserDataDTO->get_display_name();
 		$user_data['picture']      = $UserDataDTO->get_user_avatar_url();
 
-		$channel = $UserDataDTO->get_channel_name();
 		wp_update_user( $user_data );
 		update_user_meta( $user_id, 'nickname', $user_data['first_name'] );
 

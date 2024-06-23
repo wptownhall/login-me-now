@@ -58,7 +58,8 @@ class AutoLogin {
 		$dto = ( new LoginDTO )
 			->set_user_id( $user_id )
 			->set_redirect_uri( $redirect_uri )
-			->set_redirect_return( false );
+			->set_redirect_return( false )
+			->set_channel_name( 'browser_token' );
 
 		( new AccountRepository )->login( $dto );
 	}
