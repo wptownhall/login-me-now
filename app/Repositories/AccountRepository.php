@@ -43,7 +43,10 @@ class AccountRepository {
 
 		do_action( "login_me_now_after_login", $user_id, $dto );
 
-		if ( 'facebook' === $channel_name || 'google' === $channel_name ) {
+		if (
+			'facebook' === $channel_name
+			|| ( 'google' === $channel_name && ! array_key_exists( 'g_csrf_token', $_POST ) )
+		) {
 			$this->handlePopupRedirectAfterAuthentication();
 		}
 
