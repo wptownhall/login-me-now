@@ -45,6 +45,10 @@ class GoogleLogin extends ModuleBase {
 		return false;
 	}
 
+	public static function show_on_native_login() {
+		return self::show() && SettingsRepository::get( 'google_native_login', true );
+	}
+
 	public static function create_auth_url() {
 		$client_id    = SettingsRepository::get( 'google_client_id' );
 		$redirect_uri = home_url( 'wp-login.php?lmn-google' );

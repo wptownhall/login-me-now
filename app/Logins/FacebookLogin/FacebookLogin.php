@@ -38,6 +38,10 @@ class FacebookLogin extends ModuleBase {
 		return false;
 	}
 
+	public static function show_on_native_login() {
+		return self::show() && SettingsRepository::get( 'facebook_native_login', true );
+	}
+
 	public static function create_auth_url() {
 		$client_id    = SettingsRepository::get( 'facebook_app_id' );
 		$redirect_uri = home_url( 'wp-login.php?lmn-facebook' );

@@ -65,8 +65,8 @@ class LoginFormsServiceProvider extends ProviderBase {
 
 	public function show(): bool {
 		if (
-			FacebookLogin::show()
-			|| GoogleLogin::show()
+			FacebookLogin::show_on_native_login()
+			|| GoogleLogin::show_on_native_login()
 		) {
 			return true;
 		}
