@@ -12,7 +12,6 @@ namespace LoginMeNow\Routes;
 use LoginMeNow\Common\AjaxCheck;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;
-use LoginMeNow\Models\BrowserTokenModel;
 use LoginMeNow\Repositories\SettingsRepository;
 
 class Ajax {

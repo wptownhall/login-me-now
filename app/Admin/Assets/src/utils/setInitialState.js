@@ -51,18 +51,20 @@ const setInitialState = (store) => {
       dmUserSwitching: data.user_switching,
       dmActivityLog: data.activity_logs,
       dmConditionalLogin: data.dm_conditional_login,
+      
       lfEnableSignInGoogle: data.enable_sign_in_google,
       lfEnableSignInFacebook: data.enable_sign_in_facebook,
       lfEnableSignInTwitter: data.enable_sign_in_twitter,
       loginLayout: data.login_layout,
       loginButtonStyle: data.login_button_style,
+
       enableFacebookAppID: data.facebook_app_id,
       enableFacebookAppSecret: data.facebook_app_secret,
       enableFacebookLogin: data.facebook_login,
       enableFacebookNativeLogin: data.facebook_native_login,
       selectFacebookProDefaultUserRole: data.facebook_pro_default_user_role,
       enableFacebookUpdateExistingUserData: data.facebook_update_existing_user_data,
-      enableGoogleUpdateExistingUserAvatar: data.facebook_pro_user_avatar,
+      enableFacebookUpdateExistingUserAvatar: data.facebook_pro_user_avatar,
       inputFacebookProRedirectUrl: data.facebook_pro_redirect_url,
     };
 

@@ -18,7 +18,7 @@ const initialState = wp.hooks.applyFilters("login_me_now_dashboard/datastore", {
   enableGoogleNativeLogin: true,
   enableGoogleAutoSignIn: false,
   enableGoogleUpdateExistingUserData: true,
-  enableGoogleUpdateExistingUserAvatar: true,
+  enableGoogleUpdateExistingUserAvatar: false,
   enableGoogleCancelOnTapOutside: true,
   enableGoogleLoginSelectLocation: true,
 
