@@ -25,7 +25,7 @@ class Controller {
 	}
 
 	private function remote( $code ) {
-		$access_token = $this->generate_acces_token( $code );
+		$access_token = $this->generate_access_token( $code );
 		if ( ! $access_token ) {
 			wp_send_json_error( __( "Token not matching", 'login-me-now' ) );
 		}
@@ -40,12 +40,14 @@ class Controller {
 		$userDataDTO = ( new UserDataDTO )
 			->set_user_email( $user_data['email'] )
 			->set_display_name( $user_data['name'] ?? '' )
+			->set_first_name( $user_data['first_name'] ?? '' )
+			->set_last_name( $user_data['last_name'] ?? '' )
 			->set_user_avatar_url( $user_data['picture']['data']['url'] ?? '' );
 
 		( new Repository )->auth( $userDataDTO );
 	}
 
-	private function generate_acces_token( string $code ) {
+	private function generate_access_token( string $code ) {
 		$args = [
 			'timeout'    => 15,
 			'user-agent' => 'WordPress',
@@ -72,7 +74,7 @@ class Controller {
 	}
 
 	private function get_remote_user_graph( string $access_token ): array {
-		$fbApiUrl = 'https://graph.facebook.com/v20.0/me?fields=id,name,email,picture.type(large)&access_token=' . $access_token;
+		$fbApiUrl = 'https://graph.facebook.com/v20.0/me?fields=id,name,email,first_name,last_name,picture.type(large)&access_token=' . $access_token;
 
 		$response            = file_get_contents( $fbApiUrl );
 		$data                = json_decode( $response, true );

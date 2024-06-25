@@ -20,6 +20,7 @@ class UserDataDTO extends DTOBase {
 	public int $id;
 	public string $display_name;
 	public string $channel_name;
+	public bool $update_existing_user;
 
 	public function set_user_email( string $user_email ) {
 		$this->user_email = $user_email;
@@ -119,5 +120,15 @@ class UserDataDTO extends DTOBase {
 
 	public function get_channel_name() {
 		return $this->channel_name ?? 'google';
+	}
+
+	public function set_update_existing_user( bool $update_existing_user = false ) {
+		$this->update_existing_user = $update_existing_user;
+
+		return $this;
+	}
+
+	public function is_update_existing_user() {
+		return $this->update_existing_user;
 	}
 }

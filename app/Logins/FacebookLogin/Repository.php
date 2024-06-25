@@ -21,13 +21,13 @@ class Repository {
 		$userDataDTO->set_channel_name( 'facebook' );
 
 		if ( $wp_user ) {
-			$dto = ( new LoginDTO )
+			$loginDTO = ( new LoginDTO )
 				->set_user_id( $wp_user->ID )
 				->set_redirect_uri( $redirect_uri )
 				->set_redirect_return( false )
 				->set_channel_name( 'facebook' );
 
-			$action = ( new AccountRepository )->login( $dto );
+			$action = ( new AccountRepository )->login( $loginDTO, $userDataDTO );
 
 		} else {
 			$action = ( new AccountRepository )->register( $userDataDTO );

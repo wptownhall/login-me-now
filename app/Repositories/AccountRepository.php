@@ -17,11 +17,12 @@ class AccountRepository {
 	public array $user_data;
 	public string $channel;
 	public string $redirect_uri;
+	public bool $new_user = false;
 
-	public function login( LoginDTO $dto ) {
+	public function login( LoginDTO $dto, UserDataDTO $userDataDTO = null ) {
 		include ABSPATH . "wp-includes/pluggable.php";
 
-		do_action( "login_me_now_before_login", $dto );
+		do_action( "login_me_now_before_login", $dto, $userDataDTO );
 
 		$this->redirect_uri = $dto->get_redirect_uri();
 		$user_id            = $dto->get_user_id();
@@ -41,7 +42,7 @@ class AccountRepository {
 		wp_set_current_user( $user_id, $user->user_login );
 		wp_set_auth_cookie( $user_id, true );
 
-		do_action( "login_me_now_after_login", $user_id, $dto );
+		do_action( "login_me_now_after_login", $user_id, $channel_name, $userDataDTO, $this );
 
 		if (
 			'facebook' === $channel_name
@@ -91,6 +92,8 @@ class AccountRepository {
 		User::set_role( $user_id, $channel_name );
 		$this->update_profile( $user_id, $userDataDTO );
 
+		$this->new_user = true;
+
 		$dto = ( new LoginDTO )
 			->set_channel_name( $channel_name )
 			->set_user_id( $user_id )
@@ -131,23 +134,38 @@ class AccountRepository {
 		do_action( "login_me_now_before_profile_data_update", $user_id, $UserDataDTO );
 
 		$channel = $UserDataDTO->get_channel_name();
+		$f_name  = $UserDataDTO->get_first_name();
+		$l_name  = $UserDataDTO->get_last_name();
+		$d_name  = $UserDataDTO->get_display_name();
+		$picture = $UserDataDTO->get_user_avatar_url();
 
-		$user_data                 = [];
-		$user_data['ID']           = $user_id;
-		$user_data['first_name']   = $UserDataDTO->get_first_name();
-		$user_data['last_name']    = $UserDataDTO->get_last_name();
-		$user_data['display_name'] = $UserDataDTO->get_display_name();
-		$user_data['picture']      = $UserDataDTO->get_user_avatar_url();
+		$user_data       = [];
+		$user_data['ID'] = $user_id;
+
+		if ( $f_name ) {
+			$user_data['first_name'] = $f_name;
+			update_user_meta( $user_id, 'nickname', $f_name );
+		}
+
+		if ( $l_name ) {
+			$user_data['last_name'] = $l_name;
+		}
+
+		if ( $d_name ) {
+			$user_data['display_name'] = $d_name;
+		}
+
+		if ( $picture ) {
+			$user_data['picture'] = $picture;
+		}
 
 		wp_update_user( $user_data );
-		update_user_meta( $user_id, 'nickname', $user_data['first_name'] );
 
-		if ( isset( $user_data['picture'] ) && ! empty( $user_data['picture'] ) ) {
+		if ( ! empty( $picture ) ) {
 			update_user_meta(
 				$user_id,
 				"login_me_now_{$channel}_profile_picture_url",
-				esc_url_raw( $user_data['picture']
-				)
+				esc_url_raw( $picture )
 			);
 		}
 
