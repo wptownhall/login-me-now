@@ -104,20 +104,11 @@ class AccountRepository {
 	}
 
 	public function unique_username( UserDataDTO $userDataDTO ): string {
-		$username_parts = [];
-
-		if ( ! empty( $userDataDTO->get_name() ) ) {
-			$name             = str_replace( ' ', '.', $userDataDTO->get_name() );
-			$username_parts[] = sanitize_user( $name, true );
-		}
-
-		if ( empty( $username_parts ) ) {
-			$email_parts      = explode( '@', $userDataDTO->get_user_email() );
-			$email_username   = $email_parts[0];
-			$username_parts[] = sanitize_user( $email_username, true );
-		}
-
-		$username = strtolower( implode( '.', $username_parts ) );
+		$username_parts   = [];
+		$email_parts      = explode( '@', $userDataDTO->get_user_email() );
+		$email_username   = $email_parts[0];
+		$username_parts[] = sanitize_user( $email_username, true );
+		$username         = strtolower( implode( '.', $username_parts ) );
 
 		$default_user_name = $username;
 		$suffix            = 1;
