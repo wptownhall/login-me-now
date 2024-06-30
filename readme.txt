@@ -1,8 +1,8 @@
 === 1 click passwordless login, temporary login, social login & user switching - Login Me Now ===
-Contributors: WPtownhall, HeyMehedi
+Contributors: Pluginly, HeyMehedi
 Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
-Tested up to: 6.5
+Tested up to: 6.5.5
 Requires PHP: 7.4
 Stable tag: 1.6.0
 License: GPLv3 or Any Later Version
@@ -161,16 +161,14 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 
 == Changelog ==
 
-= 1.6.0 – Jun 25, 2024 =
+= 1.6.0 – Jun 29, 2024 =
+* Add: Directorist Plugin Compatibility
 * Fix: Google Prompt Box & Redirect Wrong URL
 * Fix: Facebook Prompt Box & Redirect Wrong URL
 * Fix: Extension Create Issue
-* Add: Directorist Plugin Compatibility
+* Fix: Onetap Redirect Issue
 * Update: User Switching Package
 * Improved: Simple History Log
-
-* Fix: Onetap Redirect Issue
-* Add: Hook login_me_now_temporary_login_redirect_uri
 
 = 1.5.0 – May 15, 2024 =
 * Fix: Google Button Width Issue
@@ -178,7 +176,6 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 * Fix: User Switching Issue
 * Fix: Onetap Redirect Issue
 * Add: Hook login_me_now_temporary_login_redirect_uri
-
 
 = 1.4.0 – Mar 05, 2024 =
 * New: Facebook Login

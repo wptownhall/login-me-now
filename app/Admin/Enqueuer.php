@@ -46,7 +46,6 @@ class Enqueuer extends EnqueuerBase {
 		) { //phpcs:ignore
 			/** @psalm-suppress PossiblyInvalidArgument */// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$this->action( 'admin_enqueue_scripts', [$this, 'styles_scripts'] );
-			$this->filter( 'admin_footer_text', [$this, 'admin_footer_link'], 99 );
 		}
 	}
 
@@ -186,12 +185,5 @@ class Enqueuer extends EnqueuerBase {
 					box-sizing: content-box;
 				}
 			</style>';
-	}
-
-	/**
-	 * Add footer link.
-	 */
-	public function admin_footer_link(): void {
-		echo '<span id="footer-thankyou"> Thank you for using <span class="focus:text-astra-hover active:text-astra-hover hover:text-lmn-hover"> ' . esc_attr( __( 'Login Me Now', 'login-me-now' ) ) . '.</span></span>';
 	}
 }

@@ -16,5 +16,11 @@ class Admin {
 	public function __construct() {
 		AdminMenu::init();
 		Enqueuer::init();
+
+		add_filter( 'admin_footer_text', [$this, 'admin_footer_link'], 99 );
+	}
+
+	public function admin_footer_link() {
+		echo '<span id="footer-thankyou"> Thank you for using <span class="focus:text-astra-hover active:text-astra-hover hover:text-lmn-hover"> ' . esc_attr( __( 'Login Me Now', 'login-me-now' ) ) . '.</span></span>';
 	}
 }
