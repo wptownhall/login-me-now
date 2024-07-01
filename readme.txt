@@ -6,7 +6,6 @@ Tested up to: 6.5.5
 Requires PHP: 7.4
 Stable tag: 1.6.0
 License: GPLv3 or Any Later Version
-Tags: login, password, secure-login, wp-login, social-login, google-login, one-click, google-avatar, delegate-access, browser-extension
 
 It feels like 8 plugins in one, it provides over 25 features making it the ultimate WP login solution.
 
@@ -161,7 +160,7 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 
 == Changelog ==
 
-= 1.6.0 – Jun 29, 2024 =
+= 1.6.0 – Jul 01, 2024 =
 * Add: Directorist Plugin Compatibility
 * Fix: Google Prompt Box & Redirect Wrong URL
 * Fix: Facebook Prompt Box & Redirect Wrong URL
