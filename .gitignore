@@ -9,3 +9,5 @@ __build
 **/package-lock.json
 **/login-me-now.pot
 Tests
+assets
+dist

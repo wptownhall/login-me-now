@@ -1,15 +1,15 @@
 <?php
 /**
- * @author  HeyMehedi
+ * @author  Pluginly
  * @since   1.1.0
  * @version 1.6.0
  */
 
 namespace LoginMeNow\Logins\GoogleLogin;
 
-use LoginMeNow\Repositories\SettingsRepository;
 use LoginMeNow\Common\Hookable;
 use LoginMeNow\Common\Singleton;
+use LoginMeNow\Repositories\SettingsRepository;
 use LoginMeNow\Utils\User;
 
 class Profile {

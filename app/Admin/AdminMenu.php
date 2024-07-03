@@ -1,8 +1,8 @@
 <?php
 /**
- * @author  WPtownhall
+ * @author  Pluginly
  * @since   1.0.0
- * @version 1.6.0
+ * @version 1.7.0
  */
 
 namespace LoginMeNow\Admin;
@@ -155,7 +155,7 @@ class AdminMenu {
 		}
 
 		/** @psalm-suppress MissingFile */// phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		include_once LOGIN_ME_NOW_ADMIN_PATH . '/Views/base.php';
+		include_once LOGIN_ME_NOW_TEMPLATE_PATH . '/admin/base.php';
 		/** @psalm-suppress MissingFile */// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	}
 }

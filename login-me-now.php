@@ -4,7 +4,7 @@
  * Description: 1 click passwordless login, social login & user switching
  * Author: Pluginly
  * Author URI: https://loginmenow.com/
- * Version: 1.6.0
+ * Version: 1.7.0
  * Tested up to: 6.5.5
  * Requires PHP: 7.4
  * License: GPLv2 or later

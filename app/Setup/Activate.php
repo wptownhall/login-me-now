@@ -1,12 +1,12 @@
 <?php
 /**
- * @author  WPtownhall
+ * @author  Pluginly
  * @since   1.6.0
  * @version 1.6.0
  */
 namespace LoginMeNow\Setup;
 
-use HeyMehedi\Utils\Config;
+use LoginMeNow\Utils\Config;
 use LoginMeNow\Models\BrowserTokenModel;
 use LoginMeNow\Utils\Random;
 

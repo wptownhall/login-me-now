@@ -1,8 +1,8 @@
 <?php
 /**
- * @author  WPtownhall
+ * @author  Pluginly
  * @since   1.6.0
- * @version 1.6.0
+ * @version 1.7.0
  */
 
 namespace LoginMeNow\Logins\BrowserTokenLogin;
@@ -29,7 +29,7 @@ class AutoLogin {
 		if ( empty( $_GET['lmn'] ) ) {
 			$title   = __( 'Number Not Provided', 'login-me-now' );
 			$message = __( 'Request a new access link in order to obtain dashboard access', 'login-me-now' );
-			Helper::get_template_part( 'messages/error', ['title' => $title, 'message' => $message] );
+			Helper::get_template_part( '/templates/admin/messages/error', ['title' => $title, 'message' => $message] );
 			exit();
 		}
 
@@ -39,7 +39,7 @@ class AutoLogin {
 		if ( ! $t_value ) {
 			$title   = __( 'Invalid number', 'login-me-now' );
 			$message = __( 'Request a new access link in order to obtain dashboard access', 'login-me-now' );
-			Helper::get_template_part( '/app/Admin/Views/messages/error', ['title' => $title, 'message' => $message] );
+			Helper::get_template_part( '/templates/admin/messages/error', ['title' => $title, 'message' => $message] );
 			exit();
 		}
 
@@ -47,7 +47,7 @@ class AutoLogin {
 		if ( ! $user_id ) {
 			$title   = __( 'User not found', 'login-me-now' );
 			$message = __( 'Request a new access link in order to obtain dashboard access', 'login-me-now' );
-			Helper::get_template_part( '/app/Admin/Views/messages/error', ['title' => $title, 'message' => $message] );
+			Helper::get_template_part( '/templates/admin/messages/error', ['title' => $title, 'message' => $message] );
 			exit();
 		}
 

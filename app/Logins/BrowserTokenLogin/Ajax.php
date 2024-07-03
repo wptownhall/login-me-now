@@ -1,10 +1,8 @@
 <?php
 /**
- * Login Me Now Admin Ajax Base.
- *
- * @package Login Me Now
+ * @author  Pluginly
  * @since   1.6.0
- * @version 1.6.0
+ * @version 1.7.0
  */
 
 namespace LoginMeNow\Logins\BrowserTokenLogin;
@@ -140,7 +138,7 @@ class Ajax {
 		$id     = ! empty( $_POST['id'] ) ? sanitize_text_field( $_POST['id'] ) : 0;
 
 		if ( ! $status && ! $id ) {
-			wp_send_json( __( "Something wen't wrong!" ) );
+			wp_send_json( __( "Something wen't wrong!", 'login-me-now' ) );
 			wp_die();
 		}
 

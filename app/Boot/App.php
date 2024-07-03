@@ -1,13 +1,13 @@
 <?php
 /**
- * @author  WPtownhall
+ * @author  Pluginly
  * @since   1.6.0
- * @version 1.6.0
+ * @version 1.7.0
  */
 
 namespace LoginMeNow\Boot;
 
-use HeyMehedi\Utils\Config;
+use LoginMeNow\Utils\Config;
 
 class App {
 
@@ -59,7 +59,7 @@ class App {
 
 		define( 'LOGIN_ME_NOW_INCLUDES', LOGIN_ME_NOW_APP_PATH . 'Common' );
 		define( 'LOGIN_ME_NOW_LOGINS', LOGIN_ME_NOW_APP_PATH . 'Logins' );
-		define( 'LOGIN_ME_NOW_ASSETS', LOGIN_ME_NOW_URL . 'assets' );
+		define( 'LOGIN_ME_NOW_ASSETS', LOGIN_ME_NOW_URL . '/assets' );
 		define( 'LOGIN_ME_NOW_PUBLIC', LOGIN_ME_NOW_URL . '/public/' );
 		define( 'LOGIN_ME_NOW_TEMPLATE_PATH', LOGIN_ME_NOW_PATH . '/templates/' );
 

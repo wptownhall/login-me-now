@@ -128,11 +128,11 @@ class user_switching {
 		?>
 		<tr class="user-switching-wrap">
 			<th scope="row">
-				<?php echo esc_html_x( 'User Switching', 'User Switching title on user profile screen', 'user-switching' ); ?>
+				<?php echo esc_html_x( 'User Switching', 'User Switching title on user profile screen', 'login-me-now' ); ?>
 			</th>
 			<td>
 				<a id="user_switching_switcher" href="<?php echo esc_url( $link ); ?>">
-					<?php esc_html_e( 'Switch&nbsp;To', 'user-switching' ); ?>
+					<?php esc_html_e( 'Switch&nbsp;To', 'login-me-now' ); ?>
 				</a>
 			</td>
 		</tr>
@@ -182,7 +182,7 @@ class user_switching {
 
 				// Check authentication:
 				if ( ! current_user_can( 'switch_to_user', $user_id ) ) {
-					wp_die( esc_html__( 'Could not switch users.', 'user-switching' ), 403 );
+					wp_die( esc_html__( 'Could not switch users.', 'login-me-now' ), 403 );
 				}
 
 				// Check intent:
@@ -207,7 +207,7 @@ class user_switching {
 					}
 					exit;
 				} else {
-					wp_die( esc_html__( 'Could not switch users.', 'user-switching' ), 404 );
+					wp_die( esc_html__( 'Could not switch users.', 'login-me-now' ), 404 );
 				}
 				break;
 
@@ -216,12 +216,12 @@ class user_switching {
 				// Fetch the originating user data:
 				$old_user = self::get_old_user();
 				if ( ! $old_user ) {
-					wp_die( esc_html__( 'Could not switch users.', 'user-switching' ), 400 );
+					wp_die( esc_html__( 'Could not switch users.', 'login-me-now' ), 400 );
 				}
 
 				// Check authentication:
 				if ( ! self::authenticate_old_user( $old_user ) ) {
-					wp_die( esc_html__( 'Could not switch users.', 'user-switching' ), 403 );
+					wp_die( esc_html__( 'Could not switch users.', 'login-me-now' ), 403 );
 				}
 
 				// Check intent:
@@ -249,7 +249,7 @@ class user_switching {
 					}
 					exit;
 				} else {
-					wp_die( esc_html__( 'Could not switch users.', 'user-switching' ), 404 );
+					wp_die( esc_html__( 'Could not switch users.', 'login-me-now' ), 404 );
 				}
 				break;
 
@@ -258,7 +258,7 @@ class user_switching {
 				// Check authentication:
 				if ( ! $current_user || ! current_user_can( 'switch_off' ) ) {
 					/* Translators: "switch off" means to temporarily log out */
-					wp_die( esc_html__( 'Could not switch off.', 'user-switching' ), 403 );
+					wp_die( esc_html__( 'Could not switch off.', 'login-me-now' ), 403 );
 				}
 
 				// Check intent:
@@ -279,7 +279,7 @@ class user_switching {
 					exit;
 				} else {
 					/* Translators: "switch off" means to temporarily log out */
-					wp_die( esc_html__( 'Could not switch off.', 'user-switching' ), 403 );
+					wp_die( esc_html__( 'Could not switch off.', 'login-me-now' ), 403 );
 				}
 				break;
 
@@ -559,7 +559,7 @@ class user_switching {
 				'parent' => $parent,
 				'id' => 'switch-off',
 				/* Translators: "switch off" means to temporarily log out */
-				'title' => esc_html__( 'Switch Off', 'user-switching' ),
+				'title' => esc_html__( 'Switch Off', 'login-me-now' ),
 				'href' => $url,
 			) );
 		}
@@ -578,7 +578,7 @@ class user_switching {
 				$wp_admin_bar->add_node( array(
 					'parent' => 'edit',
 					'id' => 'author-switch-to',
-					'title' => esc_html__( 'Switch&nbsp;To', 'user-switching' ),
+					'title' => esc_html__( 'Switch&nbsp;To', 'login-me-now' ),
 					'href' => add_query_arg( array(
 						'redirect_to' => rawurlencode( self::current_url() ),
 					), self::switch_to_url( get_queried_object() ) ),
@@ -727,7 +727,7 @@ class user_switching {
 		$actions['switch_to_user'] = sprintf(
 			'<a href="%s">%s</a>',
 			esc_url( $link ),
-			esc_html__( 'Switch&nbsp;To', 'user-switching' )
+			esc_html__( 'Switch&nbsp;To', 'login-me-now' )
 		);
 
 		return $actions;
@@ -775,7 +775,7 @@ class user_switching {
 			'id' => 'user_switching',
 			'component' => reset( $components ),
 			'link_href' => esc_url( $link ),
-			'link_text' => esc_html__( 'Switch&nbsp;To', 'user-switching' ),
+			'link_text' => esc_html__( 'Switch&nbsp;To', 'login-me-now' ),
 			'wrapper_id' => 'user_switching_switch_to',
 		) );
 	}
@@ -806,7 +806,7 @@ class user_switching {
 		printf(
 			'<li><a href="%s">%s</a></li>',
 			esc_url( $link ),
-			esc_html__( 'Switch&nbsp;To', 'user-switching' )
+			esc_html__( 'Switch&nbsp;To', 'login-me-now' )
 		);
 		echo '</ul>';
 	}
@@ -826,7 +826,7 @@ class user_switching {
 		$plugin_meta[] = sprintf(
 			'<a href="%1$s"><span class="dashicons dashicons-star-filled" aria-hidden="true" style="font-size:14px;line-height:1.3"></span>%2$s</a>',
 			'https://github.com/sponsors/johnbillion',
-			esc_html_x( 'Sponsor', 'verb', 'user-switching' )
+			esc_html_x( 'Sponsor', 'verb', 'login-me-now' )
 		);
 
 		return $plugin_meta;
@@ -915,7 +915,7 @@ class user_switching {
 	public static function switched_to_message( WP_User $user ) {
 		$message = sprintf(
 			/* Translators: 1: user display name; 2: username; */
-			__( 'Switched to %1$s (%2$s).', 'user-switching' ),
+			__( 'Switched to %1$s (%2$s).', 'login-me-now' ),
 			$user->display_name,
 			$user->user_login
 		);
@@ -936,7 +936,7 @@ class user_switching {
 	public static function switch_back_message( WP_User $user ) {
 		$message = sprintf(
 			/* Translators: 1: user display name; 2: username; */
-			__( 'Switch back to %1$s (%2$s)', 'user-switching' ),
+			__( 'Switch back to %1$s (%2$s)', 'login-me-now' ),
 			$user->display_name,
 			$user->user_login
 		);
@@ -957,7 +957,7 @@ class user_switching {
 	public static function switched_back_message( WP_User $user ) {
 		$message = sprintf(
 			/* Translators: 1: user display name; 2: username; */
-			__( 'Switched back to %1$s (%2$s).', 'user-switching' ),
+			__( 'Switched back to %1$s (%2$s).', 'login-me-now' ),
 			$user->display_name,
 			$user->user_login
 		);
@@ -1042,7 +1042,7 @@ class user_switching {
 		printf(
 			'<p class="form-field form-field-wide"><a href="%1$s">%2$s</a></p>',
 			esc_url( $url ),
-			esc_html__( 'Switch&nbsp;To', 'user-switching' )
+			esc_html__( 'Switch&nbsp;To', 'login-me-now' )
 		);
 	}
 

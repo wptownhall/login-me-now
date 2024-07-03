@@ -1,6 +1,6 @@
 <?php
 /**
- * @author  WPtownhall
+ * @author  Pluginly
  * @since   1.4.0
  * @version 1.6.0
  */

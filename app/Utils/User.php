@@ -1,7 +1,7 @@
 <?php
 /**
- * @author  WPtownhall
- * @since   1.0.0
+ * @author  Pluginly
+ * @since   1.7.0
  * @version 1.4.0
  */
 

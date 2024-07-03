@@ -1,6 +1,6 @@
 <?php
 /**
- * @author 	WPtownhall
+ * @author 	Pluginly
  * @since	1.6.0
  * @version 1.6.0
  */
@@ -20,7 +20,7 @@ class SimpleHistory extends IntegrationBase {
 
 	public function add_image( $sender_image_html, $row ) {
 		if ( 'Login Me Now' === $row->initiator ) {
-			return "<img height='32px' width = '32px' alt='LoginMeNow' src='" . LOGIN_ME_NOW_ADMIN_URL . "/Assets/images/icon.svg' >";
+			return "<img height='32px' width = '32px' alt='LoginMeNow' src='" . LOGIN_ME_NOW_ADMIN_URL . "/images/icon.svg' >";
 		}
 
 		return $sender_image_html;

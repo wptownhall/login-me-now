@@ -1,6 +1,6 @@
 <?php
 /**
- * @author  WPtownhall
+ * @author  Pluginly
  * @since   1.6.0
  * @version 1.6.0
  */
@@ -57,7 +57,7 @@ class LinkLogin extends LoginBase {
 
 		return [
 			'link'    => $link,
-			'message' => __( 'Login link generated successfully!' ),
+			'message' => __( 'Login link generated successfully!', 'login-me-now' ),
 		];
 	}
 
@@ -87,12 +87,12 @@ class LinkLogin extends LoginBase {
 		$result = UserToken::init()->get( $umeta_id );
 
 		if ( ! $result ) {
-			return __( 'No token found' );
+			return __( 'No token found', 'login-me-now' );
 		}
 
 		$meta_value = $result[0]->meta_value ?? null;
 		if ( ! $meta_value ) {
-			return __( 'No token found' );
+			return __( 'No token found', 'login-me-now' );
 		}
 
 		$meta_value = maybe_unserialize( $meta_value );

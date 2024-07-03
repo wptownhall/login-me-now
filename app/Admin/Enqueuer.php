@@ -1,8 +1,8 @@
 <?php
 /**
- * @author  WPtownhall
+ * @author  Pluginly
  * @since   1.0.0
- * @version 1.6.0
+ * @version 1.7.0
  */
 
 namespace LoginMeNow\Admin;
@@ -21,13 +21,13 @@ class Enqueuer extends EnqueuerBase {
 	}
 
 	public function admin_register_scripts(): void {
-		$this->register_style( 'woomarkets-admin-main', LOGIN_ME_NOW_ADMIN_URL . '/build/style.css', [] );
-		$this->register_script( 'woomarkets-admin-main', LOGIN_ME_NOW_ADMIN_URL . '/build/main.js', [] );
+		$this->register_style( 'login-me-now-admin-main', LOGIN_ME_NOW_ASSETS . '/style.css', [] );
+		$this->register_script( 'login-me-now-admin-main', LOGIN_ME_NOW_ASSETS . '/main.js', [] );
 	}
 
 	public function admin_enqueue_scripts(): void {
-		$this->enqueue_style( 'woomarkets-admin-main' );
-		$this->enqueue_script( 'woomarkets-admin-main' );
+		$this->enqueue_style( 'login-me-now-admin-main' );
+		$this->enqueue_script( 'login-me-now-admin-main' );
 	}
 
 	/**
@@ -86,7 +86,7 @@ class Enqueuer extends EnqueuerBase {
 			'upgrade_url'            => LOGIN_ME_NOW_PRO_UPGRADE_URL,
 			'extension_url'          => 'https://chrome.google.com/webstore/detail/login-me-now/kkkofomlfhbepmpiplggmfpomdnkljoh/?source=wp-dashboard',
 			'login_me_now_base_url'  => admin_url( 'admin.php?page=' . LOGIN_ME_NOW_MENU_SLUG ),
-			'logo_url'               => apply_filters( 'login_me_now_admin_menu_icon', LOGIN_ME_NOW_ADMIN_URL . '/Assets/images/icon.svg' ),
+			'logo_url'               => apply_filters( 'login_me_now_admin_menu_icon', LOGIN_ME_NOW_ASSETS . '/images/icon.svg' ),
 			'update_nonce'           => wp_create_nonce( 'login_me_now_update_admin_setting' ),
 			'plugin_manager_nonce'   => wp_create_nonce( 'login_me_now_plugin_manager_nonce' ),
 			'generate_token_nonce'   => wp_create_nonce( 'login_me_now_generate_token_nonce' ),
@@ -111,8 +111,7 @@ class Enqueuer extends EnqueuerBase {
 	 */
 	public function settings_app_scripts( $localize ): void {
 		$handle            = 'login-me-now-admin-dashboard-app';
-		$build_path        = LOGIN_ME_NOW_ADMIN_PATH . '/Assets/build/';
-		$build_url         = LOGIN_ME_NOW_ADMIN_URL . '/Assets/build/';
+		$build_path        = LOGIN_ME_NOW_PATH . '/assets/';
 		$script_asset_path = $build_path . 'dashboard-app.asset.php';
 
 		/** @psalm-suppress MissingFile */// phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -126,7 +125,7 @@ class Enqueuer extends EnqueuerBase {
 
 		wp_register_script(
 			$handle,
-			$build_url . 'dashboard-app.js',
+			LOGIN_ME_NOW_ASSETS . '/dashboard-app.js',
 			$script_dep,
 			$script_info['version'],
 			true
@@ -134,7 +133,7 @@ class Enqueuer extends EnqueuerBase {
 
 		wp_register_style(
 			$handle,
-			$build_url . 'dashboard-app.css',
+			LOGIN_ME_NOW_ASSETS . '/dashboard-app.css',
 			[],
 			LOGIN_ME_NOW_VERSION
 		);
@@ -173,7 +172,7 @@ class Enqueuer extends EnqueuerBase {
 				.toplevel_page_login-me-now > div.wp-menu-image:before {
 					line-height: 27px !important;
 					content: "";
-					background: url("' . LOGIN_ME_NOW_ADMIN_URL . '/Assets/images/sidebar.svg' . '") no-repeat center center;
+					background: url("' . LOGIN_ME_NOW_ASSETS . '/images/sidebar.svg' . '") no-repeat center center;
 					speak: none !important;
 					font-style: normal !important;
 					font-weight: normal !important;

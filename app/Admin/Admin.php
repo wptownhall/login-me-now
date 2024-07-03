@@ -1,8 +1,8 @@
 <?php
 /**
- * @author  WPtownhall
+ * @author  Pluginly
  * @since   1.0.0
- * @version 1.6.0
+ * @version 1.7.0
  */
 
 namespace LoginMeNow\Admin;

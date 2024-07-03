@@ -1,6 +1,6 @@
 module.exports = {
 	content: [
-		'./Assets/src/dashboard-app/**/*.{html,js}',
+		'./src/dashboard/dashboard-app/**/*.{html,js}',
 	],
 	plugins: [
 		require( '@tailwindcss/forms' ),
