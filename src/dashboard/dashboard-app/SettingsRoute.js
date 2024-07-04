@@ -8,17 +8,21 @@ import DashboardModules from "./pages/dashboard-modules/DashboardModules";
 import SocialLogin from './pages/social-login/SocialLogin';
 import { useSelector } from "react-redux";
 
+import License from "./pages/license/License";
+const isProAvailable = lmn_admin.pro_available ? true : false;
+
 function SettingsRoute() {
   const query = new URLSearchParams(useLocation().search);
   const page = query.get("page");
   const path = query.get("path");
   const currentEvent = query.get("event");
   const navStatus = useSelector((state) => state);
+
   const temporaryLoginStatus = navStatus.dmTemporaryLogin;
   const browserExtensionStatus = navStatus.dmBrowserExtension;
   const SocialLoginStatus = navStatus.dmSocialLogin;
 
-  let routePage = <p> Login Me Now Dashboard Is Loading... </p>;
+  let routePage = <p> Login Me Now Dashboard is Loading... </p>;
 
   if (lmn_admin.home_slug === page) {
     if ("getting-started" === currentEvent) {
@@ -35,7 +39,6 @@ function SettingsRoute() {
             routePage = <Welcome />;
           }
           break;
-        case "advanced-sharing":
         case 'social-login':
           if(SocialLoginStatus){
             routePage = <SocialLogin />
@@ -48,6 +51,13 @@ function SettingsRoute() {
             </FormDataProvider>
           );
           break;
+
+        case 'license':
+          if(isProAvailable){
+            routePage = <License />
+          }
+          break;
+
         default:
           routePage = <DashboardModules />;
           break;

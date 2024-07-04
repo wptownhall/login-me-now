@@ -34,17 +34,17 @@ export default function MainNav() {
       path: "",
     },
     temporaryLoginStatus && {
-      name: __("Temporary login", "login-me-now"),
+      name: __("Temporary Login", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "temporary-login",
     },
     browserExtensionStatus && {
-      name: __("Browser extension", "login-me-now"),
+      name: __("Browser Extension", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "browser-extensions",
     },
     SocialLoginStatus && {
-      name: __("Social login", "login-me-now"),
+      name: __("Social Login", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "social-login",
     },

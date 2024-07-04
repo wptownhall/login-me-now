@@ -51,8 +51,8 @@ class AdminMenu {
 
 				}';
 		}
-
-		echo '<style>
+		if ( ! defined( 'LOGIN_ME_NOW_PRO_VERSION' ) ) {
+			echo '<style>
 				#toplevel_page_login-me-now .wp-submenu li:nth-child(6) a {
 					font-weight: 600;
 					background-color: #93003f;
@@ -71,6 +71,7 @@ class AdminMenu {
 
 				' . $style . '
 			</style>';
+		}
 	}
 
 	public function admin_menu(): void {
@@ -138,6 +139,15 @@ class AdminMenu {
 			// Rewrite the menu item.
 			global $submenu;
 			$submenu[LOGIN_ME_NOW_MENU_SLUG][4][2] = 'https://loginmenow.com/pricing/';
+		} else {
+			add_submenu_page(
+				LOGIN_ME_NOW_MENU_SLUG,
+				__( 'License', 'login-me-now' ),
+				__( 'License', 'login-me-now' ),
+				LOGIN_ME_NOW_MENU_CAPABILITY,
+				LOGIN_ME_NOW_MENU_SLUG . '&path=license',
+				[$this, 'render_admin_dashboard']
+			);
 		}
 	}
 

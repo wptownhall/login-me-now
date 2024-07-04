@@ -4,7 +4,7 @@ Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
 Tested up to: 6.5.5
 Requires PHP: 7.4
-Stable tag: 1.6.0
+Stable tag: 1.7.0
 License: GPLv3 or Any Later Version
 
 It feels like 8 plugins in one, it provides over 25 features making it the ultimate WP login solution.
