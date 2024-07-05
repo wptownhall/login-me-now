@@ -3,9 +3,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
 const { log } = require( 'console' );
-const LOGIN_ME_NOW_NAMESPACE = '@loginmenow/';
+const LOGIN_ME_NOW_NAMESPACE = '@login-me-now/';
 
-const devHost = 'loginmenow.test';
+const devHost = 'login-me-now.test';
 
 /**
  * Given a string, returns a new string with dash separators converted to
@@ -48,7 +48,7 @@ module.exports = {
 			requestToExternal( request ) {
 				if ( request.startsWith( LOGIN_ME_NOW_NAMESPACE ) ) {
 					return [
-						'loginmenow',
+						'login-me-now',
 						camelCaseDash(
 							request.substring( LOGIN_ME_NOW_NAMESPACE.length )
 						),
@@ -57,7 +57,7 @@ module.exports = {
 			},
 			requestToHandle( request ) {
 				if ( request.startsWith( LOGIN_ME_NOW_NAMESPACE ) ) {
-					return `loginmenow/${ camelCaseDash(
+					return `login-me-now/${ camelCaseDash(
 						request.substring( LOGIN_ME_NOW_NAMESPACE.length )
 					) }`;
 				}
