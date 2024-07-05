@@ -1,5 +1,5 @@
 {
-    "name": "wptownhall/login-me-now",
+    "name": "pluginly/login-me-now",
     "autoload": {
         "psr-4": {
             "LoginMeNow\\": "app"
