@@ -5,9 +5,11 @@
 	"main": "",
 	"scripts": {
 		"minify": "wp-scripts build",
-		"compress": "webpack --config webpack.compress.js",
+		"compress": "webpack --config tools/webpack.compress.js",
+		"git-compress": "webpack --config tools/webpack.compress.git.js",
 		"build": "yarn minify && grunt build && yarn compress",
-		"start": "wp-scripts start"
+		"start": "wp-scripts start",
+		"fixtextdomain": "grunt fixtextdomain"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.4.3",

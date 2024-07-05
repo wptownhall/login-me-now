@@ -5,7 +5,7 @@
  * Author: Pluginly
  * Author URI: https://loginmenow.com/
  * Version: 1.7.0
- * Tested up to: 6.5.5
+ * Tested up to: 6.6
  * Requires PHP: 7.4
  * License: GPLv2 or later
  * Text Domain: login-me-now

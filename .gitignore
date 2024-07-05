@@ -11,3 +11,4 @@ __build
 Tests
 assets
 dist
+vendor

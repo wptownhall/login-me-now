@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c10ffae015176fb2010cd3e76f2bbf8b",
+    "content-hash": "9f2dd309a327763f6d9cb5d50977afb5",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -566,47 +566,6 @@
             "time": "2023-12-03T20:05:35+00:00"
         },
         {
-            "name": "heymehedi/utils",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/HeyMehedi/Utils.git",
-                "reference": "00475e7c409b80fc3a3d19dff911e5bffbdf4485"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/HeyMehedi/Utils/zipball/00475e7c409b80fc3a3d19dff911e5bffbdf4485",
-                "reference": "00475e7c409b80fc3a3d19dff911e5bffbdf4485",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "HeyMehedi\\Utils\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Collections of Some Utilities",
-            "keywords": [
-                "boilerplate",
-                "helpers",
-                "utilities",
-                "utils",
-                "wordpress"
-            ],
-            "support": {
-                "issues": "https://github.com/HeyMehedi/Utils/issues",
-                "source": "https://github.com/HeyMehedi/Utils/tree/v1.1.0"
-            },
-            "time": "2023-12-02T07:08:45+00:00"
-        },
-        {
             "name": "monolog/monolog",
             "version": "2.9.3",
             "source": {
@@ -827,20 +786,20 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "3.0.37",
+            "version": "3.0.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "cfa2013d0f68c062055180dd4328cc8b9d1f30b8"
+                "reference": "211ebc399c6e73c225a018435fe5ae209d1d1485"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/cfa2013d0f68c062055180dd4328cc8b9d1f30b8",
-                "reference": "cfa2013d0f68c062055180dd4328cc8b9d1f30b8",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/211ebc399c6e73c225a018435fe5ae209d1d1485",
+                "reference": "211ebc399c6e73c225a018435fe5ae209d1d1485",
                 "shasum": ""
             },
             "require": {
-                "paragonie/constant_time_encoding": "^1|^2",
+                "paragonie/constant_time_encoding": "^1|^2|^3",
                 "paragonie/random_compat": "^1.4|^2.0|^9.99.99",
                 "php": ">=5.6.1"
             },
@@ -917,7 +876,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.37"
+                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.39"
             },
             "funding": [
                 {
@@ -933,7 +892,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-03T02:14:58+00:00"
+            "time": "2024-06-24T06:27:33+00:00"
         },
         {
             "name": "psr/cache",

@@ -1,4 +1,4 @@
-const Utils = require( './utils' );
+const Utils = require( './tools/utils' );
 
 module.exports = ( grunt ) => {
 	'use strict';
