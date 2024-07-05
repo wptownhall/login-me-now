@@ -38,9 +38,6 @@ jobs:
       - name: Fix Text Domain
         run: yarn fixtextdomain
 
-      - name: Generate Text Domain POT file
-        run: composer make-production-pot
-
       - name: Remove Composer Dev Dependencies
         run: composer build
 
