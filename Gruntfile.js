@@ -63,17 +63,17 @@ module.exports = ( grunt ) => {
 			},
 		},
 
-		makepot: {
-			target: {
-				options: {
-					cwd: projectConfig.srcDir, // Directory of files to internationalize.
-					mainFile: '', // Main project file.
-					type: 'wp-plugin', // Type of project (wp-plugin or wp-theme).
-					updateTimestamp: false, // Whether the POT-Creation-Date should be updated without other changes.
-					updatePoFiles: false, // Whether to update PO files in the same directory as the POT file.
-				},
-			},
-		},
+		// makepot: {
+		// 	target: {
+		// 		options: {
+		// 			cwd: projectConfig.srcDir, // Directory of files to internationalize.
+		// 			mainFile: '', // Main project file.
+		// 			type: 'wp-plugin', // Type of project (wp-plugin or wp-theme).
+		// 			updateTimestamp: false, // Whether the POT-Creation-Date should be updated without other changes.
+		// 			updatePoFiles: false, // Whether to update PO files in the same directory as the POT file.
+		// 		},
+		// 	},
+		// },
 
 		/**
 		 * -------------------------------------
