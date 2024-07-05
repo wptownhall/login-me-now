@@ -102,7 +102,7 @@ module.exports = ( grunt ) => {
 		'clean',
 		'addtextdomain',
 		'checktextdomain',
-		'makepot',
+		// 'makepot',
 	] );
 
 	/**
