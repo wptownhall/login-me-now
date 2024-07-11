@@ -25,9 +25,9 @@ class BrowserTokenLogin {
 
 		$this->action( 'admin_footer', [$this, 'lmn_save_popup'] );
 
-		REST::init();
 		Ajax::init();
 		AutoLogin::init();
+		( new Route() );
 	}
 
 	public function lmn_save_popup(): void {

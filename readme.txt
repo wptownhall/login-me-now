@@ -160,6 +160,9 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 
 == Changelog ==
 
+= 1.7.0 – Jul 20, 2024 =
+* New: Email OTP
+
 = 1.6.0 – Jul 01, 2024 =
 * Add: Directorist Plugin Compatibility
 * Fix: Google Prompt Box & Redirect Wrong URL

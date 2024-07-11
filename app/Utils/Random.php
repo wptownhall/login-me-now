@@ -19,7 +19,7 @@ class Random {
 		$characters = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTWYXZ";
 		$key        = '';
 		for ( $i = 0; $i < $len; $i++ ) {
-			$key .= $characters[rand( 0, $len )];
+			$key .= $characters[rand( 0, 34 )];
 		}
 
 		return $key;

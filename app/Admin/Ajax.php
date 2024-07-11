@@ -1,28 +1,22 @@
 <?php
 /**
- * Login Me Now Admin Ajax Base.
- *
- * @package Login Me Now
- * @since   1.0.0
- * @version 1.6.0
+ * @author  Pluginly
+ * @since   1.7.0
+ * @version 1.7.0
  */
 
-namespace LoginMeNow\Routes;
+namespace LoginMeNow\Admin;
 
 use LoginMeNow\Common\AjaxCheck;
-use LoginMeNow\Common\Hookable;
-use LoginMeNow\Common\Singleton;
 use LoginMeNow\Repositories\SettingsRepository;
 
 class Ajax {
-	use Singleton;
-	use Hookable;
 	use AjaxCheck;
 
 	private array $errors;
 
 	public function __construct() {
-		$this->action( 'wp_ajax_login_me_now_update_admin_setting', [$this, 'login_me_now_update_admin_setting'] );
+		add_action( 'wp_ajax_login_me_now_update_admin_setting', [$this, 'login_me_now_update_admin_setting'] );
 	}
 
 	/**

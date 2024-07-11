@@ -35,13 +35,9 @@ class App {
 			return;
 		}
 
-		\LoginMeNow\Admin\Admin::init();
-
-		\LoginMeNow\Routes\AdminSettings::init();
-		\LoginMeNow\Routes\Ajax::init();
-
-		\LoginMeNow\Frontend\Enqueuer::init();
-
+		( new \LoginMeNow\Admin\Admin() );
+		( new \LoginMeNow\Frontend\Enqueuer() );
+		
 		( new \LoginMeNow\Providers\IntegrationsServiceProvider() )->boot();
 		( new \LoginMeNow\Providers\LoginsServiceProvider() )->boot();
 		( new \LoginMeNow\Providers\LoginFormsServiceProvider() )->boot();

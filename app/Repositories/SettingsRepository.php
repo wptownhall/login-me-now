@@ -27,7 +27,7 @@ class SettingsRepository {
 		return self::$instance;
 	}
 
-	public function get_all(): array {
+	public function all(): array {
 		$db_option = get_option( self::$option_name, [] );
 
 		$defaults = apply_filters(

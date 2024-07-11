@@ -7,15 +7,12 @@
 
 namespace LoginMeNow\Admin;
 
-use LoginMeNow\Admin\AdminMenu;
-use LoginMeNow\Common\Singleton;
-
 class Admin {
-	use Singleton;
-
 	public function __construct() {
-		AdminMenu::init();
-		Enqueuer::init();
+		( new Ajax() );
+		( new Enqueuer() );
+		( new Menu() );
+		( new Route() );
 
 		add_filter( 'admin_footer_text', [$this, 'admin_footer_link'], 99 );
 	}

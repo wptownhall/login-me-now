@@ -1,36 +1,113 @@
 <?php
 /**
  * @author  Pluginly
- * @since   1.6.0
- * @version 1.6.0
+ * @since   1.7.0
+ * @version 1.7.0
  */
 
 namespace LoginMeNow\Common;
 
-defined( 'ABSPATH' ) || exit;
-
-use LoginMeNow\Common\Singleton;
+use LoginMeNow\Utils\Config;
+use LoginMeNow\Utils\Response;
 use WP_Error;
 use WP_REST_Request;
-use \WP_REST_Controller;
+use WP_REST_Server;
 
-abstract class RouteBase extends WP_REST_Controller {
-	use Singleton;
+abstract class RouteBase {
 
+	protected $token;
+	protected $request;
 	protected $namespace = 'login-me-now';
 
 	public function __construct() {
 		add_action( 'rest_api_init', [$this, 'register_routes'] );
 	}
 
-	/**
-	 * Check whether a given request has permission to read notes.
-	 */
-	public function get_permissions_check( WP_REST_Request $request ) {
-		if ( ! current_user_can( 'edit_theme_options' ) ) {
-			return new WP_Error( 'login_me_now_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'login-me-now' ), ['status' => rest_authorization_required_code()] );
+	abstract function register_routes(): void;
+
+	public function permission_check( WP_REST_Request $request ) {
+		$this->request = $request;
+
+		if ( 'development' === Config::get( 'environment' ) ) {
+			return true;
 		}
 
-		return true;
+		if ( is_user_logged_in() && current_user_can( 'edit_posts' ) ) {
+			return true;
+		}
+
+		$_route = $request->get_route();
+
+		return $this->permission_error( '', $_route );
+	}
+
+	protected function permission_error( string $message, string $endpoint = '' ) {
+		if ( empty( $message ) ) {
+			$message = __( 'Sorry, you are not logged in.', 'login-me-now' );
+		}
+
+		$_additional_data = [
+			'status' => rest_authorization_required_code(),
+		];
+
+		if ( ! empty( $endpoint ) ) {
+			$_additional_data['endpoint'] = $endpoint;
+		}
+
+		return new WP_Error( 'authorization_failed', $message, $_additional_data );
+	}
+
+	public function get( $endpoint, $callback, $args = [] ) {
+		return $this->register_endpoint( $endpoint, $callback, $args, WP_REST_Server::READABLE );
+	}
+
+	public function post( $endpoint, $callback, $args = [] ) {
+		return $this->register_endpoint( $endpoint, $callback, $args, WP_REST_Server::CREATABLE );
+	}
+
+	protected function register_endpoint( string $endpoint, array $callback, array $args, string $method ) {
+		return register_rest_route(
+			$this->namespace,
+			$endpoint,
+			[
+				'methods'             => $method,
+				'callback'            => function ( WP_REST_Request $wp_rest_request ) use ( $callback ) {
+					$controller = new $callback[0];
+
+					return $controller->{$callback[1]}( $wp_rest_request );
+				},
+				'permission_callback' => [$this, 'permission_check'],
+				'args'                => $args,
+			]
+		);
+	}
+
+	public function response( $response, $endpoint, $status = 500, $additional_data = [] ) {
+		if ( $response instanceof WP_Error ) {
+			return Response::error(
+				$response->get_error_code(),
+				$response,
+				$endpoint,
+				$status,
+				$additional_data
+			);
+		}
+
+		return Response::success( $response );
+	}
+
+	public function get_param( string $param, $default = '', string $sanitizer = 'sanitize_text_field' ) {
+		$_value = $this->request->get_param( $param );
+		if ( ! empty( $_value ) ) {
+			if ( is_callable( $sanitizer ) && ! is_array( $_value ) ) {
+				return call_user_func_array( $sanitizer, [$_value] );
+			} elseif ( is_array( $_value ) && is_callable( $sanitizer ) ) {
+				return array_map( $sanitizer, $_value );
+			}
+
+			return $_value;
+		}
+
+		return $default;
 	}
 }

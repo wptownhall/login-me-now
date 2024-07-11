@@ -1,7 +1,7 @@
 <?php
 /**
  * @author  Pluginly
- * @since   1.0.0
+ * @since   1.7.0
  * @version 1.7.0
  */
 
@@ -13,7 +13,7 @@ use LoginMeNow\Common\Singleton;
 /**
  * Administration Menu Class
  */
-class AdminMenu {
+class Menu {
 	use Singleton;
 	use Hookable;
 
