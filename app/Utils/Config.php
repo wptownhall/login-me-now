@@ -16,27 +16,21 @@ class Config {
 			self::file();
 		}
 
-		return self::$file_data[$key] ?? self::default( $key );
+		return self::$file_data[$key] ?? '';
 	}
 
 	private static function file(): void {
-		$path = __DIR__ . '/../..';
-		$file = $path . '/dynamic-utils.config.php';
+		$path = __DIR__ . '/../../';
+		$prod = $path . '/dynamic-utils.config.php';
+		$dev  = $path . "/dynamic-utils.config.dev.php";
 
-		if ( ! file_exists( $file ) ) {
+		if ( ! \file_exists( $prod ) ) {
 			return;
 		}
 
-		self::$file_data = require_once $file;
-	}
-
-	private static function default( string $key ): string {
-		$arr = [
-			'project_key' => 'dynamic_project',
-			'key_prefix'  => '_',
-			'key_suffix'  => '_',
-		];
-
-		return $arr[$key] ?? '';
+		self::$file_data = ( require_once $prod );
+		if ( \file_exists( $dev ) ) {
+			self::$file_data = ( require_once $dev );
+		}
 	}
 }

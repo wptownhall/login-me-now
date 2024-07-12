@@ -13,32 +13,54 @@ use WP_REST_Request;
 class Controller {
 
 	public function send( WP_REST_Request $request ) {
-		// $nonce = $request->get_param( 'send_otp_nonce' );
-		// if ( ! wp_verify_nonce( $nonce, 'send_otp_nonce' ) ) {
-		// 	return Response::error(
-		// 		'login_me_now_invalid_nonce',
-		// 		__( 'Invalid nonce', 'login-me-now' ),
-		// 		'send_otp_nonce',
-		// 		403
-		// 	);
-		// }
-
 		$email = $request->get_param( 'email' );
 		if ( empty( $email ) ) {
 			return Response::error(
-				'login_errors_before_email_otp_create',
+				'errors_before_email_otp_create',
 				'email_required',
-				'send_otp_nonce',
+				'email_otp_send',
 				422
 			);
 		}
 
 		$wp_user = get_user_by( 'email', sanitize_email( $email ) );
-		$length  = 6;
 
 		try {
 			return Response::success(
-				( new Repository() )->send_otp( $wp_user->ID, $length )
+				( new Repository() )->send_otp( $wp_user->ID )
+			);
+
+		} catch ( \Throwable $th ) {
+			Response::error( 'login_me_now_generate_otp_error', $th->getMessage() );
+		}
+	}
+
+	public function verify( WP_REST_Request $request ) {
+		$email = $request->get_param( 'email' );
+		if ( empty( $email ) ) {
+			return Response::error(
+				'errors_before_email_otp_verify',
+				'email_required',
+				'email_otp_verify',
+				422
+			);
+		}
+
+		$code = $request->get_param( 'code' );
+		if ( empty( $code ) ) {
+			return Response::error(
+				'errors_before_code_otp_verify',
+				'code_required',
+				'email_otp_verify',
+				422
+			);
+		}
+
+		$wp_user = get_user_by( 'email', sanitize_email( $email ) );
+
+		try {
+			return Response::success(
+				( new Repository() )->verify_otp( $wp_user->ID, $code )
 			);
 
 		} catch ( \Throwable $th ) {

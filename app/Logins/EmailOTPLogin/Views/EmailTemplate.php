@@ -1,3 +1,11 @@
+<?php
+/**
+ * @author  Pluginly
+ * @since   1.7.0
+ * @version 1.7.0
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="en"><head>
     <meta charset="utf-8">

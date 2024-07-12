@@ -13,6 +13,6 @@ class Key {
 	}
 
 	public static function prefix(): string {
-		return sprintf( '%s%s%s', Config::get( 'key_prefix' ), Config::get( 'project_key', 'hm_utils' ), Config::get( 'key_suffix' ) );
+		return sprintf( '%s%s%s', Config::get( 'key_prefix' ), Config::get( 'project_key' ), Config::get( 'key_suffix' ) );
 	}
 }

@@ -10,9 +10,12 @@ namespace LoginMeNow\Logins\EmailOTPLogin;
 use LoginMeNow\DTO\LoginDTO;
 use LoginMeNow\DTO\UserDataDTO;
 use LoginMeNow\Repositories\AccountRepository;
-use LoginMeNow\Utils\Random;
+use LoginMeNow\Utils\Transient;
 
 class Repository {
+
+	private int $user_id;
+	private int $expires;
 
 	public function auth( UserDataDTO $userDataDTO ) {
 		$wp_user      = get_user_by( 'email', sanitize_email( $userDataDTO->get_user_email() ) );
@@ -49,14 +52,23 @@ class Repository {
 		return apply_filters( "login_me_now_email_otp_login_redirect_url", $redirect_uri );
 	}
 
-	public function send_otp( int $user_id, int $length ): array {
+	public function send_otp( int $user_id ): array {
+		$this->user_id = $user_id;
+		$this->expires = 300;
+
+		$max_per_day = Transient::get( "email_otp_{$this->user_id}_max_per_day" );
+		if ( $max_per_day && $max_per_day >= 5 ) {
+			return ['daily limit reached'];
+		}
+
 		$site_title = get_bloginfo( 'name' ) ?? site_url();
-		$code       = $this->generate_otp( $user_id, $length );
-		$email      = get_userdata( $user_id )->user_email;
-		$template   = $this->prepare_template( [
+		$email      = get_userdata( $this->user_id )->user_email;
+		$code       = ( new OTP( $user_id ) )->generate();
+
+		$template = $this->prepare_template( [
 			'otp_code'   => $code,
 			'site_title' => $site_title,
-			'expire_in'  => '5 minutes',
+			'expire_in'  => $this->expires,
 		] );
 
 		$bool = wp_mail(
@@ -72,17 +84,14 @@ class Repository {
 		];
 	}
 
-	public function generate_otp( int $user_id, int $length ): string {
-		$code = Random::key( $length );
+	public function verify_otp( int $user_id, string $code ): array {
+		$this->user_id = $user_id;
 
-		update_user_meta( $user_id, 'login_me_now_otp_attempts', 0 );
+		$code = ( new OTP( $user_id ) )->verify( $code );
 
-		update_user_meta( $user_id, 'login_me_now_otp', [
-			'code' => $code,
-			'time' => time(),
-		] );
-
-		return $code;
+		return [
+			$code,
+		];
 	}
 
 	public function prepare_template( $args ) {
