@@ -15,4 +15,8 @@ class Transient {
 	public static function get( string $key ) {
 		return get_transient( Key::get( $key ) );
 	}
+
+	public static function delete( string $key ): bool {
+		return delete_transient( Key::get( $key ) );
+	}
 }

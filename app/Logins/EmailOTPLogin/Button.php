@@ -14,7 +14,7 @@ use LoginMeNow\Utils\User;
 class Button extends LoginButtonBase {
 
 	public function shortcodes(): void {
-		add_shortcode( 'login_me_now_google_button', [$this, 'button'] );
+		add_shortcode( 'login_me_now_email_otp_button', [$this, 'button'] );
 	}
 
 	public function button(): string {
@@ -33,7 +33,7 @@ class Button extends LoginButtonBase {
 	}
 
 	public function html( int $width = 270 ): string {
-		$width = apply_filters( 'login_me_now_google_button_width', $width );
+		$width = apply_filters( 'login_me_now_email_otp_button_width', $width );
 
 		ob_start();
 		include_once __DIR__ . '/Views/Button.php';
@@ -43,6 +43,6 @@ class Button extends LoginButtonBase {
 	}
 
 	public function native_login(): bool {
-		return SettingsRepository::get( 'google_native_login', true );
+		return SettingsRepository::get( 'email_otp_native_login', true );
 	}
 }

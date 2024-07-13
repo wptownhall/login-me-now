@@ -8,39 +8,30 @@
 namespace LoginMeNow\Logins\EmailOTPLogin;
 
 use LoginMeNow\DTO\LoginDTO;
-use LoginMeNow\DTO\UserDataDTO;
 use LoginMeNow\Repositories\AccountRepository;
 use LoginMeNow\Utils\Transient;
 
 class Repository {
 
-	private int $user_id;
+	private int $user_id = 0;
 	private int $expires;
 
-	public function auth( UserDataDTO $userDataDTO ) {
-		$wp_user      = get_user_by( 'email', sanitize_email( $userDataDTO->get_user_email() ) );
+	public function __construct( int $user_id = 0 ) {
+		$this->user_id = $user_id;
+	}
+
+	public function auth() {
 		$redirect_uri = $this->redirect_uri();
+		$loginDTO     = ( new LoginDTO )
+			->set_user_id( $this->user_id )
+			->set_redirect_uri( $redirect_uri )
+			->set_redirect_return( true )
+			->set_channel_name( 'email_otp' );
 
-		$userDataDTO->set_redirect_uri( $redirect_uri );
-		$userDataDTO->set_channel_name( 'email_otp' );
-
-		if ( $wp_user ) {
-			$loginDTO = ( new LoginDTO )
-				->set_user_id( $wp_user->ID )
-				->set_redirect_uri( $redirect_uri )
-				->set_redirect_return( false )
-				->set_channel_name( 'google' );
-
-			$action = ( new AccountRepository )->login( $loginDTO, $userDataDTO );
-
-		} else {
-			$action = ( new AccountRepository )->register( $userDataDTO );
-		}
+		$action = ( new AccountRepository )->login( $loginDTO );
 
 		if ( is_wp_error( $action ) ) {
-			error_log( 'Login Me Now - ' . print_r( $action ) );
-
-			return ['error message goes here'];
+			throw new \Exception( print_r( $action, true ) );
 		}
 
 		return $redirect_uri;
@@ -52,18 +43,17 @@ class Repository {
 		return apply_filters( "login_me_now_email_otp_login_redirect_url", $redirect_uri );
 	}
 
-	public function send_otp( int $user_id ): array {
-		$this->user_id = $user_id;
+	public function send_otp() {
 		$this->expires = 300;
 
 		$max_per_day = Transient::get( "email_otp_{$this->user_id}_max_per_day" );
-		if ( $max_per_day && $max_per_day >= 5 ) {
-			return ['daily limit reached'];
-		}
+		// if ( $max_per_day && $max_per_day >= 5 ) {
+		// 	throw new \Exception( __( "Daily limit reached", 'login-me-now' ) );
+		// }
 
 		$site_title = get_bloginfo( 'name' ) ?? site_url();
 		$email      = get_userdata( $this->user_id )->user_email;
-		$code       = ( new OTP( $user_id ) )->generate();
+		$code       = ( new OTP( $this->user_id ) )->generate();
 
 		$template = $this->prepare_template( [
 			'otp_code'   => $code,
@@ -77,21 +67,28 @@ class Repository {
 			$template
 		);
 
-		return [
-			$template,
-			$code,
-			$bool,
-		];
+		if ( ! $bool ) {
+			throw new \Exception( __( "Email wasn't sent", 'login-me-now' ) );
+		}
+
+		return __( 'OTP sent successfully', 'login-me-now' );
 	}
 
-	public function verify_otp( int $user_id, string $code ): array {
-		$this->user_id = $user_id;
+	public function verify_otp( string $code ) {
+		try {
+			$otp = new OTP( $this->user_id );
+			if ( ! $otp->verify( $code ) ) {
+				throw new \Exception( __( "Invalid OTP", 'login-me-now' ) );
+			}
 
-		$code = ( new OTP( $user_id ) )->verify( $code );
+			$otp->flush();
+			$this->auth();
 
-		return [
-			$code,
-		];
+			return __( 'OTP verified successfully', 'login-me-now' );
+
+		} catch ( \Throwable $th ) {
+			throw $th;
+		}
 	}
 
 	public function prepare_template( $args ) {

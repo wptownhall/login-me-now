@@ -2,7 +2,7 @@
 /**
  * @author  Pluginly
  * @since  	1.6.0
- * @version 1.6.0
+ * @version 1.7.0
  */
 
 namespace LoginMeNow\Repositories;
@@ -46,9 +46,10 @@ class AccountRepository {
 
 		if (
 			'facebook' === $channel_name
-			|| ( 'google' === $channel_name && ! array_key_exists( 'g_csrf_token', $_POST ) )
+			|| ( 'google' === $channel_name
+				&& ! array_key_exists( 'g_csrf_token', $_POST ) )
 		) {
-			$this->handlePopupRedirectAfterAuthentication();
+			do_action( 'login_me_now_popup_authenticate_redirection', $this->redirect_uri );
 		}
 
 		if ( $redirect_return ) {
@@ -161,72 +162,5 @@ class AccountRepository {
 		}
 
 		do_action( "login_me_now_after_profile_data_update", $user_id, $UserDataDTO );
-	}
-
-	/**
-	 * This code method inspired by
-	 * Nextend Social Login and Register
-	 */
-	protected function handlePopupRedirectAfterAuthentication() {
-		?>
-            <!doctype html>
-            <html lang=en>
-            <head>
-                <meta charset=utf-8>
-                <title><?php _e( 'Authentication successful', 'login-me-now' );?></title>
-                <script type="text/javascript">
-                    try {
-                        if (window.opener !== null && window.opener !== window) {
-                            var sameOrigin = true;
-                            try {
-                                var currentOrigin = window.location.protocol + '//' + window.location.hostname;
-                                if (window.opener.location.href.substring(0, currentOrigin.length) !== currentOrigin) {
-                                    sameOrigin = false;
-                                }
-
-                            } catch (e) {
-                                /**
-                                 * Blocked cross origin
-                                 */
-                                sameOrigin = false;
-                            }
-                            if (sameOrigin) {
-                                var url = <?php echo wp_json_encode( $this->redirect_uri ); ?>;
-                                if (typeof window.opener.lmnRedirect === 'function') {
-                                    window.opener.lmnRedirect(url);
-                                } else {
-                                    window.opener.location = url;
-                                }
-                                window.close();
-                            } else {
-                                window.location.reload(true);
-                            }
-                        } else {
-                            if (window.opener === null) {
-                                /**
-                                 * Cross-Origin-Opener-Policy blocked the access to the opener
-                                 */
-                                if (typeof BroadcastChannel === "function") {
-                                    const _lmnLoginBroadCastChannel = new BroadcastChannel('lmn_login_broadcast_channel');
-                                    _lmnLoginBroadCastChannel.postMessage({
-                                        action: 'redirect',
-                                        href:<?php echo wp_json_encode( $this->redirect_uri ); ?>});
-                                    _lmnLoginBroadCastChannel.close();
-                                    window.close();
-                                } else {
-                                    window.location.reload(true);
-                                }
-                            } else {
-                                window.location.reload(true);
-                            }
-                        }
-                    } catch (e) {
-                        window.location.reload(true);
-                    }
-                </script>
-            </head>
-            <body><a href="<?php echo esc_url( $this->redirect_uri ); ?>"><?php echo 'Continue...'; ?></a></body>
-            </html>
-        <?php exit;
 	}
 }

@@ -25,12 +25,24 @@ class EmailOTPLogin extends \LoginMeNow\Common\ModuleBase {
 	}
 
 	public static function show(): bool {
-		$enable = SettingsRepository::get( 'email_otp_login', false );
+
+		/**
+		 * change the bool
+		 */
+		$enable = SettingsRepository::get( 'email_otp_login', true );
 
 		if ( $enable ) {
 			return true;
 		}
 
 		return false;
+	}
+
+	public static function show_on_native_login() {
+		return self::show() && SettingsRepository::get( 'email_otp_native_login', true );
+	}
+
+	public static function create_auth_url() {
+		return home_url( 'wp-login.php?lmn-email-otp-popup' );
 	}
 }

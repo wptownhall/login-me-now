@@ -12,7 +12,12 @@ use WP_REST_Request;
 
 class Controller {
 
-	public function send( WP_REST_Request $request ) {
+	public string $redirect_uri;
+	public function __construct() {
+		$this->redirect_uri = admin_url();
+	}
+
+	public function send_otp( WP_REST_Request $request ) {
 		$email = $request->get_param( 'email' );
 		if ( empty( $email ) ) {
 			return Response::error(
@@ -24,18 +29,31 @@ class Controller {
 		}
 
 		$wp_user = get_user_by( 'email', sanitize_email( $email ) );
+		if ( ! isset( $wp_user->ID ) ) {
+			return Response::error(
+				'errors_before_email_otp_create',
+				'user_not_found',
+				'email_otp_send',
+				422
+			);
+		}
 
 		try {
 			return Response::success(
-				( new Repository() )->send_otp( $wp_user->ID )
+				( new Repository( $wp_user->ID ) )->send_otp()
 			);
 
 		} catch ( \Throwable $th ) {
-			Response::error( 'login_me_now_generate_otp_error', $th->getMessage() );
+			return Response::error(
+				'errors_before_email_otp_send',
+				$th->getMessage(),
+				__FUNCTION__,
+				$th->getCode()
+			);
 		}
 	}
 
-	public function verify( WP_REST_Request $request ) {
+	public function verify_otp( WP_REST_Request $request ) {
 		$email = $request->get_param( 'email' );
 		if ( empty( $email ) ) {
 			return Response::error(
@@ -57,14 +75,40 @@ class Controller {
 		}
 
 		$wp_user = get_user_by( 'email', sanitize_email( $email ) );
+		if ( ! isset( $wp_user->ID ) ) {
+			return Response::error(
+				'errors_before_email_otp_verify',
+				'user_not_found',
+				'email_otp_verify',
+				422
+			);
+		}
 
 		try {
 			return Response::success(
-				( new Repository() )->verify_otp( $wp_user->ID, $code )
+				( new Repository( $wp_user->ID ) )->verify_otp( sanitize_text_field( $code ) )
 			);
 
 		} catch ( \Throwable $th ) {
-			Response::error( 'login_me_now_generate_otp_error', $th->getMessage() );
+			return Response::error(
+				'errors_before_email_otp_verify',
+				$th->getMessage(),
+				__FUNCTION__,
+				$th->getCode()
+			);
 		}
+	}
+
+	public function listen(): void {
+		if ( ! array_key_exists( 'lmn-email-otp-popup', $_GET ) ) {
+			return;
+		}
+
+		if ( is_user_logged_in() ) {
+			do_action( 'login_me_now_popup_authenticate_redirection', $this->redirect_uri );
+		}
+
+		include_once 'Views/PopupForm.php';
+		exit();
 	}
 }

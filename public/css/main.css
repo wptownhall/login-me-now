@@ -21,10 +21,6 @@
 	color: #fff;
 }
 
-.lmn_btn.lmn_facebook_login_button {
-	background-color: #4267B2;
-}
-
 .lmn_btn .svg-bg {
 	border-radius: 50%;
 	background-color: #fff;
@@ -34,7 +30,16 @@
 	padding: 2px;
 }
 
-.lmn_btn.lmn_facebook_login_button .svg-bg {
+.lmn_btn.lmn_facebook_login_button {
+	background-color: #4267B2;
+}
+
+.lmn_btn.lmn_email_otp_login_button {
+	background-color: #000000;
+}
+
+.lmn_btn.lmn_facebook_login_button .svg-bg,
+.lmn_btn.lmn_email_otp_login_button .svg-bg  {
 	background-color: transparent;
 }
 
@@ -57,10 +62,6 @@
 .directorist-registration-wrapper #wp-login-login-me-now-buttons {
 	margin-bottom: 10px;
 }
-
-
-
-
 
 #lmn-redirect-overlay {
     display: flex;

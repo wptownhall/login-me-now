@@ -43,11 +43,16 @@ class OTP {
 		$attempts = Transient::get( "email_otp_{$this->user_id}_attempts" );
 
 		if ( $attempts >= 5 ) {
-			return false;
+			throw new \Exception( __( 'Maximum attempts reached. Please try again later.', 'login-me-now' ) );
 		}
 
 		Transient::set( "email_otp_{$this->user_id}_attempts", $attempts + 1 );
 
 		return $code === $_code;
+	}
+
+	public function flush() {
+		Transient::delete( "email_otp_{$this->user_id}" );
+		Transient::delete( "email_otp_{$this->user_id}_attempts" );
 	}
 }
