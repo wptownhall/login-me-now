@@ -1,10 +1,10 @@
 <form id="otp-form" class="otp-form">
-  <h1 class="title">Login with Email OTP</h1>
-  <input id="enter-email" type="email" placeholder="Email Address*" required />
-  <button id="send-otp-btn" type="button">Send OTP</button>
+  <h1 class="title"><?php esc_html_e( 'Login with Email OTP', 'login-me-now' );?></h1>
+  <input id="enter-email" type="email" placeholder="<?php esc_attr_e( 'Email Address*', 'login-me-now' );?>" required />
+  <button id="send-otp-btn" type="button"><?php esc_html_e( 'Send OTP', 'login-me-now' );?></button>
 
-  <input id="enter-otp-code" type="text" placeholder="OTP Code*" required style="display: none;" />
-  <button id="submit-otp-btn" type="submit" style="display: none;">Submit OTP</button>
+  <input id="enter-otp-code" type="text" placeholder="<?php esc_attr_e( 'OTP Code*', 'login-me-now' );?>" required style="display: none;" />
+  <button id="submit-otp-btn" type="submit" style="display: none;"><?php esc_html_e( 'Submit OTP', 'login-me-now' );?></button>
 
   <div class="message"></div>
 </form>
