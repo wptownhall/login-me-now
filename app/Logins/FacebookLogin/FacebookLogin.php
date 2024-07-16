@@ -2,7 +2,7 @@
 /**
  * @author  Pluginly
  * @since   1.4.0
- * @version 1.6.0
+ * @version 1.7.0
  */
 
 namespace LoginMeNow\Logins\FacebookLogin;
@@ -18,6 +18,8 @@ class FacebookLogin extends ModuleBase {
 	const DEFAULT_GRAPH_VERSION = 'v20.0';
 
 	public function setup(): void {
+		( new Settings() );
+
 		if ( ! self::show() ) {
 			return;
 		}

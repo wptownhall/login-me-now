@@ -16,6 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 class EmailOTPLogin extends \LoginMeNow\Common\ModuleBase {
 
 	public function setup(): void {
+		( new Settings() );
+
 		// if ( ! self::show() ) {
 		// 	return;
 		// }

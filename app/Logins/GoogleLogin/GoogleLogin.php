@@ -18,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GoogleLogin extends ModuleBase {
 
 	public function setup(): void {
+		( new Settings() );
+		
 		if ( ! self::show() ) {
 			return;
 		}
