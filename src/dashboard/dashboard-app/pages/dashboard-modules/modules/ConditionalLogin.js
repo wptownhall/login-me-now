@@ -109,12 +109,7 @@ function ConditionalLogin({ colorChange, proItem, isAvailable }) {
             </svg>
           </div>
           <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5">
-            Conditional login
-            {proItem && (
-              <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
-                Pro
-              </span>
-            )}
+            Conditional Login
           </h1>
           <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Provide limited access to the dashboard and admin bar options to

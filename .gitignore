@@ -12,3 +12,4 @@ Tests
 assets
 dist
 vendor
+composer.lock

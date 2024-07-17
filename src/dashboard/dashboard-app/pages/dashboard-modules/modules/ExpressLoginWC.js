@@ -60,13 +60,11 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
   return (
     <div className={`mb-8 mx-4 flex`}>
       <div
-        class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between ${
-          hover === true ? "bg-[#073A2E]" : "bg-[#F8FAFC]"
-        }`}
+        class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between bg-[#F8FAFC]`}
         onMouseEnter={!isProAvailable === true ? handleMouseEnter : null}
         onMouseLeave={!isProAvailable === true ? handleMouseLeave : null}
       >
-        <div className={`px-8 pt-16 pb-10 text-center responsive-box ${hover && "invisible"}`}>
+        <div className={`px-8 pt-16 pb-10 text-center responsive-box`}>
           <div
             className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4"
           >
@@ -86,12 +84,7 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
             </svg>
           </div>
           <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5 flex justify-center items-center">
-            Express login- WC
-            {!isProAvailable && (
-              <span className="bg-[#0DA071] text-[#ffffff] px-2.5 py-1 text-[10px] rounded-[3px] ml-1.5">
-                PRO
-              </span>
-            )}
+            Express Login - WC
           </h1>
           <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Customers can log in to their accounts using the secret link
@@ -102,87 +95,18 @@ function ExpressLoginWC({ colorChange, isAvailable }) {
         <div
           className={`bg-[#F0F2F4] py-3 rounded-b-[8px] flex ${
             isAvailable === true ? "justify-between" : "justify-center"
-          } items-center px-4 border-t-[1px] border-t-[#cacaca] border-b-[#cacaca] ${
-            hover && "invisible"
-          }`}
+          } items-center px-4 border-t-[1px] border-t-[#cacaca] border-b-[#cacaca]}`}
         >
-          {isAvailable === true ? (
-            <>
-              <button
-                type="button"
-                className={`bg-[#F8FAFC] border border-[#cacaca]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071] ${
-                  !enableDmExpressLoginWC && "invisible"
-                }`}
-              >
-                Settings
-              </button>
-              <Switch
-                onChange={handleDmExpressLoginWC}
-                className={classNames(
-                  isProAvailable && enableDmExpressLoginWC
-                    ? "bg-lmn"
-                    : "bg-slate-200",
-                  "group relative inline-flex h-[8px] w-[32px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-lmn focus:ring-offset-2"
-                )}
-              >
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute h-full w-full rounded-md bg-white"
-                />
-                <span
-                  aria-hidden="true"
-                  className={classNames(
-                    isProAvailable && enableDmExpressLoginWC
-                      ? "bg-lmn"
-                      : "bg-gray-200",
-                    "pointer-events-none absolute mx-auto h-[16px] w-[32px] rounded-full transition-colors duration-200 ease-in-out"
-                  )}
-                />
-                <span
-                  aria-hidden="true"
-                  className={classNames(
-                    isProAvailable && enableDmExpressLoginWC
-                      ? "translate-x-5"
-                      : "translate-x-0",
-                    "toggle-bubble pointer-events-none absolute left-0 inline-block h-[16px] w-[16px] transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
-                  )}
-                />
-              </Switch>
-            </>
-          ) : (
+         
             <button
               type="button"
-              className={`bg-[#F8FAFC] border ${
-                colorChange === true
-                  ? "border-[#0DA071] text-[#0DA071]"
-                  : "border-[#cacaca]  text-[#023A2E]"
-              } px-6 py-1 text-[14px] rounded-[8px] cursor-auto`}
+              className={`bg-[#F8FAFC] border px-6 py-1 text-[14px] rounded-[8px] cursor-auto`}
             >
               Coming soon
             </button>
-          )}
+
         </div>
-        {!isProAvailable && (
-          <div
-            className={`text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
-              !hover && "invisible"
-            }`}
-          >
-            <a
-              href="https://loginmenow.com/pricing/"
-              target="_blank"
-            >
-              <button
-                className={`bg-white px-3 py-2 text-[16px] font-semibold text-[#073A2E] rounded-[8px]`}
-              >
-                Upgrade to PRO
-              </button>
-            </a>
-            <p className="text-white mt-3">
-              This module is available in the pro version
-            </p>
-          </div>
-        )}
+        
       </div>
     </div>
   );

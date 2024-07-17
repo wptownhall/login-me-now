@@ -49,7 +49,7 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
 
   return (
     <div className={`mb-8 mx-4 flex`}>
-      <div class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between}`}>
+      <div class={`relative rounded-[8px] border border-[#cacaca] flex flex-col justify-between} bg-[#F8FAFC]`}>
         <div className={`px-8 pt-16 pb-10 text-center responsive-box`}>
           <div className="bg-[#FFFFFF] border-[1px] border-[#DFDFDF] inline-block py-2.5 px-3 rounded-[8px] mb-4">
             <svg
@@ -76,7 +76,7 @@ function OTPLogin({ colorChange, proItem, isAvailable }) {
             </svg>
           </div>
           <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5 flex justify-center items-center">
-            OTP login
+            OTP Login
           </h1>
           <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Simplify users login with OTP authentication. Forget password

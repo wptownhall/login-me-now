@@ -85,12 +85,7 @@ function UserSwitching({ colorChange, proItem }) {
             </svg>
           </div>
           <h1 className="text-[#000000] text-[17px] font-medium text-center mb-5">
-            User switching
-            {proItem && (
-              <span className="bg-[#0DA071] text-[#ffffff] px-2 py-0.5 text-[8px] rounded-[4px] ml-1.5">
-                Pro
-              </span>
-            )}
+            User Switching
           </h1>
           <p className="text-[#6B6D71] text-[14px] text-center leading-[1.9]">
             Easily switch between user accounts. Instant & in one-click!
@@ -105,7 +100,7 @@ function UserSwitching({ colorChange, proItem }) {
             type="button"
             className={`bg-[#F8FAFC] border border-[#cacaca]  text-[#6B6D71] px-2 py-1 text-[14px] rounded-[8px] hover:border-[#0DA071]  hover:text-[#0DA071] invisible`}
           >
-            Settings
+            
           </button>
           <Switch
             onChange={handleDmUserSwitching}
