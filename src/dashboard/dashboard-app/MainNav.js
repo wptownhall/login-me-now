@@ -27,6 +27,8 @@ export default function MainNav() {
   const temporaryLoginStatus = navStatus.dmTemporaryLogin;
   const browserExtensionStatus = navStatus.dmBrowserExtension;
   const SocialLoginStatus = navStatus.dmSocialLogin;
+  const OTPLoginStatus = navStatus.dmOTPLogin;
+
   navMenus = [
     {
       name: __("Dashboard", "login-me-now"),
@@ -47,6 +49,11 @@ export default function MainNav() {
       name: __("Social Login", "login-me-now"),
       slug: lmn_admin.home_slug,
       path: "social-login",
+    },
+    OTPLoginStatus && {
+      name: __("OTP Login", "login-me-now"),
+      slug: lmn_admin.home_slug,
+      path: "otp-login",
     },
   ].filter(Boolean);
 

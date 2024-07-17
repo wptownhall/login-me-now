@@ -21,6 +21,7 @@ function SettingsRoute() {
   const temporaryLoginStatus = navStatus.dmTemporaryLogin;
   const browserExtensionStatus = navStatus.dmBrowserExtension;
   const SocialLoginStatus = navStatus.dmSocialLogin;
+  const OTPLoginStatus = navStatus.dmOTPLogin;
 
   let routePage = <p> Login Me Now Dashboard is Loading... </p>;
 
@@ -42,6 +43,11 @@ function SettingsRoute() {
         case 'social-login':
           if(SocialLoginStatus){
             routePage = <SocialLogin />
+          }
+          break;
+        case 'otp-login':
+          if(OTPLoginStatus){
+            routePage = <OTPLogin />
           }
           break;
         case 'advanced-sharing':
