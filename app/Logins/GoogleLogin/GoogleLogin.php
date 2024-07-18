@@ -19,12 +19,13 @@ class GoogleLogin extends ModuleBase {
 
 	public function setup(): void {
 		( new Settings() );
-		
+
 		if ( ! self::show() ) {
 			return;
 		}
 
-		Profile::init();
+		( new Profile() );
+
 		Enqueuer::init();
 		Route::init();
 		Controller::init();

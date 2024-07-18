@@ -2,7 +2,7 @@
 Contributors: Pluginly, HeyMehedi
 Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
-Tested up to: 6.5.5
+Tested up to: 6.6
 Requires PHP: 7.4
 Stable tag: 1.7.0
 License: GPLv3 or Any Later Version
@@ -160,8 +160,8 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 
 == Changelog ==
 
-= 1.7.0 – Jul 20, 2024 =
-* New: Email OTP
+= 1.6.1 – Jul 20, 2024 =
+* Fix: Profile Update Error
 
 = 1.6.0 – Jul 01, 2024 =
 * Add: Directorist Plugin Compatibility

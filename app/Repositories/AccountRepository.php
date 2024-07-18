@@ -122,6 +122,9 @@ class AccountRepository {
 	}
 
 	public function update_profile( int $user_id, UserDataDTO $UserDataDTO ): void {
+		if ( ! $user_id || ! $UserDataDTO ) {
+			return;
+		}
 
 		do_action( "login_me_now_before_profile_data_update", $user_id, $UserDataDTO );
 

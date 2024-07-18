@@ -2,22 +2,27 @@
 /**
  * @author  Pluginly
  * @since   1.1.0
- * @version 1.6.0
+ * @version 1.7.0
  */
 
 namespace LoginMeNow\Logins\GoogleLogin;
 
-use LoginMeNow\Common\Hookable;
-use LoginMeNow\Common\Singleton;
 use LoginMeNow\Repositories\SettingsRepository;
 use LoginMeNow\Utils\User;
 
 class Profile {
-	use Singleton;
-	use Hookable;
 
 	public function __construct() {
 		add_filter( 'get_avatar_url', [$this, 'avatar'], 10, 3 );
+		add_action( "login_me_now_after_login", [$this, 'verified'], 10, 2 ); // $user_id, $channel_name, $userDataDTO, $this );
+	}
+
+	public function verified( $user_id, $channel_name ) {
+		if ( 'google' !== $channel_name ) {
+			return;
+		}
+
+		add_user_meta( $user_id, 'login_me_now_google_verified', true );
 	}
 
 	public function avatar( $url, $id_or_email = '' ) {

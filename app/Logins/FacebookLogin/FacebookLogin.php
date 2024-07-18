@@ -26,6 +26,7 @@ class FacebookLogin extends ModuleBase {
 
 		( new Route() );
 		( new Button() );
+		( new Profile() );
 	}
 
 	public static function show(): bool {
