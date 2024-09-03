@@ -18,9 +18,8 @@ class Admin {
 	}
 
 	public function admin_footer_link() {
-		if ( ! isset( $_GET['page'] ) || 'login-me-now' !== $_GET['page'] ) {
-			return;
+		if ( isset( $_GET['page'] ) && 'login-me-now' === $_GET['page'] ) {
+			return '<span id="footer-thankyou"> Thank you for using <span class="focus:text-astra-hover active:text-astra-hover hover:text-lmn-hover"> ' . esc_attr( __( 'Login Me Now', 'login-me-now' ) ) . '.</span></span>';
 		}
-		echo '<span id="footer-thankyou"> Thank you for using <span class="focus:text-astra-hover active:text-astra-hover hover:text-lmn-hover"> ' . esc_attr( __( 'Login Me Now', 'login-me-now' ) ) . '.</span></span>';
 	}
 }

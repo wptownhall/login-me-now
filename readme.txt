@@ -160,7 +160,7 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 
 == Changelog ==
 
-= 1.6.1 – Jul 20, 2024 =
+= 1.6.1 – Jul 18, 2024 =
 * Fix: Profile Update Error
 
 = 1.6.0 – Jul 01, 2024 =
@@ -257,7 +257,6 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 * Add: Onetime Link Access
 * Add: Reusable Link Access
 * Add: New Dashboard & Settings
-
 * Fix: Algorithm not supported issue 
 
 = 0.93(Beta) – Jan 31, 2023 =
