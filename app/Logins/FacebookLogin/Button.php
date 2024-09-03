@@ -2,7 +2,7 @@
 /**
  * @author  Pluginly
  * @since   1.4.0
- * @version 1.6.0
+ * @version 1.6.2
  */
 
 namespace LoginMeNow\Logins\FacebookLogin;
@@ -36,7 +36,7 @@ class Button extends LoginButtonBase {
 		$width = apply_filters( 'login_me_now_facebook_button_width', $width );
 
 		ob_start();
-		include_once __DIR__ . '/Views/Button.php';
+		include __DIR__ . '/Views/Button.php';
 		$html = ob_get_clean();
 
 		return $html;
