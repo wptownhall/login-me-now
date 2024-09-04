@@ -24,7 +24,6 @@ class LoginsServiceProvider extends ProviderBase {
 	public function get(): array {
 		return [
 			\LoginMeNow\Logins\BrowserTokenLogin\BrowserTokenLogin::class,
-			// \LoginMeNow\Logins\EmailOTPLogin\EmailOTPLogin::class,
 			\LoginMeNow\Logins\FacebookLogin\FacebookLogin::class,
 			\LoginMeNow\Logins\GoogleLogin\GoogleLogin::class,
 			\LoginMeNow\Logins\LinkLogin\LinkLogin::class,

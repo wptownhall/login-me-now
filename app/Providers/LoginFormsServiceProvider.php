@@ -8,8 +8,6 @@
 namespace LoginMeNow\Providers;
 
 use LoginMeNow\Common\ProviderBase;
-use LoginMeNow\Logins\EmailOTPLogin\Button as EmailOTPLoginButton;
-use LoginMeNow\Logins\EmailOTPLogin\EmailOTPLogin;
 use LoginMeNow\Logins\FacebookLogin\Button as FacebookButton;
 use LoginMeNow\Logins\FacebookLogin\FacebookLogin;
 use LoginMeNow\Logins\GoogleLogin\Button as GoogleButton;
@@ -53,10 +51,9 @@ class LoginFormsServiceProvider extends ProviderBase {
 	}
 
 	public function buttons(): array {
-		$array     = [];
-		$google    = new GoogleButton();
-		$facebook  = new FacebookButton();
-		$email_otp = new EmailOTPLoginButton();
+		$array    = [];
+		$google   = new GoogleButton();
+		$facebook = new FacebookButton();
 
 		if ( $google->native_login() ) {
 			$array['google'] = $google;
@@ -66,10 +63,6 @@ class LoginFormsServiceProvider extends ProviderBase {
 			$array['facebook'] = $facebook;
 		}
 
-		if ( $email_otp->native_login() ) {
-			$array['email_otp'] = $email_otp;
-		}
-
 		return $array;
 	}
 
@@ -77,7 +70,6 @@ class LoginFormsServiceProvider extends ProviderBase {
 		if (
 			FacebookLogin::show_on_native_login()
 			|| GoogleLogin::show_on_native_login()
-			|| EmailOTPLogin::show_on_native_login()
 		) {
 			return true;
 		}

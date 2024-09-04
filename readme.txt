@@ -160,7 +160,7 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 
 == Changelog ==
 
-= 1.6.2 – Sep 4, 2024 =
+= 1.6.2 – Sep 5, 2024 =
 * Fix: Social Login Shortcode Button Display Issue
 
 = 1.6.1 – Jul 18, 2024 =

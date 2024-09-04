@@ -1,8 +1,8 @@
 <?php
 /**
  * @author  Pluginly
- * @since   1.7.0
- * @version 1.7.0
+ * @since   1.6.2
+ * @version 1.6.2
  */
 
 namespace LoginMeNow\Utils;
@@ -21,8 +21,8 @@ class Config {
 
 	private static function file(): void {
 		$path = __DIR__ . '/../../';
-		$prod = $path . '/dynamic-utils.config.php';
-		$dev  = $path . "/dynamic-utils.config.dev.php";
+		$prod = $path . '/config.php';
+		$dev  = $path . "/config.dev.php";
 
 		if ( ! \file_exists( $prod ) ) {
 			return;

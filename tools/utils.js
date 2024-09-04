@@ -49,7 +49,7 @@ const buildFiles = [
 	'templates',
 	'vendor',
 	'readme.txt',
-	'dynamic-utils.config.php',
+	'config.php',
 	`${ pluginRootFile }.php`,
 ].map( transformBuildPaths );
 
