@@ -2,7 +2,7 @@
 /**
  * @author  Pluginly
  * @since   1.6.0
- * @version 1.7.0
+ * @version 1.6.2
  */
 
 namespace LoginMeNow\Logins\BrowserTokenLogin;
@@ -23,16 +23,15 @@ class Ajax {
 	use AjaxCheck;
 
 	public function __construct() {
-		$this->action( 'wp_ajax_login_me_now_hide_save_to_browser_extension', [$this, 'login_me_now_hide_save_to_browser_extension'] );
+		$this->action( 'wp_ajax_login_me_now_hide_save_to_browser_extension', [$this, 'hide_save_to_browser_extension'] );
 
-		$this->action( 'wp_ajax_login_me_now_browser_token_generate', [$this, 'login_me_now_browser_token_generate'] );
-		$this->action( 'wp_ajax_login_me_now_browser_tokens', [$this, 'login_me_now_browser_tokens'] );
-		$this->action( 'wp_ajax_login_me_now_browser_token_update_status', [$this, 'login_me_now_browser_token_update_status'] );
-		$this->action( 'wp_ajax_login_me_now_browser_token_drop', [$this, 'login_me_now_browser_token_drop'] );
-		$this->action( 'wp_ajax_update_status_of_token', [$this, 'update_status_of_token'] );
+		$this->action( 'wp_ajax_login_me_now_browser_token_generate', [$this, 'browser_token_generate'] );
+		$this->action( 'wp_ajax_login_me_now_browser_tokens', [$this, 'browser_tokens'] );
+		$this->action( 'wp_ajax_login_me_now_browser_token_update_status', [$this, 'browser_token_update_status'] );
+		$this->action( 'wp_ajax_login_me_now_browser_token_drop', [$this, 'browser_token_drop'] );
 	}
 
-	public function login_me_now_hide_save_to_browser_extension() {
+	public function hide_save_to_browser_extension() {
 		wp_send_json_success(
 			update_user_meta(
 				get_current_user_id(),
@@ -42,7 +41,7 @@ class Ajax {
 		);
 	}
 
-	public function login_me_now_browser_token_generate() {
+	public function browser_token_generate() {
 		$error = $this->check_permissions( 'login_me_now_generate_token_nonce' );
 		if ( $error ) {
 			wp_send_json_error( $error );
@@ -76,7 +75,7 @@ class Ajax {
 		wp_die();
 	}
 
-	public function login_me_now_browser_tokens() {
+	public function browser_tokens() {
 		$error = $this->check_permissions( 'login_me_now_generate_token_nonce', 'manage_options' );
 		if ( $error ) {
 			wp_send_json_error( $error );
@@ -94,7 +93,7 @@ class Ajax {
 		wp_die();
 	}
 
-	public function login_me_now_browser_token_update_status() {
+	public function browser_token_update_status() {
 		$error = $this->check_permissions( 'login_me_now_generate_token_nonce', 'manage_options' );
 		if ( $error ) {
 			wp_send_json_error( $error );
@@ -113,7 +112,7 @@ class Ajax {
 		wp_die();
 	}
 
-	public function login_me_now_browser_token_drop() {
+	public function browser_token_drop() {
 		$error = $this->check_permissions( 'login_me_now_generate_token_nonce', 'manage_options' );
 		if ( $error ) {
 			wp_send_json_error( $error );
@@ -127,22 +126,6 @@ class Ajax {
 		$deleted = BrowserTokenModel::init()->drop( $token_id );
 
 		wp_send_json_success( $deleted );
-		wp_die();
-	}
-
-	/**
-	 * Update Particular Extension Token Status
-	 */
-	public function update_status_of_token() {
-		$status = ! empty( $_POST['status'] ) ? sanitize_text_field( $_POST['status'] ) : false;
-		$id     = ! empty( $_POST['id'] ) ? sanitize_text_field( $_POST['id'] ) : 0;
-
-		if ( ! $status && ! $id ) {
-			wp_send_json( __( "Something wen't wrong!", 'login-me-now' ) );
-			wp_die();
-		}
-
-		( new BrowserTokenModel )->update( $id, $status );
 		wp_die();
 	}
 }

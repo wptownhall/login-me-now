@@ -2,7 +2,7 @@
 /**
  * @author  Pluginly
  * @since   1.2.0
- * @version 1.7.0
+ * @version 1.6.2
  */
 
 namespace LoginMeNow\Logins\BrowserTokenLogin;
@@ -19,7 +19,7 @@ class Route extends \LoginMeNow\Common\RouteBase {
 	public function register_routes(): void {
 		$this->post( '/generate', [JWTAuth::init(), 'generate_token'] );
 		$this->post( '/validate', [JWTAuth::init(), 'validate_token'] );
-		$this->post( '/generate_onetime_number', [$this, 'generate_onetime_number'] );
+		$this->post( '/generate-onetime-number', [$this, 'generate_onetime_number'] );
 	}
 
 	/**

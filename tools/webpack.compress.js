@@ -34,7 +34,7 @@ module.exports = async () => {
 		'public',
 		'templates',
 		'vendor',
-		'dynamic-utils.config.php',
+		'config.php',
 		`${ pluginRootFile }.php`,
 	].map( transformBuildPaths );
 
