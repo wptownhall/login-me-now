@@ -4,7 +4,7 @@ Tags: login, password, secure-login, wp-login, social-login
 Requires at least: 5.6
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.7.0
+Stable tag: 1.6.2
 License: GPLv3 or Any Later Version
 
 It feels like 8 plugins in one, it provides over 25 features making it the ultimate WP login solution.
@@ -139,7 +139,7 @@ We prioritize providing excellent customer assistance, ensuring any issues or qu
 
 
 == OTHER AMAZING PLUGIN BY US ==
-👉 [All-in-One WordPress Content Restriction](https://wordpress.org/plugins/all-in-one-content-restriction/)
+👉 [Content Restriction](https://wordpress.org/plugins/content-restriction/)
 
 == FIND AN ISSUE? ==
 We are right here to help you in [support forum](https://wordpress.org/support/plugin/login-me-now/). You can post a topic. Please search existing topics before starting a new one.
@@ -159,6 +159,9 @@ No. That would be horrible not only for you but even more so for us (huge liabil
 Yes, you will know the activities in the dashboard of the recipient by checking the activity log option of this plugin. This means you can keep track of what the recipient is doing while they have temporary access to your website. 
 
 == Changelog ==
+
+= 1.6.2 – Sep 4, 2024 =
+* Fix: Social Login Shortcode Button Display Issue
 
 = 1.6.1 – Jul 18, 2024 =
 * Fix: Profile Update Error
