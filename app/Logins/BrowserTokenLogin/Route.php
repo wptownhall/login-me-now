@@ -35,4 +35,10 @@ class Route extends \LoginMeNow\Common\RouteBase {
 
 		wp_send_json_error( ['status' => $result] );
 	}
+
+	public function permission_check( \WP_REST_Request $request ) {
+		$this->request = $request;
+
+		return true;
+	}
 }
