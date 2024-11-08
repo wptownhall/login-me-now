@@ -130,7 +130,7 @@ We prioritize providing excellent customer assistance, ensuring any issues or qu
 * Simple History
 * WooCommerce
 * Directorist
-* Easy Digital Downloads (coming soon)
+* Easy Digital Downloads
 * Fluent support (coming soon)
 * Dokan (coming soon)
 * BuddyBoss (coming soon)
@@ -162,6 +162,7 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 == Changelog ==
 
 = 1.7.0 – Nov 8, 2024 =
+* Add: Easy Digital Downloads Integrationgit 
 * Add: Appsero User Consent 
 
 = 1.6.2 – Sep 5, 2024 =
