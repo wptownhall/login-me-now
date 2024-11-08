@@ -162,7 +162,7 @@ Yes, you will know the activities in the dashboard of the recipient by checking 
 == Changelog ==
 
 = 1.7.0 – Nov 8, 2024 =
-* Add: Easy Digital Downloads Integrationgit 
+* Add: Easy Digital Downloads Integration
 * Add: Appsero User Consent 
 
 = 1.6.2 – Sep 5, 2024 =
