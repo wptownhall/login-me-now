@@ -8,6 +8,8 @@
 namespace LoginMeNow\Providers;
 
 use LoginMeNow\Common\ProviderBase;
+use LoginMeNow\Logins\EmailMagicLinkLogin\Button as EmailMagicLinkLoginButton;
+use LoginMeNow\Logins\EmailMagicLinkLogin\EmailMagicLinkLogin;
 use LoginMeNow\Logins\FacebookLogin\Button as FacebookButton;
 use LoginMeNow\Logins\FacebookLogin\FacebookLogin;
 use LoginMeNow\Logins\GoogleLogin\Button as GoogleButton;
@@ -51,9 +53,10 @@ class LoginFormsServiceProvider extends ProviderBase {
 	}
 
 	public function buttons(): array {
-		$array    = [];
-		$google   = new GoogleButton();
-		$facebook = new FacebookButton();
+		$array          = [];
+		$google         = new GoogleButton();
+		$facebook       = new FacebookButton();
+		$emailMagicLink = new EmailMagicLinkLoginButton();
 
 		if ( $google->native_login() ) {
 			$array['google'] = $google;
@@ -63,6 +66,10 @@ class LoginFormsServiceProvider extends ProviderBase {
 			$array['facebook'] = $facebook;
 		}
 
+		if ( $emailMagicLink->native_login() ) {
+			$array['email_magic_link'] = $emailMagicLink;
+		}
+
 		return $array;
 	}
 
@@ -70,6 +77,7 @@ class LoginFormsServiceProvider extends ProviderBase {
 		if (
 			FacebookLogin::show_on_native_login()
 			|| GoogleLogin::show_on_native_login()
+			|| EmailMagicLinkLogin::show_on_native_login()
 		) {
 			return true;
 		}
