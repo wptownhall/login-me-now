@@ -16,12 +16,27 @@ class Controller {
 			return;
 		}
 
+		$nonce = ! empty( $_POST['wpnonce'] ) ? sanitize_text_field( wp_unslash( $_POST['wpnonce'] ) ) : '';
+
+		if ( ! wp_verify_nonce( $nonce, 'lmn-magic-link-nonce' ) ) {
+			wp_send_json_error( ['message' => 'Invalid nonce'] );
+		}
+
+		$magicLink = new MagicLink( $this->request );
+
+		wp_send_json_success( ['message' => 'Magic link sent to your email'] );
+
 		$email = sanitize_email( $_POST['lmn-email-magic-link'] );
 		if ( ! $email ) {
 			wp_send_json_error( __( "Please enter a valid email", 'login-me-now' ) );
 		}
 
-		$code = ( new MagicLinkGenerator )->generate( $email );
+		$user = get_user_by( 'email', $email );
+		if ( ! $user ) {
+			wp_send_json_error( __( "User not found", 'login-me-now' ) );
+		}
+
+		$code = ( new MagicLinkLogin )->create( $user->ID );
 		if ( ! $code ) {
 			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
 		}
