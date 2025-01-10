@@ -18,20 +18,98 @@
 			</g>
 		</g>
 	</svg>
-		</span><span><?php esc_html_e( 'Email Magic Link', 'login-me-now' );?></span>
+		</span><span><?php esc_html_e( 'Continue with Magic Link', 'login-me-now' ); ?></span>
 	</a>
 	<div class="lmn_magic_link_login_bg"></div>
 
 	<div class="lmn_magic_link_login_form">
-	<a href="#" class="lmn_magic_link_login_close">x</a>
-		<h3>Email Magic Link</h3>
-		<p>
-			<label for="email_address">Your registered email address</label>
-			<input type="email" name="email_address" id="email_address" aria-describedby="login-message" class="input" value="" size="20" autocapitalize="off" autocomplete="email">
-		</p>
-		<a href="#" class="lmn_btn">Send Link</a>
-
-		<a href="#" class="lmn_magic_link_login_close">Back to login</a>
+		<div class="lmn_magic_link_login_form_header">
+			<h2>Email Magic Link</h2>
+			<p>Enter your registered email address to receive a quick login link directly in your inbox.</p>
+		</div>
+		<input type="email" name="lmn_email_address" id="lmn_email_address" autocomplete="email" placeholder="Email Address">
+    	<a href="#" class="lmn_btn lmn_magic_link_login_send_link">Send Link</a>
+    	<a href="#" class="lmn_magic_link_login_close">Back to Login</a>
 	</div>
+
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const magicLinkButton = document.querySelector(".lmn_magic_link_login_button");
+        const magicLinkForm = document.querySelector(".lmn_magic_link_login_form");
+        const magicLinkBackground = document.querySelector(".lmn_magic_link_login_bg");
+        const closeButtons = document.querySelectorAll(".lmn_magic_link_login_close");
+        const sendLinkButton = document.querySelector(".lmn_magic_link_login_send_link");
+        const messageBox = document.createElement("p");
+
+        // Add message box for feedback
+        messageBox.className = "lmn_message_box";
+        messageBox.style.marginTop = "10px";
+        messageBox.style.color = "#0073aa";
+        magicLinkForm.appendChild(messageBox);
+
+        // Show Magic Link Form
+        magicLinkButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            magicLinkForm.classList.add("active");
+            magicLinkBackground.classList.add("active");
+            messageBox.textContent = ""; // Clear any previous message
+        });
+
+        // Close Magic Link Form
+        closeButtons.forEach((btn) => {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                magicLinkForm.classList.remove("active");
+                magicLinkBackground.classList.remove("active");
+                messageBox.textContent = ""; // Clear any previous message
+            });
+        });
+
+        // Handle AJAX for "Send Link" button
+        sendLinkButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            const emailInput = document.getElementById("lmn_email_address");
+            const email = emailInput.value;
+
+            if (!email) {
+                messageBox.textContent = "Please enter your email address.";
+                messageBox.style.color = "red";
+                return;
+            }
+
+            // Show loading message
+            messageBox.textContent = "Sending magic link...";
+            messageBox.style.color = "#0073aa";
+
+            // AJAX request
+            fetch(ajaxurl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: new URLSearchParams({
+                    action: "send_magic_link",
+                    email: email,
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.success) {
+                        messageBox.textContent = "Magic link sent successfully! Please check your inbox.";
+                        messageBox.style.color = "green";
+                        emailInput.value = ""; // Clear email input
+                    } else {
+                        messageBox.textContent = data.message || "An error occurred. Please try again.";
+                        messageBox.style.color = "red";
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                    messageBox.textContent = "An error occurred. Please try again.";
+                    messageBox.style.color = "red";
+                });
+        });
+    });
+</script>
