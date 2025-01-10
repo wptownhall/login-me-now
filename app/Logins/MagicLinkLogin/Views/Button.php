@@ -90,7 +90,6 @@
                     "Content-Type": "application/x-www-form-urlencoded",
                 },
                 body: new URLSearchParams({
-                    action: "send_magic_link",
                     email: email,
 					wpnonce: "<?php echo wp_create_nonce( 'lmn-magic-link-nonce' ) ?>"
                 }),
@@ -98,17 +97,17 @@
                 .then((response) => response.json())
                 .then((data) => {
                     if (data.success) {
-                        messageBox.textContent = "<?php esc_attr_e( 'Magic link sent successfully! Please check your inbox.', 'login-me-now' ); ?>";
+                        messageBox.textContent = data.data.message;
                         messageBox.style.color = "green";
                         emailInput.value = ""; // Clear email input
                     } else {
-                        messageBox.textContent = data.message || "An error occurred. Please try again.";
+                        messageBox.textContent = data.data.message || "<?php esc_attr_e( 'An error occurred. Please try again.', 'login-me-now' ); ?>";
                         messageBox.style.color = "red";
                     }
                 })
                 .catch((error) => {
                     console.error("Error:", error);
-                    messageBox.textContent = "An error occurred. Please try again.";
+                    messageBox.textContent = "<?php esc_attr_e( 'An error occurred. Please try again.', 'login-me-now' ); ?>";
                     messageBox.style.color = "red";
                 });
         });

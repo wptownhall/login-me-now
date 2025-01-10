@@ -5,7 +5,7 @@
  * @version 1.6.2
  */
 
-namespace LoginMeNow\Logins\EmailMagicLinkLogin;
+namespace LoginMeNow\Logins\MagicLinkLogin;
 
 use LoginMeNow\Common\LoginButtonBase;
 use LoginMeNow\Repositories\SettingsRepository;
@@ -18,7 +18,7 @@ class Button extends LoginButtonBase {
 	}
 
 	public function button(): string {
-		if ( ! EmailMagicLinkLogin::show() ) {
+		if ( ! MagicLinkLogin::show() ) {
 			return '';
 		}
 

@@ -8,12 +8,12 @@
 namespace LoginMeNow\Providers;
 
 use LoginMeNow\Common\ProviderBase;
-use LoginMeNow\Logins\EmailMagicLinkLogin\Button as EmailMagicLinkLoginButton;
-use LoginMeNow\Logins\EmailMagicLinkLogin\EmailMagicLinkLogin;
 use LoginMeNow\Logins\FacebookLogin\Button as FacebookButton;
 use LoginMeNow\Logins\FacebookLogin\FacebookLogin;
 use LoginMeNow\Logins\GoogleLogin\Button as GoogleButton;
 use LoginMeNow\Logins\GoogleLogin\GoogleLogin;
+use LoginMeNow\Logins\MagicLinkLogin\Button as MagicLinkLoginButton;
+use LoginMeNow\Logins\MagicLinkLogin\MagicLinkLogin;
 
 class LoginFormsServiceProvider extends ProviderBase {
 
@@ -56,7 +56,7 @@ class LoginFormsServiceProvider extends ProviderBase {
 		$array          = [];
 		$google         = new GoogleButton();
 		$facebook       = new FacebookButton();
-		$emailMagicLink = new EmailMagicLinkLoginButton();
+		$emailMagicLink = new MagicLinkLoginButton();
 
 		if ( $google->native_login() ) {
 			$array['google'] = $google;
@@ -77,7 +77,7 @@ class LoginFormsServiceProvider extends ProviderBase {
 		if (
 			FacebookLogin::show_on_native_login()
 			|| GoogleLogin::show_on_native_login()
-			|| EmailMagicLinkLogin::show_on_native_login()
+			|| MagicLinkLogin::show_on_native_login()
 		) {
 			return true;
 		}
@@ -97,7 +97,7 @@ class LoginFormsServiceProvider extends ProviderBase {
 		<html lang=en>
 		<head>
 			<meta charset=utf-8>
-			<title><?php _e( 'Authentication successful', 'login-me-now' );?></title>
+			<title><?php _e( 'Authentication successful', 'login-me-now' ); ?></title>
 			<script type="text/javascript">
 				try {
 					if (window.opener !== null && window.opener !== window) {

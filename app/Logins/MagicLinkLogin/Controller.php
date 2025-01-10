@@ -1,16 +1,32 @@
 <?php
 /**
  * @author  Pluginly
- * @since  	1.4.0
- * @version 1.6.0
+ * @since  	1.8
+ * @version 1.8
  */
 
-namespace LoginMeNow\Logins\EmailMagicLinkLogin;
+namespace LoginMeNow\Logins\MagicLinkLogin;
 
 use LoginMeNow\DTO\UserDataDTO;
 use LoginMeNow\Repositories\SettingsRepository;
 
 class Controller {
+	public function create_link() {
+		if ( ! isset( $_POST['lmn-email-magic-link'] ) ) {
+			return;
+		}
+
+		$email = sanitize_email( $_POST['lmn-email-magic-link'] );
+		if ( ! $email ) {
+			wp_send_json_error( __( "Please enter a valid email", 'login-me-now' ) );
+		}
+
+		$code = ( new MagicLinkGenerator )->generate( $email );
+		if ( ! $code ) {
+			wp_send_json_error( __( "Something went wrong", 'login-me-now' ) );
+		}
+	}
+
 	public function listen() {
 		if ( ! array_key_exists( 'lmn-email-magic-link', $_GET ) ) {
 			return;

@@ -5,7 +5,7 @@
  * @version 1.7.0
  */
 
-namespace LoginMeNow\Logins\EmailMagicLinkLogin;
+namespace LoginMeNow\Logins\MagicLinkLogin;
 
 class Settings {
 	public function __construct() {

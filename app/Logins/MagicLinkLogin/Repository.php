@@ -5,7 +5,7 @@
  * @version 1.6.0
  */
 
-namespace LoginMeNow\Logins\EmailMagicLinkLogin;
+namespace LoginMeNow\Logins\MagicLinkLogin;
 
 use LoginMeNow\DTO\LoginDTO;
 use LoginMeNow\DTO\UserDataDTO;
