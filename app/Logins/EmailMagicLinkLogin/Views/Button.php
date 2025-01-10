@@ -28,8 +28,8 @@
 			<p>Enter your registered email address to receive a quick login link directly in your inbox.</p>
 		</div>
 		<input type="email" name="lmn_email_address" id="lmn_email_address" autocomplete="email" placeholder="Email Address">
-    	<a href="#" class="lmn_btn lmn_magic_link_login_send_link">Send Link</a>
-    	<a href="#" class="lmn_magic_link_login_close">Back to Login</a>
+    	<a href="#" class="lmn_btn lmn_magic_link_login_send_link"><?php esc_html_e( 'Send Link', 'login-me-now' ); ?></a>
+    	<a href="#" class="lmn_magic_link_login_close"><?php esc_html_e( 'Back to Login', 'login-me-now' ); ?></a>
 	</div>
 
 </div>
@@ -74,17 +74,17 @@
             const email = emailInput.value;
 
             if (!email) {
-                messageBox.textContent = "Please enter your email address.";
+                messageBox.textContent = "<?php esc_attr_e( 'Please enter your email address.', 'login-me-now' ); ?>";
                 messageBox.style.color = "red";
                 return;
             }
 
             // Show loading message
-            messageBox.textContent = "Sending magic link...";
+            messageBox.textContent = "<?php esc_attr_e( 'Sending magic link...', 'login-me-now' ); ?>";
             messageBox.style.color = "#0073aa";
 
             // AJAX request
-            fetch(ajaxurl, {
+            fetch("<?php echo get_rest_url( null, 'login-me-now/send-magic-link' ); ?>", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
@@ -92,12 +92,13 @@
                 body: new URLSearchParams({
                     action: "send_magic_link",
                     email: email,
+					wpnonce: "<?php echo wp_create_nonce( 'lmn-magic-link-nonce' ) ?>"
                 }),
             })
                 .then((response) => response.json())
                 .then((data) => {
                     if (data.success) {
-                        messageBox.textContent = "Magic link sent successfully! Please check your inbox.";
+                        messageBox.textContent = "<?php esc_attr_e( 'Magic link sent successfully! Please check your inbox.', 'login-me-now' ); ?>";
                         messageBox.style.color = "green";
                         emailInput.value = ""; // Clear email input
                     } else {

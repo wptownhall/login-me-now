@@ -1,8 +1,8 @@
 <?php
 /**
  * @author  Pluginly
- * @since   1.4.0
- * @version 1.7.0
+ * @since   1.8
+ * @version 1.8
  */
 
 namespace LoginMeNow\Logins\EmailMagicLinkLogin;
@@ -25,6 +25,7 @@ class EmailMagicLinkLogin extends ModuleBase {
 
 		( new Route() );
 		( new Button() );
+		( new Route() );
 	}
 
 	public static function show(): bool {
