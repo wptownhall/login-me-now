@@ -96,6 +96,7 @@
             })
                 .then((response) => response.json())
                 .then((data) => {
+                    console.log('data : ', data );
                     if (data.success) {
                         messageBox.textContent = data.data.message;
                         messageBox.style.color = "green";
