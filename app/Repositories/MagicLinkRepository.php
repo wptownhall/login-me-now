@@ -14,18 +14,25 @@ use LoginMeNow\Utils\Translator;
 
 class MagicLinkRepository {
 
-	public string $token_key = 'lmn_token';
+	public string $token_key;
+	public bool $disposable;
+	public int $expiration = 300;
+
+	public function __construct( string $token_key, bool $disposable = true ) {
+		$this->token_key  = $token_key;
+		$this->disposable = $disposable;
+	}
 
 	/**
 	 * Send email the Magic Link
 	 *
 	 * @param int $user_id
 	 * @param string $email
-	 * @param int $expiration
 	 *
 	 * @return bool
 	 */
-	public function email_magic_link( int $user_id, string $email, int $expiration = 60 ): bool {
+	public function email_magic_link( int $user_id, string $email ): bool {
+		$expiration = $this->expiration;
 		$magic_link = $this->create_magic_link( $user_id, $expiration );
 
 		if ( ! $magic_link ) {
@@ -78,10 +85,9 @@ class MagicLinkRepository {
 	 * Create Magic Link based on User ID and Expiration
 	 *
 	 * @param int $user_id
-	 * @param int $expiration
 	 * @return array|bool
 	 */
-	public function create_magic_link( int $user_id, int $expiration = 60 ) {
+	public function create_magic_link( int $user_id ) {
 		if ( ! function_exists( 'get_userdata' ) ) {
 			require_once ABSPATH . WPINC . '/pluggable.php';
 		}
@@ -93,7 +99,7 @@ class MagicLinkRepository {
 
 		$token = $this->generate_token(
 			$user,
-			apply_filters( 'login_me_now_magic_link_expire', ( Time::now() + 3 + $expiration ) )
+			apply_filters( 'login_me_now_magic_link_expire', ( Time::now() + 3 + $this->expiration ) )
 		);
 
 		if ( ! $token ) {
@@ -146,14 +152,24 @@ class MagicLinkRepository {
 	private function is_valid_token( int $user_id, int $number, int $expire ): bool {
 		$user_meta = get_user_meta( $user_id, $this->token_key, false );
 
-		if ( ! is_array( $user_meta ) ) {
+		/**
+		 * Early exit, If no meta found
+		 */
+		if ( ! $user_meta ) {
 			return false;
 		}
 
+		/**
+		 * Check whether the user has the valid token in usermeta or not
+		 */
 		foreach ( $user_meta as $token ) {
 			$_number = (int) $token['number'] ?? 0;
 			$_expire = (int) $token['expire'] ?? 0;
 			$status  = $token['status'] ?? '';
+
+			if ( $this->disposable ) {
+				delete_user_meta( $user_id, $this->token_key );
+			}
 
 			if (
 				$_number === $number

@@ -34,7 +34,7 @@ class MagicLinkController {
 			wp_send_json_error( ['message' => __( "User not found", 'login-me-now' )] );
 		}
 
-		$status = ( new MagicLinkRepository )->email_magic_link( $user->ID, $email );
+		$status = ( new MagicLinkRepository( 'magic_link' ) )->email_magic_link( $user->ID, $email );
 		if ( ! $status ) {
 			wp_send_json_error( ['message' => __( "Something went wrong", 'login-me-now' )] );
 		}
