@@ -14,5 +14,6 @@ class Route extends \LoginMeNow\Common\RouteBase {
 
 	public function register_routes(): void {
 		$this->get( $this->endpoint . '/settings', [SettingsRepository::class, 'all'] );
+		$this->get( $this->endpoint . '/settings/update', [SettingsRepository::class, 'all'] );
 	}
 }

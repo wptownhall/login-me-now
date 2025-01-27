@@ -50,6 +50,11 @@ export default function MainNav() {
       slug: lmn_admin.home_slug,
       path: "social-login",
     },
+    {
+      name: __("Integrations", "login-me-now"),
+      slug: lmn_admin.home_slug,
+      path: "integrations",
+    },
     OTPLoginStatus && {
       name: __("OTP Login", "login-me-now"),
       slug: lmn_admin.home_slug,

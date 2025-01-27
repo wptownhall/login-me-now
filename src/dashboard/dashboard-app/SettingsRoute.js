@@ -6,6 +6,7 @@ import { FormDataProvider } from "../context/FormContext";
 import BrowserExtensions from "./pages/browser-extensions/BrowserExtensions";
 import DashboardModules from "./pages/dashboard-modules/DashboardModules";
 import SocialLogin from './pages/social-login/SocialLogin';
+import Integrations from './pages/integrations/Integrations';
 import { useSelector } from "react-redux";
 
 import License from "./pages/license/License";
@@ -45,6 +46,9 @@ function SettingsRoute() {
             routePage = <SocialLogin />
           }
           break;
+        case 'integrations':
+              routePage = <Integrations />
+            break;
         case 'otp-login':
           if(OTPLoginStatus){
             routePage = <OTPLogin />
