@@ -55,13 +55,13 @@ export default function Settings() {
       case 'email':
         return (
           <Form.Item key={field.id} {...commonProps}>
-            <Input placeholder={field.placeholder} className="w-full border rounded-lg px-3 py-2" />
+            <Input placeholder={field.placeholder} className="border rounded-lg px-3 py-2 block h-[50px] !p-3 !border-slate-200 w-[70%] !mt-0" />
           </Form.Item>
         );
       case 'textarea':
         return (
           <Form.Item key={field.id} {...commonProps}>
-            <TextArea placeholder={field.placeholder} rows={4} className="w-full border rounded-lg px-3 py-2" />
+            <TextArea placeholder={field.placeholder} rows={4} className="block h-[50px] !p-3 !border-slate-200 w-[70%] !mt-0" />
           </Form.Item>
         );
       case 'color':
@@ -168,7 +168,7 @@ export default function Settings() {
             </Form.Item>
           </Form>
         </Content>
-        
+
       </Layout>
     </div>
   );

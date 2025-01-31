@@ -55,11 +55,6 @@ export default function MainNav() {
       slug: lmn_admin.home_slug,
       path: "settings",
     },
-    OTPLoginStatus && {
-      name: __("OTP Login", "login-me-now"),
-      slug: lmn_admin.home_slug,
-      path: "otp-login",
-    },
   ].filter(Boolean);
 
   const onInstallExtension = () => {
