@@ -5,7 +5,7 @@ export default async function postData( path, data, config ) {
 	data = data ? data : {};
 
 	const headers = [
-		['X-WP-Nonce', content_restriction_admin.rest_args.nonce]
+		['X-WP-Nonce', lmn_admin.update_nonce]
 	];
 
 	return await apiFetch( { 
